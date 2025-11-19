@@ -1,0 +1,36 @@
+name: "sync from forge.joshwel.co"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *" # every day
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: "true"
+          remove-android: "true"
+          remove-haskell: "true"
+          remove-codeql: "true"
+          remove-docker-images: "true"
+          remove-large-packages: "true"
+          remove-cached-tools: "true"
+
+      - uses: nixbuild/nix-quick-install-action@v34
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: clone forge.joshwel.co/mark/pokkat
+        run: |
+          mkdir -p ${{ runner.temp }}/pokkat
+          git clone https://forge.joshwel.co/mark/pokkat ${{ runner.temp }}/pokkat
+
+      - name: restep
+        env:
+          SS_RESTEPPER_TOKEN: ${{ secrets.PAT }}
+        run: |
+          cd ${{ runner.temp }}/pokkat
+          nix develop --command python ReStepper.py
