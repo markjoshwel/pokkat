@@ -1,0 +1,134 @@
+# sauel-tracking: https://github.com/gitattributes/gitattributes/blob/master/Unity.gitattributes
+# sauel-tracking: https://github.com/ppy/osu-framework/blob/master/.gitignore
+
+# unity source files
+*.cginc                 text
+*.compute               text linguist-language=hlsl
+*.cs                    text diff=csharp
+*.hlsl                  text linguist-language=hlsl
+*.raytrace              text linguist-language=hlsl
+*.shader                text
+
+# unity json files
+*.asmdef                eol=lf linguist-language=json
+*.asmref                eol=lf linguist-language=json
+*.index                 eol=lf linguist-language=json
+*.inputactions          eol=lf linguist-language=json
+*.shadergraph           eol=lf linguist-language=json
+*.shadersubgraph        eol=lf linguist-language=json
+
+# unity ui toolkit files
+*.tss                   text diff=css linguist-language=css
+*.uss                   text diff=css linguist-language=css
+*.uxml                  text linguist-language=xml linguist-detectable
+
+# unity yaml
+*.anim                  merge=unityyamlmerge eol=lf linguist-language=yaml
+*.asset                 merge=unityyamlmerge eol=lf linguist-language=yaml
+*.brush                 merge=unityyamlmerge eol=lf linguist-language=yaml
+*.controller            merge=unityyamlmerge eol=lf linguist-language=yaml
+*.flare                 merge=unityyamlmerge eol=lf linguist-language=yaml
+*.fontsettings          merge=unityyamlmerge eol=lf linguist-language=yaml
+*.giparams              merge=unityyamlmerge eol=lf linguist-language=yaml
+*.guiskin               merge=unityyamlmerge eol=lf linguist-language=yaml
+*.lighting              merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mask                  merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mat                   merge=unityyamlmerge eol=lf linguist-language=yaml
+*.meta                  merge=unityyamlmerge eol=lf linguist-language=yaml
+*.mixer                 merge=unityyamlmerge eol=lf linguist-language=yaml
+*.overrideController    merge=unityyamlmerge eol=lf linguist-language=yaml
+*.playable              merge=unityyamlmerge eol=lf linguist-language=yaml
+*.prefab                merge=unityyamlmerge eol=lf linguist-language=yaml
+*.preset                merge=unityyamlmerge eol=lf linguist-language=yaml
+*.renderTexture         merge=unityyamlmerge eol=lf linguist-language=yaml
+*.scenetemplate         merge=unityyamlmerge eol=lf linguist-language=yaml
+*.shadervariants        merge=unityyamlmerge eol=lf linguist-language=yaml
+*.signal                merge=unityyamlmerge eol=lf linguist-language=yaml
+*.spriteatlas           merge=unityyamlmerge eol=lf linguist-language=yaml
+*.spriteatlasv2         merge=unityyamlmerge eol=lf linguist-language=yaml
+*.terrainlayer          merge=unityyamlmerge eol=lf linguist-language=yaml
+*.unity                 merge=unityyamlmerge eol=lf linguist-language=yaml
+
+# "physic" for 3D but "physics" for 2D
+*.physicMaterial        merge=unityyamlmerge eol=lf linguist-language=yaml
+*.physicsMaterial2D     merge=unityyamlmerge eol=lf linguist-language=yaml
+
+# exclude third-party plugins from github stats
+Assets/Plugins/**       linguist-vendored
+
+# unity lfs
+*.cubemap               filter=lfs diff=lfs merge=lfs -text
+*.unitypackage          filter=lfs diff=lfs merge=lfs -text
+
+# world creator
+*.wcr                   filter=lfs diff=lfs merge=lfs -text
+
+# 3d models
+*.3dm                   filter=lfs diff=lfs merge=lfs -text
+*.3ds                   filter=lfs diff=lfs merge=lfs -text
+*.blend                 filter=lfs diff=lfs merge=lfs -text
+*.c4d                   filter=lfs diff=lfs merge=lfs -text
+*.collada               filter=lfs diff=lfs merge=lfs -text
+*.dae                   filter=lfs diff=lfs merge=lfs -text
+*.dxf                   filter=lfs diff=lfs merge=lfs -text
+*.FBX                   filter=lfs diff=lfs merge=lfs -text
+*.fbx                   filter=lfs diff=lfs merge=lfs -text
+*.jas                   filter=lfs diff=lfs merge=lfs -text
+*.lws                   filter=lfs diff=lfs merge=lfs -text
+*.lxo                   filter=lfs diff=lfs merge=lfs -text
+*.ma                    filter=lfs diff=lfs merge=lfs -text
+*.max                   filter=lfs diff=lfs merge=lfs -text
+*.mb                    filter=lfs diff=lfs merge=lfs -text
+*.obj                   filter=lfs diff=lfs merge=lfs -text
+*.ply                   filter=lfs diff=lfs merge=lfs -text
+*.skp                   filter=lfs diff=lfs merge=lfs -text
+*.stl                   filter=lfs diff=lfs merge=lfs -text
+*.ztl                   filter=lfs diff=lfs merge=lfs -text
+
+# audio
+*.aif                   filter=lfs diff=lfs merge=lfs -text
+*.aiff                  filter=lfs diff=lfs merge=lfs -text
+*.it                    filter=lfs diff=lfs merge=lfs -text
+*.mod                   filter=lfs diff=lfs merge=lfs -text
+*.mp3                   filter=lfs diff=lfs merge=lfs -text
+*.ogg                   filter=lfs diff=lfs merge=lfs -text
+*.s3m                   filter=lfs diff=lfs merge=lfs -text
+*.wav                   filter=lfs diff=lfs merge=lfs -text
+*.xm                    filter=lfs diff=lfs merge=lfs -text
+
+# video
+*.asf                   filter=lfs diff=lfs merge=lfs -text
+*.avi                   filter=lfs diff=lfs merge=lfs -text
+*.flv                   filter=lfs diff=lfs merge=lfs -text
+*.mov                   filter=lfs diff=lfs merge=lfs -text
+*.mp4                   filter=lfs diff=lfs merge=lfs -text
+*.mpeg                  filter=lfs diff=lfs merge=lfs -text
+*.mpg                   filter=lfs diff=lfs merge=lfs -text
+*.ogv                   filter=lfs diff=lfs merge=lfs -text
+*.wmv                   filter=lfs diff=lfs merge=lfs -text
+
+# images
+*.bmp                   filter=lfs diff=lfs merge=lfs -text
+*.exr                   filter=lfs diff=lfs merge=lfs -text
+*.gif                   filter=lfs diff=lfs merge=lfs -text
+*.hdr                   filter=lfs diff=lfs merge=lfs -text
+*.iff                   filter=lfs diff=lfs merge=lfs -text
+
+# executables/libraries/misc
+*.exe                   filter=lfs diff=lfs merge=lfs -text
+*.EXE                   filter=lfs diff=lfs merge=lfs -text
+*.app                   filter=lfs diff=lfs merge=lfs -text
+*.APP                   filter=lfs diff=lfs merge=lfs -text
+*.apk                   filter=lfs diff=lfs merge=lfs -text
+*.APK                   filter=lfs diff=lfs merge=lfs -text
+*.ipa                   filter=lfs diff=lfs merge=lfs -text
+*.IPA                   filter=lfs diff=lfs merge=lfs -text
+*.dll                   filter=lfs diff=lfs merge=lfs -text
+*.DLL                   filter=lfs diff=lfs merge=lfs -text
+*.so                    filter=lfs diff=lfs merge=lfs -text
+*.SO                    filter=lfs diff=lfs merge=lfs -text
+*.dat                   filter=lfs diff=lfs merge=lfs -text
+*.DAT                   filter=lfs diff=lfs merge=lfs -text
+
+# worldcreator terrain asset files
+Assets/WorldCreatorTerrains/*.asset -text
