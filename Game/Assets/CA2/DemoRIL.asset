@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: DemoRIL
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5302164674283423314
+  m_GuidHigh: 10588137510445751439
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4805028902840915696
+      m_GuidHigh: 14837611833714628253
+    m_SerializedTextureGuid:
+      m_GuidLow: 17200582365495482485
+      m_GuidHigh: 6423843471801161177
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: QR
+    m_Texture: {fileID: 0}
