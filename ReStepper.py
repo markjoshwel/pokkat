@@ -857,7 +857,7 @@ def main() -> None:
     with TemporaryDirectory(delete="--keep" not in argv) as temp_dir:
         temp_path = Path(temp_dir)
         print(
-            "sota staircase ReStepper v13",
+            "sota staircase ReStepper v14",
             f"     real repo : {repo_path}",
             f"     temp repo : {temp_dir}",
             f"   sidestepper : {sidestepper_binary}"
@@ -951,7 +951,11 @@ def main() -> None:
             ),
             exitcode=9,
         )
-        if str(temp_path.absolute()) != r["stdout"].strip():
+        if all([
+            str(temp_path.absolute()) != r["stdout"].strip(),
+            # quick macOS hack
+            f"/private{temp_path.absolute()}" != r["stdout"].strip(),
+        ]):
             log_err(
                 f"not inside the temp dir '{str(temp_path.absolute())}' (whuh? internal?)",
                 show_r=True,
