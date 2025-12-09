@@ -14,7 +14,7 @@ using UnityEngine.XR.ARSubsystems;
 ///     Spawns a prefab per trackable ID and keeps it aligned with the tracked image.
 /// </summary>
 [RequireComponent(typeof(ARTrackedImageManager))]
-public class ImageTrackingV3Pokkat : MonoBehaviour
+public class ImageTracking : MonoBehaviour
 {
     /// <summary>
     ///     Prefix used for log statements so tracked image events can be filtered easily.

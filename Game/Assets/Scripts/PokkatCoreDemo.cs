@@ -12,7 +12,7 @@ using UnityEngine.XR.ARSubsystems;
 /// <summary>
 ///     Locks a neko character to the closest tracked plane and moves it toward the bowl target.
 /// </summary>
-public class CoreDemo : MonoBehaviour
+public class PokkatCoreDemo : MonoBehaviour
 {
     /// <summary>
     ///     Prefix used for log statements so they can be filtered easily in the console.
@@ -104,6 +104,9 @@ public class CoreDemo : MonoBehaviour
 
         if (!planeManager || !_neko || !_bowl) return;
 
+       
+        
+        
         if (!_planeLocked) TryLockPlane();
 
         if (!_planeLocked) return;
