@@ -14,12 +14,12 @@ using UnityEngine.XR.ARSubsystems;
 ///     Spawns a prefab per trackable ID and keeps it aligned with the tracked image.
 /// </summary>
 [RequireComponent(typeof(ARTrackedImageManager))]
-public class ImageTracking : MonoBehaviour
+public class MarksImageTracking : MonoBehaviour
 {
     /// <summary>
     ///     Prefix used for log statements so tracked image events can be filtered easily.
     /// </summary>
-    private const string LoggingPrefix = "(Pokkat) ImageTracking:";
+    private const string LoggingPrefix = "(Pokkat) MarksImageTracking:";
 
     /// <summary>
     ///     Enables verbose logging for debugging lifecycle events.

@@ -104,9 +104,7 @@ public class PokkatCoreDemo : MonoBehaviour
 
         if (!planeManager || !_neko || !_bowl) return;
 
-       
-        
-        
+
         if (!_planeLocked) TryLockPlane();
 
         if (!_planeLocked) return;
