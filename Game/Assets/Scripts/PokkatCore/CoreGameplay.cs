@@ -32,9 +32,6 @@ namespace PokkatCore
 
         [Header("Spawn Settings")] [Tooltip("Maximum number of nekos that can be active at once.")] [SerializeField]
         private int maxActiveNekos = 5;
-
-        [Tooltip("Spawn nekos facing the camera.")] [SerializeField]
-        private bool spawnLookingAtPlayer = true;
         
         private int _currentNekoCount;
         private AREntityBowl _currentlyRegisteredBowl;
