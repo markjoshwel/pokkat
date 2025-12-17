@@ -8,13 +8,13 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     serializable structure holding game statistics persisted to disk
     /// </summary>
     [Serializable]
-    public struct Statistics
+    public struct ReferenceStatisticsStruct
     {
         public float hunger;
         public float happiness;
@@ -24,7 +24,7 @@ namespace PokkatCore
     /// <summary>
     ///     manages persistent game statistics including hunger decay over time
     /// </summary>
-    public class Statskeeper : MonoBehaviour
+    public class ReferenceStatskeeper : MonoBehaviour
     {
         private const string SaveFileName = "pokkat_stats.json";
 
@@ -45,17 +45,17 @@ namespace PokkatCore
 
         private string _savePath;
 
-        private Statistics _statistics;
+        private ReferenceStatisticsStruct _referenceStatisticsStruct;
 
         /// <summary>
         ///     the current hunger value
         /// </summary>
-        public float currentHunger => _statistics.hunger;
+        public float currentHunger => _referenceStatisticsStruct.hunger;
 
         /// <summary>
         ///     the current happiness value
         /// </summary>
-        public float currentHappiness => _statistics.happiness;
+        public float currentHappiness => _referenceStatisticsStruct.happiness;
 
         /// <summary>
         ///     the maximum hunger value
@@ -97,23 +97,23 @@ namespace PokkatCore
                 try
                 {
                     var json = File.ReadAllText(_savePath);
-                    _statistics = JsonUtility.FromJson<Statistics>(json);
-                    Debug.Log($"Statskeeper: loaded statistics from {_savePath}");
+                    _referenceStatisticsStruct = JsonUtility.FromJson<ReferenceStatisticsStruct>(json);
+                    Debug.Log($"ReferenceStatskeeper: loaded statistics from {_savePath}");
                     return;
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogWarning($"Statskeeper: failed to load statistics ({ex.Message})");
+                    Debug.LogWarning($"ReferenceStatskeeper: failed to load statistics ({ex.Message})");
                 }
 
-            _statistics = new Statistics
+            _referenceStatisticsStruct = new ReferenceStatisticsStruct
             {
                 hunger = initialHunger,
                 happiness = initialHappiness,
                 lastOpenedTimestamp = DateTime.UtcNow.ToString("O")
             };
 
-            Debug.Log("Statskeeper: created default statistics");
+            Debug.Log("ReferenceStatskeeper: created default statistics");
         }
 
         /// <summary>
@@ -121,17 +121,17 @@ namespace PokkatCore
         /// </summary>
         public void SaveStatistics()
         {
-            _statistics.lastOpenedTimestamp = DateTime.UtcNow.ToString("O");
+            _referenceStatisticsStruct.lastOpenedTimestamp = DateTime.UtcNow.ToString("O");
 
             try
             {
-                var json = JsonUtility.ToJson(_statistics, true);
+                var json = JsonUtility.ToJson(_referenceStatisticsStruct, true);
                 File.WriteAllText(_savePath, json);
-                Debug.Log($"Statskeeper: saved statistics to {_savePath}");
+                Debug.Log($"ReferenceStatskeeper: saved statistics to {_savePath}");
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Statskeeper: failed to save statistics ({ex.Message})");
+                Debug.LogError($"ReferenceStatskeeper: failed to save statistics ({ex.Message})");
             }
         }
 
@@ -140,20 +140,20 @@ namespace PokkatCore
         /// </summary>
         private void ApplyTimePassed()
         {
-            if (string.IsNullOrEmpty(_statistics.lastOpenedTimestamp)) return;
+            if (string.IsNullOrEmpty(_referenceStatisticsStruct.lastOpenedTimestamp)) return;
 
             try
             {
-                var lastTime = DateTime.Parse(_statistics.lastOpenedTimestamp);
+                var lastTime = DateTime.Parse(_referenceStatisticsStruct.lastOpenedTimestamp);
                 var hoursPassed = (DateTime.UtcNow - lastTime).TotalHours;
                 var hungerDecay = (float)(hoursPassed * hungerDecayRatePerHour);
 
-                _statistics.hunger = Mathf.Max(0f, _statistics.hunger - hungerDecay);
-                Debug.Log($"Statskeeper: applied {hungerDecay:F1} hunger decay for {hoursPassed:F2} hours passed");
+                _referenceStatisticsStruct.hunger = Mathf.Max(0f, _referenceStatisticsStruct.hunger - hungerDecay);
+                Debug.Log($"ReferenceStatskeeper: applied {hungerDecay:F1} hunger decay for {hoursPassed:F2} hours passed");
             }
             catch (Exception ex)
             {
-                Debug.LogWarning($"Statskeeper: failed to parse timestamp ({ex.Message})");
+                Debug.LogWarning($"ReferenceStatskeeper: failed to parse timestamp ({ex.Message})");
             }
         }
 
@@ -163,8 +163,8 @@ namespace PokkatCore
         /// <param name="amount">amount to decrease hunger by</param>
         public void DecreaseHunger(float amount)
         {
-            _statistics.hunger = Mathf.Max(0f, _statistics.hunger - amount);
-            Debug.Log($"Statskeeper: hunger decreased by {amount:F1}, now {_statistics.hunger:F1}");
+            _referenceStatisticsStruct.hunger = Mathf.Max(0f, _referenceStatisticsStruct.hunger - amount);
+            Debug.Log($"ReferenceStatskeeper: hunger decreased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
         }
 
         /// <summary>
@@ -173,8 +173,8 @@ namespace PokkatCore
         /// <param name="amount">amount to increase hunger by</param>
         public void IncreaseHunger(float amount)
         {
-            _statistics.hunger = Mathf.Min(maxHunger, _statistics.hunger + amount);
-            Debug.Log($"Statskeeper: hunger increased by {amount:F1}, now {_statistics.hunger:F1}");
+            _referenceStatisticsStruct.hunger = Mathf.Min(maxHunger, _referenceStatisticsStruct.hunger + amount);
+            Debug.Log($"ReferenceStatskeeper: hunger increased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
         }
 
         /// <summary>
@@ -183,8 +183,8 @@ namespace PokkatCore
         /// <param name="delta">amount to change happiness by</param>
         public void ModifyHappiness(float delta)
         {
-            _statistics.happiness = Mathf.Clamp(_statistics.happiness + delta, 0f, maxHappiness);
-            Debug.Log($"Statskeeper: happiness modified by {delta:F1}, now {_statistics.happiness:F1}");
+            _referenceStatisticsStruct.happiness = Mathf.Clamp(_referenceStatisticsStruct.happiness + delta, 0f, maxHappiness);
+            Debug.Log($"ReferenceStatskeeper: happiness modified by {delta:F1}, now {_referenceStatisticsStruct.happiness:F1}");
         }
     }
 }

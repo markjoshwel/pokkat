@@ -10,15 +10,15 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     manages spawning objects onto detected ar planes and runtime navmesh generation
     /// </summary>
-    public class PlaneHandler : MonoBehaviour
+    public class ReferencePlaneHandler : MonoBehaviour
     {
-        [Header("Dependencies")] [Tooltip("PlaneDetection component to subscribe to plane events.")] [SerializeField]
-        private PlaneDetection planeDetection;
+        [Header("Dependencies")] [Tooltip("ReferencePlaneDetection component to subscribe to plane events.")] [SerializeField]
+        private ReferencePlaneDetection referencePlaneDetection;
 
         [Tooltip("NavMeshSurface for runtime baking (from AI Navigation package).")] [SerializeField]
         private NavMeshSurface navMeshSurface;
@@ -41,31 +41,31 @@ namespace PokkatCore
 
         private void Awake()
         {
-            if (!planeDetection)
+            if (!referencePlaneDetection)
             {
-                Debug.LogError("PlaneHandler: PlaneDetection reference is missing");
+                Debug.LogError("ReferencePlaneHandler: ReferencePlaneDetection reference is missing");
                 enabled = false;
                 return;
             }
 
-            _planeManager = planeDetection.planeManager;
+            _planeManager = referencePlaneDetection.planeManager;
         }
 
         private void OnEnable()
         {
-            if (!planeDetection) return;
-            planeDetection.OnPlaneReady += OnPlaneReady;
+            if (!referencePlaneDetection) return;
+            referencePlaneDetection.OnPlaneReady += OnReferencePlaneReady;
             if (autoBakeOnPlaneUpdate)
-                planeDetection.OnPlanesUpdated += OnPlanesUpdated;
+                referencePlaneDetection.OnPlanesUpdated += OnReferencePlanesUpdated;
         }
 
         private void OnDisable()
         {
-            if (planeDetection)
+            if (referencePlaneDetection)
             {
-                planeDetection.OnPlaneReady -= OnPlaneReady;
+                referencePlaneDetection.OnPlaneReady -= OnReferencePlaneReady;
                 if (autoBakeOnPlaneUpdate)
-                    planeDetection.OnPlanesUpdated -= OnPlanesUpdated;
+                    referencePlaneDetection.OnPlanesUpdated -= OnReferencePlanesUpdated;
             }
 
             if (_bakeCooldownRoutine == null) return;
@@ -77,7 +77,7 @@ namespace PokkatCore
         ///     callback for when plane detection threshold is met
         /// </summary>
         /// <param name="plane">the largest detected plane</param>
-        private void OnPlaneReady(ARPlane plane)
+        private void OnReferencePlaneReady(ARPlane plane)
         {
             RequestNavMeshBake();
         }
@@ -85,9 +85,9 @@ namespace PokkatCore
         /// <summary>
         ///     callback for when planes are updated (for continuous baking)
         /// </summary>
-        private void OnPlanesUpdated()
+        private void OnReferencePlanesUpdated()
         {
-            if (!planeDetection.isReady) return;
+            if (!referencePlaneDetection.isReady) return;
             RequestNavMeshBake();
         }
 
@@ -102,20 +102,20 @@ namespace PokkatCore
         {
             if (!prefab)
             {
-                Debug.LogError("PlaneHandler: cannot spawn, prefab is null");
+                Debug.LogError("ReferencePlaneHandler: cannot spawn, prefab is null");
                 return null;
             }
 
             if (!_planeManager)
             {
-                Debug.LogError("PlaneHandler: cannot spawn, ARPlaneManager is not available");
+                Debug.LogError("ReferencePlaneHandler: cannot spawn, ARPlaneManager is not available");
                 return null;
             }
 
             var closestPlane = FindClosestPlane(targetPos);
             if (!closestPlane)
             {
-                Debug.LogWarning($"PlaneHandler: no tracked plane found near target position {targetPos}");
+                Debug.LogWarning($"ReferencePlaneHandler: no tracked plane found near target position {targetPos}");
                 return null;
             }
 
@@ -131,7 +131,7 @@ namespace PokkatCore
             }
 
             var instance = Instantiate(prefab, spawnPosition, spawnRotation);
-            Debug.Log($"PlaneHandler: spawned '{prefab.name}' at {spawnPosition} on plane {closestPlane.trackableId}");
+            Debug.Log($"ReferencePlaneHandler: spawned '{prefab.name}' at {spawnPosition} on plane {closestPlane.trackableId}");
             return instance;
         }
 
@@ -180,7 +180,7 @@ namespace PokkatCore
         {
             if (!navMeshSurface)
             {
-                Debug.LogWarning("PlaneHandler: NavMeshSurface not assigned, skipping bake");
+                Debug.LogWarning("ReferencePlaneHandler: NavMeshSurface not assigned, skipping bake");
                 return;
             }
 
@@ -198,7 +198,7 @@ namespace PokkatCore
         {
             navMeshSurface.BuildNavMesh();
             navMeshReady = true;
-            Debug.Log("PlaneHandler: navmesh baked successfully");
+            Debug.Log("ReferencePlaneHandler: navmesh baked successfully");
         }
 
         /// <summary>

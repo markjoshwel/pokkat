@@ -9,13 +9,13 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     abstracts ar foundation image tracking events into game-specific signals
     /// </summary>
     [RequireComponent(typeof(ARTrackedImageManager))]
-    public class ImageDetection : MonoBehaviour
+    public class ReferenceImageDetection : MonoBehaviour
     {
         private ARTrackedImageManager _trackedImageManager;
 
@@ -24,7 +24,7 @@ namespace PokkatCore
             _trackedImageManager = GetComponent<ARTrackedImageManager>();
             if (!_trackedImageManager)
                 throw new MissingComponentException(
-                    "ImageDetection: an ARTrackedImageManager is required in the same GameObject");
+                    "ReferenceImageDetection: an ARTrackedImageManager is required in the same GameObject");
         }
 
         private void OnEnable()
@@ -58,7 +58,7 @@ namespace PokkatCore
 
             foreach (var imagePair in args.removed)
             {
-                Debug.Log($"ImageDetection: image lost ({imagePair.Key})");
+                Debug.Log($"ReferenceImageDetection: image lost ({imagePair.Key})");
                 OnImageLost?.Invoke(imagePair.Key);
             }
         }
@@ -71,7 +71,7 @@ namespace PokkatCore
         {
             if (image.trackingState != TrackingState.Tracking) return;
 
-            Debug.Log($"ImageDetection: image detected '{image.referenceImage.name}' at {image.transform.position}");
+            Debug.Log($"ReferenceImageDetection: image detected '{image.referenceImage.name}' at {image.transform.position}");
             OnImageDetected?.Invoke(image);
         }
     }

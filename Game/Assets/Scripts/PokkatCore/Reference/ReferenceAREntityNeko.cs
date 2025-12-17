@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     possible behavioural states for the neko character
@@ -27,7 +27,7 @@ namespace PokkatCore
     ///     manages the neko character behaviour including movement, animations, and interactions
     /// </summary>
     [RequireComponent(typeof(NavMeshAgent))]
-    public class AREntityNeko : MonoBehaviour
+    public class ReferenceAREntityNeko : MonoBehaviour
     {
         [Header("State Machine")] [Tooltip("Initial state when the neko spawns.")] [SerializeField]
         private NekoState initialState = NekoState.Idle;
@@ -67,7 +67,7 @@ namespace PokkatCore
         private Coroutine _animationRoutine;
         private Vector3 _baseLocalPosition;
         private float _nextStateChangeTime;
-        private AREntityBowl _targetBowl;
+        private ReferenceAREntityBowl _targetBowl;
 
         /// <summary>
         ///     current behavioural state of the neko
@@ -130,11 +130,11 @@ namespace PokkatCore
         {
             if (!other.CompareTag("Bowl")) return;
 
-            var bowl = other.GetComponent<AREntityBowl>();
+            var bowl = other.GetComponent<ReferenceAREntityBowl>();
             if (!bowl) return;
             if (!bowl.Consume()) return;
 
-            Debug.Log("AREntityNeko: ate from bowl");
+            Debug.Log("ReferenceAREntityNeko: ate from bowl");
             SetState(NekoState.Idle);
         }
 
@@ -149,11 +149,11 @@ namespace PokkatCore
         ///     function to set the target bowl for seeking behaviour
         /// </summary>
         /// <param name="bowl">bowl to seek</param>
-        public void SetTargetBowl(AREntityBowl bowl)
+        public void SetTargetBowl(ReferenceAREntityBowl bowl)
         {
             _targetBowl = bowl;
             if (_targetBowl)
-                Debug.Log($"AREntityNeko: target bowl set to {bowl.name}");
+                Debug.Log($"ReferenceAREntityNeko: target bowl set to {bowl.name}");
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace PokkatCore
         {
             if (!_targetBowl)
             {
-                Debug.LogWarning("AREntityNeko: cannot seek bowl, no target bowl assigned");
+                Debug.LogWarning("ReferenceAREntityNeko: cannot seek bowl, no target bowl assigned");
                 return;
             }
 
@@ -180,7 +180,7 @@ namespace PokkatCore
 
             StopAllAnimations();
             currentState = newState;
-            Debug.Log($"AREntityNeko: state changed to {newState}");
+            Debug.Log($"ReferenceAREntityNeko: state changed to {newState}");
 
             switch (newState)
             {
@@ -239,7 +239,7 @@ namespace PokkatCore
 
             if (!_agent.isOnNavMesh)
             {
-                Debug.LogWarning("AREntityNeko: neko not on navmesh, cannot seek bowl");
+                Debug.LogWarning("ReferenceAREntityNeko: neko not on navmesh, cannot seek bowl");
                 return;
             }
 
@@ -263,13 +263,13 @@ namespace PokkatCore
             var hitCount =
                 Physics.OverlapSphereNonAlloc(transform.position, socialRange, _socialColliderCache, nekoLayerMask);
 
-            AREntityNeko nearestOther = null;
+            ReferenceAREntityNeko nearestOther = null;
             var nearestDistance = float.MaxValue;
 
             for (var i = 0; i < hitCount; i++)
             {
                 var hit = _socialColliderCache[i];
-                var otherNeko = hit.GetComponentInParent<AREntityNeko>();
+                var otherNeko = hit.GetComponentInParent<ReferenceAREntityNeko>();
                 if (!otherNeko || otherNeko == this) continue;
 
                 var distance = Vector3.Distance(transform.position, otherNeko.transform.position);
@@ -299,7 +299,7 @@ namespace PokkatCore
         /// </summary>
         private void OnReachedBowl()
         {
-            Debug.Log("AREntityNeko: reached bowl");
+            Debug.Log("ReferenceAREntityNeko: reached bowl");
             SetState(NekoState.Idle);
         }
 

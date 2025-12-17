@@ -6,12 +6,12 @@
 
 using UnityEngine;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     represents the bowl entity that nekos interact with for feeding
     /// </summary>
-    public class AREntityBowl : MonoBehaviour
+    public class ReferenceAREntityBowl : MonoBehaviour
     {
         [Header("Food Stages")]
         [Tooltip("Visual representations of bowl fullness (index 0 = full, last = empty).")]
@@ -62,13 +62,13 @@ namespace PokkatCore
         {
             if (!hasFood)
             {
-                Debug.Log("AREntityBowl: bowl is empty, cannot consume");
+                Debug.Log("ReferenceAREntityBowl: bowl is empty, cannot consume");
                 return false;
             }
 
             _consumptionCount++;
             UpdateFoodVisuals();
-            Debug.Log($"AREntityBowl: food consumed ({_consumptionCount}/{maxConsumptions})");
+            Debug.Log($"ReferenceAREntityBowl: food consumed ({_consumptionCount}/{maxConsumptions})");
             return true;
         }
 
@@ -79,7 +79,7 @@ namespace PokkatCore
         {
             _consumptionCount = 0;
             UpdateFoodVisuals();
-            Debug.Log("AREntityBowl: bowl refilled");
+            Debug.Log("ReferenceAREntityBowl: bowl refilled");
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace PokkatCore
                 if (foodStages[i])
                     foodStages[i].SetActive(i == stageIndex);
 
-            Debug.Log($"AREntityBowl: showing food stage {stageIndex}");
+            Debug.Log($"ReferenceAREntityBowl: showing food stage {stageIndex}");
         }
     }
 }

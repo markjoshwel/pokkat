@@ -9,13 +9,13 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-namespace PokkatCore
+namespace PokkatCore.Reference
 {
     /// <summary>
     ///     abstracts ar foundation plane detection events into game-specific signals
     /// </summary>
     [RequireComponent(typeof(ARPlaneManager))]
-    public class PlaneDetection : MonoBehaviour
+    public class ReferencePlaneDetection : MonoBehaviour
     {
         [Header("Detection Threshold")]
         [Tooltip("Minimum total plane area (m²) before firing OnPlaneReady.")]
@@ -40,7 +40,7 @@ namespace PokkatCore
             planeManager = GetComponent<ARPlaneManager>();
             if (!planeManager)
                 throw new MissingComponentException(
-                    "PlaneDetection: an ARPlaneManager is required in the same GameObject");
+                    "ReferencePlaneDetection: an ARPlaneManager is required in the same GameObject");
         }
 
         private void OnEnable()
@@ -81,7 +81,7 @@ namespace PokkatCore
 
             isReady = true;
             Debug.Log(
-                $"PlaneDetection: plane ready, total area {totalArea:F2}m², largest plane {largestPlane.trackableId}");
+                $"ReferencePlaneDetection: plane ready, total area {totalArea:F2}m², largest plane {largestPlane.trackableId}");
             OnPlaneReady?.Invoke(largestPlane);
         }
 
@@ -129,7 +129,7 @@ namespace PokkatCore
         public void ResetDetection()
         {
             isReady = false;
-            Debug.Log("PlaneDetection: detection reset");
+            Debug.Log("ReferencePlaneDetection: detection reset");
         }
     }
 }
