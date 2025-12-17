@@ -17,6 +17,14 @@ namespace PokkatCore
 {
     public class PlaneHandling : MonoBehaviour
     {
-        
+        /// <summary>
+        ///     fired when sufficient plane area has been detected for gameplay
+        /// </summary>
+        public event Action<ARPlane> OnPlaneReady;
+
+        /// <summary>
+        ///     fired whenever planes are updated (for runtime navmesh baking)
+        /// </summary>
+        public event Action OnPlanesUpdated;
     }
 }

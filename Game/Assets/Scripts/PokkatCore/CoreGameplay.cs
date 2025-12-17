@@ -43,14 +43,38 @@ namespace PokkatCore
 
         private void Awake()
         {
+            Setup_Dependencies();
+        }
+        
+        private void Start()
+        {
+            Configure_SubscribeToEvents();
+        }
+
+        private void Setup_Dependencies()
+        {
             if (!imageHandling)
-                throw new Exception("CoreGameplay requires an ImageHandling reference.");
-
+                Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
             if (!planeHandling)
-                throw new Exception("CoreGameplay requires a PlaneHandling reference.");
-
+                Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
             if (!statskeeper)
-                throw new Exception("CoreGameplay requires a Statskeeper reference.");
+                Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
+        }
+
+        private void Configure_SubscribeToEvents()
+        {
+            imageHandling.OnImageDetected += OnImageDetected;
+            planeHandling.OnPlaneReady += OnPlaneReady;
+        }
+
+        private void OnPlaneReady(ARPlane obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnImageDetected(ARTrackedImage obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
