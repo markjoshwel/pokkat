@@ -9,8 +9,15 @@ using UnityEngine;
 namespace PokkatCore
 {
     public class AREntityNeko : MonoBehaviour
-
     {
+        private void Awake()
+        {
+            Logkat.Out("AREntityNeko: Awake/Setup OK");
+        }
 
+        private void Start()
+        {
+            Logkat.Out("AREntityNeko: Start/Configure OK");
+        }
     }
 }

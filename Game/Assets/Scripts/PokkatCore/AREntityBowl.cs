@@ -10,6 +10,14 @@ namespace PokkatCore
 {
     public class AREntityBowl : MonoBehaviour
     {
-        
+        private void Awake()
+        {
+            Logkat.Out("AREntityBowl: Awake/Setup OK");
+        }
+
+        private void Start()
+        {
+            Logkat.Out("AREntityBowl: Start/Configure OK");
+        }
     }
 }

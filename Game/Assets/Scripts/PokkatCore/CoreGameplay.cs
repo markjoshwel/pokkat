@@ -44,11 +44,13 @@ namespace PokkatCore
         private void Awake()
         {
             Setup_Dependencies();
+            Logkat.Out("CoreGameplay: Awake/Setup OK");
         }
         
         private void Start()
         {
             Configure_SubscribeToEvents();
+            Logkat.Out("CoreGameplay: Start/Configure OK");
         }
 
         private void Setup_Dependencies()
@@ -65,16 +67,19 @@ namespace PokkatCore
         {
             imageHandling.OnImageDetected += OnImageDetected;
             planeHandling.OnPlaneReady += OnPlaneReady;
+            Logkat.Out("CoreGameplay: Event Subscription OK");
         }
 
         private void OnPlaneReady(ARPlane obj)
         {
-            throw new NotImplementedException();
+            Logkat.Out("CoreGameplay: OnPlaneReady");
+            // throw new NotImplementedException();
         }
 
-        private void OnImageDetected(ARTrackedImage obj)
+        private void OnImageDetected(HandledTrackedImage obj)
         {
-            throw new NotImplementedException();
+            Logkat.Out("CoreGameplay: OnImageDetected");
+            // throw new NotImplementedException();
         }
     }
 }

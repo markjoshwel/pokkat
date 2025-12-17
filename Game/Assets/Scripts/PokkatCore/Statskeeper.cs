@@ -13,6 +13,14 @@ namespace PokkatCore
 {
     public class Statskeeper : MonoBehaviour
     {
-        
+        private void Awake()
+        {
+            Logkat.Out("Statskeeper: Awake/Setup OK");
+        }
+
+        private void Start()
+        {
+            Logkat.Out("Statskeeper: Start/Configure OK");
+        }
     }
 }

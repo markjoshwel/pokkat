@@ -26,5 +26,15 @@ namespace PokkatCore
         ///     fired whenever planes are updated (for runtime navmesh baking)
         /// </summary>
         public event Action OnPlanesUpdated;
+
+        private void Awake()
+        {
+            Logkat.Out("PlaneHandling: Awake/Setup OK");
+        }
+
+        private void Start()
+        {
+            Logkat.Out("PlaneHandling: Start/Configure OK");
+        }
     }
 }
