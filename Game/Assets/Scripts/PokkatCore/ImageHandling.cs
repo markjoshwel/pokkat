@@ -104,8 +104,8 @@ namespace PokkatCore
         private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARTrackedImage> args)
         {
             // log the counts of added, updated, and removed trackables for debugging
-            Logkat.Out(
-                $"ImageHandling: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
+            // Logkat.Out(
+            //     $"ImageHandling: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
 
             // process newly detected images (first time camera sees the image)
             // args.added is a List<ARTrackedImage>

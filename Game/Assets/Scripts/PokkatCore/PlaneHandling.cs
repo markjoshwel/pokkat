@@ -12,7 +12,7 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 namespace PokkatCore
-{
+{   
     /// <summary>
     ///     wraps ar foundation plane detection events into game-specific signals
     /// </summary>

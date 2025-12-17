@@ -13,6 +13,14 @@ using UnityEngine.XR.ARSubsystems;
 
 namespace PokkatCore
 {
+    public enum CoreGameplayState
+    {
+        WaitingForAnything,
+        HasPlaneWaitingForTracker,
+        HasTrackerWaitingForPlane,
+        Ok,
+    }
+    
     public class CoreGameplay : MonoBehaviour
     {
         [Header("Dependencies")]
@@ -29,14 +37,17 @@ namespace PokkatCore
         private Statskeeper statskeeper;
 
         [Header("Neko Configuration")]
-
-        [Header("Spawn Settings")] [Tooltip("Maximum number of nekos that can be active at once.")] [SerializeField]
+        [Header("Spawn Settings")]
+        [Tooltip("Maximum number of nekos that can be active at once.")]
+        [SerializeField]
         private int maxActiveNekos = 5;
-        
         private int _currentNekoCount;
         private AREntityBowl _currentlyRegisteredBowl;
         
-        public bool gameReady { get; private set; }
+        /// <summary>
+        ///     whether the game is ready for gameplay (sufficient plane area detected, required images tracked, etc.)
+        /// </summary>
+        public CoreGameplayState gameState { get; private set; }
 
         private void Awake()
         {
@@ -48,6 +59,7 @@ namespace PokkatCore
         {
             Configure_SubscribeToEvents();
             Logkat.Out("CoreGameplay: Start/Configure OK");
+            gameState = CoreGameplayState.WaitingForAnything;
         }
 
         private void Setup_Dependencies()
@@ -69,14 +81,48 @@ namespace PokkatCore
 
         private void OnPlaneReady(ARPlane obj)
         {
-            Logkat.Out("CoreGameplay: OnPlaneReady");
-            // throw new NotImplementedException();
+            Logkat.Out("CoreGameplay: received plane is ready");
+
+            switch (gameState)
+            {
+                case CoreGameplayState.WaitingForAnything:
+                    gameState = CoreGameplayState.HasPlaneWaitingForTracker;
+                    break;
+                case CoreGameplayState.HasTrackerWaitingForPlane:
+                    gameState = CoreGameplayState.Ok;
+                    break;
+                case CoreGameplayState.HasPlaneWaitingForTracker:
+                case CoreGameplayState.Ok:
+                    // no state change
+                    break;
+                default:
+                    Logkat.Panic("unreachable");
+                    break;
+            }
+            
+            Logkat.Warn("CoreGameplay.OnPlaneReady: not implemented beyond state change");
         }
 
         private void OnImageDetected(HandledTrackedImage obj)
         {
-            Logkat.Out("CoreGameplay: OnImageDetected");
-            // throw new NotImplementedException();
+            switch (gameState)
+            {
+                case CoreGameplayState.WaitingForAnything:
+                    gameState = CoreGameplayState.HasTrackerWaitingForPlane;
+                    break;
+                case CoreGameplayState.HasPlaneWaitingForTracker:
+                    gameState = CoreGameplayState.Ok;
+                    break;
+                case CoreGameplayState.HasTrackerWaitingForPlane:
+                case CoreGameplayState.Ok:
+                    // no state change
+                    break;
+                default:
+                    Logkat.Panic("unreachable");
+                    break;
+            }
+            
+            Logkat.Warn("CoreGameplay.OnImageDetected: not implemented beyond state change");
         }
     }
 }

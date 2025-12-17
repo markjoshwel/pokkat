@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.pokeblokdude.ulayout": "https://github.com/pokeblokdude/uLayout.git",
     "com.unity.ai.navigation": "2.0.9",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.14.2",
@@ -7,8 +8,7 @@
     "com.unity.mobile.android-logcat": "1.4.6",
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.render-pipelines.universal": "17.0.4",
-    "com.unity.timeline": "1.8.9",
-    "com.unity.xr-content.xr-sim-environments": "file:../ContentPackages\\com.unity.xr-content.xr-sim-environments-2.1.1.tgz",
+    "com.unity.timeline": "1.8.10",
     "com.unity.xr.arcore": "6.2.1",
     "com.unity.xr.arfoundation": "6.2.1",
     "com.unity.xr.arkit": "6.2.1",
