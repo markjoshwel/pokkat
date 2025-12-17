@@ -17,9 +17,7 @@ public class NekoDemo : MonoBehaviour
     /// </summary>
     [Header("Neko Texture Change Demo")]
     [Space(10)]
-#if UNITY_EDITOR
     [HelpBox(ErrorMessageInit, HelpBoxMessageType.Error)]
-#endif
 
     private const string LoggingPrefix = "(Pokkat) NekoDemo:";
 

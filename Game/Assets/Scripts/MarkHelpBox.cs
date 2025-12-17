@@ -5,10 +5,11 @@
  */
 // https://discussions.unity.com/t/helpattribute-allows-you-to-use-helpbox-in-the-unity-inspector-window/659414/22
 
-#if UNITY_EDITOR
 using System;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /// <summary>
 ///     Message severity levels supported by <see cref="HelpBoxAttribute" />.
@@ -23,6 +24,7 @@ public enum HelpBoxMessageType
 
 /// <summary>
 ///     Attribute that renders a Unity help box above the annotated field.
+///     Safe to use without preprocessor directives; the drawer only runs in the editor.
 /// </summary>
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
 public sealed class HelpBoxAttribute : PropertyAttribute
@@ -44,6 +46,7 @@ public sealed class HelpBoxAttribute : PropertyAttribute
     }
 }
 
+#if UNITY_EDITOR
 /// <summary>
 ///     Custom drawer that renders <see cref="HelpBoxAttribute" /> instances in the inspector.
 /// </summary>
