@@ -1,19 +1,18 @@
 /*
  * author: mark joshwel
  * date: 11/12/2025
- * description: central logic coordinator managing neko spawning and game state
+ * description: wraps ARTrackedImageManager events into game-specific signals
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 namespace PokkatCore
 {
-    public class CoreGameplay : MonoBehaviour
+    public class ImageHandling : MonoBehaviour
     {
+        
     }
 }

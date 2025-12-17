@@ -1,6 +1,6 @@
 /*
  * author: mark joshwel
- * date: 11/12/2024
+ * date: 11/12/2025
  * description: wraps ARTrackedImageManager events into game-specific signals
  */
 
