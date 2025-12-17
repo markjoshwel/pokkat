@@ -15,10 +15,7 @@ public class NekoDemo : MonoBehaviour
     /// <summary>
     ///     Prefix used for log statements so texture cycle events can be filtered in the console.
     /// </summary>
-    [Header("Neko Texture Change Demo")]
-    [Space(10)]
-    [HelpBox(ErrorMessageInit, HelpBoxMessageType.Error)]
-
+    [Header("Neko Texture Change Demo")] [Space(10)] [HelpBox(ErrorMessageInit, HelpBoxMessageType.Error)]
     private const string LoggingPrefix = "(Pokkat) NekoDemo:";
 
     /// <summary>
@@ -84,7 +81,7 @@ public class NekoDemo : MonoBehaviour
             return;
         }
 
-        _textureLoader = new NekoTextureLoader { LoggingEnabled = loggingEnabled };
+        _textureLoader = new NekoTextureLoader();
         _textureLoader.Prefind();
 
         if (_textureLoader.AvailableTextureIds.Length == 0)

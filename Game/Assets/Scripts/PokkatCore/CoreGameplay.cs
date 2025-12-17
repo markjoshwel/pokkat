@@ -1,10 +1,11 @@
 /*
  * author: mark joshwel
- * date: 11/12/2025
- * description: central logic coordinator managing neko spawning and game state
+ * date: 18/12/2025
+ * description: central logic coordinator managing neko spawning, multi-image tracking, and ground stabilisation
  */
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -19,56 +20,115 @@ namespace PokkatCore
         Ok
     }
 
+    /// <summary>
+    ///     tracks a spawned neko's state independent of unity's trackable id system
+    /// </summary>
+    public class TrackedNekoInstance
+    {
+        /// <summary>
+        ///     last known stable position (spawn point or landing point)
+        /// </summary>
+        public Vector3 AnchorPosition;
+
+        /// <summary>
+        ///     the neko entity component
+        /// </summary>
+        public AREntityNeko Entity;
+
+        /// <summary>
+        ///     the gameobject (for clean-up)
+        /// </summary>
+        public GameObject GameObject;
+
+        /// <summary>
+        ///     true if currently following the tracked image
+        /// </summary>
+        public bool IsFollowing;
+
+        /// <summary>
+        ///     true if landed on a plane
+        /// </summary>
+        public bool IsGrounded;
+    }
+
+    /// <summary>
+    ///     central coordinator managing neko spawning via image tracking and plane interactions
+    ///     scene singleton (does not persist across scenes) for easy prefab access without
+    ///     dependency injection/inspector assignment
+    /// </summary>
     public class CoreGameplay : MonoBehaviour
     {
         [Header("Dependencies")]
         [HelpBox("Assign all required AR detection and handling components here.", HelpBoxMessageType.Info)]
-        [Tooltip("Handles image tracking events from ARTrackedImageManager.")]
+        [Tooltip("ar image tracking events")]
         [SerializeField]
         private ImageHandling imageHandling;
 
-        [Tooltip(
-            "Handles plane detection events from ARPlaneManager, spawning objects onto detected planes, and runtime NavMesh baking.")]
-        [SerializeField]
+        [Tooltip("ar plane detection and spawning")] [SerializeField]
         private PlaneHandling planeHandling;
 
-        [Tooltip("Manages persistent game statistics.")] [SerializeField]
+        [Tooltip("persistent game statistics")] [SerializeField]
         private Statskeeper statskeeper;
 
-        [Tooltip("AR camera used for SpawnClosest orientation calculations.")] [SerializeField]
+        [Tooltip("ar camera for spawn orientation")] [SerializeField]
         private Camera arCamera;
 
-        [Header("Temporary Testing - Remove After Validation")]
-        [HelpBox("These fields are for testing plane interaction and image tracking spawning. Remove after validation.",
-            HelpBoxMessageType.Warning)]
-        [Tooltip("TEMP: prefab to spawn when testing plane touch or image tracking.")]
-        [SerializeField]
-        private GameObject tempTestPrefab;
+        [Header("Prefabs")] [Tooltip("main neko on first image detection")] [SerializeField]
+        private GameObject mainNekoPrefab;
 
-        [Tooltip("TEMP: whether to destroy spawned objects when their tracked image is lost.")] [SerializeField]
-        private bool tempRemoveOnUntrack = true;
+        [Tooltip("friend neko on subsequent detections")] [SerializeField]
+        private GameObject friendNekoPrefab;
 
-        [Header("Neko Configuration")]
-        [Header("Spawn Settings")]
-        [Tooltip("Maximum number of nekos that can be active at once.")]
-        [SerializeField]
-        private int maxActiveNekos = 5;
+        [Tooltip("bowl when tapping on plane")] [SerializeField]
+        private GameObject bowlPrefab;
+
+        [Header("Spawn Settings")] [Tooltip("maximum concurrent nekos")] [SerializeField]
+        private int maxActiveNekos = 3;
+
+        [Tooltip("minimum distance in metres for new spawn")] [SerializeField]
+        private float multiImageDistanceThreshold = 0.25f;
 
         /// <summary>
-        ///     TEMP: tracks spawned objects by their source trackable id for cleanup on untrack
+        ///     all tracked neko instances (max 3)
         /// </summary>
-        private readonly Dictionary<TrackableId, GameObject> _tempSpawnedByTrackable = new();
-
-        private AREntityBowl _currentlyRegisteredBowl;
-        private int _currentNekoCount;
+        private readonly List<TrackedNekoInstance> _trackedNekos = new();
 
         /// <summary>
-        ///     whether the game is ready for gameplay (sufficient plane area detected, required images tracked, etc.)
+        ///     the currently active tracked image reference
+        /// </summary>
+        private ARTrackedImage _activeImage;
+
+        /// <summary>
+        ///     whether the main neko has been spawned
+        /// </summary>
+        private bool _mainNekoSpawned;
+
+        /// <summary>
+        ///     scene singleton instance for prefab access (does not persist across scenes)
+        /// </summary>
+        public static CoreGameplay instance { get; private set; }
+
+        /// <summary>
+        ///     current game state (waiting for plane/tracker, or ready)
         /// </summary>
         public CoreGameplayState gameState { get; private set; }
 
+        /// <summary>
+        ///     public accessor for PlaneHandling (for AREntityNeko.Fall)
+        /// </summary>
+        public PlaneHandling planes => planeHandling;
+
         private void Awake()
         {
+            // singleton setup
+            if (instance != null && instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            instance = this;
+
             Setup_Dependencies();
             Logkat.Out("CoreGameplay: Awake/Setup OK");
         }
@@ -80,16 +140,87 @@ namespace PokkatCore
             gameState = CoreGameplayState.WaitingForAnything;
         }
 
+        private void Update()
+        {
+            UpdateFollowingNeko();
+            UpdateGroundedNekos();
+        }
+
+        /// <summary>
+        ///     phase 1: update the neko that is following the tracked image
+        /// </summary>
+        private void UpdateFollowingNeko()
+        {
+            // find the following neko
+            TrackedNekoInstance followingNeko = null;
+            foreach (var neko in _trackedNekos)
+                if (neko.IsFollowing)
+                {
+                    followingNeko = neko;
+                    break;
+                }
+
+            // no neko is following - nothing to do
+            if (followingNeko == null) return;
+
+            // no active image reference
+            if (_activeImage == null)
+            {
+                // Logkat.Out("CoreGameplay: [Debug] followingNeko exists but _activeImage is null, triggering fall");
+                TriggerNekoFall(followingNeko);
+                return;
+            }
+
+            // check tracking state
+            var trackingState = _activeImage.trackingState;
+            // Logkat.Out($"CoreGameplay: [Debug] UpdateFollowingNeko - state={trackingState}, imagePos={_activeImage.transform.position}, nekoPos={followingNeko.entity.transform.position}");
+
+            if (trackingState == TrackingState.Tracking)
+            {
+                // sync neko position to image
+                followingNeko.Entity.transform.position = _activeImage.transform.position;
+                followingNeko.AnchorPosition = _activeImage.transform.position;
+            }
+            else
+            {
+                // tracking lost or limited - trigger fall
+                // Logkat.Out($"CoreGameplay: [Debug] tracking state is {trackingState}, triggering fall");
+                TriggerNekoFall(followingNeko);
+            }
+        }
+
+        /// <summary>
+        ///     phase 2: grounded neko updates - stabilisation now handled by AREntityNeko.Update()
+        /// </summary>
+        private void UpdateGroundedNekos()
+        {
+            // ground stabilisation moved to AREntityNeko.Update() with timer-based plane projection
+            // this keeps stabilisation logic with the entity, not the coordinator
+        }
+
+        /// <summary>
+        ///     triggers fall for a following neko and marks it as grounded
+        /// </summary>
+        private void TriggerNekoFall(TrackedNekoInstance neko)
+        {
+            // Logkat.Out($"CoreGameplay: [Debug] TriggerNekoFall called, pos={neko.entity.transform.position}");
+            neko.IsFollowing = false;
+            neko.Entity.StopFollowing();
+            neko.Entity.Fall(() =>
+            {
+                // callback when fall completes
+                neko.IsGrounded = true;
+                neko.AnchorPosition = neko.Entity.transform.position;
+                // Logkat.Out($"CoreGameplay: [Debug] neko landed, anchorPosition={neko.anchorPosition}");
+            });
+        }
+
         private void Setup_Dependencies()
         {
-            if (!imageHandling)
-                Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
-            if (!planeHandling)
-                Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
-            if (!statskeeper)
-                Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
-            if (!arCamera)
-                Logkat.Panic("CoreGameplay requires an AR Camera reference.");
+            if (!imageHandling) Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
+            if (!planeHandling) Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
+            if (!statskeeper) Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
+            if (!arCamera) Logkat.Panic("CoreGameplay requires an AR Camera reference.");
         }
 
         private void Configure_SubscribeToEvents()
@@ -101,9 +232,12 @@ namespace PokkatCore
             Logkat.Out("CoreGameplay: Event Subscription OK");
         }
 
-        private void OnPlaneReady(ARPlane obj)
+        /// <summary>
+        ///     callback for when sufficient plane area has been detected
+        /// </summary>
+        private void OnPlaneReady(ARPlane plane)
         {
-            Logkat.Out("CoreGameplay: received plane is ready");
+            Logkat.Out("CoreGameplay: plane ready received");
 
             switch (gameState)
             {
@@ -115,40 +249,36 @@ namespace PokkatCore
                     break;
                 case CoreGameplayState.HasPlaneWaitingForTracker:
                 case CoreGameplayState.Ok:
-                    // no state change
                     break;
                 default:
-                    Logkat.Panic("unreachable");
+                    Logkat.Panic("unreachable game state");
                     break;
             }
-
-            Logkat.Warn("CoreGameplay.OnPlaneReady: not implemented beyond state change");
         }
 
         /// <summary>
-        ///     TEMP: callback for plane touch interactions - spawns test prefab at touch location
+        ///     callback for plane touch interactions - spawns bowl at touch location
         /// </summary>
         private void OnPlaneInteraction(HandledPlaneInteraction interaction)
         {
-            Logkat.Out($"CoreGameplay: touch detected at {interaction.Position}");
-
-            // TEMP: skip if no test prefab assigned
-            if (!tempTestPrefab)
+            if (!bowlPrefab)
             {
-                Logkat.Warn("CoreGameplay.OnPlaneInteraction: no tempTestPrefab assigned, skipping spawn");
+                Logkat.Warn("CoreGameplay: no bowlPrefab assigned, skipping spawn");
                 return;
             }
 
-            // TEMP: spawn the test prefab directly at the touch pose (already on plane)
-            Instantiate(tempTestPrefab, interaction.Pose.position, interaction.Pose.rotation);
-            Logkat.Out($"CoreGameplay: TEMP spawned {tempTestPrefab.name} at touch location");
+            var spawned = planeHandling.SpawnClosest(bowlPrefab, interaction.Position, arCamera);
+            if (spawned) Logkat.Out($"CoreGameplay: spawned bowl at {interaction.Position}");
         }
 
         /// <summary>
-        ///     callback for tracked image detection - updates state and spawns test prefab
+        ///     callback for tracked image detection - handles multispawn logic
         /// </summary>
-        private void OnImageDetected(HandledTrackedImage obj)
+        private void OnImageDetected(HandledTrackedImage tracked)
         {
+            // Logkat.Out($"CoreGameplay: [Debug] OnImageDetected - pos={tracked.Image.transform.position}, id={tracked.Id}");
+
+            // update game state
             switch (gameState)
             {
                 case CoreGameplayState.WaitingForAnything:
@@ -159,74 +289,157 @@ namespace PokkatCore
                     break;
                 case CoreGameplayState.HasTrackerWaitingForPlane:
                 case CoreGameplayState.Ok:
-                    // no state change
                     break;
                 default:
-                    Logkat.Panic("unreachable");
+                    Logkat.Panic("unreachable game state");
                     break;
             }
 
-            // Logkat.Out($"CoreGameplay: image detected '{obj.Image.referenceImage.name}' at {obj.Image.transform.position}");
+            // store active image reference
+            _activeImage = tracked.Image;
+            var currentPos = tracked.Image.transform.position;
 
-            // TEMP: skip if no test prefab assigned
-            if (!tempTestPrefab)
+            // find currently following neko (if any)
+            TrackedNekoInstance followingNeko = null;
+            foreach (var neko in _trackedNekos)
+                if (neko.IsFollowing)
+                {
+                    followingNeko = neko;
+                    break;
+                }
+
+            // Logkat.Out($"CoreGameplay: [Debug] followingNeko={followingNeko != null}, totalNekos={_trackedNekos.Count}");
+
+            // case 1: a neko is currently following
+            if (followingNeko != null)
             {
-                Logkat.Warn("CoreGameplay.OnImageDetected: no tempTestPrefab assigned, skipping spawn");
+                // check if image position jumped (different physical card)
+                var distanceFromFollowing = Vector3.Distance(currentPos, followingNeko.AnchorPosition);
+                // Logkat.Out($"CoreGameplay: [Debug] distanceFromFollowing={distanceFromFollowing:F3}, threshold={multiImageDistanceThreshold}");
+
+                if (distanceFromFollowing > multiImageDistanceThreshold)
+                {
+                    // image jumped! ground the current neko and spawn new one
+                    // Logkat.Out($"CoreGameplay: [Debug] position jump detected, grounding current neko and spawning new");
+                    TriggerNekoFall(followingNeko);
+                    TrySpawnNewNeko(currentPos);
+                }
+
+                // else: same position, neko continues following (handled in Update)
                 return;
             }
 
-            // TEMP: skip if we already spawned for this trackable
-            if (_tempSpawnedByTrackable.ContainsKey(obj.Id))
+            // case 2: no neko is following; check if we should spawn
+            // check distance to all grounded nekos using their CURRENT position (not anchor)
+            // because nekos drift with the plane, we need to compare against where they actually are
+            var isFarFromAll = true;
+            foreach (var neko in _trackedNekos)
             {
-                // update the existing object's transform to follow the tracked image
-                var existing = _tempSpawnedByTrackable[obj.Id];
-                if (existing)
-                    existing.transform.SetPositionAndRotation(obj.Image.transform.position,
-                        obj.Image.transform.rotation);
+                if (!neko.IsGrounded) continue;
+                if (neko.Entity == null) continue;
+
+                // use current transform position, not anchor, because neko drifts with plane
+                var nekoWorldPos = neko.Entity.transform.position;
+                var distance = Vector3.Distance(currentPos, nekoWorldPos);
+                
+                // Logkat.Out($"CoreGameplay: [Debug] distance to grounded neko={distance:F3}");
+                if (distance < multiImageDistanceThreshold)
+                {
+                    isFarFromAll = false;
+                    break;
+                }
+            }
+
+            if (isFarFromAll)
+                // Logkat.Out($"CoreGameplay: [Debug] far from all grounded nekos, spawning new");
+                TrySpawnNewNeko(currentPos);
+            // Logkat.Out($"CoreGameplay: [Debug] near existing grounded neko, not spawning");
+        }
+
+        /// <summary>
+        ///     attempts to spawn a new neko at the given position
+        /// </summary>
+        private void TrySpawnNewNeko(Vector3 position)
+        {
+            // clean up any null entries (destroyed nekos)
+            _trackedNekos.RemoveAll(n => n.Entity == null || n.GameObject == null);
+
+            // enforce max neko limit
+            if (_trackedNekos.Count >= maxActiveNekos)
+                // Logkat.Out($"CoreGameplay: [Debug] max nekos ({maxActiveNekos}) reached, count={_trackedNekos.Count}, skipping spawn");
+                return;
+
+            // determine prefab
+            var isMainNeko = !_mainNekoSpawned;
+            var prefab = isMainNeko ? mainNekoPrefab : friendNekoPrefab;
+
+            if (!prefab)
+            {
+                Logkat.Warn("CoreGameplay: required prefab not assigned");
                 return;
             }
 
-            // TEMP: spawn test prefab at the tracked image position using SpawnClosest
-            // (projects the in-air image position down onto the closest detected plane)
-            var spawned = planeHandling.SpawnClosest(tempTestPrefab, obj.Image.transform.position, arCamera);
+            // Logkat.Out($"CoreGameplay: [Debug] spawning neko at {position}, isMain={isMainNeko}, currentCount={_trackedNekos.Count}");
 
-            if (spawned)
+            // calculate rotation to face the camera
+            var toCamera = arCamera.transform.position - position;
+            toCamera.y = 0; // keep upright, only rotate on Y axis
+            var rotation = toCamera.sqrMagnitude > 0.001f
+                ? Quaternion.LookRotation(toCamera)
+                : Quaternion.identity;
+
+            // spawn at image position facing camera (will follow immediately)
+            var spawned = Instantiate(prefab, position, rotation);
+            var nekoEntity = spawned.GetComponentInChildren<AREntityNeko>();
+
+            if (!nekoEntity)
             {
-                _tempSpawnedByTrackable[obj.Id] = spawned;
-                Logkat.Out(
-                    $"CoreGameplay: TEMP spawned {tempTestPrefab.name} via SpawnClosest for image '{obj.Image.referenceImage.name}'");
+                Logkat.Warn("CoreGameplay: spawned prefab has no AREntityNeko component");
+                Destroy(spawned);
+                return;
+            }
+
+            // create tracked instance
+            var nekoInstance = new TrackedNekoInstance
+            {
+                Entity = nekoEntity,
+                GameObject = spawned,
+                AnchorPosition = position,
+                IsFollowing = true,
+                IsGrounded = false
+            };
+
+            _trackedNekos.Add(nekoInstance);
+            nekoEntity.StartFollowing();
+
+            if (isMainNeko)
+            {
+                _mainNekoSpawned = true;
+                Logkat.Out("CoreGameplay: spawned MAIN neko");
             }
             else
             {
-                Logkat.Warn("CoreGameplay.OnImageDetected: SpawnClosest failed (no plane available?)");
+                Logkat.Out("CoreGameplay: spawned FRIEND neko");
             }
         }
 
         /// <summary>
-        ///     callback for tracked image loss - optionally destroys spawned object based on toggle
+        ///     callback for tracked image loss
         /// </summary>
-        private void OnImageLost(HandledTrackedImage obj)
+        private void OnImageLost(HandledTrackedImage tracked)
         {
-            Logkat.Out($"CoreGameplay: image lost '{obj.Image.referenceImage.name}'");
+            // Logkat.Out($"CoreGameplay: [Debug] OnImageLost - id={tracked.Id}");
 
-            // TEMP: skip removal if toggle is disabled
-            if (!tempRemoveOnUntrack)
+            // clear active image if it matches
+            if (_activeImage == tracked.Image) _activeImage = null;
+
+            // find and ground any following neko
+            foreach (var neko in _trackedNekos.Where(neko => neko.IsFollowing))
             {
-                Logkat.Out("CoreGameplay: tempRemoveOnUntrack is false, keeping spawned object");
-                return;
+                // Logkat.Out($"CoreGameplay: [Debug] grounding following neko due to image loss");
+                TriggerNekoFall(neko);
+                break;
             }
-
-            // TEMP: remove the spawned object if it exists
-            if (!_tempSpawnedByTrackable.TryGetValue(obj.Id, out var spawned)) return;
-
-            if (spawned)
-            {
-                Destroy(spawned);
-                Logkat.Out(
-                    $"CoreGameplay: TEMP destroyed spawned object for lost image '{obj.Image.referenceImage.name}'");
-            }
-
-            _tempSpawnedByTrackable.Remove(obj.Id);
         }
     }
 }

@@ -17,7 +17,9 @@ namespace PokkatCore.Reference
     /// </summary>
     public class ReferencePlaneHandler : MonoBehaviour
     {
-        [Header("Dependencies")] [Tooltip("ReferencePlaneDetection component to subscribe to plane events.")] [SerializeField]
+        [Header("Dependencies")]
+        [Tooltip("ReferencePlaneDetection component to subscribe to plane events.")]
+        [SerializeField]
         private ReferencePlaneDetection referencePlaneDetection;
 
         [Tooltip("NavMeshSurface for runtime baking (from AI Navigation package).")] [SerializeField]
@@ -131,7 +133,8 @@ namespace PokkatCore.Reference
             }
 
             var instance = Instantiate(prefab, spawnPosition, spawnRotation);
-            Debug.Log($"ReferencePlaneHandler: spawned '{prefab.name}' at {spawnPosition} on plane {closestPlane.trackableId}");
+            Debug.Log(
+                $"ReferencePlaneHandler: spawned '{prefab.name}' at {spawnPosition} on plane {closestPlane.trackableId}");
             return instance;
         }
 

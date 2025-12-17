@@ -1736,9 +1736,11 @@ MonoBehaviour:
   planeHandling: {fileID: 2430647246526936708}
   statskeeper: {fileID: 2430647246526936707}
   arCamera: {fileID: 6616136}
-  tempTestPrefab: {fileID: 1020145778596067245, guid: ad2b2c67fa0833f4f88494825029441b, type: 3}
-  tempRemoveOnUntrack: 1
-  maxActiveNekos: 5
+  mainNekoPrefab: {fileID: 6457855834248047866, guid: c66f5bebe70df464bb24f711e54298f4, type: 3}
+  friendNekoPrefab: {fileID: 6457855834248047866, guid: 3ebc52df0fe480443ba901a960877bbf, type: 3}
+  bowlPrefab: {fileID: 6457855834248047866, guid: 018b5f9586ea0d2429bc37446bf7b349, type: 3}
+  maxActiveNekos: 3
+  multiImageDistanceThreshold: 0.3
 --- !u!1 &2546934243345293191
 GameObject:
   m_ObjectHideFlags: 0

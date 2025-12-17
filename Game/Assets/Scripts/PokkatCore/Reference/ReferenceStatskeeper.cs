@@ -8,7 +8,6 @@ using System;
 using System.IO;
 using UnityEngine;
 
-
 namespace PokkatCore.Reference
 {
     /// <summary>
@@ -44,9 +43,9 @@ namespace PokkatCore.Reference
         [Tooltip("Initial happiness value for new saves.")] [SerializeField]
         private float initialHappiness = 70f;
 
-        private string _savePath;
-
         private ReferenceStatisticsStruct _referenceStatisticsStruct;
+
+        private string _savePath;
 
         /// <summary>
         ///     the current hunger value
@@ -150,7 +149,8 @@ namespace PokkatCore.Reference
                 var hungerDecay = (float)(hoursPassed * hungerDecayRatePerHour);
 
                 _referenceStatisticsStruct.hunger = Mathf.Max(0f, _referenceStatisticsStruct.hunger - hungerDecay);
-                Debug.Log($"ReferenceStatskeeper: applied {hungerDecay:F1} hunger decay for {hoursPassed:F2} hours passed");
+                Debug.Log(
+                    $"ReferenceStatskeeper: applied {hungerDecay:F1} hunger decay for {hoursPassed:F2} hours passed");
             }
             catch (Exception ex)
             {
@@ -165,7 +165,8 @@ namespace PokkatCore.Reference
         public void DecreaseHunger(float amount)
         {
             _referenceStatisticsStruct.hunger = Mathf.Max(0f, _referenceStatisticsStruct.hunger - amount);
-            Debug.Log($"ReferenceStatskeeper: hunger decreased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
+            Debug.Log(
+                $"ReferenceStatskeeper: hunger decreased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
         }
 
         /// <summary>
@@ -175,7 +176,8 @@ namespace PokkatCore.Reference
         public void IncreaseHunger(float amount)
         {
             _referenceStatisticsStruct.hunger = Mathf.Min(maxHunger, _referenceStatisticsStruct.hunger + amount);
-            Debug.Log($"ReferenceStatskeeper: hunger increased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
+            Debug.Log(
+                $"ReferenceStatskeeper: hunger increased by {amount:F1}, now {_referenceStatisticsStruct.hunger:F1}");
         }
 
         /// <summary>
@@ -184,8 +186,10 @@ namespace PokkatCore.Reference
         /// <param name="delta">amount to change happiness by</param>
         public void ModifyHappiness(float delta)
         {
-            _referenceStatisticsStruct.happiness = Mathf.Clamp(_referenceStatisticsStruct.happiness + delta, 0f, maxHappiness);
-            Debug.Log($"ReferenceStatskeeper: happiness modified by {delta:F1}, now {_referenceStatisticsStruct.happiness:F1}");
+            _referenceStatisticsStruct.happiness =
+                Mathf.Clamp(_referenceStatisticsStruct.happiness + delta, 0f, maxHappiness);
+            Debug.Log(
+                $"ReferenceStatskeeper: happiness modified by {delta:F1}, now {_referenceStatisticsStruct.happiness:F1}");
         }
     }
 }

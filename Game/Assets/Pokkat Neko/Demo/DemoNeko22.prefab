@@ -60,6 +60,18 @@ PrefabInstance:
       propertyPath: initialTextureId
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 9170819986296272943, guid: 2c1ab422da7a9684180d589d70d78fcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170819986296272943, guid: 2c1ab422da7a9684180d589d70d78fcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170819986296272943, guid: 2c1ab422da7a9684180d589d70d78fcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

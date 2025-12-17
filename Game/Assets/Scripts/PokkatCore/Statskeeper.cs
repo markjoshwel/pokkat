@@ -5,8 +5,6 @@
  *              and firebase-based storage
  */
 
-using System;
-using System.IO;
 using UnityEngine;
 
 namespace PokkatCore

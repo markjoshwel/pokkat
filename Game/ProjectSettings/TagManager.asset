@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Neko
   - Bowl
+  - NekoMain
+  - NekoFriend
   layers:
   - Default
   - TransparentFX

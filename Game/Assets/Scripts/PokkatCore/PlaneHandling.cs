@@ -7,7 +7,9 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation;
@@ -43,19 +45,19 @@ namespace PokkatCore
     {
         [Header("Dependencies")]
         [HelpBox("Assign the ARPlaneManager and ARRaycastManager components here.", HelpBoxMessageType.Info)]
-        [Tooltip("Plane manager providing AR plane detection events for this behaviour.")]
+        [Tooltip("ar plane detection events")]
         [SerializeField]
         private ARPlaneManager planeManager;
 
-        [Tooltip("Raycast manager used to detect touch interactions on planes.")] [SerializeField]
+        [Tooltip("touch interactions on planes")] [SerializeField]
         private ARRaycastManager raycastManager;
 
         [Header("Detection Threshold")]
-        [Tooltip("Minimum total plane area (m²) before firing OnPlaneReady.")]
+        [Tooltip("minimum m² before firing ready event")]
         [SerializeField]
         private float minimumAreaSquareMeters = 1.0f;
 
-        [Tooltip("Fires OnPlaneReady only once when threshold is met.")] [SerializeField]
+        [Tooltip("fire ready event only once")] [SerializeField]
         private bool fireOnceOnly = true;
 
         /// <summary>
@@ -66,6 +68,7 @@ namespace PokkatCore
         /// <summary>
         ///     whether the plane detection threshold has been met
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public bool isReady { get; private set; }
 
         /// <summary>
@@ -293,7 +296,8 @@ namespace PokkatCore
         /// </summary>
         /// <param name="worldPosition">the position to measure distance from</param>
         /// <returns>closest tracked plane or null if none available</returns>
-        private ARPlane FindClosestPlane(Vector3 worldPosition)
+        // ReSharper disable once MemberCanBePrivate.Global
+        public ARPlane FindClosestPlane(Vector3 worldPosition)
         {
             ARPlane closestPlane = null;
             var closestDistance = float.MaxValue;
@@ -313,6 +317,36 @@ namespace PokkatCore
             }
 
             return closestPlane;
+        }
+
+        /// <summary>
+        ///     projects a world position onto the nearest tracked plane surface
+        /// </summary>
+        /// <param name="worldPosition">the position to project onto a plane</param>
+        /// <param name="projectedPosition">the resulting position on the plane surface</param>
+        /// <returns>true if projection succeeded, false if no plane available</returns>
+        public bool TryProjectToPlane(Vector3 worldPosition, out Vector3 projectedPosition)
+        {
+            var closestPlane = FindClosestPlane(worldPosition);
+            if (!closestPlane)
+            {
+                projectedPosition = worldPosition;
+                return false;
+            }
+
+            projectedPosition = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
+            return true;
+        }
+
+        /// <summary>
+        ///     projects a world position onto the nearest tracked plane surface,
+        ///     returns original position if no plane available
+        /// </summary>
+        /// <param name="worldPosition">the position to project onto a plane</param>
+        /// <returns>projected position on plane, or original position if no plane</returns>
+        public Vector3 ProjectToPlane(Vector3 worldPosition)
+        {
+            return TryProjectToPlane(worldPosition, out var projected) ? projected : worldPosition;
         }
 
         /// <summary>
@@ -368,8 +402,10 @@ namespace PokkatCore
 
             var spawnRotation = Quaternion.LookRotation(projectedForward, targetPlane.normal);
 
-            // instantiate and return
+            // instantiate and parent to the plane so it moves with AR tracking adjustments
             var spawned = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
+            spawned.transform.SetParent(targetPlane.transform, true);
+
             Logkat.Out($"PlaneHandling.SpawnClosest: spawned {objectToSpawn.name} at {spawnPosition}");
             return spawned;
         }

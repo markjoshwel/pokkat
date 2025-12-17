@@ -39,7 +39,7 @@ namespace PokkatCore
     {
         [Header("Dependencies")]
         [HelpBox("Assign the ARTrackedImageManager component here.", HelpBoxMessageType.Info)]
-        [Tooltip("Image tracking manager providing AR tracked-image events for this behaviour.")]
+        [Tooltip("ar tracked image events")]
         [SerializeField]
         private ARTrackedImageManager trackedImageManager;
 
@@ -153,8 +153,8 @@ namespace PokkatCore
             if (state != TrackingState.Tracking) return;
 
             // log which image was detected with its id and state
-            // Logkat.Out(
-            //     $"ImageHandling: Image detected '{referenceName}' ({trackedImage.trackableId}) state:{state}");
+            Logkat.Out(
+                $"ImageHandling: Image detected '{referenceName}' ({trackedImage.trackableId}) state:{state}");
 
             // fire the OnImageDetected event with wrapped data
             // (wrap in HandledTrackedImage struct for consistent event signature)
