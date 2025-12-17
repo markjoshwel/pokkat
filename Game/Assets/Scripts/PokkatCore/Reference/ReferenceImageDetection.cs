@@ -71,7 +71,7 @@ namespace PokkatCore.Reference
         {
             if (image.trackingState != TrackingState.Tracking) return;
 
-            Debug.Log($"ReferenceImageDetection: image detected '{image.referenceImage.name}' at {image.transform.position}");
+            // Debug.Log($"ReferenceImageDetection: image detected '{image.referenceImage.name}' at {image.transform.position}");
             OnImageDetected?.Invoke(image);
         }
     }

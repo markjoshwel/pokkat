@@ -20,18 +20,18 @@ namespace PokkatCore
         ///     current tracking state of the image
         /// </summary>
         public TrackingState State;
-        
+
         /// <summary>
         ///     the tracked image reference from ar foundation
         /// </summary>
         public ARTrackedImage Image;
-        
+
         /// <summary>
         ///     unique identifier for this tracked image
         /// </summary>
         public TrackableId Id;
     }
-    
+
     /// <summary>
     ///     wraps ar foundation image tracking events into game-specific signals
     /// </summary>
@@ -42,16 +42,6 @@ namespace PokkatCore
         [Tooltip("Image tracking manager providing AR tracked-image events for this behaviour.")]
         [SerializeField]
         private ARTrackedImageManager trackedImageManager;
-
-        /// <summary>
-        ///     fired when a tracked image enters or remains in tracking state
-        /// </summary>
-        public event Action<HandledTrackedImage> OnImageDetected;
-
-        /// <summary>
-        ///     fired when a tracked image is lost or removed
-        /// </summary>
-        public event Action<HandledTrackedImage> OnImageLost;
 
         /// <summary>
         ///     variable initialisation function
@@ -65,17 +55,6 @@ namespace PokkatCore
         private void Start()
         {
             Logkat.Out("ImageHandling: Start/Configure OK");
-        }
-
-        /// <summary>
-        ///     function to validate required component references
-        /// </summary>
-        private void Setup_Dependencies()
-        {
-            // panic if the ar tracked image manager reference is not assigned in the inspector
-            // (this is a dependency injection pattern, not GetComponent)
-            if (!trackedImageManager)
-                Logkat.Panic("ImageHandling requires an ARTrackedImageManager reference.");
         }
 
         /// <summary>
@@ -95,6 +74,27 @@ namespace PokkatCore
         {
             // unsubscribe from the event to prevent memory leaks and null reference errors
             trackedImageManager.trackablesChanged.RemoveListener(OnTrackablesChanged);
+        }
+
+        /// <summary>
+        ///     fired when a tracked image enters or remains in tracking state
+        /// </summary>
+        public event Action<HandledTrackedImage> OnImageDetected;
+
+        /// <summary>
+        ///     fired when a tracked image is lost or removed
+        /// </summary>
+        public event Action<HandledTrackedImage> OnImageLost;
+
+        /// <summary>
+        ///     function to validate required component references
+        /// </summary>
+        private void Setup_Dependencies()
+        {
+            // panic if the ar tracked image manager reference is not assigned in the inspector
+            // (this is a dependency injection pattern, not GetComponent)
+            if (!trackedImageManager)
+                Logkat.Panic("ImageHandling requires an ARTrackedImageManager reference.");
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace PokkatCore
         {
             // extract reference name from the image library entry
             var referenceName = trackedImage.referenceImage.name;
-            
+
             // get current tracking state (Tracking, Limited, or None)
             var state = trackedImage.trackingState;
 
@@ -151,10 +151,10 @@ namespace PokkatCore
             // (TrackingState.Tracking means ar foundation has a good pose estimate)
             // (TrackingState.Limited or None are ignored - not reliable enough)
             if (state != TrackingState.Tracking) return;
-            
-                // log which image was detected with its id and state
-                Logkat.Out(
-                    $"ImageHandling: Image detected '{referenceName}' ({trackedImage.trackableId}) state:{state}");
+
+            // log which image was detected with its id and state
+            // Logkat.Out(
+            //     $"ImageHandling: Image detected '{referenceName}' ({trackedImage.trackableId}) state:{state}");
 
             // fire the OnImageDetected event with wrapped data
             // (wrap in HandledTrackedImage struct for consistent event signature)

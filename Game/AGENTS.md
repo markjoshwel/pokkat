@@ -21,9 +21,8 @@ the PokkatCore namespace follows **dependency injection** (via inspector assignm
 | class | role |
 |-------|------|
 | `CoreGameplay` | central coordinator managing neko spawning and game state |
-| `ImageDetection` | wrapper for ARTrackedImageManager events |
-| `PlaneDetection` | wrapper for ARPlaneManager with area threshold |
-| `PlaneHandler` | handles spawning on planes and runtime navmesh baking |
+| `ImageHandling` | wrapper for ARTrackedImageManager events |
+| `PlaneHandling` | wrapper for ARPlaneManager with area threshold and SpawnClosest utility |
 | `AREntityNeko` | neko character with state machine, navmesh navigation, procedural animations |
 | `AREntityBowl` | bowl entity with food stages and consumption logic |
 | `Statskeeper` | persistent json-based statistics (hunger, happiness) |
@@ -99,9 +98,8 @@ Debug.LogError("planehandler: cannot spawn, prefab is null");
 Assets/Scripts/
 ├── PokkatCore/           # core game systems (namespace: PokkatCore)
 │   ├── CoreGameplay.cs
-│   ├── ImageDetection.cs
-│   ├── PlaneDetection.cs
-│   ├── PlaneHandler.cs
+│   ├── ImageHandling.cs
+│   ├── PlaneHandling.cs
 │   ├── AREntityNeko.cs
 │   ├── AREntityBowl.cs
 │   └── Statskeeper.cs
@@ -118,9 +116,8 @@ Assets/Scripts/
 ### implemented (dec 11 2024)
 
 - [x] `Statskeeper` - json persistence with hunger decay
-- [x] `ImageDetection` - ARTrackedImageManager wrapper
-- [x] `PlaneDetection` - ARPlaneManager wrapper with area threshold
-- [x] `PlaneHandler` - SpawnClosest + navmesh baking
+- [x] `ImageHandling` - ARTrackedImageManager wrapper with game events
+- [x] `PlaneHandling` - ARPlaneManager wrapper with area threshold + SpawnClosest method
 - [x] `AREntityBowl` - food stages and consumption
 - [x] `AREntityNeko` - state machine (Idle, Jumping, SeekingBowl, Socializing)
 - [x] `CoreGameplay` - central coordinator
