@@ -425,7 +425,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2430647246526936706}
-  - component: {fileID: 6983982264458838575}
+  - component: {fileID: 2430647246526936710}
+  - component: {fileID: 2430647246526936709}
+  - component: {fileID: 2430647246526936708}
+  - component: {fileID: 2430647246526936707}
   m_Layer: 0
   m_Name: Pokkat Core
   m_TagString: Untagged
@@ -562,6 +565,59 @@ Transform:
   - {fileID: 5191543920004379684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2430647246526936707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205483993429341262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76ff99ae7144dada6859075bb5fa9ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2430647246526936708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205483993429341262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8559a9146ac644c3a9d58370f5bb388f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2430647246526936709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205483993429341262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41fd3bf00bd423499eeed4c04c2532e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2430647246526936710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205483993429341262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a446bf8f3bf4c12a245837e1add564a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageHandling: {fileID: 2430647246526936709}
+  planeHandling: {fileID: 2430647246526936708}
+  statskeeper: {fileID: 2430647246526936707}
+  maxActiveNekos: 3
+  spawnLookingAtPlayer: 1
 --- !u!114 &2544051566956336895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5686,23 +5742,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6983982264458838575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205483993429341262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec4b6d57abdd5348a5724e2f7c1ada5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planeManager: {fileID: 0}
-  moveSpeedMetersPerSecond: 0.4
-  stopDistanceMeters: 0.05
-  preferNavMeshIfAvailable: 1
-  loggingEnabled: 1
 --- !u!114 &7024120224901311888
 MonoBehaviour:
   m_ObjectHideFlags: 0
