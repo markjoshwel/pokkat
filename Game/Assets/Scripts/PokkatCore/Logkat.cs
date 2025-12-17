@@ -14,19 +14,19 @@ namespace PokkatCore
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Out(string message)
         {
-            Debug.Log($"(Pokkat) {message}");
+            Debug.Log($"(Pokkat) OUT: {message}");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Err(string message)
         {
-            Debug.LogError($"(Pokkat) {message}");
+            Debug.LogError($"(Pokkat) ERROR: {message}");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void Warn(string message)
         {
-            Debug.LogWarning($"(Pokkat) {message}");
+            Debug.LogWarning($"(Pokkat) WARN: {message}");
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
