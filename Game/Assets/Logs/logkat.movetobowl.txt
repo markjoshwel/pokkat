@@ -1,0 +1,708 @@
+Info (Pokkat) OUT: CoreGameplay: Awake/Setup OK
+Info (Pokkat) OUT: Statskeeper: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling: Awake/Setup OK
+Info (Pokkat) OUT: ImageHandling: Awake/Setup OK
+Info (Pokkat) OUT: CoreGameplay: Event Subscription OK
+Info (Pokkat) OUT: CoreGameplay: Start/Configure OK
+Info (Pokkat) OUT: Statskeeper: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Start/Configure OK
+Info (Pokkat) OUT: ImageHandling: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Plane ready, total area 1.29m┬▓, largest plane B40000726CB3E9D0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: CoreGameplay: plane ready received
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned MAIN neko
+Info (Pokkat) OUT: AREntityNeko: Start/Configure OK
+Info (Pokkat) OUT: AREntityNeko: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 42
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat) OUT: AREntityNeko: friend spawned, initiating play
+Info (Pokkat) OUT: AREntityNeko: Idle -> PlayingWithFriend
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.77, -2.27, -1.61)
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.77, -2.27, -1.61)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.77, -2.27, -1.61)
+Info (Pokkat) OUT: AREntityNeko: bowl notification queued (playing with friend)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: starting play as friend
+Info (Pokkat) OUT: AREntityNeko: Idle -> PlayingWithFriend
+Info (Pokkat) OUT: AREntityNeko: playing with friend!
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: OnPlayedWithFriend called
+Info (Pokkat) OUT: AREntityNeko: PlayingWithFriend -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: playing with friend!
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.68, -2.27, -1.92), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: jumping
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityNeko: OnPlayedWithFriend called
+Info (Pokkat) OUT: AREntityNeko: PlayingWithFriend -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.75), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.68, -2.27, -1.92), staying idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.28, -1.76), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.68, -2.27, -1.92), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.68, -2.27, -1.92), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.65, -2.27, -1.59)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.65, -2.27, -1.59)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.65, -2.27, -1.59)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.65, -2.27, -1.59)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.28, -1.76), staying idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.58, -2.27, -1.56)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.58, -2.27, -1.56)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.58, -2.27, -1.56)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.73, -2.27, -1.47)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.73, -2.27, -1.47)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.73, -2.27, -1.47)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.73, -2.27, -1.47)
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.72, -2.27, -1.48), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.99, -2.26, -1.74), staying idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.62, -2.27, -2.13)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.62, -2.27, -2.13)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.62, -2.27, -2.13)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.62, -2.27, -2.13)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.57, -2.27, -1.51)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.57, -2.27, -1.51)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.57, -2.27, -1.51)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.63, -2.27, -2.08), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB0D670-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.63, -2.27, -2.08), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.12, -2.27, -2.49)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.12, -2.27, -2.49)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.12, -2.27, -2.49)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (1.12, -2.27, -2.49)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.09, -2.27, -2.46), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.57, -2.27, -1.54)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.57, -2.27, -1.54)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.57, -2.27, -1.54)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.57, -2.27, -1.54)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.70, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.70, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.70, -2.27, -1.57)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.57, -2.27, -1.55), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.95, -2.27, -2.31)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.95, -2.27, -2.31)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.95, -2.27, -2.31)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.95, -2.27, -2.31)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.56, -2.27, -1.51)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.56, -2.27, -1.51)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.56, -2.27, -1.51)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.90, -2.27, -2.22), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.90, -2.27, -2.22), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.90, -2.27, -2.22), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.90, -2.27, -2.22), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.55, -2.28, -1.57)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.55, -2.28, -1.57)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.55, -2.28, -1.57)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.55, -2.28, -1.57)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.98, -2.28, -2.27)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.98, -2.28, -2.27)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.98, -2.28, -2.27)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.98, -2.28, -2.27)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.70, -2.28, -1.82), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.70, -2.28, -1.82), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.79, -2.27, -2.20)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.79, -2.27, -2.20)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.79, -2.27, -2.20)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.63, -2.27, -1.69), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.02, -2.27, -2.16)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.02, -2.27, -2.16)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.02, -2.27, -2.16)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (1.02, -2.27, -2.16)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.01, -2.27, -2.15), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.72, -2.27, -2.23)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.72, -2.27, -2.23)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.72, -2.27, -2.23)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.72, -2.27, -2.23)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.59, -2.27, -1.61)
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.62, -2.27, -1.59)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.62, -2.27, -1.59)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.62, -2.27, -1.59)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.62, -2.27, -1.59)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.65, -2.27, -1.79), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.72, -2.27, -2.28)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.72, -2.27, -2.28)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.72, -2.27, -2.28)
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.72, -2.27, -2.28)
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.59, -2.27, -1.58)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.59, -2.27, -1.58)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.59, -2.27, -1.58)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.56, -2.27, -1.58)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.56, -2.27, -1.58)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.56, -2.27, -1.58)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.56, -2.27, -1.58)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.58, -2.27, -1.65), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.58, -2.27, -1.65), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.89, -2.27, -2.33)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.89, -2.27, -2.33)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.89, -2.27, -2.33)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.89, -2.27, -2.33)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.83, -2.27, -2.19), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.83, -2.27, -2.19), staying idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.61, -2.27, -1.57)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.63, -2.27, -1.63), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.17, -2.27, -2.46)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.17, -2.27, -2.46)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.17, -2.27, -2.46)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (1.17, -2.27, -2.46)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.12, -2.27, -2.39), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.58, -2.27, -1.55)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.58, -2.27, -1.55)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.58, -2.27, -1.55)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.58, -2.27, -1.55)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.64, -2.27, -1.63), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.01, -2.27, -2.35)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.01, -2.27, -2.35)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.01, -2.27, -2.35)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (1.01, -2.27, -2.35)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.98, -2.27, -2.29), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.53, -2.27, -1.54)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.53, -2.27, -1.54)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.53, -2.27, -1.54)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.53, -2.27, -1.54)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.95, -2.27, -2.29)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.95, -2.27, -2.29)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.95, -2.27, -2.29)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.95, -2.27, -2.29)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.89, -2.27, -2.17), staying idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.62, -2.27, -1.56)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.62, -2.27, -1.56)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.62, -2.27, -1.56)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.62, -2.27, -1.56)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: OnFed called
+Info (Pokkat) OUT: AREntityNeko: Eating -> Idle
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.98, -2.27, -2.30)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.98, -2.27, -2.30)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.98, -2.27, -2.30)
+Info (Pokkat) OUT: AREntityNeko: bowl placed, heading to eat
+Info (Pokkat) OUT: AREntityNeko: Idle -> MovingToBowl
+Info (Pokkat) OUT: AREntityNeko: moving to bowl at (0.98, -2.27, -2.30)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: MovingToBowl -> Eating
+Info (Pokkat) OUT: AREntityNeko: eating from bowl
+Info (Pokkat) OUT: AREntityNeko: Idle -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (1.00, -2.27, -1.74), staying idle
+Info (Pokkat) OUT: AREntityNeko: Roaming -> Idle
+Info (Pokkat) OUT: AREntityNeko: Eating -> Roaming
+Warn (Pokkat) WARN: AREntityNeko: not on navmesh at (0.98, -2.27, -2.29), staying idle
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully

@@ -1,0 +1,914 @@
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(0.99, -1.88, -0.38), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=0
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] spawning neko at (0.99, -1.88, -0.38), isMain=True
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(0.99, -1.88, -0.38), nekoPos=(0.99, -1.88, -0.38)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=1
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.34, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.728, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] position jump detected, grounding current neko and spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] TriggerNekoFall called, pos=(0.99, -1.88, -0.38)
+Info (Pokkat) OUT: AREntityNeko: [Debug] FallRoutine started, currentPos=(0.99, -1.88, -0.38)
+Warn (Pokkat) WARN: AREntityNeko: [Debug] no plane found, falling to y=0
+Info (Pokkat) OUT: AREntityNeko: [Debug] falling from (0.99, -1.88, -0.38) to (0.99, 0.00, -0.38)
+Info (Pokkat) OUT: CoreGameplay: [Debug] spawning neko at (1.04, -2.34, -0.94), isMain=False
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.34, -0.94), nekoPos=(1.04, -2.34, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.35, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.018, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.35, -0.93), nekoPos=(1.04, -2.34, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.35, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.012, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.35, -0.94), nekoPos=(1.04, -2.35, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.35, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.35, -0.93), nekoPos=(1.04, -2.35, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.35, -0.93), nekoPos=(1.05, -2.35, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.36, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.92), nekoPos=(1.05, -2.35, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.009, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.92), nekoPos=(1.05, -2.36, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.37, -0.91), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.007, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.91), nekoPos=(1.05, -2.36, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.37, -0.91), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.91), nekoPos=(1.05, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.91), nekoPos=(1.06, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.37, -0.91), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.37, -0.91), nekoPos=(1.06, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.37, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.37, -0.90), nekoPos=(1.07, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.38, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.38, -0.90), nekoPos=(1.07, -2.37, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.37, -0.91), nekoPos=(1.07, -2.38, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.37, -0.91), nekoPos=(1.07, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.37, -0.91), nekoPos=(1.07, -2.37, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.36, -0.91), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.36, -0.91), nekoPos=(1.07, -2.37, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.36, -0.91), nekoPos=(1.07, -2.36, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: AREntityNeko: [Debug] landed at (0.99, 0.00, -0.38)
+Info (Pokkat) OUT: CoreGameplay: [Debug] neko landed, anchorPosition=(0.99, 0.00, -0.38)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.36, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.36, -0.92), nekoPos=(1.07, -2.36, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.36, -0.91), nekoPos=(1.07, -2.36, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.012, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.35, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.010, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.35, -0.92), nekoPos=(1.07, -2.36, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.34, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.34, -0.93), nekoPos=(1.07, -2.35, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.34, -0.93), nekoPos=(1.07, -2.34, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.33, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.33, -0.93), nekoPos=(1.07, -2.34, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.07, -2.33, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.33, -0.94), nekoPos=(1.07, -2.33, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.07, -2.33, -0.94), nekoPos=(1.07, -2.33, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.33, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.33, -0.95), nekoPos=(1.07, -2.33, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.33, -0.95), nekoPos=(1.06, -2.33, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.007, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.32, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.008, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.96), nekoPos=(1.06, -2.33, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.009, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.33, -0.95), nekoPos=(1.06, -2.32, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.96), nekoPos=(1.06, -2.32, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.32, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.32, -0.96), nekoPos=(1.06, -2.32, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.32, -0.97), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.97), nekoPos=(1.05, -2.32, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.97), nekoPos=(1.06, -2.32, -0.97)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.33, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.33, -0.96), nekoPos=(1.06, -2.32, -0.97)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.96), nekoPos=(1.06, -2.33, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.33, -0.96), nekoPos=(1.06, -2.32, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.97), nekoPos=(1.06, -2.33, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.32, -0.96), nekoPos=(1.06, -2.32, -0.97)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.34, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.015, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.34, -0.95), nekoPos=(1.06, -2.33, -0.96)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.34, -0.95), nekoPos=(1.06, -2.34, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.35, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.018, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.35, -0.94), nekoPos=(1.06, -2.34, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.36, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.94), nekoPos=(1.05, -2.35, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.36, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.93), nekoPos=(1.05, -2.36, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.93), nekoPos=(1.05, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.37, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.05, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.36, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.05, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.06, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.009, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.06, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.37, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.06, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.38, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.008, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.38, -0.92), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.05, -2.38, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.38, -0.92), nekoPos=(1.05, -2.38, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.007, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.93), nekoPos=(1.05, -2.38, -0.92)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.93), nekoPos=(1.06, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.36, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.06, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.37, -0.93), nekoPos=(1.06, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.06, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.36, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.94), nekoPos=(1.06, -2.36, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.93), nekoPos=(1.06, -2.36, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.06, -2.37, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.06, -2.36, -0.94), nekoPos=(1.06, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.36, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.94), nekoPos=(1.06, -2.36, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.37, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.05, -2.36, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.36, -0.94), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.37, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.007, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.38, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.38, -0.93), nekoPos=(1.05, -2.37, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.38, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.93), nekoPos=(1.05, -2.38, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.93), nekoPos=(1.04, -2.38, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.39, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.014, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.93), nekoPos=(1.04, -2.38, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.39, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.03, -2.39, -0.93), nekoPos=(1.04, -2.39, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.93), nekoPos=(1.03, -2.39, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.93), nekoPos=(1.04, -2.39, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.38, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.94), nekoPos=(1.04, -2.39, -0.93)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.39, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.94), nekoPos=(1.04, -2.38, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.94), nekoPos=(1.04, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.39, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.03, -2.39, -0.94), nekoPos=(1.04, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.03, -2.39, -0.94), nekoPos=(1.03, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.94), nekoPos=(1.03, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.94), nekoPos=(1.04, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.38, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.95), nekoPos=(1.04, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.39, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.95), nekoPos=(1.04, -2.38, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.94), nekoPos=(1.04, -2.39, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.95), nekoPos=(1.03, -2.39, -0.94)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.39, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.03, -2.39, -0.95), nekoPos=(1.04, -2.39, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.03, -2.39, -0.95), nekoPos=(1.03, -2.39, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.39, -0.95), nekoPos=(1.03, -2.39, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.95), nekoPos=(1.04, -2.39, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.04, -2.38, -0.95), nekoPos=(1.04, -2.38, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Limited, imagePos=(1.04, -2.38, -0.95), nekoPos=(1.04, -2.38, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] tracking state is Limited, triggering fall
+Info (Pokkat) OUT: CoreGameplay: [Debug] TriggerNekoFall called, pos=(1.04, -2.38, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] FallRoutine started, currentPos=(1.04, -2.38, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] found plane, targetPos=(1.04, -2.33, -0.95), planeId=B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] falling from (1.04, -2.38, -0.95) to (1.04, -2.33, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] parented to plane B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] landed at (1.04, -2.33, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] neko landed, anchorPosition=(1.04, -2.33, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.42, -2.32, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=2
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.412
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.382
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] spawning neko at (1.42, -2.32, -0.90), isMain=False
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.42, -2.32, -0.90), nekoPos=(1.42, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.016, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.42, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.008, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.90), nekoPos=(1.41, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.89), nekoPos=(1.41, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.89), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.90), nekoPos=(1.40, -2.35, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.32, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.027, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.32, -0.89), nekoPos=(1.40, -2.35, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.32, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.32, -0.90), nekoPos=(1.41, -2.32, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.32, -0.90), nekoPos=(1.41, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.019, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.41, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.89), nekoPos=(1.40, -2.35, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.89), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.89), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.89), nekoPos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.89), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.89), nekoPos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.89), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.89), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.022, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.40, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.40, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.32, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.32, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.40, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.32, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.008, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.32, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.010, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.41, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.005, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.007, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.90), nekoPos=(1.41, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.012, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.41, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.32, -0.90), nekoPos=(1.40, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.32, -0.91), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.32, -0.91), nekoPos=(1.40, -2.32, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.33, -0.90), nekoPos=(1.40, -2.32, -0.91)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=3
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.89), nekoPos=(1.41, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.90), nekoPos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.34, -0.89), nekoPos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.34, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.360, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] position jump detected, grounding current neko and spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] TriggerNekoFall called, pos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: AREntityNeko: [Debug] FallRoutine started, currentPos=(1.41, -2.34, -0.89)
+Info (Pokkat) OUT: AREntityNeko: [Debug] found plane, targetPos=(1.41, -2.32, -0.89), planeId=B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] falling from (1.41, -2.34, -0.89) to (1.41, -2.32, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] spawning neko at (1.05, -2.34, -0.95), isMain=False
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.05, -2.34, -0.95), nekoPos=(1.05, -2.34, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Limited, imagePos=(1.05, -2.34, -0.95), nekoPos=(1.05, -2.34, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] tracking state is Limited, triggering fall
+Info (Pokkat) OUT: CoreGameplay: [Debug] TriggerNekoFall called, pos=(1.05, -2.34, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] FallRoutine started, currentPos=(1.05, -2.34, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] found plane, targetPos=(1.05, -2.32, -0.95), planeId=B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] falling from (1.05, -2.34, -0.95) to (1.05, -2.32, -0.95)
+Info (Pokkat) OUT: AREntityNeko: [Debug] parented to plane B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] landed at (1.41, -2.32, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] neko landed, anchorPosition=(1.41, -2.32, -0.89)
+Info (Pokkat) OUT: AREntityNeko: [Debug] landed at (1.05, -2.32, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] neko landed, anchorPosition=(1.05, -2.32, -0.95)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.409
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.143
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.407
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.33, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.406
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.142
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.413
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.415
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.414
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.35, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.417
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.416
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.144
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.34, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.412
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.411
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.403
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.30, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.373
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.147
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.371
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.374
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.32, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.393
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.143
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.392
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.407
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.409
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.33, -0.96), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.398
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.397
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.152
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.401
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.151
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.33, -0.95), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.405
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.162
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.410
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.406
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.161
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.35, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.416
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.159
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.160
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.415
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.158
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.36, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.427
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.157
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.432
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.430
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.05, -2.37, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.434
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.433
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.436
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.437
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.37, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.438
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.154
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.439
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.153
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.04, -2.38, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.443
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.445
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.449
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.38, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.448
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.150
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.149
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.39, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.458
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.148
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.03, -2.40, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.464
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.02, -2.41, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.471
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.473
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.477
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.476
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.01, -2.42, -0.93), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.482
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.485
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.317
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.264
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.187
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.484
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.265
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.32, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.416
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.691
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.221
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.415
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.222
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.442
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.682
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.213
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.424
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.685
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.215
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.425
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.684
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.426
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.427
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.429
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.214
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.423
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.216
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.420
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.686
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.217
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.421
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.422
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.419
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.687
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.218
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.417
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.432
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.431
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.430
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.215
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.684
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.428
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.685
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.429
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.683
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.216
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.433
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.693
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.217
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.434
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.435
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.692
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.694
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.429
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.430
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.701
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.219
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.431
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.702
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.432
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.605
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.175
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.598
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.171
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.597
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.434
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.435
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.433
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.599
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.173
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.437
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.174
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.35, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.441
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=4
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.436
+Info (Pokkat) OUT: CoreGameplay: [Debug] near existing grounded neko, not spawning
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.601
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.600
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.170
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.596
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.169
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.440
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.595
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.168
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.442
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.167
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.637
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.177
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.636
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.176
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.438
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.641
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.181
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.182
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.702
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.384
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.563
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] spawning neko at (1.40, -2.35, -0.89), isMain=False
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.35, -0.89), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=True, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.001, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.004, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.002, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.000, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.89), nekoPos=(1.40, -2.35, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.003, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.89), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.89)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.40, -2.34, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distanceFromFollowing=0.006, threshold=0.25
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Tracking, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.40, -2.34, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] UpdateFollowingNeko - state=Limited, imagePos=(1.41, -2.33, -0.90), nekoPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] tracking state is Limited, triggering fall
+Info (Pokkat) OUT: CoreGameplay: [Debug] TriggerNekoFall called, pos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: AREntityNeko: [Debug] FallRoutine started, currentPos=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: AREntityNeko: [Debug] found plane, targetPos=(1.41, -2.33, -0.90), planeId=B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] falling from (1.41, -2.33, -0.90) to (1.41, -2.33, -0.90)
+Info (Pokkat) OUT: AREntityNeko: [Debug] parented to plane B40000726CB36CB0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: [Debug] landed at (1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] neko landed, anchorPosition=(1.41, -2.33, -0.90)
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.44, -2.24, -0.86), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.340
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.649
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.401
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.516
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.524
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.44, -2.25, -0.86), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.342
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.648
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.400
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.523
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.428
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.627
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.416
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.497
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.560
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.429
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.432
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.625
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.495
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.561
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.562
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.433
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.417
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.431
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.496
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.430
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.626
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.434
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.624
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.494
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.435
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.415
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.623
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.437
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.493
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.436
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.622
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.438
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.621
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.414
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.492
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.491
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.413
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.560
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.494
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.434
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.625
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.416
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.496
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.561
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.431
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.628
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.418
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.499
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.562
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.630
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.419
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.500
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.433
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.133
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.804
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.998
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.755
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.130
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.802
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.995
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.753
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.128
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.799
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.993
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.750
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.440
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.124
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.795
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.990
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.747
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.34, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.126
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.797
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.991
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.748
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.428
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.131
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.996
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.425
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.134
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.805
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.999
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.756
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.432
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.129
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.800
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.994
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.751
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.438
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.125
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.746
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.794
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.989
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.745
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.123
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.793
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.988
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.744
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.443
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.121
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.791
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.986
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.742
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.120
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.789
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.985
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.740
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.446
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.118
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.787
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.983
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.738
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.448
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.117
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.786
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.981
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.737
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.39, -2.36, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.449
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.115
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.784
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.980
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.735
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.447
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.982
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.450
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.734
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.451
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.39, -2.37, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.453
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.114
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.782
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.979
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.733
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.452
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.783
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.454
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.457
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.781
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.731
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.37, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.116
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.785
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.37, -0.87), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.730
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.455
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.780
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.728
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.729
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.87), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.121
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.788
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.986
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.736
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.445
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.124
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.792
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.989
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.740
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.443
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.126
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.794
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.991
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.743
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.779
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.978
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.726
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.39, -2.37, -0.87), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.113
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.727
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.453
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.118
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.982
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.452
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.119
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.984
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.733
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.117
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.782
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.981
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.783
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.731
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.446
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.123
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.789
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.987
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.737
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.451
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.785
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.732
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.37, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.786
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.734
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.787
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.983
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.444
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.125
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.793
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.990
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.741
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.37, -0.87), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.458
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.116
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.780
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.980
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.120
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.985
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.449
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.735
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.87), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.729
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.730
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.784
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.455
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.450
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.448
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.121
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.788
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.986
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.736
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.442
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.124
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.792
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.988
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.118
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.982
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.119
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.984
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.447
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.759
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.681
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.122
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.760
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.683
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.761
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.684
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.123
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.763
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.686
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.451
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.452
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.120
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.682
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.88), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.445
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.126
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.766
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.690
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] followingNeko=False, totalNekos=5
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.127
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.767
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.989
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.691
+Info (Pokkat) OUT: CoreGameplay: [Debug] far from all grounded nekos, spawning new
+Info (Pokkat) OUT: CoreGameplay: [Debug] max nekos (5) reached, skipping spawn
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.125
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.765
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.987
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.689
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.36, -0.89), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.446
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.444
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.128
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.768
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.990
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.692
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.769
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.693
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.34, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.431
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.135
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.779
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.998
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.705
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.32, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.419
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.146
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.794
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.008
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.723
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.42, -2.29, -0.94), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.401
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.160
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.817
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.024
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.750
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.41, -2.33, -0.92), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.429
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.142
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.790
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.004
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.720
+Info (Pokkat) OUT: CoreGameplay: [Debug] OnImageDetected - pos=(1.40, -2.35, -0.90), id=B40000721CB0BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=2.443
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=1.132
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.776
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.994
+Info (Pokkat) OUT: CoreGameplay: [Debug] distance to grounded neko=0.703

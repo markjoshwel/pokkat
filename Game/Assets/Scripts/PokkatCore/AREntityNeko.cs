@@ -858,48 +858,66 @@ namespace PokkatCore
         /// </summary>
         private IEnumerator RoamingStateRoutine()
         {
+            // first verify neko is on or near navmesh
+            if (!NavMesh.SamplePosition(transform.position, out var currentNavPos, 1f, NavMesh.AllAreas))
+            {
+                Logkat.Warn($"AREntityNeko: not on navmesh at {transform.position}, staying idle");
+                TransitionToState(NekoState.Idle);
+                yield break;
+            }
+
             // sample random point on navmesh within roam radius
             var randomDirection = Random.insideUnitSphere * roamRadius;
+            randomDirection.y = 0; // keep on horizontal plane
             randomDirection += transform.position;
 
-            if (NavMesh.SamplePosition(randomDirection, out var hit, roamRadius, NavMesh.AllAreas))
+            // try with roam radius first, then with larger fallback radius
+            var foundTarget = false;
+            Vector3 targetPosition = default;
+
+            if (NavMesh.SamplePosition(randomDirection, out var hit, roamRadius * 2f, NavMesh.AllAreas))
             {
-                var targetPosition = hit.position;
-                Logkat.Out($"AREntityNeko: roaming to {targetPosition}");
+                targetPosition = hit.position;
+                foundTarget = true;
+            }
 
-                // walk to target (using existing WalkRoutine logic inline)
-                var tiltLeft = true;
+            if (!foundTarget)
+            {
+                Logkat.Warn($"AREntityNeko: failed to sample navmesh point near {randomDirection}, staying idle");
+                TransitionToState(NekoState.Idle);
+                yield break;
+            }
 
-                while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            Logkat.Out($"AREntityNeko: roaming to {targetPosition}");
+
+            // walk to target (using existing WalkRoutine logic inline)
+            var tiltLeft = true;
+
+            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            {
+                // check for interrupts (handled by FsmTransitionToState stopping this coroutine)
+                var direction = (targetPosition - transform.position).normalized;
+                direction.y = 0;
+
+                if (direction.sqrMagnitude > 0.001f)
                 {
-                    // check for interrupts (handled by FsmTransitionToState stopping this coroutine)
-                    var direction = (targetPosition - transform.position).normalized;
-                    direction.y = 0;
-
-                    if (direction.sqrMagnitude > 0.001f)
-                    {
-                        var targetRotation = Quaternion.LookRotation(direction);
-                        var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
-                        var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
-                        transform.rotation = targetRotation * tiltRotation;
-                    }
-
-                    var stepDistance = walkSpeed * walkStepDuration;
-                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
-
-                    tiltLeft = !tiltLeft;
-                    yield return new WaitForSeconds(walkStepDuration);
+                    var targetRotation = Quaternion.LookRotation(direction);
+                    var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
+                    var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
+                    transform.rotation = targetRotation * tiltRotation;
                 }
 
-                // reset rotation to upright
-                var finalRotation = transform.eulerAngles;
-                finalRotation.z = 0;
-                transform.eulerAngles = finalRotation;
+                var stepDistance = walkSpeed * walkStepDuration;
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
+
+                tiltLeft = !tiltLeft;
+                yield return new WaitForSeconds(walkStepDuration);
             }
-            else
-            {
-                Logkat.Warn("AREntityNeko: failed to sample navmesh point, staying idle");
-            }
+
+            // reset rotation to upright
+            var finalRotation = transform.eulerAngles;
+            finalRotation.z = 0;
+            transform.eulerAngles = finalRotation;
 
             TransitionToState(NekoState.Idle);
         }
