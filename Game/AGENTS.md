@@ -15,13 +15,13 @@ this document captures codebase knowledge, code style, and current development c
 
 ## architecture
 
-the PokkatCore namespace uses a **singleton pattern** for `CoreGameplay` (global access via `CoreGameplay.Instance`), **dependency injection** (via inspector assignments), and **observer patterns** (events/callbacks).
+the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (access via `CoreGameplay.instance`, does not persist across scenes), **dependency injection** (via inspector assignments), and **observer patterns** (events/callbacks).
 
 ### core components
 
 | class | role |
 |-------|------|
-| `CoreGameplay` | singleton coordinator managing neko spawning, game state, image following, and multi-image detection |
+| `CoreGameplay` | scene singleton coordinator managing neko spawning, game state, image following, and multi-image detection |
 | `ImageHandling` | wrapper for ARTrackedImageManager events, fires OnImageDetected/OnImageLost |
 | `PlaneHandling` | wrapper for ARPlaneManager with area threshold, SpawnClosest utility, touch detection, and OnPlaneInteraction |
 | `Logkat` | static logger with spam prevention (1s cooldown) for consistent "(Pokkat)" prefixed output |
@@ -135,11 +135,11 @@ Logkat.Panic("CoreGameplay: unreachable"); // throws exception, never suppressed
 ```
 Assets/Scripts/
 ├── PokkatCore/           # core game systems (namespace: PokkatCore)
-│   ├── CoreGameplay.cs   # singleton coordinator (356 lines)
+│   ├── CoreGameplay.cs   # singleton coordinator (443 lines)
 │   ├── ImageHandling.cs  # ARTrackedImageManager wrapper (169 lines)
-│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest (379 lines)
+│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest + NavMesh baking (513 lines)
 │   ├── Logkat.cs         # logging utility with spam prevention (91 lines)
-│   ├── AREntityNeko.cs   # neko with procedural animations (395 lines)
+│   ├── AREntityNeko.cs   # neko with procedural animations (432 lines)
 │   ├── AREntityBowl.cs   # bowl entity stub (23 lines)
 │   ├── Statskeeper.cs    # persistence stub (24 lines)
 │   └── Reference/        # reference implementations for study
@@ -179,8 +179,20 @@ Assets/Scripts/
   - ResetDetection() to allow OnPlaneReady to fire again
   - TryGetTouchPosition() - new input system touch/mouse detection
   - TryRaycastToPlane() - AR raycast to plane with TrackableType.PlaneWithinPolygon
-- [x] `CoreGameplay` - singleton coordinator with:
-  - `Instance` static property for global access
+  - **public accessors for entity use** (via `CoreGameplay.instance.planes`):
+    - `surface` - NavMeshSurface for agent pathfinding
+    - `arPlaneManager` - ARPlaneManager for plane queries
+    - `navMeshReady` - true after first successful bake
+    - `isReady` - true after minimum plane area threshold met
+  - **runtime navmesh baking** via NavMeshSurface (com.unity.ai.navigation):
+    - `navMeshSurface` field for NavMeshSurface component reference
+    - `navMeshBakeCooldownSeconds` (default 2s) to throttle rebakes
+    - `autoBakeOnPlaneUpdate` toggle for continuous baking on plane changes
+    - `RequestNavMeshBake()` public method (respects cooldown)
+    - auto-bakes on OnPlaneReady event
+    - auto-bakes on OnPlanesUpdated event (if autoBakeOnPlaneUpdate enabled)
+- [x] `CoreGameplay` - scene singleton coordinator (does not persist across scenes, uses .instance for prefab access without DI):
+  - `instance` static property for scene-scoped access
   - `planes` public accessor for PlaneHandling (used by AREntityNeko)
   - `gameState` property (WaitingForAnything → HasPlane/HasTracker → Ok)
   - `TrackedNekoInstance` class for neko state tracking (entity, anchor, isFollowing, isGrounded)
@@ -246,6 +258,9 @@ Assets/Scripts/
 | raycastManager | reference to ARRaycastManager |
 | minimumAreaSquareMeters | minimum total plane area before firing OnPlaneReady (default 1.0) |
 | fireOnceOnly | if true, OnPlaneReady fires only once (default true) |
+| navMeshSurface | NavMeshSurface component for runtime baking (optional) |
+| navMeshBakeCooldownSeconds | seconds between navmesh rebakes (default 2) |
+| autoBakeOnPlaneUpdate | if true, rebake navmesh when planes update (default true) |
 
 ### inspector setup for ImageHandling
 

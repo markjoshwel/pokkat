@@ -60,16 +60,54 @@ namespace PokkatCore
         [Tooltip("fire ready event only once")] [SerializeField]
         private bool fireOnceOnly = true;
 
+        [Header("Runtime NavMesh Baking")]
+        [Tooltip("navmesh surface for runtime baking")]
+        [SerializeField]
+        private NavMeshSurface navMeshSurface;
+
+        [Tooltip("seconds between rebakes")]
+        [SerializeField]
+        private float cooldownSeconds = 2f;
+
+        [Tooltip("auto-bake on plane updates")]
+        [SerializeField]
+        private bool autoBakeOnPlaneUpdate = true;
+
         /// <summary>
         ///     reusable list for ar raycast hit results (avoids gc alloc per frame)
         /// </summary>
         private readonly List<ARRaycastHit> _raycastHits = new();
 
         /// <summary>
+        ///     whether navmesh bake cooldown has passed
+        /// </summary>
+        private bool _canBake = true;
+
+        /// <summary>
+        ///     coroutine handle for bake cooldown
+        /// </summary>
+        private Coroutine _bakeCooldownRoutine;
+
+        /// <summary>
         ///     whether the plane detection threshold has been met
         /// </summary>
         // ReSharper disable once MemberCanBePrivate.Global
         public bool isReady { get; private set; }
+
+        /// <summary>
+        ///     whether the navmesh has been baked at least once
+        /// </summary>
+        public bool navMeshReady { get; private set; }
+
+        /// <summary>
+        ///     public accessor for the navmesh surface (for agent pathfinding)
+        /// </summary>
+        public NavMeshSurface surface => navMeshSurface;
+
+        /// <summary>
+        ///     public accessor for the ar plane manager (for plane queries)
+        /// </summary>
+        public ARPlaneManager arPlaneManager => planeManager;
 
         /// <summary>
         ///     variable initialisation function
@@ -111,6 +149,11 @@ namespace PokkatCore
             // subscribe to ar foundation's trackables changed event
             // (this fires whenever planes are added, updated, or removed from tracking)
             planeManager.trackablesChanged.AddListener(OnTrackablesChanged);
+
+            // subscribe to own events for navmesh baking
+            OnPlaneReady += OnPlaneReadyBakeNavMesh;
+            if (autoBakeOnPlaneUpdate)
+                OnPlanesUpdated += OnPlanesUpdatedBakeNavMesh;
         }
 
         /// <summary>
@@ -120,6 +163,18 @@ namespace PokkatCore
         {
             // unsubscribe from the event to prevent memory leaks and null reference errors
             planeManager.trackablesChanged.RemoveListener(OnTrackablesChanged);
+
+            // unsubscribe from navmesh baking events
+            OnPlaneReady -= OnPlaneReadyBakeNavMesh;
+            if (autoBakeOnPlaneUpdate)
+                OnPlanesUpdated -= OnPlanesUpdatedBakeNavMesh;
+
+            // stop bake cooldown coroutine if running
+            if (_bakeCooldownRoutine != null)
+            {
+                StopCoroutine(_bakeCooldownRoutine);
+                _bakeCooldownRoutine = null;
+            }
         }
 
         /// <summary>
@@ -408,6 +463,61 @@ namespace PokkatCore
 
             Logkat.Out($"PlaneHandling.SpawnClosest: spawned {objectToSpawn.name} at {spawnPosition}");
             return spawned;
+        }
+
+        /// <summary>
+        ///     callback for when plane detection threshold is met (initial bake)
+        /// </summary>
+        private void OnPlaneReadyBakeNavMesh(ARPlane plane)
+        {
+            RequestNavMeshBake();
+        }
+
+        /// <summary>
+        ///     callback for when planes are updated (continuous baking)
+        /// </summary>
+        private void OnPlanesUpdatedBakeNavMesh()
+        {
+            if (!isReady) return;
+            RequestNavMeshBake();
+        }
+
+        /// <summary>
+        ///     function to request a navmesh rebake if cooldown has passed
+        /// </summary>
+        public void RequestNavMeshBake()
+        {
+            if (!navMeshSurface)
+            {
+                Logkat.Warn("PlaneHandling: NavMeshSurface not assigned, skipping bake");
+                return;
+            }
+
+            if (!_canBake) return;
+
+            _canBake = false;
+            BakeNavMesh();
+            _bakeCooldownRoutine = StartCoroutine(BakeCooldownRoutine());
+        }
+
+        /// <summary>
+        ///     function to perform the navmesh bake operation
+        /// </summary>
+        private void BakeNavMesh()
+        {
+            navMeshSurface.BuildNavMesh();
+            navMeshReady = true;
+            Logkat.Out("PlaneHandling: navmesh baked successfully");
+        }
+
+        /// <summary>
+        ///     cooldown coroutine preventing excessive rebakes
+        /// </summary>
+        private IEnumerator BakeCooldownRoutine()
+        {
+            yield return new WaitForSeconds(cooldownSeconds);
+            _canBake = true;
+            _bakeCooldownRoutine = null;
         }
     }
 }
