@@ -17,6 +17,7 @@ namespace PokkatCore
         WaitingForAnything,
         HasPlaneWaitingForTracker,
         HasTrackerWaitingForPlane,
+        NekoWaitingForNavMesh,
         Ok
     }
 
@@ -107,6 +108,11 @@ namespace PokkatCore
         ///     whether the main neko has been spawned
         /// </summary>
         private bool _mainNekoSpawned;
+
+        /// <summary>
+        ///     count of nekos currently waiting for navmesh
+        /// </summary>
+        private int _nekosWaitingForNavMesh;
 
         /// <summary>
         ///     scene singleton instance for prefab access (does not persist across scenes)
@@ -476,6 +482,35 @@ namespace PokkatCore
         {
             var mainNeko = FindMainNeko();
             if (mainNeko) mainNeko.StateNotifyBowlPlaced();
+        }
+
+        /// <summary>
+        ///     called by AREntityNeko when it fails to find navmesh after landing
+        /// </summary>
+        public void NotifyNekoNavMeshFailed()
+        {
+            _nekosWaitingForNavMesh++;
+            UpdateNavMeshGameState();
+        }
+
+        /// <summary>
+        ///     called by AREntityNeko when it successfully finds navmesh
+        /// </summary>
+        public void NotifyNekoNavMeshReady()
+        {
+            _nekosWaitingForNavMesh = Mathf.Max(0, _nekosWaitingForNavMesh - 1);
+            UpdateNavMeshGameState();
+        }
+
+        /// <summary>
+        ///     updates game state based on navmesh waiting status
+        /// </summary>
+        private void UpdateNavMeshGameState()
+        {
+            if (_nekosWaitingForNavMesh > 0 && gameState == CoreGameplayState.Ok)
+                gameState = CoreGameplayState.NekoWaitingForNavMesh;
+            else if (_nekosWaitingForNavMesh == 0 && gameState == CoreGameplayState.NekoWaitingForNavMesh)
+                gameState = CoreGameplayState.Ok;
         }
 
         /// <summary>

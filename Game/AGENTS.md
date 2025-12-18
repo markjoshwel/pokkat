@@ -195,26 +195,33 @@ Assets/Scripts/
 - [x] `CoreGameplay` - scene singleton coordinator (does not persist across scenes, uses .instance for prefab access without DI):
   - `instance` static property for scene-scoped access
   - `planes` public accessor for PlaneHandling (used by AREntityNeko)
-  - `gameState` property (WaitingForAnything → HasPlane/HasTracker → Ok)
+  - `gameState` property (WaitingForAnything → HasPlane/HasTracker → NekoWaitingForNavMesh → Ok)
   - `TrackedNekoInstance` class for neko state tracking (entity, anchor, isFollowing, isGrounded)
   - `_trackedNekos` list holds all spawned nekos with their state (max 3)
   - `_activeImage` reference to currently tracked ARTrackedImage
+  - `_nekosWaitingForNavMesh` counter for UX feedback
   - **multispawn**: position jump detection triggers new neko spawn at new location
   - **multitrack**: following neko syncs to image position; falls on tracking loss/limited
   - robust tracking loss detection in Update() (handles TrackingState.Limited, not just OnImageLost)
   - main neko vs friend neko logic (first spawn = main, rest = friend with random texture)
   - bowl spawning on plane touch
   - max neko limit enforcement (default 3)
+  - **navmesh UX hooks**: `NotifyNekoNavMeshFailed()` / `NotifyNekoNavMeshReady()` for state tracking
 - [x] `AREntityNeko` - neko entity with:
   - texture loading from Resources/NekoTextures by ID (0-44)
   - SetTextureId() public method
   - RandomizeTextureId() private method (auto-called if tagged "NekoFriend")
   - periodic Blink() with configurable interval and duration
   - StartFollowing() / StopFollowing() for image tracking (unparents, resets grounded state)
-  - Fall() and Fall(Action onComplete) - uses PlaneHandling.TryProjectToPlane(), sets _isGrounded
+  - Fall() and Fall(Action onComplete) - uses PlaneHandling.TryProjectToPlane(), sets _isGrounded, **snaps to navmesh after landing**
   - **continuous ground stabilisation**: timer-based projection to nearest plane (toggleable via enableGroundStabilisation)
   - WalkTo(Vector3) - choppy stop-motion walk animation with alternating z-tilt
-  - Jump() - sine-curve jump animation in place
+  - **improved walk animation** (dec 18 2024):
+    - `walkSpeed` default 0.5 (was 1.0)
+    - `walkStepDuration` default 0.08s (was 0.15s) - more frequent steps
+    - `walkStepDistanceMultiplier` default 0.5 - smaller step distances
+    - `walkTiltAngle` default 15° (was 25°) - less exaggerated tilt
+  - Jump() - **bounce easing** via EaseOutBack curve with configurable `jumpBounceFactor`
   - **direct AR object awareness** via static events:
     - `OnNekoSpawned` static event - fired when any neko spawns
     - `OnNekoDestroyed` static event - fired when any neko is destroyed
@@ -230,8 +237,8 @@ Assets/Scripts/
     - `Idle` - wait random interval (idleWaitMin to idleWaitMax), then transition to Roaming
     - `Roaming` - sample random NavMesh point within roamRadius, walk to it, return to Idle (INTERRUPTIBLE by bowl/friend)
     - `MovingToBowl` - walk toward active bowl (MainNeko only)
-    - `Eating` - consume from bowl, call OnFed() hook, return to Idle
-    - `PlayingWithFriend` - staggered jump sequence with friend, call OnPlayedWithFriend() hook (NOT INTERRUPTIBLE)
+    - `Eating` - **5 seconds of continuous jumping** (configurable via `eatingDuration`), then consume bowl, call OnFed() hook
+    - `PlayingWithFriend` - **simultaneous-but-offset jump** sequence (main jumps, friend jumps after `friendJumpDelay`), call OnPlayedWithFriend() hook (NOT INTERRUPTIBLE)
   - **notification methods** (called by CoreGameplay):
     - NotifyBowlPlaced() - interrupts Roaming/Idle to go eat (queued if PlayingWithFriend)
     - NotifyFriendSpawned(AREntityNeko) - interrupts Roaming/Idle to play (queued if Eating/Playing)
@@ -241,10 +248,14 @@ Assets/Scripts/
     - OnPetted() - called when neko is petted (placeholder)
     - OnPlayedWithFriend() - called after playing with friend
   - LookAt(Vector3) - rotates to face target (Y-axis only)
+  - EaseOutBack(t, bounceFactor) - helper for bounce easing curves
 - [x] `AREntityBowl` - bowl entity with:
   - **direct AR object awareness** via static events:
     - `OnBowlSpawned` static event - fired when any bowl spawns
     - `OnBowlDestroyed` static event - fired when any bowl is destroyed
+  - **continuous ground stabilisation** (dec 18 2024): timer-based projection to nearest plane
+    - `enableGroundStabilisation`, `stabilisationInterval`, `stabilisationThreshold` fields
+    - same pattern as AREntityNeko for AR drift handling
   - `isFull` public property (default true)
   - `Consume(AREntityNeko)` - sets isFull to false, fires OnConsumed event
   - `Refill()` - sets isFull to true

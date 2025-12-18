@@ -61,19 +61,25 @@ namespace PokkatCore
         private float blinkDuration = 0.15f;
 
         [Header("Movement Settings")] [Tooltip("metres per second")] [SerializeField]
-        private float walkSpeed = 1f;
+        private float walkSpeed = 0.5f;
 
         [Tooltip("seconds per step")] [SerializeField]
-        private float walkStepDuration = 0.15f;
+        private float walkStepDuration = 0.08f;
+
+        [Tooltip("step distance multiplier")] [SerializeField]
+        private float walkStepDistanceMultiplier = 0.5f;
 
         [Tooltip("tilt angle in degrees")] [SerializeField]
-        private float walkTiltAngle = 25f;
+        private float walkTiltAngle = 15f;
 
         [Tooltip("jump height in metres")] [SerializeField]
         private float jumpHeight = 0.15f;
 
         [Tooltip("jump duration in seconds")] [SerializeField]
         private float jumpDuration = 0.3f;
+
+        [Tooltip("bounce factor for jump easing (0=sine, 1=full bounce)")] [SerializeField]
+        private float jumpBounceFactor = 0.3f;
 
         [Tooltip("fall speed in metres per second")] [SerializeField]
         private float fallSpeed = 2f;
@@ -101,6 +107,9 @@ namespace PokkatCore
 
         [Tooltip("number of jumps when playing")] [SerializeField]
         private int playJumpCount = 3;
+
+        [Header("Eating Settings")] [Tooltip("eating duration in seconds")] [SerializeField]
+        private float eatingDuration = 5f;
 
         /// <summary>
         ///     cached renderers for texture application
@@ -463,7 +472,7 @@ namespace PokkatCore
         /// <summary>
         ///     performs a single jump in place
         /// </summary>
-        private void Jump()
+        internal void Jump()
         {
             if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
             _movementCoroutine = StartCoroutine(JumpRoutine());
@@ -513,7 +522,19 @@ namespace PokkatCore
             transform.position = targetPosition;
             _isGrounded = true;
 
-            // Logkat.Out($"AREntityNeko: [Debug] landed at {transform.position}");
+            // try to snap to nearest navmesh point for roaming/movement
+            if (NavMesh.SamplePosition(transform.position, out var navHit, 2f, NavMesh.AllAreas))
+            {
+                transform.position = navHit.position;
+                Logkat.Out($"AREntityNeko: snapped to navmesh at {navHit.position}");
+                CoreGameplay.instance?.NotifyNekoNavMeshReady();
+            }
+            else
+            {
+                Logkat.Warn($"AREntityNeko: no navmesh nearby after landing at {transform.position}");
+                CoreGameplay.instance?.NotifyNekoNavMeshFailed();
+            }
+
             _movementCoroutine = null;
             onComplete?.Invoke();
         }
@@ -544,7 +565,7 @@ namespace PokkatCore
                 }
 
                 // move forward in discrete steps (choppy/stop-motion)
-                var stepDistance = walkSpeed * walkStepDuration;
+                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
 
                 tiltLeft = !tiltLeft;
@@ -561,7 +582,7 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     coroutine for a single jump with sine curve
+        ///     coroutine for a single jump with bounce easing
         /// </summary>
         private IEnumerator JumpRoutine()
         {
@@ -573,11 +594,14 @@ namespace PokkatCore
             while (elapsed < jumpDuration)
             {
                 elapsed += Time.deltaTime;
-                var t = elapsed / jumpDuration;
+                var t = Mathf.Clamp01(elapsed / jumpDuration);
 
-                // sine curve for smooth up-down arc
-                var heightOffset = Mathf.Sin(t * Mathf.PI) * jumpHeight;
-                transform.position = startPos + Vector3.up * heightOffset;
+                // ease-out-back curve for bouncy feel
+                var easedT = EaseOutBack(t, jumpBounceFactor);
+
+                // parabolic arc using eased time (peaks at t=0.5)
+                var heightOffset = 4f * easedT * (1f - easedT) * jumpHeight;
+                transform.position = startPos + Vector3.up * Mathf.Max(0f, heightOffset);
 
                 yield return null;
             }
@@ -587,6 +611,18 @@ namespace PokkatCore
 
             Logkat.Out("AREntityNeko: finished jumping");
             _movementCoroutine = null;
+        }
+
+        /// <summary>
+        ///     ease-out-back curve for bouncy animations
+        /// </summary>
+        /// <param name="t">normalised time (0-1)</param>
+        /// <param name="bounceFactor">bounce intensity (0=none, 1=full)</param>
+        private static float EaseOutBack(float t, float bounceFactor)
+        {
+            var c1 = 1.70158f * bounceFactor;
+            var c3 = c1 + 1f;
+            return 1f + c3 * Mathf.Pow(t - 1f, 3f) + c1 * Mathf.Pow(t - 1f, 2f);
         }
 
         #region FSM State Transitions
@@ -859,7 +895,7 @@ namespace PokkatCore
         private IEnumerator RoamingStateRoutine()
         {
             // first verify neko is on or near navmesh
-            if (!NavMesh.SamplePosition(transform.position, out var currentNavPos, 1f, NavMesh.AllAreas))
+            if (!NavMesh.SamplePosition(transform.position, out _, 1f, NavMesh.AllAreas))
             {
                 Logkat.Warn($"AREntityNeko: not on navmesh at {transform.position}, staying idle");
                 TransitionToState(NekoState.Idle);
@@ -907,7 +943,7 @@ namespace PokkatCore
                     transform.rotation = targetRotation * tiltRotation;
                 }
 
-                var stepDistance = walkSpeed * walkStepDuration;
+                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
 
                 tiltLeft = !tiltLeft;
@@ -954,7 +990,7 @@ namespace PokkatCore
                     transform.rotation = targetRotation * tiltRotation;
                 }
 
-                var stepDistance = walkSpeed * walkStepDuration;
+                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
                 transform.position = Vector3.MoveTowards(transform.position, bowlPosition, stepDistance);
 
                 tiltLeft = !tiltLeft;
@@ -983,12 +1019,15 @@ namespace PokkatCore
             // face the bowl
             LookAt(gameplay.activeBowl.transform.position);
 
-            // eating animation (simple blink sequence)
+            // eating animation: continuous jumping for eatingDuration seconds
             Logkat.Out("AREntityNeko: eating from bowl");
-            for (var i = 0; i < 3; i++)
+            var elapsed = 0f;
+            while (elapsed < eatingDuration)
             {
                 Blink();
-                yield return new WaitForSeconds(0.5f);
+                Jump();
+                yield return new WaitForSeconds(jumpDuration + 0.1f);
+                elapsed += jumpDuration + 0.1f;
             }
 
             // consume the bowl
@@ -1028,31 +1067,39 @@ namespace PokkatCore
 
             Logkat.Out("AREntityNeko: playing with friend!");
 
-            // staggered jump sequence
-            for (var i = 0; i < playJumpCount; i++)
+            // simultaneous jump sequence with offset (main neko only controls the loop)
+            if (CompareTag("NekoMain"))
             {
-                // main neko jumps first
-                if (CompareTag("NekoMain"))
+                for (var i = 0; i < playJumpCount; i++)
                 {
+                    // main neko jumps immediately
                     Jump();
-                    yield return new WaitForSeconds(friendJumpDelay);
-                }
-                else
-                {
-                    // friend waits then jumps
-                    yield return new WaitForSeconds(friendJumpDelay);
-                    Jump();
+                    // friend jumps after small delay (both are now jumping)
+                    StartCoroutine(DelayedFriendJump(friend, friendJumpDelay));
+
+                    // wait for both jumps to complete
+                    yield return new WaitForSeconds(jumpDuration + friendJumpDelay + 0.1f);
                 }
 
-                // wait for jump to complete
-                yield return new WaitForSeconds(jumpDuration);
-
-                // small pause between jumps
-                yield return new WaitForSeconds(0.2f);
+                OnPlayedWithFriend();
+            }
+            else
+            {
+                // friend neko just waits for main to finish controlling the sequence
+                yield return new WaitForSeconds((jumpDuration + friendJumpDelay + 0.1f) * playJumpCount);
+                OnPlayedWithFriend();
             }
 
-            OnPlayedWithFriend();
             TransitionToState(NekoState.Idle);
+        }
+
+        /// <summary>
+        ///     helper coroutine to make friend jump after a delay
+        /// </summary>
+        private static IEnumerator DelayedFriendJump(AREntityNeko friend, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            friend.Jump();
         }
 
         /// <summary>

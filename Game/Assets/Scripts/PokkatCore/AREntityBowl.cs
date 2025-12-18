@@ -11,6 +11,20 @@ namespace PokkatCore
 {
     public class AREntityBowl : MonoBehaviour
     {
+        [Header("Ground Stabilisation")] [Tooltip("project to nearest plane when spawned")] [SerializeField]
+        private bool enableGroundStabilisation = true;
+
+        [Tooltip("seconds between checks")] [SerializeField]
+        private float stabilisationInterval = 0.5f;
+
+        [Tooltip("minimum drift to stabilise")] [SerializeField]
+        private float stabilisationThreshold = 0.02f;
+
+        /// <summary>
+        ///     timer for ground stabilisation interval
+        /// </summary>
+        private float _stabilisationTimer;
+
         /// <summary>
         ///     whether the bowl has food in it
         /// </summary>
@@ -30,10 +44,37 @@ namespace PokkatCore
             Logkat.Out("AREntityBowl: broadcasted spawn event");
         }
 
+        private void Update()
+        {
+            UpdateGroundStabilisation();
+        }
+
         private void OnDestroy()
         {
             // broadcast destroy event
             OnBowlDestroyed?.Invoke(this);
+        }
+
+        /// <summary>
+        ///     handles ground stabilisation (timer-based plane projection)
+        /// </summary>
+        private void UpdateGroundStabilisation()
+        {
+            if (!enableGroundStabilisation) return;
+
+            _stabilisationTimer -= Time.deltaTime;
+            if (_stabilisationTimer > 0f) return;
+            _stabilisationTimer = stabilisationInterval;
+
+            var gameplay = CoreGameplay.instance;
+            if (!gameplay || !gameplay.planes) return;
+
+            if (!gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos)) return;
+
+            var drift = Vector3.Distance(transform.position, projectedPos);
+            if (drift < stabilisationThreshold) return;
+
+            transform.position = projectedPos;
         }
 
         /// <summary>
