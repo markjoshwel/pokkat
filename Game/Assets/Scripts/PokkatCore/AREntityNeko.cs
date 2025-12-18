@@ -76,7 +76,7 @@ namespace PokkatCore
         private float jumpHeight = 0.15f;
 
         [Tooltip("jump duration in seconds")] [SerializeField]
-        private float jumpDuration = 0.3f;
+        private float jumpDuration = 0.5f;
 
         [Tooltip("bounce factor for jump easing (0=sine, 1=full bounce)")] [SerializeField]
         private float jumpBounceFactor = 0.3f;
@@ -472,7 +472,7 @@ namespace PokkatCore
         /// <summary>
         ///     performs a single jump in place
         /// </summary>
-        internal void Jump()
+        private void Jump()
         {
             if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
             _movementCoroutine = StartCoroutine(JumpRoutine());
@@ -484,7 +484,7 @@ namespace PokkatCore
         /// <param name="onComplete">optional callback invoked when fall completes</param>
         private IEnumerator FallRoutine(Action onComplete)
         {
-            // Logkat.Out($"AREntityNeko: [Debug] FallRoutine started, currentPos={transform.position}");
+            Logkat.Out($"AREntityNeko: [Debug] FallRoutine started, currentPos={transform.position}");
 
             var gameplay = CoreGameplay.instance;
             if (!gameplay || !gameplay.planes)
@@ -499,18 +499,18 @@ namespace PokkatCore
             if (gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos))
             {
                 targetPosition = projectedPos;
-                // Logkat.Out($"AREntityNeko: [Debug] projected to plane, targetPos={targetPosition}");
+                Logkat.Dev($"AREntityNeko: projected to plane, targetPos={targetPosition}");
             }
             else
             {
                 // fallback: no plane available, snap to y=0
-                // Logkat.Warn("AREntityNeko: [Debug] no plane found, falling to y=0");
+                Logkat.Dev("AREntityNeko: no plane found, falling to y=0");
                 targetPosition = transform.position;
                 targetPosition.y = 0f;
             }
 
             // fall toward target position
-            // Logkat.Out($"AREntityNeko: [Debug] falling from {transform.position} to {targetPosition}");
+            Logkat.Dev($"AREntityNeko: falling from {transform.position} to {targetPosition}");
             while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
             {
                 var fallStep = fallSpeed * Time.deltaTime;
@@ -653,6 +653,9 @@ namespace PokkatCore
                 transform.eulerAngles = rotation;
             }
 
+            // snap to ground to prevent floating after interrupted jump/movement
+            SnapToGround();
+
             var previousState = _currentState;
             _currentState = newState;
             Logkat.Out($"AREntityNeko: {previousState} -> {newState}");
@@ -673,6 +676,21 @@ namespace PokkatCore
         #endregion
 
         #region Helper Methods
+
+        /// <summary>
+        ///     snaps neko to ground if grounded (prevents floating after interrupted jumps)
+        /// </summary>
+        private void SnapToGround()
+        {
+            if (!_isGrounded) return;
+            var gameplay = CoreGameplay.instance;
+            if (!gameplay || !gameplay.planes) return;
+            if (gameplay.planes.TryProjectToPlane(transform.position, out var projected))
+            {
+                Logkat.Dev($"AREntityNeko: snapped to ground from {transform.position} to {projected}");
+                transform.position = projected;
+            }
+        }
 
         /// <summary>
         ///     rotates to face a target position (Y-axis only)
@@ -898,9 +916,13 @@ namespace PokkatCore
             if (!NavMesh.SamplePosition(transform.position, out _, 1f, NavMesh.AllAreas))
             {
                 Logkat.Warn($"AREntityNeko: not on navmesh at {transform.position}, staying idle");
+                CoreGameplay.instance?.NotifyNekoNavMeshFailed();
                 TransitionToState(NekoState.Idle);
                 yield break;
             }
+
+            // neko is on navmesh - notify success (clears NekoWaitingForNavMesh state if set)
+            CoreGameplay.instance?.NotifyNekoNavMeshReady();
 
             // sample random point on navmesh within roam radius
             var randomDirection = Random.insideUnitSphere * roamRadius;
@@ -971,6 +993,9 @@ namespace PokkatCore
                 yield break;
             }
 
+            // if we can walk to bowl, we're on navmesh - notify ready
+            CoreGameplay.instance?.NotifyNekoNavMeshReady();
+
             var bowlPosition = gameplay.activeBowl.transform.position;
             Logkat.Out($"AREntityNeko: moving to bowl at {bowlPosition}");
 
@@ -1033,6 +1058,9 @@ namespace PokkatCore
             // consume the bowl
             gameplay.activeBowl.Consume(this);
             OnFed();
+
+            // snap to ground in case bowl was on different plane
+            SnapToGround();
 
             TransitionToState(NekoState.Idle);
         }
@@ -1153,4 +1181,3 @@ namespace PokkatCore
         #endregion
     }
 }
-

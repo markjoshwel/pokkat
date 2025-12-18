@@ -272,8 +272,8 @@ namespace PokkatCore
         /// <param name="args">event payload from the ar plane manager</param>
         private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARPlane> args)
         {
-            // Logkat.Out(
-            //     $"PlaneHandling: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
+            Logkat.Out(
+                $"PlaneHandlinging: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
 
             // fire the planes updated event for any subscribers needing continuous updates
             // (e.g., runtime navmesh baking)

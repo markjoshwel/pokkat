@@ -89,6 +89,9 @@ namespace PokkatCore
         [Tooltip("minimum distance in metres for new spawn")] [SerializeField]
         private float multiImageDistanceThreshold = 0.25f;
 
+        [Tooltip("seconds between neko spawns")] [SerializeField]
+        private float spawnCooldown = 1.0f;
+
         /// <summary>
         ///     all tracked neko instances (max 3)
         /// </summary>
@@ -98,6 +101,11 @@ namespace PokkatCore
         ///     the currently active bowl instance (singleton - only one allowed)
         /// </summary>
         private AREntityBowl _activeBowl;
+
+        /// <summary>
+        ///     last spawn time for cooldown check
+        /// </summary>
+        private float _lastSpawnTime = -999f;
 
         /// <summary>
         ///     the currently active tracked image reference
@@ -182,14 +190,15 @@ namespace PokkatCore
             // no active image reference
             if (_activeImage == null)
             {
-                // Logkat.Out("CoreGameplay: [Debug] followingNeko exists but _activeImage is null, triggering fall");
+                Logkat.Dev("CoreGameplay: followingNeko exists but _activeImage is null, triggering fall");
                 TriggerNekoFall(followingNeko);
                 return;
             }
 
             // check tracking state
             var trackingState = _activeImage.trackingState;
-            // Logkat.Out($"CoreGameplay: [Debug] UpdateFollowingNeko - state={trackingState}, imagePos={_activeImage.transform.position}, nekoPos={followingNeko.entity.transform.position}");
+            Logkat.Dev(
+                $"CoreGameplay: UpdateFollowingNeko - state={trackingState}, imagePos={_activeImage.transform.position}, nekoPos={followingNeko.Entity.transform.position}");
 
             if (trackingState == TrackingState.Tracking)
             {
@@ -200,7 +209,7 @@ namespace PokkatCore
             else
             {
                 // tracking lost or limited - trigger fall
-                // Logkat.Out($"CoreGameplay: [Debug] tracking state is {trackingState}, triggering fall");
+                Logkat.Dev($"CoreGameplay: tracking state is {trackingState}, triggering fall");
                 TriggerNekoFall(followingNeko);
             }
         }
@@ -219,7 +228,7 @@ namespace PokkatCore
         /// </summary>
         private void TriggerNekoFall(TrackedNekoInstance neko)
         {
-            // Logkat.Out($"CoreGameplay: [Debug] TriggerNekoFall called, pos={neko.entity.transform.position}");
+            Logkat.Dev($"CoreGameplay: TriggerNekoFall called, pos={neko.Entity.transform.position}");
             neko.IsFollowing = false;
             neko.Entity.StopFollowing();
             neko.Entity.Fall(() =>
@@ -227,7 +236,7 @@ namespace PokkatCore
                 // callback when fall completes
                 neko.IsGrounded = true;
                 neko.AnchorPosition = neko.Entity.transform.position;
-                // Logkat.Out($"CoreGameplay: [Debug] neko landed, anchorPosition={neko.anchorPosition}");
+                Logkat.Dev($"CoreGameplay: neko landed, anchorPosition={neko.AnchorPosition}");
             });
         }
 
@@ -264,6 +273,7 @@ namespace PokkatCore
                     gameState = CoreGameplayState.Ok;
                     break;
                 case CoreGameplayState.HasPlaneWaitingForTracker:
+                case CoreGameplayState.NekoWaitingForNavMesh:
                 case CoreGameplayState.Ok:
                     break;
                 default:
@@ -313,7 +323,8 @@ namespace PokkatCore
         /// </summary>
         private void OnImageDetected(HandledTrackedImage tracked)
         {
-            // Logkat.Out($"CoreGameplay: [Debug] OnImageDetected - pos={tracked.Image.transform.position}, id={tracked.Id}");
+            Logkat.Dev(
+                $"CoreGameplay: OnImageDetected - pos={tracked.Image.transform.position}, id={tracked.Id}");
 
             // update game state
             switch (gameState)
@@ -325,6 +336,7 @@ namespace PokkatCore
                     gameState = CoreGameplayState.Ok;
                     break;
                 case CoreGameplayState.HasTrackerWaitingForPlane:
+                case CoreGameplayState.NekoWaitingForNavMesh:
                 case CoreGameplayState.Ok:
                     break;
                 default:
@@ -345,19 +357,21 @@ namespace PokkatCore
                     break;
                 }
 
-            // Logkat.Out($"CoreGameplay: [Debug] followingNeko={followingNeko != null}, totalNekos={_trackedNekos.Count}");
+            Logkat.Dev(
+                $"CoreGameplay: followingNeko={followingNeko != null}, totalNekos={_trackedNekos.Count}");
 
             // case 1: a neko is currently following
             if (followingNeko != null)
             {
                 // check if image position jumped (different physical card)
                 var distanceFromFollowing = Vector3.Distance(currentPos, followingNeko.AnchorPosition);
-                // Logkat.Out($"CoreGameplay: [Debug] distanceFromFollowing={distanceFromFollowing:F3}, threshold={multiImageDistanceThreshold}");
+                Logkat.Dev(
+                    $"CoreGameplay: distanceFromFollowing={distanceFromFollowing:F3}, threshold={multiImageDistanceThreshold}");
 
                 if (distanceFromFollowing > multiImageDistanceThreshold)
                 {
                     // image jumped! ground the current neko and spawn new one
-                    // Logkat.Out($"CoreGameplay: [Debug] position jump detected, grounding current neko and spawning new");
+                    Logkat.Dev("CoreGameplay: position jump detected, grounding current neko and spawning new");
                     TriggerNekoFall(followingNeko);
                     TrySpawnNewNeko(currentPos);
                 }
@@ -379,7 +393,7 @@ namespace PokkatCore
                 var nekoWorldPos = neko.Entity.transform.position;
                 var distance = Vector3.Distance(currentPos, nekoWorldPos);
 
-                // Logkat.Out($"CoreGameplay: [Debug] distance to grounded neko={distance:F3}");
+                Logkat.Dev($"CoreGameplay: distance to grounded neko={distance:F3}");
                 if (distance < multiImageDistanceThreshold)
                 {
                     isFarFromAll = false;
@@ -388,9 +402,12 @@ namespace PokkatCore
             }
 
             if (isFarFromAll)
-                // Logkat.Out($"CoreGameplay: [Debug] far from all grounded nekos, spawning new");
+            {
+                Logkat.Dev("CoreGameplay: far from all grounded nekos, spawning new");
                 TrySpawnNewNeko(currentPos);
-            // Logkat.Out($"CoreGameplay: [Debug] near existing grounded neko, not spawning");
+            }
+
+            Logkat.Dev("CoreGameplay: near existing grounded neko, not spawning");
         }
 
         /// <summary>
@@ -401,10 +418,20 @@ namespace PokkatCore
             // clean up any null entries (destroyed nekos)
             _trackedNekos.RemoveAll(n => n.Entity == null || n.GameObject == null);
 
+            // enforce spawn cooldown
+            if (Time.time - _lastSpawnTime < spawnCooldown)
+            {
+                Logkat.Dev($"CoreGameplay: spawn cooldown active ({Time.time - _lastSpawnTime:F2}s < {spawnCooldown}s)");
+                return;
+            }
+
             // enforce max neko limit
             if (_trackedNekos.Count >= maxActiveNekos)
-                // Logkat.Out($"CoreGameplay: [Debug] max nekos ({maxActiveNekos}) reached, count={_trackedNekos.Count}, skipping spawn");
+            {
+                Logkat.Dev(
+                    $"CoreGameplay: max nekos ({maxActiveNekos}) reached, count={_trackedNekos.Count}, skipping spawn");
                 return;
+            }
 
             // determine prefab
             var isMainNeko = !_mainNekoSpawned;
@@ -416,7 +443,8 @@ namespace PokkatCore
                 return;
             }
 
-            // Logkat.Out($"CoreGameplay: [Debug] spawning neko at {position}, isMain={isMainNeko}, currentCount={_trackedNekos.Count}");
+            Logkat.Dev(
+                $"CoreGameplay: spawning neko at {position}, isMain={isMainNeko}, currentCount={_trackedNekos.Count}");
 
             // calculate rotation to face the camera
             var toCamera = playerCamera.transform.position - position;
@@ -435,6 +463,9 @@ namespace PokkatCore
                 Destroy(spawned);
                 return;
             }
+
+            // update spawn time
+            _lastSpawnTime = Time.time;
 
             // create tracked instance
             var nekoInstance = new TrackedNekoInstance
@@ -518,7 +549,7 @@ namespace PokkatCore
         /// </summary>
         private void OnImageLost(HandledTrackedImage tracked)
         {
-            // Logkat.Out($"CoreGameplay: [Debug] OnImageLost - id={tracked.Id}");
+            Logkat.Dev($"CoreGameplay: OnImageLost - id={tracked.Id}");
 
             // clear active image if it matches
             if (_activeImage == tracked.Image) _activeImage = null;
@@ -526,7 +557,7 @@ namespace PokkatCore
             // find and ground any following neko
             foreach (var neko in _trackedNekos.Where(neko => neko.IsFollowing))
             {
-                // Logkat.Out($"CoreGameplay: [Debug] grounding following neko due to image loss");
+                Logkat.Dev("CoreGameplay: grounding following neko due to image loss");
                 TriggerNekoFall(neko);
                 break;
             }

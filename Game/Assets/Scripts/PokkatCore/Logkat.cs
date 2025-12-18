@@ -14,6 +14,11 @@ namespace PokkatCore
     public static class Logkat
     {
         /// <summary>
+        ///     whether verbose/development logging is enabled
+        /// </summary>
+        public const bool VerboseLogging = true;
+
+        /// <summary>
         ///     minimum seconds between identical log messages (spam prevention)
         /// </summary>
         private const float RepeatCooldownSeconds = 1.0f;
@@ -64,6 +69,14 @@ namespace PokkatCore
         {
             if (HasRecentlyBeenLogged(message)) return;
             Debug.Log($"(Pokkat) OUT: {message}");
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void Dev(string message)
+        {
+            if (!VerboseLogging) return;
+            if (HasRecentlyBeenLogged(message)) return;
+            Debug.Log($"(Pokkat Verbose) DEV: {message}");
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

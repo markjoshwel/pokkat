@@ -9,13 +9,13 @@ using UnityEngine;
 
 namespace PokkatCore
 {
-    public class AREntityBowl : MonoBehaviour
+    public sealed class AREntityBowl : MonoBehaviour
     {
         [Header("Ground Stabilisation")] [Tooltip("project to nearest plane when spawned")] [SerializeField]
         private bool enableGroundStabilisation = true;
 
         [Tooltip("seconds between checks")] [SerializeField]
-        private float stabilisationInterval = 0.5f;
+        private float stabilisationInterval = 0.1f;
 
         [Tooltip("minimum drift to stabilise")] [SerializeField]
         private float stabilisationThreshold = 0.02f;
@@ -24,6 +24,16 @@ namespace PokkatCore
         ///     timer for ground stabilisation interval
         /// </summary>
         private float _stabilisationTimer;
+
+        /// <summary>
+        ///     spawn position for XZ locking (like grounded neko)
+        /// </summary>
+        private Vector3 _spawnPosition;
+
+        /// <summary>
+        ///     whether the bowl has been grounded to a plane
+        /// </summary>
+        private bool _isGrounded;
 
         /// <summary>
         ///     whether the bowl has food in it
@@ -38,6 +48,21 @@ namespace PokkatCore
         private void Start()
         {
             Logkat.Out("AREntityBowl: Start/Configure OK");
+
+            // unparent from plane so we can lock position (like grounded neko)
+            // parenting causes bowl to drift with AR plane adjustments
+            if (transform.parent != null)
+            {
+                Logkat.Dev($"AREntityBowl: unparenting from {transform.parent.name}");
+                transform.SetParent(null, true);
+            }
+
+            // store spawn position for XZ locking
+            _spawnPosition = transform.position;
+            Logkat.Dev($"AREntityBowl: spawn position = {_spawnPosition}");
+
+            // immediately project to ground (like neko fall)
+            ProjectToGround();
 
             // broadcast spawn event for direct AR object awareness
             OnBowlSpawned?.Invoke(this);
@@ -56,11 +81,37 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     handles ground stabilisation (timer-based plane projection)
+        ///     projects the bowl to the nearest plane surface (like neko fall)
+        /// </summary>
+        private void ProjectToGround()
+        {
+            var gameplay = CoreGameplay.instance;
+            if (!gameplay || !gameplay.planes)
+            {
+                Logkat.Dev("AREntityBowl: no CoreGameplay/planes, cannot project");
+                return;
+            }
+
+            if (gameplay.planes.TryProjectToPlane(transform.position, out var projected))
+            {
+                Logkat.Dev($"AREntityBowl: projected from {transform.position} to {projected}");
+                transform.position = projected;
+                _spawnPosition = new Vector3(_spawnPosition.x, projected.y, _spawnPosition.z);
+                _isGrounded = true;
+            }
+            else
+            {
+                Logkat.Dev($"AREntityBowl: failed to project {transform.position} to plane");
+            }
+        }
+
+        /// <summary>
+        ///     handles ground stabilisation (timer-based plane projection with XZ lock)
         /// </summary>
         private void UpdateGroundStabilisation()
         {
             if (!enableGroundStabilisation) return;
+            if (!_isGrounded) return;
 
             _stabilisationTimer -= Time.deltaTime;
             if (_stabilisationTimer > 0f) return;
@@ -69,12 +120,25 @@ namespace PokkatCore
             var gameplay = CoreGameplay.instance;
             if (!gameplay || !gameplay.planes) return;
 
-            if (!gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos)) return;
+            if (!gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos))
+            {
+                Logkat.Dev($"AREntityBowl: stabilisation failed, no plane at {transform.position}");
+                return;
+            }
 
-            var drift = Vector3.Distance(transform.position, projectedPos);
-            if (drift < stabilisationThreshold) return;
+            var yDrift = Mathf.Abs(transform.position.y - projectedPos.y);
+            var xzDrift = Vector2.Distance(
+                new Vector2(transform.position.x, transform.position.z),
+                new Vector2(_spawnPosition.x, _spawnPosition.z)
+            );
 
-            transform.position = projectedPos;
+            // lock XZ to spawn position, only allow Y stabilisation
+            if (yDrift >= stabilisationThreshold || xzDrift >= stabilisationThreshold)
+            {
+                var stablePos = new Vector3(_spawnPosition.x, projectedPos.y, _spawnPosition.z);
+                Logkat.Dev($"AREntityBowl: stabilising from {transform.position} to {stablePos} (yDrift={yDrift:F3}, xzDrift={xzDrift:F3})");
+                transform.position = stablePos;
+            }
         }
 
         /// <summary>
@@ -134,7 +198,7 @@ namespace PokkatCore
         ///     skeleton hook for stats integration when neko consumes from bowl
         /// </summary>
         /// <param name="consumer">the neko that consumed from this bowl</param>
-        protected virtual void OnNekoConsumed(AREntityNeko consumer)
+        private void OnNekoConsumed(AREntityNeko consumer)
         {
             Logkat.Out($"AREntityBowl: OnNekoConsumed called for {consumer.name}");
         }
