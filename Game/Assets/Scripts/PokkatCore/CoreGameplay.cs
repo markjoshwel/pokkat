@@ -70,8 +70,8 @@ namespace PokkatCore
         [Tooltip("persistent game statistics")] [SerializeField]
         private Statskeeper statskeeper;
 
-        [Tooltip("ar camera for spawn orientation")] [SerializeField]
-        private Camera arCamera;
+        [Tooltip("player/AR camera for spawn orientation")] [SerializeField]
+        private Camera playerCamera;
 
         [Header("Prefabs")] [Tooltip("main neko on first image detection")] [SerializeField]
         private GameObject mainNekoPrefab;
@@ -92,6 +92,11 @@ namespace PokkatCore
         ///     all tracked neko instances (max 3)
         /// </summary>
         private readonly List<TrackedNekoInstance> _trackedNekos = new();
+
+        /// <summary>
+        ///     the currently active bowl instance (singleton - only one allowed)
+        /// </summary>
+        private AREntityBowl _activeBowl;
 
         /// <summary>
         ///     the currently active tracked image reference
@@ -117,6 +122,11 @@ namespace PokkatCore
         ///     public accessor for PlaneHandling (for AREntityNeko.Fall)
         /// </summary>
         public PlaneHandling planes => planeHandling;
+
+        /// <summary>
+        ///     public accessor for the active bowl (for neko behaviour)
+        /// </summary>
+        public AREntityBowl activeBowl => _activeBowl;
 
         private void Awake()
         {
@@ -220,7 +230,7 @@ namespace PokkatCore
             if (!imageHandling) Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
             if (!planeHandling) Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
             if (!statskeeper) Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
-            if (!arCamera) Logkat.Panic("CoreGameplay requires an AR Camera reference.");
+            if (!playerCamera) Logkat.Panic("CoreGameplay requires an AR Camera reference.");
         }
 
         private void Configure_SubscribeToEvents()
@@ -267,8 +277,29 @@ namespace PokkatCore
                 return;
             }
 
-            var spawned = planeHandling.SpawnClosest(bowlPrefab, interaction.Position, arCamera);
-            if (spawned) Logkat.Out($"CoreGameplay: spawned bowl at {interaction.Position}");
+            // destroy existing bowl if present (singleton bowl - only one allowed)
+            if (_activeBowl)
+            {
+                Logkat.Out("CoreGameplay: destroying existing bowl for replacement");
+                Destroy(_activeBowl.gameObject);
+                _activeBowl = null;
+            }
+
+            var spawned = planeHandling.SpawnClosest(bowlPrefab, interaction.Position, playerCamera);
+            if (!spawned) return;
+
+            _activeBowl = spawned.GetComponent<AREntityBowl>();
+            if (!_activeBowl)
+            {
+                Logkat.Warn("CoreGameplay: spawned bowl has no AREntityBowl component");
+                Destroy(spawned);
+                return;
+            }
+
+            Logkat.Out($"CoreGameplay: spawned bowl at {interaction.Position}");
+
+            // notify main neko that bowl was placed (interrupt roaming)
+            NotifyMainNekoBowlPlaced();
         }
 
         /// <summary>
@@ -341,7 +372,7 @@ namespace PokkatCore
                 // use current transform position, not anchor, because neko drifts with plane
                 var nekoWorldPos = neko.Entity.transform.position;
                 var distance = Vector3.Distance(currentPos, nekoWorldPos);
-                
+
                 // Logkat.Out($"CoreGameplay: [Debug] distance to grounded neko={distance:F3}");
                 if (distance < multiImageDistanceThreshold)
                 {
@@ -382,7 +413,7 @@ namespace PokkatCore
             // Logkat.Out($"CoreGameplay: [Debug] spawning neko at {position}, isMain={isMainNeko}, currentCount={_trackedNekos.Count}");
 
             // calculate rotation to face the camera
-            var toCamera = arCamera.transform.position - position;
+            var toCamera = playerCamera.transform.position - position;
             toCamera.y = 0; // keep upright, only rotate on Y axis
             var rotation = toCamera.sqrMagnitude > 0.001f
                 ? Quaternion.LookRotation(toCamera)
@@ -420,7 +451,31 @@ namespace PokkatCore
             else
             {
                 Logkat.Out("CoreGameplay: spawned FRIEND neko");
+
+                // notify main neko that a friend was spawned
+                var mainNeko = FindMainNeko();
+                if (mainNeko) mainNeko.StateNotifyFriendSpawned(nekoEntity);
             }
+        }
+
+        /// <summary>
+        ///     finds the main neko entity (tagged NekoMain)
+        /// </summary>
+        private AREntityNeko FindMainNeko()
+        {
+            foreach (var neko in _trackedNekos)
+                if (neko.Entity && neko.Entity.CompareTag("NekoMain"))
+                    return neko.Entity;
+            return null;
+        }
+
+        /// <summary>
+        ///     notifies main neko that a bowl was placed (interrupt roaming)
+        /// </summary>
+        private void NotifyMainNekoBowlPlaced()
+        {
+            var mainNeko = FindMainNeko();
+            if (mainNeko) mainNeko.StateNotifyBowlPlaced();
         }
 
         /// <summary>

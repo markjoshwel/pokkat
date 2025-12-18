@@ -170,6 +170,7 @@ Assets/Scripts/
   - OnPlaneReady event (fires once when minimum area threshold met, default 1.0m²)
   - OnPlanesUpdated event (fires on any plane change)
   - OnPlaneInteraction event (fires on touch, uses new input system)
+  - **OnNavMeshReady event** (fires once when navmesh is first baked successfully)
   - SpawnClosest() method (projects position onto closest plane, orients toward camera, parents to plane)
   - FindClosestPlane() public helper (handles fragmented AR tracking)
   - TryProjectToPlane(Vector3, out Vector3) - projects position onto nearest plane, returns success bool
@@ -214,6 +215,42 @@ Assets/Scripts/
   - **continuous ground stabilisation**: timer-based projection to nearest plane (toggleable via enableGroundStabilisation)
   - WalkTo(Vector3) - choppy stop-motion walk animation with alternating z-tilt
   - Jump() - sine-curve jump animation in place
+  - **direct AR object awareness** via static events:
+    - `OnNekoSpawned` static event - fired when any neko spawns
+    - `OnNekoDestroyed` static event - fired when any neko is destroyed
+    - subscribes to `AREntityBowl.OnBowlSpawned` to detect bowls directly
+    - subscribes to `AREntityNeko.OnNekoSpawned` to detect friend nekos directly
+  - **touch interaction** (PlaneHandling pattern):
+    - `HandledNekoInteraction` wrapper struct (Neko, Position)
+    - `OnNekoInteraction` instance event - fired when this neko is tapped/clicked
+    - `UpdateTouchDetection()` per-frame raycast from Camera.main through touch point
+    - `TryGetTouchPosition()` input helper (Touchscreen + Mouse fallback)
+    - `OnNekoInteractionPetted()` subscribed handler - plays reaction (blink + jump if idle), calls `OnPetted()`
+  - **FSM (Finite State Machine)** with states:
+    - `Idle` - wait random interval (idleWaitMin to idleWaitMax), then transition to Roaming
+    - `Roaming` - sample random NavMesh point within roamRadius, walk to it, return to Idle (INTERRUPTIBLE by bowl/friend)
+    - `MovingToBowl` - walk toward active bowl (MainNeko only)
+    - `Eating` - consume from bowl, call OnFed() hook, return to Idle
+    - `PlayingWithFriend` - staggered jump sequence with friend, call OnPlayedWithFriend() hook (NOT INTERRUPTIBLE)
+  - **notification methods** (called by CoreGameplay):
+    - NotifyBowlPlaced() - interrupts Roaming/Idle to go eat (queued if PlayingWithFriend)
+    - NotifyFriendSpawned(AREntityNeko) - interrupts Roaming/Idle to play (queued if Eating/Playing)
+    - StartPlayingAsFriend(AREntityNeko) - initiates play state for friend nekos
+  - **skeleton stat hooks** (virtual methods for stats integration):
+    - OnFed() - called when neko eats from bowl
+    - OnPetted() - called when neko is petted (placeholder)
+    - OnPlayedWithFriend() - called after playing with friend
+  - LookAt(Vector3) - rotates to face target (Y-axis only)
+- [x] `AREntityBowl` - bowl entity with:
+  - **direct AR object awareness** via static events:
+    - `OnBowlSpawned` static event - fired when any bowl spawns
+    - `OnBowlDestroyed` static event - fired when any bowl is destroyed
+  - `isFull` public property (default true)
+  - `Consume(AREntityNeko)` - sets isFull to false, fires OnConsumed event
+  - `Refill()` - sets isFull to true
+  - `OnConsumed` event (Action<AREntityNeko>)
+  - `UpdateBowlVisual()` skeleton method (logs "mesh swap not implemented yet")
+  - `OnNekoConsumed(AREntityNeko)` virtual skeleton hook for stats integration
 
 ### multispawn & multitrack feature (dec 18 2024)
 
@@ -223,9 +260,28 @@ Assets/Scripts/
 - **multispawn**: track spawn positions per trackable; if detected position is > 0.25m from all known positions, spawn a new neko (max 3)
 - **multitrack**: the most recently spawned neko follows the tracked image position each frame; when TrackingState changes from Tracking to Limited/None (or image is removed), the neko falls to the nearest detected plane surface
 
+### neko FSM & bowl lifecycle (dec 18 2024)
+
+**bowl lifecycle (singleton)**:
+- only one bowl can exist at a time
+- tapping plane destroys existing bowl and spawns replacement
+- `CoreGameplay.activeBowl` provides public access to current bowl
+- on bowl spawn, main neko is notified via `NotifyBowlPlaced()`
+
+**neko FSM (tamagotchi-style)**:
+- states: Idle, Roaming, MovingToBowl, Eating, PlayingWithFriend
+- Roaming uses NavMesh.SamplePosition within configurable roamRadius
+- Roaming/Idle are interruptible by bowl placement or friend spawn
+- PlayingWithFriend/Eating are NOT interruptible (actions are queued)
+- staggered jump timing: main neko jumps, friend delays by friendJumpDelay seconds
+
+**stat hooks**:
+- OnFed(), OnPetted(), OnPlayedWithFriend() virtual methods in AREntityNeko
+- OnNekoConsumed(AREntityNeko) virtual method in AREntityBowl
+- these integrate with Statskeeper for hunger/happiness tracking
+
 ### stubs (not yet implemented)
 
-- [ ] `AREntityBowl` - currently just logs Awake/Start
 - [ ] `Statskeeper` - currently just logs Awake/Start
 
 ### prefab requirements
@@ -285,10 +341,22 @@ Assets/Scripts/
 | enableGroundStabilisation | continuously project to nearest plane when grounded (default true) |
 | stabilisationInterval | seconds between stabilisation checks (default 0.5) |
 | stabilisationThreshold | minimum drift to trigger stabilisation (default 0.02) |
+| roamRadius | roaming radius in metres for NavMesh sampling (default 0.5) |
+| idleWaitMin | minimum idle wait in seconds before roaming (default 2) |
+| idleWaitMax | maximum idle wait in seconds before roaming (default 5) |
+| friendJumpDelay | delay before friend jumps in play sequence (default 0.5) |
+| playJumpCount | number of jumps when playing with friend (default 3) |
+
+### inspector setup for AREntityBowl
+
+| field | description |
+|-------|-------------|
+| (no inspector fields yet) | isFull is runtime-only, visual swap not yet implemented |
 
 ### tags required
 
-- `"NekoFriend"` - for friend neko prefabs (triggers random texture on Awake)
+- `"NekoMain"` - for main neko prefab (receives bowl/friend notifications, initiates play)
+- `"NekoFriend"` - for friend neko prefabs (triggers random texture on Awake, follows main neko's play)
 - `"Bowl"` - for bowl gameobjects (future use)
 
 ## unity setup notes
@@ -318,5 +386,14 @@ public struct HandledPlaneInteraction
     public Vector3 Position;
     public Pose Pose;
     public ARPlane Plane;
+}
+```
+
+### HandledNekoInteraction
+```csharp
+public struct HandledNekoInteraction
+{
+    public AREntityNeko Neko;
+    public Vector3 Position;
 }
 ```

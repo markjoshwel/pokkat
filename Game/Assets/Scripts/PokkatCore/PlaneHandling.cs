@@ -52,25 +52,19 @@ namespace PokkatCore
         [Tooltip("touch interactions on planes")] [SerializeField]
         private ARRaycastManager raycastManager;
 
-        [Header("Detection Threshold")]
-        [Tooltip("minimum m² before firing ready event")]
-        [SerializeField]
+        [Header("Detection Threshold")] [Tooltip("minimum m² before firing ready event")] [SerializeField]
         private float minimumAreaSquareMeters = 1.0f;
 
         [Tooltip("fire ready event only once")] [SerializeField]
         private bool fireOnceOnly = true;
 
-        [Header("Runtime NavMesh Baking")]
-        [Tooltip("navmesh surface for runtime baking")]
-        [SerializeField]
+        [Header("Runtime NavMesh Baking")] [Tooltip("navmesh surface for runtime baking")] [SerializeField]
         private NavMeshSurface navMeshSurface;
 
-        [Tooltip("seconds between rebakes")]
-        [SerializeField]
+        [Tooltip("seconds between rebakes")] [SerializeField]
         private float cooldownSeconds = 2f;
 
-        [Tooltip("auto-bake on plane updates")]
-        [SerializeField]
+        [Tooltip("auto-bake on plane updates")] [SerializeField]
         private bool autoBakeOnPlaneUpdate = true;
 
         /// <summary>
@@ -79,14 +73,14 @@ namespace PokkatCore
         private readonly List<ARRaycastHit> _raycastHits = new();
 
         /// <summary>
-        ///     whether navmesh bake cooldown has passed
-        /// </summary>
-        private bool _canBake = true;
-
-        /// <summary>
         ///     coroutine handle for bake cooldown
         /// </summary>
         private Coroutine _bakeCooldownRoutine;
+
+        /// <summary>
+        ///     whether navmesh bake cooldown has passed
+        /// </summary>
+        private bool _canBake = true;
 
         /// <summary>
         ///     whether the plane detection threshold has been met
@@ -191,6 +185,11 @@ namespace PokkatCore
         ///     fired when a touch/tap hits a tracked plane
         /// </summary>
         public event Action<HandledPlaneInteraction> OnPlaneInteraction;
+
+        /// <summary>
+        ///     fired once when navmesh is baked for the first time
+        /// </summary>
+        public event Action OnNavMeshReady;
 
         /// <summary>
         ///     attempts to read touch/mouse input using the new input system
@@ -505,9 +504,14 @@ namespace PokkatCore
         /// </summary>
         private void BakeNavMesh()
         {
+            var wasReady = navMeshReady;
             navMeshSurface.BuildNavMesh();
             navMeshReady = true;
             Logkat.Out("PlaneHandling: navmesh baked successfully");
+
+            // fire event once on first bake
+            if (!wasReady)
+                OnNavMeshReady?.Invoke();
         }
 
         /// <summary>

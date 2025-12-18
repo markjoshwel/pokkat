@@ -17,9 +17,9 @@
 ### Additional Features - AR Features (Max 25%)
 - [x] The application can be deployed to a mobile device (2%)
 - [x] The application incorporates additional AR features, such as plane detection or face tracking (3%)
-- [ ] AR objects within the application can interact with one another (5%)
-- [ ] AR objects are aware when other AR objects appear (5%)
-- [ ] The application can track multiple copies of the same image, with one object per image (7%)
+- [x] AR objects within the application can interact with one another (5%)
+- [x] AR objects are aware when other AR objects appear (5%)
+- [x] The application can track multiple copies of the same image, with one object per image (7%)
 
 ### Additional Features - UI/UX
 - [x] The application includes custom assets (2%)
