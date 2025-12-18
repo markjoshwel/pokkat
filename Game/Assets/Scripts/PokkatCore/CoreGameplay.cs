@@ -4,7 +4,6 @@
  * description: central logic coordinator managing neko spawning, multi-image tracking, and ground stabilisation
  */
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -94,6 +93,9 @@ namespace PokkatCore
 
         [Tooltip("seconds between neko spawns")] [SerializeField]
         private float spawnCooldown = 1.0f;
+
+        [Tooltip("minimum distance between any two AR entities (nekos/bowls) to prevent overlap")] [SerializeField]
+        private float entitySeparationDistance = 0.15f;
 
         #endregion
 
@@ -349,6 +351,15 @@ namespace PokkatCore
                 return;
             }
 
+            // prevent spawning bowl too close to existing nekos
+            // note: we pass the interaction position, not checking against existing bowl
+            // because we're about to destroy the existing bowl anyway
+            if (IsTooCloseToExistingEntities(interaction.Position, ignoreFollowing: false))
+            {
+                Logkat.Out("CoreGameplay: bowl spawn position too close to neko, skipping spawn");
+                return;
+            }
+
             if (_activeBowl)
             {
                 Logkat.Out("CoreGameplay: destroying existing bowl for replacement");
@@ -490,6 +501,14 @@ namespace PokkatCore
                 return;
             }
 
+            // prevent spawning too close to existing entities (AR tracking blip protection)
+            // ignoreFollowing=true because we're about to spawn a new following neko
+            if (IsTooCloseToExistingEntities(position, ignoreFollowing: true))
+            {
+                Logkat.Dev("CoreGameplay: spawn position too close to existing entity, skipping spawn");
+                return;
+            }
+
             // determine prefab
             var isMainNeko = !_mainNekoSpawned;
             var prefab = isMainNeko ? mainNekoPrefab : friendNekoPrefab;
@@ -546,6 +565,47 @@ namespace PokkatCore
             {
                 Logkat.Out("CoreGameplay: spawned FRIEND neko");
             }
+        }
+
+        /// <summary>
+        ///     checks if a spawn position is too close to any existing AR entity (nekos or bowls).
+        ///     prevents overlapping spawns due to AR tracking blips
+        /// </summary>
+        /// <param name="position">proposed spawn position</param>
+        /// <param name="ignoreFollowing">if true, ignores nekos that are currently following (not grounded)</param>
+        /// <returns>true if position is too close to any entity, false if safe to spawn</returns>
+        private bool IsTooCloseToExistingEntities(Vector3 position, bool ignoreFollowing = false)
+        {
+            // check against all grounded nekos
+            foreach (var neko in _trackedNekos)
+            {
+                if (neko.Entity == null) continue;
+                if (ignoreFollowing && neko.IsFollowing) continue;
+
+                var nekoPos = neko.Entity.transform.position;
+                var distance = Vector3.Distance(position, nekoPos);
+
+                if (distance < entitySeparationDistance)
+                {
+                    Logkat.Dev($"CoreGameplay: position too close to neko ({distance:F3}m < {entitySeparationDistance}m)");
+                    return true;
+                }
+            }
+
+            // check against active bowl
+            if (_activeBowl != null)
+            {
+                var bowlPos = _activeBowl.transform.position;
+                var distance = Vector3.Distance(position, bowlPos);
+
+                if (distance < entitySeparationDistance)
+                {
+                    Logkat.Dev($"CoreGameplay: position too close to bowl ({distance:F3}m < {entitySeparationDistance}m)");
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion
