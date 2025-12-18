@@ -2,7 +2,7 @@
 
 this document captures codebase knowledge, code style, and current development context for ai agent continuity.
 
-**last updated:** december 19, 2025
+**last updated:** december 19, 2025 (Statskeeper implementation)
 
 ## project overview
 
@@ -29,8 +29,8 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 | `GroundingBehaviour` | unified grounding system for AR entities - handles anchor position storage, XZ locking, and timer-based Y-only stabilisation |
 | `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), procedural Walk/Jump/Fall animations, and GroundingBehaviour |
 | `AREntityBowl` | bowl entity with consumption logic, visual state, and GroundingBehaviour |
-| `Statskeeper` | persistence stub (json-based hunger/happiness - not yet implemented) |
-| `CoreGameplayInterfaceInterop` | UI bridge that displays game state messages (e.g., "Scan tracker", "Move phone around") |
+| `Statskeeper` | tamagotchi-style stat keeper with hunger/happiness (0-1), time decay (0.1/hour), PlayerPrefs persistence, and backend hooks (OnStatsChanged, OnLoad) |
+| `CoreGameplayInterfaceInterop` | UI bridge that displays game state and stats (hunger/happiness percentages) |
 
 ### data flow
 
@@ -518,9 +518,56 @@ Assets/Scripts/
 - `CoreGameplayInterfaceInterop` displays "Move your phone around to detect more surfaces!" message
 - main neko calls `NotifyMainNekoWaitingForPlane()` when planes not ready, `NotifyMainNekoHasPlane()` when roaming is possible
 
+### Statskeeper (dec 19 2025)
+
+tamagotchi-style stat system with persistence and backend hooks.
+
+**stats:**
+- `hunger` (0-1 float) - decreases over time, 0 = dead
+- `happiness` (0-1 float) - decreases over time
+- `lastUpdateTimestamp` (DateTime UTC) - for time decay calculation
+- `nekoTextureId` (int, default 22) - persisted texture id for respawn
+
+**stat modification:**
+- `RecordFed()` → hunger += 0.5, clamp to 1.0
+- `RecordPlayedWithFriend()` → happiness += 0.5, clamp to 1.0
+- `RecordPetted()` → happiness += 0.05, clamp to 1.0
+- `SetTextureId(int)` → updates persisted texture id
+
+**time decay:**
+- `ApplyTimeDecay()` - called on load, calculates hours since last update
+- decay formula: `stat -= hours * 0.1` (0.1 per hour), floored at 0
+- simulates time passing while app is closed
+
+**death:**
+- `isDead` property → returns `hunger <= 0f`
+- logged as warning when detected
+
+**local persistence (PlayerPrefs):**
+- `SaveLocally()` - saves hunger, happiness, timestamp (ISO 8601), textureId
+- `LoadLocally()` - loads from PlayerPrefs, applies time decay
+- auto-saves after each stat modification
+
+**backend integration:**
+- `OnStatsChanged` event (`Action<Statskeeper>`) - fires after any stat change, backend subscribes to upload
+- `OnLoad` event (`Action<Statskeeper>`) - fires on Start() after local load, backend subscribes to override
+- `SaveToDict()` → returns `Dictionary<string, object>` with stats (timestamp as Unix epoch)
+- `LoadFromDict(Dictionary<string, object>)` → overrides local state from backend, applies decay, saves locally
+
+**event flow:**
+```
+App Start: LoadLocally() → OnLoad (backend can call LoadFromDict)
+User Action: AREntityNeko.OnFed → Statskeeper.RecordFed → SaveLocally → OnStatsChanged (backend uploads)
+```
+
+**wiring:**
+- `CoreGameplay.stats` exposes Statskeeper instance
+- `AREntityNeko.OnFed/OnPlayedWithFriend/OnPetted` call corresponding `RecordX()` methods
+- `CoreGameplayInterfaceInterop` displays `hunger` and `happiness` as percentages
+
 ### stubs (not yet implemented)
 
-- [ ] `Statskeeper` - currently just logs Awake/Start
+- [ ] Audio system - placeholder methods in CoreGameplay log warnings
 
 ### prefab requirements
 

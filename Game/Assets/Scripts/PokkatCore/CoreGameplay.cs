@@ -150,6 +150,8 @@ namespace PokkatCore
         /// </summary>
         public PlaneHandling planes => planeHandling;
 
+        public Statskeeper stats => statskeeper;
+
         /// <summary>
         ///     public accessor for the active bowl (for neko behaviour)
         /// </summary>

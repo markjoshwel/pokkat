@@ -1107,6 +1107,7 @@ namespace PokkatCore
         private void OnFed()
         {
             Logkat.Out("AREntityNeko: fed");
+            CoreGameplay.instance.stats.RecordFed();
         }
 
         /// <summary>
@@ -1115,6 +1116,7 @@ namespace PokkatCore
         private void OnPlayedWithFriend()
         {
             Logkat.Out("AREntityNeko: played with friend");
+            CoreGameplay.instance.stats.RecordPlayedWithFriend();
         }
 
         /// <summary>
@@ -1123,6 +1125,7 @@ namespace PokkatCore
         private void OnPetted()
         {
             Logkat.Out("AREntityNeko: petted (main neko stat hook)");
+            CoreGameplay.instance.stats.RecordPetted();
         }
 
         #endregion

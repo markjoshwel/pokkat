@@ -37,9 +37,17 @@ public class CoreGameplayInterfaceInterop : MonoBehaviour
                 break;
         }
 
+        // get stats from statskeeper (with null safety)
+        var hungerText = coreGameplay.stats != null
+            ? $"{coreGameplay.stats.hunger * 100:F0}%"
+            : "N/A";
+        var happinessText = coreGameplay.stats != null
+            ? $"{coreGameplay.stats.happiness * 100:F0}%"
+            : "N/A";
+
         interfaceText.text = "Pokkat Core Gameplay\n"
-                             + "Hunger: (Not Implemented Yet)\n"
-                             + "Happiness: (Not Implemented Yet)\n"
+                             + $"Hunger: {hungerText}\n"
+                             + $"Happiness: {happinessText}\n"
                              + $"Game State: {coreGameplay.gameState}\n" // here for debugging; please don't put this in the actual ui
                              + $"{message}";
     }
