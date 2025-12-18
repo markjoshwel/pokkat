@@ -26,8 +26,8 @@ public class CoreGameplayInterfaceInterop : MonoBehaviour
             case CoreGameplayState.HasTrackerWaitingForPlane:
                 message = "Move your phone around to detect surfaces!";
                 break;
-            case CoreGameplayState.NekoWaitingForNavMesh:
-                message = "The cat doesn't know where to go! Move your phone around a little more!";
+            case CoreGameplayState.NekoWaitingForPlanes:
+                message = "Move your phone around to detect more surfaces!";
                 break;
             case CoreGameplayState.Ok:
                 message = "";

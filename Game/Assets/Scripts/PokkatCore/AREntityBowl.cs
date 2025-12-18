@@ -30,6 +30,7 @@ namespace PokkatCore
         /// <summary>
         ///     whether the bowl has food in it
         /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public bool isFull { get; private set; } = true;
 
         #endregion

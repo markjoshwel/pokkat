@@ -1,0 +1,1506 @@
+Info (Pokkat) OUT: CoreGameplay: Awake/Setup OK
+Info (Pokkat) OUT: NavMeshDebugRenderer: Awake/Setup OK
+Info (Pokkat) OUT: ARPlaneNavMeshBridge: Awake/Setup OK
+Info (Pokkat) OUT: Statskeeper: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling: Awake/Setup OK
+Info (Pokkat) OUT: ImageHandling: Awake/Setup OK
+Info (Pokkat) OUT: CoreGameplay: Event Subscription OK
+Info (Pokkat) OUT: CoreGameplay: Start/Configure OK
+Info (Pokkat) OUT: NavMeshDebugRenderer: subscribed to PlaneHandling events
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ARPlaneNavMeshBridge: Start/Configure OK
+Info (Pokkat) OUT: Statskeeper: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Start/Configure OK
+Info (Pokkat) OUT: ImageHandling: Start/Configure OK
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: Plane ready, total area 1.56m┬▓, largest plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 2 planes, total area 1.56m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnNavMeshReady, scheduling refresh
+Info (Pokkat) OUT: CoreGameplay: plane ready received
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.47, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=0
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (1.91, -2.47, -1.61), isMain=True, currentCount=0
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned MAIN neko
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.47, -1.61), nekoPos=(1.91, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.47, -1.61) to (1.91, -2.52, -1.61) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.47, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.014, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.47, -1.63), nekoPos=(1.91, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.47, -1.63) to (1.91, -2.52, -1.63) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.47, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.012, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.47, -1.64), nekoPos=(1.91, -2.47, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.47, -1.64) to (1.91, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.47, -1.64), nekoPos=(1.91, -2.47, -1.64)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.48, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.48, -1.64), nekoPos=(1.91, -2.47, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.48, -1.64) to (1.91, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.48, -1.64), nekoPos=(1.91, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.48, -1.65), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.48, -1.65), nekoPos=(1.91, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.48, -1.65) to (1.91, -2.52, -1.65) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.48, -1.65), nekoPos=(1.91, -2.48, -1.65)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.49, -1.65), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.49, -1.65), nekoPos=(1.91, -2.48, -1.65)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.49, -1.65) to (1.91, -2.52, -1.65) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.49, -1.65), nekoPos=(1.91, -2.49, -1.65)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.49, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.49, -1.64), nekoPos=(1.91, -2.49, -1.65)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.49, -1.64) to (1.91, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.49, -1.64), nekoPos=(1.91, -2.49, -1.64)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:2 updated:2 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.50, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.64), nekoPos=(1.91, -2.49, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.50, -1.64) to (1.91, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.64), nekoPos=(1.91, -2.50, -1.64)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.009, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.50, -1.63) to (1.91, -2.52, -1.63) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.64), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.64), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.64) to (1.90, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.63) to (1.90, -2.52, -1.63) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.49, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.63) to (1.90, -2.49, -1.63) on plane B40000726CB4F3D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.49, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 4.84m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.63) to (1.90, -2.52, -1.63) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.63), nekoPos=(1.90, -2.49, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.49, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.49, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.64), nekoPos=(1.90, -2.49, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.64) to (1.90, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.64), nekoPos=(1.90, -2.49, -1.64)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.48, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.48, -1.64), nekoPos=(1.90, -2.49, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.48, -1.64) to (1.89, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.48, -1.64), nekoPos=(1.89, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.48, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.48, -1.64), nekoPos=(1.89, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.48, -1.64) to (1.90, -2.52, -1.64) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.48, -1.64), nekoPos=(1.90, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.64), nekoPos=(1.90, -2.48, -1.64)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.48, -1.64), nekoPos=(1.90, -2.49, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.48, -1.64) to (1.90, -2.52, -1.64) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.64) to (1.90, -2.52, -1.64) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.49, -1.63), nekoPos=(1.90, -2.49, -1.64)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.49, -1.64) to (1.90, -2.51, -1.64) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.49, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.50, -1.63) to (1.91, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 6.54m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.47, -2.51, -1.60)
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.47, -2.51, -1.60)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.47, -2.51, -1.60)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: grounding from (2.47, -2.51, -1.60) to (2.47, -2.51, -1.60)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.47, -2.51, -1.60)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.007, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.008, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.50, -1.63) to (1.91, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.91, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.51, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.51, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.91, -2.51, -1.63) to (1.91, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 6.27m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.91, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.51, -1.63), nekoPos=(1.91, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.51, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.51, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.51, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.91, -2.51, -1.63), nekoPos=(1.90, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.51, -1.63), nekoPos=(1.91, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.50, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.50, -1.63) to (1.90, -2.51, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.50, -1.63), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.022, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.90, -2.50, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.52, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.52, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 6.27m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.63) to (1.89, -2.52, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.63), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.63) to (1.89, -2.52, -1.63) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.52, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.53, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.53, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.53, -1.62) to (1.89, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.53, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 6.27m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (1.89, -2.52, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.53, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.53, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.53, -1.62) to (1.90, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.53, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.53, -1.62), nekoPos=(1.90, -2.53, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.53, -1.62) to (1.89, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.53, -1.62), nekoPos=(1.89, -2.53, -1.62)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.53, -1.62), nekoPos=(1.89, -2.53, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.55, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.020, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.55, -1.62), nekoPos=(1.89, -2.53, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.55, -1.62) to (1.90, -2.53, -1.62) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.55, -1.62), nekoPos=(1.90, -2.55, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.55, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.55, -1.61), nekoPos=(1.90, -2.55, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.55, -1.61) to (1.90, -2.53, -1.61) on plane B40000726D74B270-600613A12A17C812
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.55, -1.61), nekoPos=(1.90, -2.55, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Limited, imagePos=(1.90, -2.56, -1.60), nekoPos=(1.90, -2.55, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: tracking state is Limited, triggering fall
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(1.90, -2.55, -1.61)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(1.90, -2.55, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling to plane height, targetPos=(1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (1.90, -2.55, -1.61) to (1.90, -2.52, -1.61)
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 5 planes, total area 6.27m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.55, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.31, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.32, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.68, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 6 planes, total area 7.28m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.47, -2.51, -1.60) to (2.47, -2.43, -1.60) (yDrift=0.079, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.37, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 6 planes, total area 10.99m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.48, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.90, -2.52, -1.61)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.47, -2.43, -1.60) to (2.47, -2.51, -1.60) (yDrift=0.082, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 6 planes, total area 17.56m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.30, -2.51, -1.43)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.30, -2.51, -1.43)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.30, -2.51, -1.43)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: grounding from (2.30, -2.51, -1.43) to (2.30, -2.51, -1.43)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.30, -2.51, -1.43)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.30, -2.51, -1.43)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 6 planes, total area 16.13m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.61, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.06, -2.52, -1.54)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.099, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.37, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.38, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.128, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.41, -1.49)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.44, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.47, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.043, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.49, -1.49)
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 6 planes, total area 17.71m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.099, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.37, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.38, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.128, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.41, -1.49)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.44, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.47, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.044, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.49, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.37, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.142, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.38, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.101, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.47, -1.49)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.49, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.022, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.41, -1.49)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.37, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.44, -1.49)
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.41m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.316
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (1.88, -2.51, -1.62), isMain=False, currentCount=1
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 5
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.24, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (1.88, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.102, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.89m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.38, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.130, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.47, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.046, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.40, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.36, -1.62)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.35, -1.62)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.37, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.43, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.45, -1.62)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.007, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.102, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.38, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.130, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.47, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.046, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.85, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.40, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.36, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.37, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.40, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.43, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.46, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.89m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.24, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.41, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.100, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.24, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.38, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.129, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (2.24, -2.52, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.17, -2.49, -1.49) to (2.17, -2.51, -1.49) (yDrift=0.023, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.019, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.40, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.008, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.36, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.35, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (1.88, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.37, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (1.89, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.40, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.43, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.46, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.24, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.007, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.012, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.011, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.62) to (2.24, -2.52, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.89, -2.52, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.52, -1.63) to (2.24, -2.52, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.53, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.010, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.53, -1.63), nekoPos=(1.89, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.53, -1.63) to (2.24, -2.53, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.008, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.90, -2.53, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.89, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.52, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.52, -1.63), nekoPos=(1.89, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.90, -2.52, -1.63) to (2.24, -2.52, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.90, -2.52, -1.63), nekoPos=(1.90, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.90, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.89m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.63), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.52, -1.62), nekoPos=(1.90, -2.52, -1.63)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.63), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.63) to (2.24, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.63)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (1.88, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (1.89, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.28, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.23, -2.50, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.49, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.49, -1.62) to (2.23, -2.49, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (1.88, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.89m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.88, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.23, -2.51, -2.10) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.89, -2.51, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.89, -2.51, -1.62) to (2.23, -2.51, -2.09) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.03, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.89, -2.51, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.22, -2.50, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.21, -2.50, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.49, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.49, -1.62) to (2.21, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.49, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.49, -1.62) to (2.21, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.49, -1.62) to (2.21, -2.49, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.48, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.62), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.48, -1.62) to (2.21, -2.48, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.62), nekoPos=(1.87, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.47, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.47, -1.62), nekoPos=(1.87, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.47, -1.62) to (2.21, -2.47, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.93m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.62), nekoPos=(1.87, -2.47, -1.62)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.48, -1.62) to (1.87, -2.51, -1.62) on plane B40000726CB48830-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.87, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.49, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.49, -1.62) to (2.21, -2.49, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.48, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.62), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.48, -1.62) to (2.21, -2.48, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.62), nekoPos=(1.87, -2.48, -1.62)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.009, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.49, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.010, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.87, -2.48, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.49, -1.62) to (2.21, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.48, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.61), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.48, -1.61) to (2.21, -2.48, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.008, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.62), nekoPos=(1.87, -2.48, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.49, -1.62) to (2.21, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.87, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.50, -1.62) to (2.22, -2.50, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.49, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.011, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.61), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.49, -1.61) to (2.21, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.61), nekoPos=(1.87, -2.49, -1.61)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.50, -1.62), nekoPos=(1.87, -2.49, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.50, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.49, -1.61), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.49, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.61), nekoPos=(1.87, -2.49, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.88, -2.49, -1.61) to (2.22, -2.49, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.88, -2.49, -1.62), nekoPos=(1.88, -2.49, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.012, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.61), nekoPos=(1.88, -2.49, -1.62)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.48, -1.61) to (2.21, -2.48, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.19, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.48, -1.61), nekoPos=(1.87, -2.48, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.86, -2.48, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.86, -2.48, -1.61), nekoPos=(1.87, -2.48, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.86, -2.48, -1.61) to (2.21, -2.48, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 7 planes, total area 18.95m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.86, -2.47, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.86, -2.47, -1.61), nekoPos=(1.86, -2.48, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.86, -2.47, -1.61) to (2.21, -2.47, -2.12) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.86, -2.47, -1.61), nekoPos=(1.86, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.47, -1.61), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.87, -2.47, -1.61), nekoPos=(1.86, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.87, -2.47, -1.61) to (2.21, -2.47, -2.11) on plane B40000726D743550-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Limited, imagePos=(1.87, -2.46, -1.61), nekoPos=(1.87, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: tracking state is Limited, triggering fall
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(1.87, -2.47, -1.61)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(1.87, -2.47, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling to plane height, targetPos=(1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (1.87, -2.47, -1.61) to (1.87, -2.51, -1.61)
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:7 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:8 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:8 removed:0
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.59, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:9 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 9 planes, total area 24.94m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:9 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:9 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.98, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 9 planes, total area 25.05m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:9 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.97, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:9 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:10 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:10 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 10 planes, total area 31.43m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.43, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:10 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.58, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:10 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 10 planes, total area 25.94m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.33, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:10 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=True)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:10 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.40, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.33, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 11 planes, total area 30.21m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.318
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.019
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.015
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.319
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.317
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.016
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.017
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.320
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.322
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.51, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.321
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.018
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.019
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.318
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.020
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.88, -2.50, -1.62), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.319
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.022
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.51, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.317
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.024
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.52, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.315
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.027
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.18, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.313
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.030
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.314
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.031
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.033
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 11 planes, total area 30.36m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.312
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.035
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.89, -2.53, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.311
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.037
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.53, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.310
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.039
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.036
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.309
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.042
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.041
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.90, -2.54, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.306
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.049
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.305
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.051
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.050
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.54, -1.63), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.302
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.057
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.54, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.058
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.300
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.062
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.09, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.060
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.059
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.298
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.299
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.296
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.54, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.56, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.93, -2.56, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.291
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.292
+Info (Pokkat Verbose) DEV: PlaneHandling: baking navmesh with 11 planes, total area 33.95m┬▓
+Warn (Pokkat) WARN: PlaneHandling: navmesh baked but is EMPTY! Check NavMeshSurface settings or add ARPlaneNavMeshBridge
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.93, -2.57, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.25, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.296
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.56, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.93, -2.56, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.292
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.93, -2.57, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.291
+Info (Pokkat Verbose) DEV: AREntityNeko: Idle roll=0.40, navMeshReady=False, roamChance=0.5, noticeChance=0.3
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D7432B0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74B270-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB48830-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4F3D0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3A2F0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB3AE50-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB47BF0-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: OnPlanesUpdated, scheduling refresh
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.94, -2.57, -1.65), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: NavMeshDebugRenderer: no navmesh triangulation available
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D74D490-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB172D0-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (2.17, -2.51, -1.49)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB4B310-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:11 removed:0
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726CB35F90-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: ARPlaneNavMeshBridge: plane B40000726D743550-600613A12A17C812 - MeshFilter=False, MeshRenderer=False, MeshCollider=False (added=False), NavMeshModifier=true (added=False)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.92, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.91, -2.55, -1.64), id=B40000721CB172D0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.298
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.300
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.062
+Info (Pokkat Verbose) DEV: AREntityNeko: NavMeshIsReady=False at (1.87, -2.51, -1.61)

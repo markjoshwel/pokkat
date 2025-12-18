@@ -10,7 +10,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace PokkatCore
@@ -75,12 +74,19 @@ namespace PokkatCore
         [Tooltip("maximum idle wait time (seconds)")] [SerializeField]
         private float idleDurationMax = 3f;
 
-        [Tooltip("chance to roam vs notice (0-1, higher = more roaming)")] [SerializeField]
+        [Tooltip("chance to roam when roam ready (0-1)")] [SerializeField]
         [Range(0f, 1f)]
-        private float idleRoamChance = 0.7f;
+        private float idleRoamChance = 0.5f;
+
+        [Tooltip("chance to notice another neko (0-1, remainder is look around)")] [SerializeField]
+        [Range(0f, 1f)]
+        private float idleNoticeChance = 0.3f;
 
         [Tooltip("how long to look at another neko when noticing (seconds)")] [SerializeField]
         private float noticeHoldDuration = 0.5f;
+
+        [Tooltip("how long to hold when looking around (seconds)")] [SerializeField]
+        private float lookAroundHoldDuration = 0.3f;
 
         [Header("Play Settings")] [Tooltip("delay before friend jumps (seconds)")] [SerializeField]
         private float friendJumpDelay = 0.5f;
@@ -434,16 +440,6 @@ namespace PokkatCore
             // snap to exact target
             transform.position = targetPosition;
 
-            // try to snap to nearest navmesh point for roaming/movement
-            if (NavMesh.SamplePosition(transform.position, out var navHit, 2f, NavMesh.AllAreas))
-            {
-                transform.position = navHit.position;
-                Logkat.Out($"AREntityNeko: snapped to navmesh at {navHit.position}");
-            }
-            else
-            {
-                Logkat.Warn($"AREntityNeko: no navmesh nearby after landing at {transform.position}");
-            }
 
             // ground the neko at final position (enables stabilisation with XZ lock)
             _grounding.Ground(transform.position);
@@ -763,39 +759,27 @@ namespace PokkatCore
                     continue;
                 }
 
-                // navmesh availability check loop
-                if (!NavMeshIsReady())
-                {
-                    while (!NavMeshIsReady())
-                    {
-                        if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoWaitingForNavMesh();
+                // check if roaming is possible (plane detection working)
+                var canRoam = CanRoam();
+                
+                // notify game state if main neko waiting for planes
+                if (!canRoam && CompareTag("NekoMain"))
+                    CoreGameplay.instance?.NotifyMainNekoWaitingForPlane();
+                else if (canRoam && CompareTag("NekoMain"))
+                    CoreGameplay.instance?.NotifyMainNekoHasPlane();
 
-                        // still handle pending actions even without navmesh
-                        if (TryRunPendingAction())
-                        {
-                            yield return null;
-                            continue;
-                        }
-
-                        // idle without navmesh (can only notice, not roam)
-                        yield return Idle(navMeshReady: false);
-                    }
-
-                    if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoHasNavMesh();
-                }
-
-                // idle with navmesh (can roam or notice)
-                yield return Idle(navMeshReady: true);
+                // idle (roaming allowed if planes are ready)
+                yield return Idle(canRoam);
             }
         }
 
         /// <summary>
-        ///     idle state handler - waits random duration then performs idle action.
+        ///     idle state handler - wait random duration then performs idle action.
         ///     can be interrupted by pending actions at any time.
         ///     skips idle actions if neko is eating
         /// </summary>
-        /// <param name="navMeshReady">if true, roaming is allowed; if false, only notice action</param>
-        private IEnumerator Idle(bool navMeshReady)
+        /// <param name="canRoam">if true, roaming is allowed; if false, only notice/look around</param>
+        private IEnumerator Idle(bool canRoam)
         {
             // skip idle if eating (neko should focus on bowl)
             if (_isEating) yield break;
@@ -814,30 +798,40 @@ namespace PokkatCore
             if (HasPendingAction() || _isEating) yield break;
 
             // roll for idle action type
+            // distribution: roam (if planes ready) -> notice -> look around
             var roll = Random.value;
-            if (roll < idleRoamChance && navMeshReady)
+            Logkat.Dev($"AREntityNeko: Idle roll={roll:F2}, canRoam={canRoam}, roamChance={idleRoamChance}, noticeChance={idleNoticeChance}");
+
+            if (canRoam && roll < idleRoamChance)
             {
-                // roam only if navmesh is ready
+                // roam only if plane detection is ready
                 yield return IdleRoam();
+            }
+            else if (roll < idleRoamChance + idleNoticeChance)
+            {
+                // notice another neko (if any exist)
+                yield return IdleNotice();
             }
             else
             {
-                // notice another neko
-                yield return IdleNotice();
+                // look around to a random direction
+                yield return IdleLookAround();
             }
         }
 
         /// <summary>
-        ///     checks if navmesh is available at current position
+        ///     checks if plane-based roaming is possible (plane detection is working)
         /// </summary>
-        /// <returns>true if on or near navmesh</returns>
-        private bool NavMeshIsReady()
+        /// <returns>true if planes are available for roaming</returns>
+        private bool CanRoam()
         {
-            return NavMesh.SamplePosition(transform.position, out _, 0.5f, NavMesh.AllAreas);
+            var planes = CoreGameplay.instance?.planes;
+            return planes != null && planes.isReady;
         }
 
         /// <summary>
-        ///     idle action: picks random navmesh point and walks to it.
+        ///     idle action: picks random point on detected AR plane and walks to it.
+        ///     uses PlaneHandling for plane projection instead of NavMesh.
         ///     can be interrupted by pending actions (pet, friend play)
         /// </summary>
         private IEnumerator IdleRoam()
@@ -845,20 +839,25 @@ namespace PokkatCore
             // check for pending actions first
             if (HasPendingAction()) yield break;
 
-            // pick a random point within roam radius
-            var randomDirection = Random.insideUnitSphere * roamRadius;
-            randomDirection.y = 0f;
-            randomDirection += transform.position;
+            var planes = CoreGameplay.instance?.planes;
+            if (planes == null) yield break;
 
-            if (!NavMesh.SamplePosition(randomDirection, out var hit, roamRadius * 2f, NavMesh.AllAreas))
+            // pick a random point within roam radius (XZ only)
+            var randomOffset = Random.insideUnitSphere * roamRadius;
+            randomOffset.y = 0f;
+            var targetPosition = transform.position + randomOffset;
+
+            // project the random point onto the nearest AR plane
+            if (!planes.TryProjectToPlane(targetPosition, out var projectedPosition))
             {
-                // no valid navmesh point found, skip this roam
+                // no plane found at target position, skip this roam
+                Logkat.Dev($"AREntityNeko: IdleRoam failed to find plane near {targetPosition}");
                 yield break;
             }
 
-            // walk to the random point, checking for interrupts
-            var targetPosition = hit.position;
-            yield return WalkTowardCoroutine(targetPosition, 0.1f, HasPendingAction);
+            // walk to the projected point, checking for interrupts
+            Logkat.Dev($"AREntityNeko: IdleRoam walking to {projectedPosition}");
+            yield return WalkTowardCoroutine(projectedPosition, 0.1f, HasPendingAction);
         }
 
         /// <summary>
@@ -898,6 +897,36 @@ namespace PokkatCore
             // hold the look for a moment (interruptible)
             var holdElapsed = 0f;
             while (holdElapsed < noticeHoldDuration)
+            {
+                if (HasPendingAction()) yield break;
+                yield return null;
+                holdElapsed += Time.deltaTime;
+            }
+        }
+
+        /// <summary>
+        ///     idle action: looks in a random direction.
+        ///     creates natural "looking around" behaviour
+        /// </summary>
+        private IEnumerator IdleLookAround()
+        {
+            // skip if eating (neko should focus on bowl)
+            if (_isEating) yield break;
+
+            // check for pending actions before turning
+            if (HasPendingAction()) yield break;
+
+            // pick a random direction (y-axis rotation only)
+            var randomAngle = Random.Range(0f, 360f);
+            var randomDirection = Quaternion.Euler(0f, randomAngle, 0f) * Vector3.forward;
+            var targetPosition = transform.position + randomDirection;
+
+            // gradually turn to face the random direction
+            yield return TurnToward(targetPosition, turnDuration);
+
+            // hold the look for a moment (interruptible)
+            var holdElapsed = 0f;
+            while (holdElapsed < lookAroundHoldDuration)
             {
                 if (HasPendingAction()) yield break;
                 yield return null;

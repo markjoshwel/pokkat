@@ -17,7 +17,7 @@ namespace PokkatCore
         WaitingForAnything,
         HasPlaneWaitingForTracker,
         HasTrackerWaitingForPlane,
-        NekoWaitingForNavMesh,
+        NekoWaitingForPlanes,
         Ok
     }
 
@@ -127,9 +127,9 @@ namespace PokkatCore
         private bool _mainNekoSpawned;
 
         /// <summary>
-        ///     whether the main neko is waiting for navmesh
+        ///     whether the main neko is waiting for planes to be ready for roaming
         /// </summary>
-        private bool _mainNekoWaitingForNavMesh;
+        private bool _mainNekoWaitingForPlanes;
 
         #endregion
 
@@ -293,7 +293,7 @@ namespace PokkatCore
                     gameState = CoreGameplayState.Ok;
                     break;
                 case CoreGameplayState.HasPlaneWaitingForTracker:
-                case CoreGameplayState.NekoWaitingForNavMesh:
+                case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
                     break;
                 default:
@@ -400,7 +400,7 @@ namespace PokkatCore
                     gameState = CoreGameplayState.Ok;
                     break;
                 case CoreGameplayState.HasTrackerWaitingForPlane:
-                case CoreGameplayState.NekoWaitingForNavMesh:
+                case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
                     break;
                 default:
@@ -613,46 +613,46 @@ namespace PokkatCore
 
         #endregion
 
-        #region NavMesh State
+        #region Plane Roaming State
 
         /// <summary>
-        ///     called by main neko when it is waiting for navmesh
+        ///     called by main neko when it is waiting for planes to be ready for roaming
         /// </summary>
-        public void NotifyMainNekoWaitingForNavMesh()
+        public void NotifyMainNekoWaitingForPlane()
         {
-            _mainNekoWaitingForNavMesh = true;
-            UpdateNavMeshGameState();
+            _mainNekoWaitingForPlanes = true;
+            UpdatePlaneRoamingGameState();
         }
 
         /// <summary>
-        ///     called by main neko when it has navmesh ready
+        ///     called by main neko when planes are ready for roaming
         /// </summary>
-        public void NotifyMainNekoHasNavMesh()
+        public void NotifyMainNekoHasPlane()
         {
-            _mainNekoWaitingForNavMesh = false;
-            UpdateNavMeshGameState();
+            _mainNekoWaitingForPlanes = false;
+            UpdatePlaneRoamingGameState();
         }
 
         /// <summary>
-        ///     updates game state based on navmesh waiting status.
-        ///     only transitions to NekoWaitingForNavMesh/Ok after we have both plane and tracker
+        ///     updates game state based on plane roaming readiness.
+        ///     only transitions to NekoWaitingForPlanes/Ok after we have both plane and tracker
         /// </summary>
-        private void UpdateNavMeshGameState()
+        private void UpdatePlaneRoamingGameState()
         {
-            // only handle navmesh states once we're past the initial waiting states
+            // only handle plane roaming states once we're past the initial waiting states
             // (i.e., we have both plane and tracker)
             switch (gameState)
             {
                 case CoreGameplayState.WaitingForAnything:
                 case CoreGameplayState.HasPlaneWaitingForTracker:
                 case CoreGameplayState.HasTrackerWaitingForPlane:
-                    // not ready yet - navmesh state doesn't apply
+                    // not ready yet - plane roaming state doesn't apply
                     return;
-                case CoreGameplayState.NekoWaitingForNavMesh:
+                case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
-                    // transition based on navmesh status
-                    gameState = _mainNekoWaitingForNavMesh
-                        ? CoreGameplayState.NekoWaitingForNavMesh
+                    // transition based on plane readiness
+                    gameState = _mainNekoWaitingForPlanes
+                        ? CoreGameplayState.NekoWaitingForPlanes
                         : CoreGameplayState.Ok;
                     break;
                 default:

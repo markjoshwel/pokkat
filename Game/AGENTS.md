@@ -31,6 +31,7 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 | `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), procedural Walk/Jump/Fall animations, and GroundingBehaviour |
 | `AREntityBowl` | bowl entity with consumption logic, visual state, and GroundingBehaviour |
 | `NavMeshDebugRenderer` | debug visualisation for runtime-baked NavMesh, auto-refreshes on PlaneHandling bake events |
+| `ARPlaneNavMeshBridge` | bridges AR Foundation planes with NavMesh system - adds NavMeshModifier to detected planes for proper geometry collection |
 | `Statskeeper` | persistence stub (json-based hunger/happiness - not yet implemented) |
 | `CoreGameplayInterfaceInterop` | UI bridge that displays game state messages (e.g., "Scan tracker", "Move phone around") |
 
@@ -286,6 +287,12 @@ Assets/Scripts/
   - **auto-refresh**: subscribes to `OnNavMeshReady` and `OnPlanesUpdated` events
   - `Refresh()` - rebuilds mesh from `NavMesh.CalculateTriangulation()`
   - `SetEnabled(bool)` - toggles debug rendering on/off
+- [x] `ARPlaneNavMeshBridge` - bridges AR planes with NavMesh system (dec 19 2025):
+  - **requires**: ARPlaneManager component on same GameObject
+  - **purpose**: AR planes don't have NavMesh geometry by default; this adds NavMeshModifier to each detected plane
+  - subscribes to `planesChanged` event on ARPlaneManager
+  - `EnsureNavMeshModifier(ARPlane)` - adds NavMeshModifier configured as walkable (area=0)
+  - **usage**: add to same GameObject as ARPlaneManager, then NavMeshSurface will collect plane geometry
 - [x] `CoreGameplay` - scene singleton coordinator (does not persist across scenes, uses .instance for prefab access without DI):
   - `instance` static property for scene-scoped access
   - `planes` public accessor for PlaneHandling (used by AREntityNeko)
@@ -428,8 +435,10 @@ Assets/Scripts/
 - `Idle(bool navMeshReady)` - central idle state handler
   - waits random duration (`idleDurationMin` to `idleDurationMax`, default 1-3s)
   - checks for pending actions throughout (interruptible)
-  - rolls for idle action: `idleRoamChance` (default 0.7) vs IdleNotice
-  - IdleRoam only runs if `navMeshReady` is true
+  - rolls for idle action with priority: roam (if navmesh) → notice → look around
+  - `idleRoamChance` (default 0.5) - chance to roam when navmesh ready
+  - `idleNoticeChance` (default 0.3) - chance to notice another neko
+  - remainder (0.2) - chance to look around randomly
 - `IdleRoam()` - picks random navmesh point within roamRadius, walks to it
   - can be interrupted by pending actions
 - `IdleNotice()` - looks at a random other neko in the scene
@@ -438,6 +447,11 @@ Assets/Scripts/
   - uses animated `TurnToward()` for natural feel
   - holds look for `noticeHoldDuration` (default 0.5s)
   - both main and friend nekos can notice each other
+- `IdleLookAround()` - looks in a random direction
+  - picks random y-axis rotation (0-360°)
+  - uses animated `TurnToward()` for natural feel
+  - holds look for `lookAroundHoldDuration` (default 0.3s)
+  - creates natural "looking around" behaviour
 
 **animated rotations (dec 19 2025):**
 - all social/interaction rotations use `StartCoroutine(TurnToward(target, turnDuration))`
