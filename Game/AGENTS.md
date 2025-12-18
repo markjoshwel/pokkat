@@ -35,13 +35,14 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 ### data flow
 
 1. `PlaneHandling` fires `OnPlaneReady` when sufficient plane area detected (default 1.0m²)
-2. `PlaneHandling` fires `OnPlaneInteraction` when user taps on a tracked plane
+2. `PlaneHandling` fires `OnPlaneInteraction` when user taps on a tracked plane (petting has priority)
 3. `PlaneHandling` fires `OnPlanesUpdated` whenever planes change (for navmesh baking)
 4. `ImageHandling` fires `OnImageDetected` when tracking images (TrackingState.Tracking only)
 5. `ImageHandling` fires `OnImageLost` when images are removed from tracking
 6. `CoreGameplay` spawns neko via `PlaneHandling.SpawnClosest()` or at image position if no plane
 7. Most recently spawned neko follows the tracked image (position updated in CoreGameplay.Update)
-8. When image is lost, `CoreGameplay` calls `AREntityNeko.Fall()` to drop neko to ground
+8. When image is lost OR neko is >5cm above detected plane, `CoreGameplay` triggers `AREntityNeko.Fall()`
+9. `TryTriggerEarlyFall()` runs each frame to catch nekos spawned mid-air at an angle
 
 ### multi-image spawn feature (multispawn & multitrack rewrite dec 18 2024)
 
@@ -222,6 +223,9 @@ Assets/Scripts/
   - `_lastSpawnTime` and `spawnCooldown` (default 1.0s) to prevent double-spawning race conditions
   - **multispawn**: position jump detection triggers new neko spawn at new location
   - **multitrack**: following neko syncs to image position; falls on tracking loss/limited
+  - **early fall trigger** (dec 18 2025): `TryTriggerEarlyFall()` runs each frame and on OnPlaneReady
+    - if following neko is >5cm above detected plane, triggers fall immediately
+    - handles case where tracker is scanned at angle, spawning neko mid-air
   - robust tracking loss detection in Update() (handles TrackingState.Limited, not just OnImageLost)
   - main neko vs friend neko logic (first spawn = main, rest = friend with random texture)
   - bowl spawning on plane touch (singleton - only one bowl allowed)
@@ -238,6 +242,7 @@ Assets/Scripts/
   - **SnapToGround()** - helper to project neko to nearest plane
   - **WalkTowardCoroutine(targetPosition, arrivalDistance, interruptCheck)** - primary shared walking helper with choppy stop-motion animation and interrupt support (used by RoamOnce, MoveAndEat)
   - Jump() - **bounce easing** via EaseOutBack curve with configurable `jumpBounceFactor`
+  - **Pet()** - petting interaction triggered by touch input; neko faces player camera, blinks, and bounces once
   - **direct AR object awareness** via static events:
     - `OnNekoSpawned` static event - fired when any neko spawns
     - `OnNekoDestroyed` static event - fired when any neko is destroyed
@@ -249,21 +254,26 @@ Assets/Scripts/
     - cleans up null/destroyed friends from queue automatically
   - **mutual face-each-other recognition** (dec 18 2025):
     - `_currentPlayPartner` field tracks active play partner
-    - both nekos face each other before jumping (via LookAt())
+    - both nekos face each other before jumping (via LookAt()), refreshed each jump
     - partner references cleared after play completes
   - **behaviour loop** (coroutine-based, not explicit FSM):
     - `BehaviourLoop()` - main loop: waits for grounded, checks navmesh, then roams or handles interactions
     - `RoamOnce()` - picks random navmesh point within roamRadius, walks to it via WalkTowardCoroutine (interruptible by friend interactions)
-    - `PlayWithFriend(AREntityNeko)` - waits for friend grounded, face each other, synchronised jumping with offset delay
-    - `MoveAndEat()` - walks to bowl via WalkTowardCoroutine, eating animation (continuous blinking + jumping), consumes bowl (interruptible by friend interactions)
+    - `PlayWithFriend(AREntityNeko)` - does NOT require friend to be grounded; faces friend's current position (refreshed each jump), synchronised jumping with offset delay
+    - `MoveAndEat()` - walks to bowl via WalkTowardCoroutine, eating animation (continuous blinking + jumping), consumes bowl
+      - **tracks `_targetBowl`** to detect bowl replacement mid-walk (dec 18 2025)
+      - `_moveAndEatCoroutine` handle allows cancellation when new bowl spawns
+      - `StateNotifyBowlPlaced()` cancels existing MoveAndEat before starting new one
+      - interruptible by friend interactions OR bowl replacement/destruction
   - **notification methods**:
-    - StateNotifyBowlPlaced() - triggers move-and-eat behaviour (main neko only)
+    - StateNotifyBowlPlaced() - triggers move-and-eat behaviour (main neko only), cancels previous walk
   - **navmesh state notifications** (ONLY main neko tagged `NekoMain` calls these):
     - calls `CoreGameplay.NotifyMainNekoWaitingForNavMesh()` if neko is not on navmesh
     - calls `CoreGameplay.NotifyMainNekoHasNavMesh()` when neko has navmesh
   - **stat hooks** (for stats integration):
     - OnFed() - called when neko eats from bowl
     - OnPlayedWithFriend() - called after playing with friend
+    - OnPetted() - called when main neko is petted (only fires for `NekoMain` tag)
   - LookAt(Vector3) - rotates to face target (Y-axis only)
   - ResetTilt() - resets z-axis tilt to upright after walking
   - EaseOutBack(t, bounceFactor) - helper for bounce easing curves
@@ -309,8 +319,19 @@ Assets/Scripts/
 - **behaviours are interruptible**: friend spawn or bowl placement can interrupt roaming
 - **WalkTowardCoroutine()** is the shared walking helper with choppy stop-motion animation
 - `RoamOnce()` picks random navmesh point within roamRadius, walks via WalkTowardCoroutine
-- `PlayWithFriend()` waits for friend grounded, both face each other, synchronised jumping
+- `PlayWithFriend()` does NOT require friend to be grounded; faces friend's current position (refreshed each jump), synchronised jumping
 - `MoveAndEat()` walks to bowl, eating animation (continuous blinking + jumping), consumes bowl
+  - **bowl replacement fix (dec 18 2025)**: tracks `_targetBowl` to detect when bowl is replaced mid-walk
+  - `StateNotifyBowlPlaced()` cancels existing MoveAndEat coroutine before starting new one
+  - prevents stuck walking animation when quickly spawning new bowls
+
+**petting interaction (dec 18 2025)**:
+- `PlaneHandling.Update()` checks touch input each frame
+- `TouchHitsNeko()` is checked BEFORE plane interaction raycast (petting has priority)
+- touch detection runs regardless of `OnPlaneInteraction` subscribers (petting always works)
+- `Pet()` makes neko face the player camera, blink, and bounce once
+- only main neko (tagged `NekoMain`) triggers `OnPetted()` stat hook
+- petting touch blocks bowl placement - if neko is touched, plane interaction is skipped
 
 **friend neko queue system (dec 18 2025)**:
 - `_pendingFriendQueue` queues multiple friends spawning in quick succession
@@ -323,8 +344,9 @@ Assets/Scripts/
 - partner references cleared after play completes
 
 **stat hooks**:
-- OnFed(), OnPlayedWithFriend() virtual methods in AREntityNeko
+- OnFed(), OnPlayedWithFriend(), OnPetted() methods in AREntityNeko
 - OnNekoConsumed(AREntityNeko) virtual method in AREntityBowl
+- OnPetted() only fires for main neko (tagged `NekoMain`)
 - these integrate with Statskeeper for hunger/happiness tracking
 
 **navmesh UX**:

@@ -132,22 +132,23 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     per-frame touch detection and plane interaction raycasting
+        ///     per-frame touch detection and plane interaction raycasting.
+        ///     petting nekos has priority over plane interactions (bowl spawning)
         /// </summary>
         private void Update()
         {
-            // skip if no subscribers are listening for plane interactions
-            if (OnPlaneInteraction == null) return;
-
             // try to get a touch position from this frame
             if (!TryGetTouchPosition(out var touchPosition)) return;
 
-            // before plane interaction, check if the touch hit a neko (petting has priority)
+            // petting nekos has priority - check first before plane interactions
             if (TouchHitsNeko(touchPosition))
             {
                 Logkat.Dev("PlaneHandling: touch hit neko, skipping plane interaction");
                 return;
             }
+
+            // skip plane interaction if no subscribers are listening
+            if (OnPlaneInteraction == null) return;
 
             // raycast from touch position to find plane hits
             if (!TryRaycastToPlane(touchPosition, out var interaction)) return;
@@ -300,8 +301,10 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     checks if a screen position hits any neko; returns true if so
+        ///     checks if a screen position hits any neko; if so, triggers petting interaction
         /// </summary>
+        /// <param name="screenPosition">touch position in screen coordinates</param>
+        /// <returns>true if a neko was hit (and petted)</returns>
         private static bool TouchHitsNeko(Vector2 screenPosition)
         {
             var mainCamera = Camera.main;
@@ -310,9 +313,16 @@ namespace PokkatCore
             var ray = mainCamera.ScreenPointToRay(screenPosition);
             if (!Physics.Raycast(ray, out var hit, 100f)) return false;
 
-            // check for tag or component in parent hierarchy
-            if (hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend")) return true;
-            return hit.transform.GetComponentInParent<AREntityNeko>() != null;
+            // try to find neko component via tag or parent hierarchy
+            var neko = (hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend"))
+                ? hit.transform.GetComponent<AREntityNeko>() ?? hit.transform.GetComponentInParent<AREntityNeko>()
+                : hit.transform.GetComponentInParent<AREntityNeko>();
+
+            if (!neko) return false;
+
+            // trigger petting interaction on the neko
+            neko.Pet();
+            return true;
         }
 
         #endregion

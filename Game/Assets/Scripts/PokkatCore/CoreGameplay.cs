@@ -182,6 +182,7 @@ namespace PokkatCore
         private void Update()
         {
             UpdateFollowingNeko();
+            TryTriggerEarlyFall();
         }
 
         #endregion
@@ -296,6 +297,44 @@ namespace PokkatCore
                 default:
                     Logkat.Panic("unreachable game state");
                     break;
+            }
+            
+            // trigger early fall for any following neko now that plane is available
+            // (handles case where tracker was scanned at angle, spawning neko mid-air)
+            TryTriggerEarlyFall();
+        }
+        
+        /// <summary>
+        ///     triggers fall for following neko if plane is available and neko is above plane.
+        ///     called when plane becomes ready or periodically from Update
+        /// </summary>
+        private void TryTriggerEarlyFall()
+        {
+            if (!planeHandling.isReady) return;
+            
+            // find following neko
+            TrackedNekoInstance followingNeko = null;
+            foreach (var neko in _trackedNekos)
+                if (neko.IsFollowing)
+                {
+                    followingNeko = neko;
+                    break;
+                }
+            
+            if (followingNeko == null) return;
+            
+            // check if neko is significantly above the nearest plane (spawned mid-air)
+            if (!planeHandling.TryProjectToPlane(followingNeko.Entity.transform.position, out var projectedPos))
+                return;
+            
+            var heightAbovePlane = followingNeko.Entity.transform.position.y - projectedPos.y;
+            
+            // if neko is more than 5cm above the plane, trigger early fall
+            // (small threshold to avoid triggering for minor tracking jitter)
+            if (heightAbovePlane > 0.05f)
+            {
+                Logkat.Out($"CoreGameplay: early fall triggered, height above plane = {heightAbovePlane:F3}m");
+                TriggerNekoFall(followingNeko);
             }
         }
 
@@ -518,7 +557,6 @@ namespace PokkatCore
         /// </summary>
         public void NotifyMainNekoWaitingForNavMesh()
         {
-            Logkat.Out("CoreGameplay: NotifyMainNekoWaitingForNavMesh");
             _mainNekoWaitingForNavMesh = true;
             UpdateNavMeshGameState();
         }
@@ -528,24 +566,28 @@ namespace PokkatCore
         /// </summary>
         public void NotifyMainNekoHasNavMesh()
         {
-            Logkat.Out("CoreGameplay: NotifyMainNekoHasNavMesh");
             _mainNekoWaitingForNavMesh = false;
             UpdateNavMeshGameState();
         }
 
         /// <summary>
-        ///     updates game state based on navmesh waiting status (main neko only)
+        ///     updates game state based on navmesh waiting status.
+        ///     only transitions to NekoWaitingForNavMesh/Ok after we have both plane and tracker
         /// </summary>
         private void UpdateNavMeshGameState()
         {
+            // only handle navmesh states once we're past the initial waiting states
+            // (i.e., we have both plane and tracker)
             switch (gameState)
             {
                 case CoreGameplayState.WaitingForAnything:
                 case CoreGameplayState.HasPlaneWaitingForTracker:
                 case CoreGameplayState.HasTrackerWaitingForPlane:
-                    break;
+                    // not ready yet - navmesh state doesn't apply
+                    return;
                 case CoreGameplayState.NekoWaitingForNavMesh:
                 case CoreGameplayState.Ok:
+                    // transition based on navmesh status
                     gameState = _mainNekoWaitingForNavMesh
                         ? CoreGameplayState.NekoWaitingForNavMesh
                         : CoreGameplayState.Ok;

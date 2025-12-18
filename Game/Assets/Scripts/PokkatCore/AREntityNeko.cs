@@ -576,6 +576,28 @@ namespace PokkatCore
             transform.eulerAngles = finalRotation;
         }
 
+        /// <summary>
+        ///     petting interaction - neko faces the player camera and bounces once.
+        ///     called by PlaneHandling when touch input hits this neko
+        /// </summary>
+        public void Pet()
+        {
+            // face the player camera
+            var mainCamera = Camera.main;
+            if (mainCamera)
+                LookAt(mainCamera.transform.position);
+
+            // blink and bounce as acknowledgement
+            Blink();
+            Jump();
+
+            Logkat.Out("AREntityNeko: petted!");
+
+            // only main neko triggers the stat hook
+            if (CompareTag("NekoMain"))
+                OnPetted();
+        }
+
         #endregion
 
         #region Awareness Handlers
@@ -766,26 +788,62 @@ namespace PokkatCore
         public void StateNotifyBowlPlaced()
         {
             if (!CompareTag("NekoMain")) return;
-            StartCoroutine(MoveAndEat());
+            
+            // cancel any existing move-and-eat coroutine (prevents stuck walking animation)
+            if (_moveAndEatCoroutine != null)
+            {
+                StopCoroutine(_moveAndEatCoroutine);
+                _moveAndEatCoroutine = null;
+                ResetTilt();
+            }
+            
+            _moveAndEatCoroutine = StartCoroutine(MoveAndEat());
         }
 
         /// <summary>
+        ///     coroutine handle for move-and-eat (for cancellation on new bowl spawn)
+        /// </summary>
+        private Coroutine _moveAndEatCoroutine;
+
+        /// <summary>
+        ///     the bowl we are currently walking toward (for interrupt detection)
+        /// </summary>
+        private AREntityBowl _targetBowl;
+
+        /// <summary>
         ///     moves toward active bowl and eats it.
-        ///     can be interrupted by friend interactions
+        ///     can be interrupted by friend interactions or bowl replacement
         /// </summary>
         private IEnumerator MoveAndEat()
         {
             var gameplay = CoreGameplay.instance;
             if (!gameplay || !gameplay.activeBowl) yield break;
 
-            var bowl = gameplay.activeBowl;
-            var bowlPos = bowl.transform.position;
+            _targetBowl = gameplay.activeBowl;
+            var bowlPos = _targetBowl.transform.position;
 
-            // walk toward bowl, can be interrupted by friends
-            yield return WalkTowardCoroutine(bowlPos, 0.15f, TryDequeueAndPlayWithFriend);
+            // interrupt check: friend interactions OR bowl was replaced/destroyed
+            bool ShouldInterrupt() => TryDequeueAndPlayWithFriend() || !_targetBowl || gameplay.activeBowl != _targetBowl;
 
-            // if interrupted, exit early
-            if (_currentPlayPartner != null) yield break;
+            // walk toward bowl, can be interrupted by friends or bowl replacement
+            yield return WalkTowardCoroutine(bowlPos, 0.15f, ShouldInterrupt);
+
+            // if interrupted by friend, exit early
+            if (_currentPlayPartner != null)
+            {
+                _targetBowl = null;
+                _moveAndEatCoroutine = null;
+                yield break;
+            }
+
+            // if bowl was replaced/destroyed during walk, reset and exit
+            if (!_targetBowl || gameplay.activeBowl != _targetBowl)
+            {
+                ResetTilt();
+                _targetBowl = null;
+                _moveAndEatCoroutine = null;
+                yield break;
+            }
 
             // face the bowl
             LookAt(bowlPos);
@@ -795,10 +853,20 @@ namespace PokkatCore
             while (elapsed < eatingDuration)
             {
                 // friend interactions can interrupt eating
-                if (TryDequeueAndPlayWithFriend()) yield break;
+                if (TryDequeueAndPlayWithFriend())
+                {
+                    _targetBowl = null;
+                    _moveAndEatCoroutine = null;
+                    yield break;
+                }
                 
                 // bowl was consumed/destroyed by something else
-                if (!bowl || gameplay.activeBowl != bowl) yield break;
+                if (!_targetBowl || gameplay.activeBowl != _targetBowl)
+                {
+                    _targetBowl = null;
+                    _moveAndEatCoroutine = null;
+                    yield break;
+                }
 
                 Blink();
                 Jump();
@@ -807,12 +875,14 @@ namespace PokkatCore
             }
 
             // consume the bowl
-            if (bowl && gameplay.activeBowl == bowl)
+            if (_targetBowl && gameplay.activeBowl == _targetBowl)
             {
-                bowl.Consume(this);
+                _targetBowl.Consume(this);
                 OnFed();
             }
 
+            _targetBowl = null;
+            _moveAndEatCoroutine = null;
             SnapToGround();
         }
 
@@ -834,6 +904,14 @@ namespace PokkatCore
         private void OnPlayedWithFriend()
         {
             Logkat.Out("AREntityNeko: played with friend");
+        }
+
+        /// <summary>
+        ///     called when main neko is petted by player (for stats integration)
+        /// </summary>
+        private void OnPetted()
+        {
+            Logkat.Out("AREntityNeko: petted (main neko stat hook)");
         }
 
         #endregion
