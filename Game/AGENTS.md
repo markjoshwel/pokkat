@@ -30,6 +30,7 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 | `GroundingBehaviour` | unified grounding system for AR entities - handles anchor position storage, XZ locking, and timer-based Y-only stabilisation |
 | `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), procedural Walk/Jump/Fall animations, and GroundingBehaviour |
 | `AREntityBowl` | bowl entity with consumption logic, visual state, and GroundingBehaviour |
+| `NavMeshDebugRenderer` | debug visualisation for runtime-baked NavMesh, auto-refreshes on PlaneHandling bake events |
 | `Statskeeper` | persistence stub (json-based hunger/happiness - not yet implemented) |
 | `CoreGameplayInterfaceInterop` | UI bridge that displays game state messages (e.g., "Scan tracker", "Move phone around") |
 
@@ -275,6 +276,16 @@ Assets/Scripts/
     - `RequestNavMeshBake()` public method (respects cooldown)
     - auto-bakes on OnPlaneReady event
     - auto-bakes on OnPlanesUpdated event (if autoBakeOnPlaneUpdate enabled)
+- [x] `NavMeshDebugRenderer` - debug visualisation for runtime NavMesh (dec 19 2025):
+  - **requires**: MeshFilter, MeshRenderer components (added via RequireComponent)
+  - **inspector fields**:
+    - `debugMaterial` - material for visualisation (use transparent/wireframe)
+    - `yOffset` (default 0.01m) - prevents z-fighting with ground
+    - `autoRefreshOnBake` - subscribe to PlaneHandling events
+    - `enableRendering` - toggle visibility at runtime
+  - **auto-refresh**: subscribes to `OnNavMeshReady` and `OnPlanesUpdated` events
+  - `Refresh()` - rebuilds mesh from `NavMesh.CalculateTriangulation()`
+  - `SetEnabled(bool)` - toggles debug rendering on/off
 - [x] `CoreGameplay` - scene singleton coordinator (does not persist across scenes, uses .instance for prefab access without DI):
   - `instance` static property for scene-scoped access
   - `planes` public accessor for PlaneHandling (used by AREntityNeko)
