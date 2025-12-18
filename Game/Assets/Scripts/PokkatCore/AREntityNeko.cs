@@ -66,6 +66,22 @@ namespace PokkatCore
         [Header("Behaviour Settings")] [Tooltip("roaming radius in metres")] [SerializeField]
         private float roamRadius = 0.5f;
 
+        [Tooltip("duration for animated turns (seconds)")] [SerializeField]
+        private float turnDuration = 0.3f;
+
+        [Header("Idle Settings")] [Tooltip("minimum idle wait time (seconds)")] [SerializeField]
+        private float idleDurationMin = 1f;
+
+        [Tooltip("maximum idle wait time (seconds)")] [SerializeField]
+        private float idleDurationMax = 3f;
+
+        [Tooltip("chance to roam vs notice (0-1, higher = more roaming)")] [SerializeField]
+        [Range(0f, 1f)]
+        private float idleRoamChance = 0.7f;
+
+        [Tooltip("how long to look at another neko when noticing (seconds)")] [SerializeField]
+        private float noticeHoldDuration = 0.5f;
+
         [Header("Play Settings")] [Tooltip("delay before friend jumps (seconds)")] [SerializeField]
         private float friendJumpDelay = 0.5f;
 
@@ -141,6 +157,11 @@ namespace PokkatCore
         ///     pending pet request from player touch (processed by behaviour loop)
         /// </summary>
         private bool _pendingPetRequest;
+
+        /// <summary>
+        ///     whether this neko is currently eating from a bowl (blocks idle actions)
+        /// </summary>
+        private bool _isEating;
 
         #endregion
 
@@ -604,14 +625,15 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     executes the pet animation - neko faces player camera and bounces once
+        ///     executes the pet animation - neko faces player camera and bounces once.
+        ///     uses animated turn for natural feel
         /// </summary>
-        private void RunPetAction()
+        private IEnumerator RunPetAction()
         {
-            // face the player camera
+            // face the player camera with animated turn
             var mainCamera = Camera.main;
             if (mainCamera)
-                LookAt(mainCamera.transform.position);
+                yield return TurnToward(mainCamera.transform.position, turnDuration);
 
             // blink and bounce as acknowledgement
             Blink();
@@ -657,7 +679,7 @@ namespace PokkatCore
             if (_pendingPetRequest)
             {
                 _pendingPetRequest = false;
-                RunPetAction();
+                StartCoroutine(RunPetAction());
                 return true;
             }
 
@@ -725,7 +747,7 @@ namespace PokkatCore
 
         /// <summary>
         ///     main behaviour loop - runs while neko is alive.
-        ///     waits for grounded state, checks navmesh availability, then roams or handles interactions
+        ///     idle-centric: waits in idle state, performs idle actions, handles priority interrupts
         /// </summary>
         private IEnumerator BehaviourLoop()
         {
@@ -741,7 +763,7 @@ namespace PokkatCore
                     continue;
                 }
 
-                // wait for navmesh availability before roaming
+                // navmesh availability check loop
                 if (!NavMeshIsReady())
                 {
                     while (!NavMeshIsReady())
@@ -755,13 +777,53 @@ namespace PokkatCore
                             continue;
                         }
 
-                        yield return new WaitForSeconds(0.5f);
+                        // idle without navmesh (can only notice, not roam)
+                        yield return Idle(navMeshReady: false);
                     }
 
                     if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoHasNavMesh();
                 }
 
-                yield return RoamOnce();
+                // idle with navmesh (can roam or notice)
+                yield return Idle(navMeshReady: true);
+            }
+        }
+
+        /// <summary>
+        ///     idle state handler - waits random duration then performs idle action.
+        ///     can be interrupted by pending actions at any time.
+        ///     skips idle actions if neko is eating
+        /// </summary>
+        /// <param name="navMeshReady">if true, roaming is allowed; if false, only notice action</param>
+        private IEnumerator Idle(bool navMeshReady)
+        {
+            // skip idle if eating (neko should focus on bowl)
+            if (_isEating) yield break;
+
+            // wait random idle duration, checking for interrupts
+            var idleDuration = Random.Range(idleDurationMin, idleDurationMax);
+            var elapsed = 0f;
+            while (elapsed < idleDuration)
+            {
+                if (HasPendingAction() || _isEating) yield break;
+                yield return null;
+                elapsed += Time.deltaTime;
+            }
+
+            // check for pending actions or eating before starting idle action
+            if (HasPendingAction() || _isEating) yield break;
+
+            // roll for idle action type
+            var roll = Random.value;
+            if (roll < idleRoamChance && navMeshReady)
+            {
+                // roam only if navmesh is ready
+                yield return IdleRoam();
+            }
+            else
+            {
+                // notice another neko
+                yield return IdleNotice();
             }
         }
 
@@ -775,10 +837,10 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     performs a single roam cycle - picks random navmesh point and walks to it.
+        ///     idle action: picks random navmesh point and walks to it.
         ///     can be interrupted by pending actions (pet, friend play)
         /// </summary>
-        private IEnumerator RoamOnce()
+        private IEnumerator IdleRoam()
         {
             // check for pending actions first
             if (HasPendingAction()) yield break;
@@ -790,13 +852,57 @@ namespace PokkatCore
 
             if (!NavMesh.SamplePosition(randomDirection, out var hit, roamRadius * 2f, NavMesh.AllAreas))
             {
-                if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoWaitingForNavMesh();
+                // no valid navmesh point found, skip this roam
                 yield break;
             }
 
             // walk to the random point, checking for interrupts
             var targetPosition = hit.position;
             yield return WalkTowardCoroutine(targetPosition, 0.1f, HasPendingAction);
+        }
+
+        /// <summary>
+        ///     idle action: looks at a random other neko in the scene.
+        ///     creates natural "noticing" behaviour between nekos.
+        ///     skipped if neko is eating
+        /// </summary>
+        private IEnumerator IdleNotice()
+        {
+            // skip if eating (neko should focus on bowl)
+            if (_isEating) yield break;
+
+            // find all other nekos in the scene (unsorted for performance)
+            var allNekos = FindObjectsByType<AREntityNeko>(FindObjectsSortMode.None);
+            if (allNekos.Length <= 1) yield break; // no other nekos to notice
+
+            // filter out self and build list of valid targets
+            var validTargets = new List<AREntityNeko>();
+            foreach (var neko in allNekos)
+            {
+                if (neko != this && neko != null)
+                    validTargets.Add(neko);
+            }
+
+            if (validTargets.Count == 0) yield break;
+
+            // pick a random other neko
+            var target = validTargets[Random.Range(0, validTargets.Count)];
+            if (!target) yield break;
+
+            // check for pending actions before turning
+            if (HasPendingAction()) yield break;
+
+            // gradually turn to face the other neko
+            yield return TurnToward(target.transform.position, turnDuration);
+
+            // hold the look for a moment (interruptible)
+            var holdElapsed = 0f;
+            while (holdElapsed < noticeHoldDuration)
+            {
+                if (HasPendingAction()) yield break;
+                yield return null;
+                holdElapsed += Time.deltaTime;
+            }
         }
 
         /// <summary>
@@ -816,7 +922,6 @@ namespace PokkatCore
 
             // both nekos gradually turn to face each other (natural "noticing" moment)
             // uses current position, works even if friend is still following image
-            var turnDuration = 0.3f;
             StartCoroutine(TurnToward(friend.transform.position, turnDuration));
             StartCoroutine(friend.TurnToward(transform.position, turnDuration));
             yield return new WaitForSeconds(turnDuration + 0.1f);
@@ -923,8 +1028,11 @@ namespace PokkatCore
                 yield break;
             }
 
-            // face the bowl
-            LookAt(bowlPos);
+            // face the bowl with animated turn
+            yield return TurnToward(bowlPos, turnDuration);
+
+            // start eating - blocks idle actions like IdleNotice
+            _isEating = true;
 
             // eating animation: continuous jumping
             var elapsed = 0f;
@@ -933,6 +1041,7 @@ namespace PokkatCore
                 // pending actions or bowl changes can interrupt eating
                 if (HasPendingAction() || !_targetBowl || gameplay.activeBowl != _targetBowl)
                 {
+                    _isEating = false;
                     _targetBowl = null;
                     _moveAndEatCoroutine = null;
                     yield break;
@@ -955,6 +1064,7 @@ namespace PokkatCore
                 OnFed();
             }
 
+            _isEating = false;
             _targetBowl = null;
             _moveAndEatCoroutine = null;
             SnapToGround();

@@ -321,21 +321,28 @@ Assets/Scripts/
     - subscribes to `AREntityNeko.OnNekoSpawned` to detect friend nekos directly
   - **queue-based friend handling** (dec 18 2025):
     - `_pendingFriendQueue` - Queue<AREntityNeko> for multiple friends spawning in quick succession
-    - `TryDequeueAndPlayWithFriend()` - dequeues next friend and starts play interaction
+    - `TryRunPendingAction()` - dequeues next friend and starts play interaction
     - cleans up null/destroyed friends from queue automatically
   - **mutual face-each-other recognition** (dec 18 2025):
     - `_currentPlayPartner` field tracks active play partner
-    - both nekos face each other before jumping (via LookAt()), refreshed each jump
+    - both nekos face each other before jumping (via animated `TurnToward()`), refreshed with instant `LookAt()` each jump
     - partner references cleared after play completes
-  - **behaviour loop** (coroutine-based, not explicit FSM):
-    - `BehaviourLoop()` - main loop: waits for grounded, checks navmesh, then roams or handles interactions
-    - `RoamOnce()` - picks random navmesh point within roamRadius, walks to it via WalkTowardCoroutine (interruptible by friend interactions)
-    - `PlayWithFriend(AREntityNeko)` - does NOT require friend to be grounded; faces friend's current position (refreshed each jump), synchronised jumping with offset delay
-    - `MoveAndEat()` - walks to bowl via WalkTowardCoroutine, eating animation (continuous blinking + jumping), consumes bowl
+  - **idle-based behaviour loop** (dec 19 2025):
+    - `BehaviourLoop()` - main loop: waits for grounded, try pending actions, navmesh check loop, then idle
+    - `Idle(bool navMeshReady)` - waits random duration, rolls for idle action (IdleRoam or IdleNotice)
+    - `IdleRoam()` - picks random navmesh point within roamRadius, walks to it (only if navMeshReady)
+    - `IdleNotice()` - looks at random other neko using animated `TurnToward()`, holds for `noticeHoldDuration`
+    - `PlayWithFriend(AREntityNeko)` - does NOT require friend to be grounded; animated facing, synchronised jumping
+    - `MoveAndEat()` - walks to bowl, animated turn to face bowl, eating animation (main neko only)
       - **tracks `_targetBowl`** to detect bowl replacement mid-walk (dec 18 2025)
       - `_moveAndEatCoroutine` handle allows cancellation when new bowl spawns
       - `StateNotifyBowlPlaced()` cancels existing MoveAndEat before starting new one
-      - interruptible by friend interactions OR bowl replacement/destruction
+      - interruptible by pending actions OR bowl replacement/destruction
+  - **animated rotations** (dec 19 2025):
+    - `TurnToward(target, duration)` - animated rotation coroutine with ease-out
+    - `turnDuration` inspector field (default 0.3s) used for all animated turns
+    - used in: RunPetAction, MoveAndEat, PlayWithFriend, IdleNotice
+    - `LookAt(target)` - instant rotation, only for rapid updates (jump sync)
   - **notification methods**:
     - StateNotifyBowlPlaced() - triggers move-and-eat behaviour (main neko only), cancels previous walk
   - **navmesh state notifications** (ONLY main neko tagged `NekoMain` calls these):
@@ -345,7 +352,6 @@ Assets/Scripts/
     - OnFed() - called when neko eats from bowl
     - OnPlayedWithFriend() - called after playing with friend
     - OnPetted() - called when main neko is petted (only fires for `NekoMain` tag)
-  - LookAt(Vector3) - rotates to face target (Y-axis only)
   - ResetTilt() - resets z-axis tilt to upright after walking
   - EaseOutBack(t, bounceFactor) - helper for bounce easing curves
 - [x] `GroundingBehaviour` - unified grounding system for AR entities (dec 18 2025):
@@ -398,20 +404,48 @@ Assets/Scripts/
 - on bowl spawn, main neko is notified via `AREntityBowl.OnBowlSpawned` static event (direct AR object awareness)
 - bowl has ground stabilisation like neko (timer-based projection to nearest plane with XZ locking)
 
-**neko behaviour loop (coroutine-based, not explicit FSM)**:
+**neko behaviour loop (idle-centric, dec 19 2025):**
 - `BehaviourLoop()` is the main coroutine that runs while neko is alive
-- waits for grounded state, checks navmesh availability, then roams or handles interactions
-- **behaviours are interruptible**: friend spawn or bowl placement can interrupt roaming
+- **idle-centric design**: waits in idle state, performs idle actions, handles priority interrupts
+- flow: wait grounded → try pending actions → navmesh check loop → idle
+- **navmesh check loop**: while navmesh not ready, notify CoreGameplay (main only), try pending actions, call `Idle(navMeshReady: false)`
+- **behaviours are interruptible**: pet, friend spawn, or bowl placement can interrupt any idle action
 - **WalkTowardCoroutine()** is the shared walking helper with choppy stop-motion animation
   - plays `PlayStepSound()` on each walk step
-- `RoamOnce()` picks random navmesh point within roamRadius, walks via WalkTowardCoroutine
-- `PlayWithFriend()` does NOT require friend to be grounded; faces friend's current position (refreshed each jump), synchronised jumping
-  - plays `PlayMeowSound()` when play starts, `PlayJumpSound()` on each jump
-- `MoveAndEat()` walks to bowl, eating animation (continuous blinking + jumping), consumes bowl
-  - plays `PlayEatingSound()` during eating animation, `PlayJumpSound()` on each jump
-  - **bowl replacement fix (dec 18 2025)**: tracks `_targetBowl` to detect when bowl is replaced mid-walk
-  - `StateNotifyBowlPlaced()` cancels existing MoveAndEat coroutine before starting new one
-  - prevents stuck walking animation when quickly spawning new bowls
+
+**idle system (dec 19 2025):**
+- `Idle(bool navMeshReady)` - central idle state handler
+  - waits random duration (`idleDurationMin` to `idleDurationMax`, default 1-3s)
+  - checks for pending actions throughout (interruptible)
+  - rolls for idle action: `idleRoamChance` (default 0.7) vs IdleNotice
+  - IdleRoam only runs if `navMeshReady` is true
+- `IdleRoam()` - picks random navmesh point within roamRadius, walks to it
+  - can be interrupted by pending actions
+- `IdleNotice()` - looks at a random other neko in the scene
+  - uses `FindObjectsByType<AREntityNeko>()` to find targets
+  - filters out self, picks random target
+  - uses animated `TurnToward()` for natural feel
+  - holds look for `noticeHoldDuration` (default 0.5s)
+  - both main and friend nekos can notice each other
+
+**animated rotations (dec 19 2025):**
+- all social/interaction rotations use `StartCoroutine(TurnToward(target, turnDuration))`
+- `turnDuration` inspector field (default 0.3s) controls all animated turns
+- used in: `RunPetAction`, `MoveAndEat` (face bowl), `PlayWithFriend`, `IdleNotice`
+- instant `LookAt()` only used for rapid in-sequence updates (jump sync in PlayWithFriend)
+
+**PlayWithFriend behaviour:**
+- does NOT require friend to be grounded; faces friend's current position (refreshed each jump)
+- uses animated turn for initial facing, instant LookAt for jump syncs
+- plays `PlayMeowSound()` when play starts, `PlayJumpSound()` on each jump
+
+**MoveAndEat behaviour (main neko only):**
+- walks to bowl, animated turn to face bowl, eating animation (continuous blinking + jumping)
+- plays `PlayEatingSound()` during eating animation, `PlayJumpSound()` on each jump
+- **`_isEating` flag** blocks idle actions (IdleNotice, IdleRoam) while eating - neko stays focused on bowl
+- **bowl replacement fix (dec 18 2025)**: tracks `_targetBowl` to detect when bowl is replaced mid-walk
+- `StateNotifyBowlPlaced()` cancels existing MoveAndEat coroutine before starting new one
+- friend nekos do NOT respond to bowl spawns (checked in `OnBowlSpawnedHandler`)
 
 **petting interaction (dec 18 2025):**
 - `PlaneHandling.Update()` checks touch input each frame
@@ -419,17 +453,17 @@ Assets/Scripts/
 - touch detection runs regardless of `OnPlaneInteraction` subscribers (petting always works)
 - `Pet()` sets `_pendingPetRequest` flag (does not execute immediately)
 - `TryRunPendingAction()` in behaviour loop executes `RunPetAction()` when flag is set
-- `RunPetAction()` makes neko face the player camera, blink, and bounce once
+- `RunPetAction()` uses animated turn to face player camera, then blink and bounce
 - plays `PlayMeowSound()` and `PlayJumpSound()` on petting
 - only main neko (tagged `NekoMain`) triggers `OnPetted()` stat hook
-- **petting can interrupt walking/eating** - behaviour loop checks `HasPendingAction()` to abort current activity
+- **petting can interrupt walking/eating/idle** - behaviour loop checks `HasPendingAction()` to abort
 
 **unified action handling (dec 19 2025):**
 - `HasPendingAction()` - checks if any action is pending (pet request, friend in queue) WITHOUT executing
 - `TryRunPendingAction()` - executes highest priority pending action:
   1. pet request (highest priority - player interaction)
   2. friend play request (dequeues from `_pendingFriendQueue`)
-- `WalkTowardCoroutine` and `MoveAndEat` use `HasPendingAction()` as interrupt check
+- `WalkTowardCoroutine`, `MoveAndEat`, `Idle`, and idle actions use `HasPendingAction()` as interrupt check
 - `BehaviourLoop` uses `TryRunPendingAction()` to execute actions after interrupts
 - this separation prevents the old problem where interrupt checks had side effects (starting coroutines)
 
@@ -444,7 +478,7 @@ Assets/Scripts/
 
 **mutual face-each-other recognition (dec 18 2025):**
 - `_currentPlayPartner` tracks the active play partner for both nekos
-- **initial facing uses gradual turn** (`TurnToward()` coroutine, 0.3s with ease-out) for natural "noticing" moment
+- **initial facing uses gradual turn** (`TurnToward()` coroutine with `turnDuration`) for natural "noticing" moment
 - subsequent facing during jumps uses instant `LookAt()` (snappy during active play is fine)
 - partner references cleared after play completes
 
