@@ -354,7 +354,7 @@ namespace PokkatCore
             // prevent spawning bowl too close to existing nekos
             // note: we pass the interaction position, not checking against existing bowl
             // because we're about to destroy the existing bowl anyway
-            if (IsTooCloseToExistingEntities(interaction.Position, false))
+            if (IsTooCloseToExistingEntities(interaction.Position))
             {
                 Logkat.Out("CoreGameplay: bowl spawn position too close to neko, skipping spawn");
                 return;

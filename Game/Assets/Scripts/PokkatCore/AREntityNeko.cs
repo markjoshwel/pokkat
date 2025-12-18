@@ -63,7 +63,7 @@ namespace PokkatCore
 
 
         [Header("Behaviour Settings")] [Tooltip("roaming radius in metres")] [SerializeField]
-        private float roamRadius = 0.5f;
+        private float roamRadius = 0.25f;
 
         [Tooltip("duration for animated turns (seconds)")] [SerializeField]
         private float turnDuration = 0.3f;
@@ -74,12 +74,10 @@ namespace PokkatCore
         [Tooltip("maximum idle wait time (seconds)")] [SerializeField]
         private float idleDurationMax = 3f;
 
-        [Tooltip("chance to roam when roam ready (0-1)")] [SerializeField]
-        [Range(0f, 1f)]
+        [Tooltip("chance to roam when roam ready (0-1)")] [SerializeField] [Range(0f, 1f)]
         private float idleRoamChance = 0.5f;
 
-        [Tooltip("chance to notice another neko (0-1, remainder is look around)")] [SerializeField]
-        [Range(0f, 1f)]
+        [Tooltip("chance to notice another neko (0-1, remainder is look around)")] [SerializeField] [Range(0f, 1f)]
         private float idleNoticeChance = 0.3f;
 
         [Tooltip("how long to look at another neko when noticing (seconds)")] [SerializeField]
@@ -761,7 +759,7 @@ namespace PokkatCore
 
                 // check if roaming is possible (plane detection working)
                 var canRoam = CanRoam();
-                
+
                 // notify game state if main neko waiting for planes
                 if (!canRoam && CompareTag("NekoMain"))
                     CoreGameplay.instance?.NotifyMainNekoWaitingForPlane();
@@ -800,12 +798,14 @@ namespace PokkatCore
             // roll for idle action type
             // distribution: roam (if planes ready) -> notice -> look around
             var roll = Random.value;
-            Logkat.Dev($"AREntityNeko: Idle roll={roll:F2}, canRoam={canRoam}, roamChance={idleRoamChance}, noticeChance={idleNoticeChance}");
+            Logkat.Dev(
+                $"AREntityNeko: Idle roll={roll:F2}, canRoam={canRoam}, roamChance={idleRoamChance}, noticeChance={idleNoticeChance}");
 
             if (canRoam && roll < idleRoamChance)
             {
                 // roam only if plane detection is ready
-                yield return IdleRoam();
+                // yield return IdleRoam();
+                // FIXME: disabled due to navmesh/ar planes and real world edge detection issues
             }
             else if (roll < idleRoamChance + idleNoticeChance)
             {
@@ -877,10 +877,8 @@ namespace PokkatCore
             // filter out self and build list of valid targets
             var validTargets = new List<AREntityNeko>();
             foreach (var neko in allNekos)
-            {
                 if (neko != this && neko != null)
                     validTargets.Add(neko);
-            }
 
             if (validTargets.Count == 0) yield break;
 

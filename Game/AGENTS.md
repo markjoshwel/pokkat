@@ -2,17 +2,16 @@
 
 this document captures codebase knowledge, code style, and current development context for ai agent continuity.
 
-**last updated:** december 18, 2025
+**last updated:** december 19, 2025
 
 ## project overview
 
-**pokkat** is a unity ar game using ar foundation for ios/android. the game features neko (cat) characters that can be spawned via image tracking, interact with bowls, and navigate on detected surfaces.
+**pokkat** is a unity ar game using ar foundation for ios/android. the game features neko (cat) characters that can be spawned via image tracking, interact with bowls, and roam on detected surfaces.
 
 ### package dependencies
 
 - `com.unity.xr.arfoundation` - ar foundation for cross-platform ar
 - `com.unity.xr.arkit` / `com.unity.xr.arcore` - platform-specific ar providers
-- `com.unity.ai.navigation` - runtime navmesh baking (NavMeshSurface)
 - `com.unity.inputsystem` - new input system for touch/mouse detection
 
 ## architecture
@@ -30,8 +29,6 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 | `GroundingBehaviour` | unified grounding system for AR entities - handles anchor position storage, XZ locking, and timer-based Y-only stabilisation |
 | `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), procedural Walk/Jump/Fall animations, and GroundingBehaviour |
 | `AREntityBowl` | bowl entity with consumption logic, visual state, and GroundingBehaviour |
-| `NavMeshDebugRenderer` | debug visualisation for runtime-baked NavMesh, auto-refreshes on PlaneHandling bake events |
-| `ARPlaneNavMeshBridge` | bridges AR Foundation planes with NavMesh system - adds NavMeshModifier to detected planes for proper geometry collection |
 | `Statskeeper` | persistence stub (json-based hunger/happiness - not yet implemented) |
 | `CoreGameplayInterfaceInterop` | UI bridge that displays game state messages (e.g., "Scan tracker", "Move phone around") |
 
@@ -39,7 +36,7 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 
 1. `PlaneHandling` fires `OnPlaneReady` when sufficient plane area detected (default 1.0m²)
 2. `PlaneHandling` fires `OnPlaneInteraction` when user taps on a tracked plane (petting has priority)
-3. `PlaneHandling` fires `OnPlanesUpdated` whenever planes change (for navmesh baking)
+3. `PlaneHandling` fires `OnPlanesUpdated` whenever planes change
 4. `ImageHandling` fires `OnImageDetected` when tracking images (TrackingState.Tracking only)
 5. `ImageHandling` fires `OnImageLost` when images are removed from tracking
 6. `CoreGameplay` spawns neko via `PlaneHandling.SpawnClosest()` or at image position if no plane
@@ -137,6 +134,31 @@ this section documents failed approaches to prevent future agents/LLMs from repe
 
 **neko orientation:** nekos spawn facing the camera (rotation calculated from spawn position to camera position, Y-axis only)
 
+**⚠️ NAVMESH LESSONS LEARNED (dec 19 2025) - WHY NAVMESH WAS ABANDONED:**
+
+the project initially attempted to use Unity's NavMesh system for neko roaming. this was abandoned after extensive debugging because:
+
+**FAILED APPROACH: NavMeshSurface with AR Foundation planes**
+- **what we tried:**
+  1. set NavMeshSurface to "Use Geometry: Render Meshes" - AR planes have MeshFilter but NOT MeshRenderer, so nothing was collected
+  2. set NavMeshSurface to "Use Geometry: Physics Colliders" - AR planes have colliders, but still no triangulation
+  3. created `ARPlaneNavMeshBridge` to add `NavMeshModifier` to each detected plane - this only modifies existing geometry, doesn't add any
+  4. tried adding `MeshCollider` to AR planes and using `GetComponentInChildren<>()` - AR plane hierarchy is non-standard
+- **symptoms:** `NavMesh.CalculateTriangulation()` always returned empty (0 vertices, 0 triangles), even with 25m² of detected plane area
+- **root cause:** AR Foundation creates plane geometry dynamically via `ARPlaneMeshVisualizer` on child GameObjects. the mesh components don't exist when NavMeshSurface collects geometry, and the architecture doesn't match what NavMeshSurface expects.
+
+**SIMPLER SOLUTION: Plane-based roaming (dec 19 2025)**
+- replaced NavMesh dependency with direct AR plane projection
+- `IdleRoam()` now uses `PlaneHandling.TryProjectToPlane()` to find walkable positions
+- `CanRoam()` checks `planes.isReady` instead of `NavMesh.SamplePosition()`
+- **NOTE:** IdleRoam is currently disabled due to real-world edge detection issues (nekos can walk off detected plane boundaries)
+
+**RULES FOR FUTURE ROAMING CHANGES:**
+1. **DO NOT re-add NavMesh** - it doesn't work reliably with AR Foundation's dynamic plane geometry
+2. **use PlaneHandling methods** for walkable area queries (TryProjectToPlane, TryGetPlaneHeightAt)
+3. **IdleRoam needs boundary detection** - AR planes have polygon boundaries, check if target point is within plane polygon before walking
+4. consider **simple radius constraints** - keep nekos within a certain distance of their spawn anchor
+
 ## code style
 
 ### file headers
@@ -206,10 +228,10 @@ Assets/Scripts/
 ├── PokkatCore/           # core game systems (namespace: PokkatCore)
 │   ├── CoreGameplay.cs   # singleton coordinator (~580 lines, organised with #region)
 │   ├── ImageHandling.cs  # ARTrackedImageManager wrapper (~190 lines, organised with #region)
-│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest + NavMesh baking (~650 lines, organised with #region)
+│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest (~550 lines, organised with #region)
 │   ├── Logkat.cs         # logging utility with spam prevention (~105 lines)
 │   ├── GroundingBehaviour.cs  # unified grounding for AR entities (~160 lines)
-│   ├── AREntityNeko.cs   # neko with behaviour loop + procedural animations (~900 lines, organised with #region)
+│   ├── AREntityNeko.cs   # neko with behaviour loop + procedural animations (~1100 lines, organised with #region)
 │   ├── AREntityBowl.cs   # bowl entity with consumption logic (~150 lines, organised with #region)
 │   ├── Statskeeper.cs    # persistence stub (~25 lines)
 │   └── Reference/        # reference implementations for study
@@ -225,9 +247,9 @@ Assets/Scripts/
 ```
 
 **note:** large pokkatcore scripts use `#region` blocks for organisation:
-- **AREntityNeko**: Inspector Fields, Private Fields, Static Events, Unity Lifecycle, Texture Management, Blinking Animation, Following State, Movement Animations, Awareness Handlers, Behaviour Loop, Stat Hooks
-- **PlaneHandling**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Events, Setup, Touch Input, Event Handlers, Plane Queries, Spawning, NavMesh Baking
-- **CoreGameplay**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Setup, Following Neko Update, Event Handlers, Neko Spawning, NavMesh State, Audio Stubs
+- **AREntityNeko**: Inspector Fields, Private Fields, Static Events, Unity Lifecycle, Texture Management, Blinking Animation, Following State, Movement Animations, Action Handling, Awareness Handlers, Behaviour Loop, Stat Hooks
+- **PlaneHandling**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Events, Setup, Touch Input, Event Handlers, Plane Queries, Spawning
+- **CoreGameplay**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Setup, Following Neko Update, Event Handlers, Neko Spawning, Plane Roaming State, Audio Stubs
 - **AREntityBowl**: Private Fields, Public Properties, Static Events, Unity Lifecycle, Bowl Consumption, Stat Hooks
 - **GroundingBehaviour**: Inspector Fields, Private Fields, Public Properties, Public Methods
 - **ImageHandling**: Inspector Fields, Unity Lifecycle, Events, Setup, Event Handlers
@@ -251,7 +273,6 @@ Assets/Scripts/
   - OnPlaneInteraction event (fires on touch, uses new input system)
   - **TouchHitsNeko(screenPosition)** - checks if touch hits neko before plane interaction (petting has priority)
     - **REQUIRES neko prefab to have a Collider component** for Physics.Raycast to detect it
-  - **OnNavMeshReady event** (fires once when navmesh is first baked successfully)
   - SpawnClosest() method (projects position onto closest plane, orients toward camera, parents to plane)
   - FindClosestPlane() public helper (handles fragmented AR tracking)
   - **FindClosestPlaneBelow(Vector3)** - finds closest plane at or below position (for proper grounding)
@@ -266,41 +287,16 @@ Assets/Scripts/
   - TryGetTouchPosition() - new input system touch/mouse detection
   - TryRaycastToPlane() - AR raycast to plane with TrackableType.PlaneWithinPolygon
   - **public accessors for entity use** (via `CoreGameplay.instance.planes`):
-    - `surface` - NavMeshSurface for agent pathfinding
     - `arPlaneManager` - ARPlaneManager for plane queries
-    - `navMeshReady` - true after first successful bake
     - `isReady` - true after minimum plane area threshold met
-  - **runtime navmesh baking** via NavMeshSurface (com.unity.ai.navigation):
-    - `navMeshSurface` field for NavMeshSurface component reference
-    - `navMeshBakeCooldownSeconds` (default 2s) to throttle rebakes
-    - `autoBakeOnPlaneUpdate` toggle for continuous baking on plane changes
-    - `RequestNavMeshBake()` public method (respects cooldown)
-    - auto-bakes on OnPlaneReady event
-    - auto-bakes on OnPlanesUpdated event (if autoBakeOnPlaneUpdate enabled)
-- [x] `NavMeshDebugRenderer` - debug visualisation for runtime NavMesh (dec 19 2025):
-  - **requires**: MeshFilter, MeshRenderer components (added via RequireComponent)
-  - **inspector fields**:
-    - `debugMaterial` - material for visualisation (use transparent/wireframe)
-    - `yOffset` (default 0.01m) - prevents z-fighting with ground
-    - `autoRefreshOnBake` - subscribe to PlaneHandling events
-    - `enableRendering` - toggle visibility at runtime
-  - **auto-refresh**: subscribes to `OnNavMeshReady` and `OnPlanesUpdated` events
-  - `Refresh()` - rebuilds mesh from `NavMesh.CalculateTriangulation()`
-  - `SetEnabled(bool)` - toggles debug rendering on/off
-- [x] `ARPlaneNavMeshBridge` - bridges AR planes with NavMesh system (dec 19 2025):
-  - **requires**: ARPlaneManager component on same GameObject
-  - **purpose**: AR planes don't have NavMesh geometry by default; this adds NavMeshModifier to each detected plane
-  - subscribes to `planesChanged` event on ARPlaneManager
-  - `EnsureNavMeshModifier(ARPlane)` - adds NavMeshModifier configured as walkable (area=0)
-  - **usage**: add to same GameObject as ARPlaneManager, then NavMeshSurface will collect plane geometry
 - [x] `CoreGameplay` - scene singleton coordinator (does not persist across scenes, uses .instance for prefab access without DI):
   - `instance` static property for scene-scoped access
   - `planes` public accessor for PlaneHandling (used by AREntityNeko)
-  - `gameState` property (WaitingForAnything → HasPlane/HasTracker → NekoWaitingForNavMesh → Ok)
+  - `gameState` property (WaitingForAnything → HasPlane/HasTracker → NekoWaitingForPlanes → Ok)
   - `TrackedNekoInstance` class for neko state tracking (entity, anchor, isFollowing, isGrounded)
   - `_trackedNekos` list holds all spawned nekos with their state (max 3)
   - `_activeImage` reference to currently tracked ARTrackedImage
-  - `_mainNekoWaitingForNavMesh` bool for UX feedback
+  - `_mainNekoWaitingForPlanes` bool for UX feedback (plane-based roaming readiness)
   - `_lastSpawnTime` and `spawnCooldown` (default 1.0s) to prevent double-spawning race conditions
   - **multispawn**: position jump detection triggers new neko spawn at new location
   - **multitrack**: following neko syncs to image position; falls on tracking loss/limited
@@ -311,7 +307,7 @@ Assets/Scripts/
   - main neko vs friend neko logic (first spawn = main, rest = friend with random texture)
   - bowl spawning on plane touch (singleton - only one bowl allowed)
   - max neko limit enforcement (default 3)
-  - **navmesh UX hooks**: `NotifyMainNekoWaitingForNavMesh()` / `NotifyMainNekoHasNavMesh()` for state tracking
+  - **plane roaming UX hooks**: `NotifyMainNekoWaitingForPlane()` / `NotifyMainNekoHasPlane()` for state tracking
   - **audio stubs** (dec 18 2025): placeholder methods for sound effects, log warning when called
     - `PlayBowlPlaceSound()` - bowl placement sound
     - `PlayBowlConsumeSound()` - bowl consumption sound
@@ -326,7 +322,7 @@ Assets/Scripts/
   - RandomizeTextureId() private method (auto-called if tagged "NekoFriend")
   - periodic Blink() with configurable interval and duration
   - StartFollowing() / StopFollowing() for image tracking (unparents, resets grounded state)
-  - Fall() and Fall(Action onComplete) - uses `TryGetPlaneHeightAt()` to preserve XZ while getting plane Y, calls `_grounding.Ground()`, **snaps to navmesh after landing**
+  - Fall() and Fall(Action onComplete) - uses `TryGetPlaneHeightAt()` to preserve XZ while getting plane Y, calls `_grounding.Ground()`
   - **ground stabilisation via GroundingBehaviour**: Update() calls `_grounding.Stabilise()` (skips while following)
   - **SnapToGround()** - delegates to `_grounding.SnapToGround()`
   - **WalkTowardCoroutine(targetPosition, arrivalDistance, interruptCheck)** - primary shared walking helper with choppy stop-motion animation, interrupt support, and `_grounding.UpdateAnchor()` on each step
@@ -346,10 +342,11 @@ Assets/Scripts/
     - both nekos face each other before jumping (via animated `TurnToward()`), refreshed with instant `LookAt()` each jump
     - partner references cleared after play completes
   - **idle-based behaviour loop** (dec 19 2025):
-    - `BehaviourLoop()` - main loop: waits for grounded, try pending actions, navmesh check loop, then idle
-    - `Idle(bool navMeshReady)` - waits random duration, rolls for idle action (IdleRoam or IdleNotice)
-    - `IdleRoam()` - picks random navmesh point within roamRadius, walks to it (only if navMeshReady)
+    - `BehaviourLoop()` - main loop: waits for grounded, try pending actions, plane check, then idle
+    - `Idle(bool canRoam)` - waits random duration, rolls for idle action (IdleRoam, IdleNotice, or IdleLookAround)
+    - `IdleRoam()` - picks random point within roamRadius, projects to AR plane, walks to it (only if planes ready)
     - `IdleNotice()` - looks at random other neko using animated `TurnToward()`, holds for `noticeHoldDuration`
+    - `IdleLookAround()` - looks in random direction using animated `TurnToward()`, holds for `lookAroundHoldDuration`
     - `PlayWithFriend(AREntityNeko)` - does NOT require friend to be grounded; animated facing, synchronised jumping
     - `MoveAndEat()` - walks to bowl, animated turn to face bowl, eating animation (main neko only)
       - **tracks `_targetBowl`** to detect bowl replacement mid-walk (dec 18 2025)
@@ -363,9 +360,9 @@ Assets/Scripts/
     - `LookAt(target)` - instant rotation, only for rapid updates (jump sync)
   - **notification methods**:
     - StateNotifyBowlPlaced() - triggers move-and-eat behaviour (main neko only), cancels previous walk
-  - **navmesh state notifications** (ONLY main neko tagged `NekoMain` calls these):
-    - calls `CoreGameplay.NotifyMainNekoWaitingForNavMesh()` if neko is not on navmesh
-    - calls `CoreGameplay.NotifyMainNekoHasNavMesh()` when neko has navmesh
+  - **plane roaming state notifications** (ONLY main neko tagged `NekoMain` calls these):
+    - calls `CoreGameplay.NotifyMainNekoWaitingForPlane()` if planes not ready for roaming
+    - calls `CoreGameplay.NotifyMainNekoHasPlane()` when planes are ready for roaming
   - **stat hooks** (for stats integration):
     - OnFed() - called when neko eats from bowl
     - OnPlayedWithFriend() - called after playing with friend
@@ -425,21 +422,24 @@ Assets/Scripts/
 **neko behaviour loop (idle-centric, dec 19 2025):**
 - `BehaviourLoop()` is the main coroutine that runs while neko is alive
 - **idle-centric design**: waits in idle state, performs idle actions, handles priority interrupts
-- flow: wait grounded → try pending actions → navmesh check loop → idle
-- **navmesh check loop**: while navmesh not ready, notify CoreGameplay (main only), try pending actions, call `Idle(navMeshReady: false)`
+- flow: wait grounded → try pending actions → plane readiness check → idle
+- **plane roaming check**: if planes not ready, notify CoreGameplay (main only) and idle without roaming
 - **behaviours are interruptible**: pet, friend spawn, or bowl placement can interrupt any idle action
 - **WalkTowardCoroutine()** is the shared walking helper with choppy stop-motion animation
   - plays `PlayStepSound()` on each walk step
 
 **idle system (dec 19 2025):**
-- `Idle(bool navMeshReady)` - central idle state handler
+- `Idle(bool canRoam)` - central idle state handler
   - waits random duration (`idleDurationMin` to `idleDurationMax`, default 1-3s)
   - checks for pending actions throughout (interruptible)
-  - rolls for idle action with priority: roam (if navmesh) → notice → look around
-  - `idleRoamChance` (default 0.5) - chance to roam when navmesh ready
+  - rolls for idle action with priority: roam (if planes ready) → notice → look around
+  - `idleRoamChance` (default 0.5) - chance to roam when planes ready
   - `idleNoticeChance` (default 0.3) - chance to notice another neko
   - remainder (0.2) - chance to look around randomly
-- `IdleRoam()` - picks random navmesh point within roamRadius, walks to it
+- `CanRoam()` - checks if plane detection is ready via `CoreGameplay.instance.planes.isReady`
+- `IdleRoam()` - picks random point within roamRadius, projects to AR plane via `TryProjectToPlane()`, walks to it
+  - **CURRENTLY DISABLED** (dec 19 2025) - commented out due to edge detection issues with real-world surfaces
+  - uses `PlaneHandling.TryProjectToPlane()` instead of NavMesh for plane-based roaming
   - can be interrupted by pending actions
 - `IdleNotice()` - looks at a random other neko in the scene
   - uses `FindObjectsByType<AREntityNeko>()` to find targets
@@ -513,10 +513,10 @@ Assets/Scripts/
 - OnPetted() only fires for main neko (tagged `NekoMain`)
 - these integrate with Statskeeper for hunger/happiness tracking
 
-**navmesh UX**:
-- `CoreGameplayState.NekoWaitingForNavMesh` state for user feedback
-- `CoreGameplayInterfaceInterop` displays "The cat doesn't know where to go!" message
-- main neko calls `NotifyMainNekoWaitingForNavMesh()` when not on navmesh, `NotifyMainNekoHasNavMesh()` when roaming succeeds
+**plane roaming UX**:
+- `CoreGameplayState.NekoWaitingForPlanes` state for user feedback
+- `CoreGameplayInterfaceInterop` displays "Move your phone around to detect more surfaces!" message
+- main neko calls `NotifyMainNekoWaitingForPlane()` when planes not ready, `NotifyMainNekoHasPlane()` when roaming is possible
 
 ### stubs (not yet implemented)
 
@@ -554,9 +554,6 @@ Assets/Scripts/
 | raycastManager | reference to ARRaycastManager |
 | minimumAreaSquareMeters | minimum total plane area before firing OnPlaneReady (default 1.0) |
 | fireOnceOnly | if true, OnPlaneReady fires only once (default true) |
-| navMeshSurface | NavMeshSurface component for runtime baking (optional) |
-| navMeshBakeCooldownSeconds | seconds between navmesh rebakes (default 2) |
-| autoBakeOnPlaneUpdate | if true, rebake navmesh when planes update (default true) |
 
 ### inspector setup for ImageHandling
 
@@ -583,7 +580,7 @@ Assets/Scripts/
 | enableGroundStabilisation | continuously project to nearest plane when grounded (default true) |
 | stabilisationInterval | seconds between stabilisation checks (default 0.5) |
 | stabilisationThreshold | minimum drift to trigger stabilisation (default 0.02) |
-| roamRadius | roaming radius in metres for NavMesh sampling (default 0.5) |
+| roamRadius | roaming radius in metres for idle roaming (default 0.5) |
 | idleWaitMin | minimum idle wait in seconds before roaming (default 2) |
 | idleWaitMax | maximum idle wait in seconds before roaming (default 5) |
 | friendJumpDelay | delay before friend jumps in play sequence (default 0.5) |
