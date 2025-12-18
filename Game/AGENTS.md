@@ -66,6 +66,14 @@ arcore/arkit cannot distinguish between multiple physical prints of the same ref
    - if far from all grounded nekos: spawn a new neko (max 3)
    - if near an existing grounded neko: do nothing (same physical card, just AR re-detection)
 
+**entity separation (dec 18 2025):**
+prevents nekos/bowls from spawning inside each other due to AR tracking blips:
+- `entitySeparationDistance` (default 0.15m) - minimum distance between any two AR entities
+- `IsTooCloseToExistingEntities(position, ignoreFollowing)` helper checks against all nekos and active bowl
+- `TrySpawnNewNeko()` rejects spawn if too close to any grounded entity
+- `OnPlaneInteraction()` (bowl spawning) rejects spawn if too close to any neko
+- prevents duplicate friend nekos spawned at same marker due to AR image tracking blips
+
 **multitrack logic (in Update, two phases):**
 1. **phase 1 (following):** find the following neko, if image is `TrackingState.Tracking` sync position, else trigger fall
 2. **phase 2:** ground stabilisation now handled by AREntityNeko.Update() with timer-based plane projection
@@ -82,9 +90,7 @@ all AR entities (nekos, bowls) use `GroundingBehaviour` for consistent plane sta
 - **anchor position:** stored when entity is grounded; XZ coordinates are locked, only Y is adjusted
 - **horizontal plane filtering:** `FindClosestHorizontalPlaneBelow()` filters out walls/steep slopes (normal.y >= 0.9)
 - **UpdateAnchor():** called during walking to allow intentional XZ movement
-- entities are NOT parented to planes - they stay at fixed world coordinates with Y stabilisation
-
-**⚠️ GROUNDING LESSONS LEARNED (dec 18 2025) - READ BEFORE MODIFYING GROUNDING CODE:**
+- entities are NOT parented to planes - they stay at fixed world coordinates with Y stabilisation**⚠️ GROUNDING LESSONS LEARNED (dec 18 2025) - READ BEFORE MODIFYING GROUNDING CODE:**
 
 this section documents failed approaches to prevent future agents/LLMs from repeating them.
 
@@ -421,9 +427,10 @@ Assets/Scripts/
 - `TryDequeueAndPlayWithFriend()` dequeues next friend and starts play interaction
 - queue is cleaned of null/destroyed friends automatically
 
-**mutual face-each-other recognition (dec 18 2025)**:
+**mutual face-each-other recognition (dec 18 2025):**
 - `_currentPlayPartner` tracks the active play partner for both nekos
-- both nekos LookAt() each other before jumping
+- **initial facing uses gradual turn** (`TurnToward()` coroutine, 0.3s with ease-out) for natural "noticing" moment
+- subsequent facing during jumps uses instant `LookAt()` (snappy during active play is fine)
 - partner references cleared after play completes
 
 **stat hooks**:
@@ -463,6 +470,8 @@ Assets/Scripts/
 | maxActiveNekos | limit on total spawned nekos (default 5) |
 | multiImageDistanceThreshold | minimum distance (m) between image positions to spawn new neko (default 0.25) |
 
+| spawnCooldown | seconds between neko spawns (default 1.0) |
+| entitySeparationDistance | minimum distance (m) between any two AR entities (nekos/bowls) to prevent overlap (default 0.15) |
 ### inspector setup for PlaneHandling
 
 | field | description |

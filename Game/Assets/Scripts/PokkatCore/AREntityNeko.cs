@@ -473,6 +473,9 @@ namespace PokkatCore
         /// <summary>
         ///     rotates neko to face target position (y-axis only)
         /// </summary>
+        /// <summary>
+        ///     rotates neko to face target position instantly (y-axis only)
+        /// </summary>
         /// <param name="target">world position to look at</param>
         private void LookAt(Vector3 target)
         {
@@ -480,6 +483,35 @@ namespace PokkatCore
             dir.y = 0;
             if (dir.sqrMagnitude < 0.001f) return;
             transform.rotation = Quaternion.LookRotation(dir);
+        }
+
+        /// <summary>
+        ///     gradually rotates neko to face target position over time (y-axis only).
+        ///     used for natural-looking social interactions
+        /// </summary>
+        /// <param name="target">world position to look at</param>
+        /// <param name="duration">time in seconds to complete the turn</param>
+        private IEnumerator TurnToward(Vector3 target, float duration = 0.3f)
+        {
+            var dir = target - transform.position;
+            dir.y = 0;
+            if (dir.sqrMagnitude < 0.001f) yield break;
+
+            var startRotation = transform.rotation;
+            var targetRotation = Quaternion.LookRotation(dir);
+            var elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                var t = Mathf.Clamp01(elapsed / duration);
+                // ease-out for natural deceleration
+                t = 1f - (1f - t) * (1f - t);
+                transform.rotation = Quaternion.Slerp(startRotation, targetRotation, t);
+                yield return null;
+            }
+
+            transform.rotation = targetRotation;
         }
 
         /// <summary>
@@ -712,7 +744,7 @@ namespace PokkatCore
 
         /// <summary>
         ///     play interaction between main neko and friend neko.
-        ///     both nekos face each other before jumping together.
+        ///     both nekos gradually turn to face each other before jumping together.
         ///     does not require friend to be grounded - plays with friend's current position
         /// </summary>
         /// <param name="friend">the friend neko to play with</param>
@@ -724,11 +756,14 @@ namespace PokkatCore
             _currentPlayPartner = friend;
             friend._currentPlayPartner = this;
 
-            // both nekos face each other (uses current position, works even if friend is still following image)
-            LookAt(friend.transform.position);
-            friend.LookAt(transform.position);
+            // both nekos gradually turn to face each other (natural "noticing" moment)
+            // uses current position, works even if friend is still following image
+            var turnDuration = 0.3f;
+            StartCoroutine(TurnToward(friend.transform.position, turnDuration));
+            StartCoroutine(friend.TurnToward(transform.position, turnDuration));
+            yield return new WaitForSeconds(turnDuration + 0.1f);
             
-            // play meow sound when playing starts
+            // play meow sound when playing starts (after turning to face each other)
             CoreGameplay.instance?.PlayMeowSound();
 
             Logkat.Out("AREntityNeko: playing with friend (facing each other)");
@@ -736,7 +771,7 @@ namespace PokkatCore
             // synchronised jumping sequence
             for (var i = 0; i < playJumpCount; i++)
             {
-                // refresh facing direction each jump (friend may be moving if still following image)
+                // refresh facing direction each jump (instant snap during play is fine)
                 LookAt(friend.transform.position);
                 friend.LookAt(transform.position);
 
