@@ -1,0 +1,1811 @@
+Info (Pokkat) OUT: CoreGameplay: Awake/Setup OK
+Info (Pokkat) OUT: Statskeeper: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling: Awake/Setup OK
+Info (Pokkat) OUT: ImageHandling: Awake/Setup OK
+Info (Pokkat) OUT: CoreGameplay: Event Subscription OK
+Info (Pokkat) OUT: CoreGameplay: Start/Configure OK
+Info (Pokkat) OUT: Statskeeper: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Start/Configure OK
+Info (Pokkat) OUT: ImageHandling: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: Plane ready, total area 1.38m┬▓, largest plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: CoreGameplay: plane ready received
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.11, -1.52), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=0
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (2.00, -2.11, -1.52), isMain=True, currentCount=0
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned MAIN neko
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.11, -1.52), nekoPos=(2.00, -2.11, -1.52)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.00, -2.11, -1.52) to (2.00, -2.12, -1.52) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.12, -1.51), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.013, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.12, -1.51), nekoPos=(2.00, -2.11, -1.52)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.00, -2.12, -1.51) to (2.00, -2.12, -1.51) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.12, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.009, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.12, -1.50), nekoPos=(2.00, -2.12, -1.51)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.00, -2.12, -1.50) to (2.00, -2.12, -1.50) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.001, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.12, -1.50), nekoPos=(2.00, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.01, -2.12, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.005, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.01, -2.12, -1.50), nekoPos=(2.00, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.13, -1.50) on plane B40000726D748090-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.11, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.11, -1.50), nekoPos=(2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.00, -2.11, -1.50) to (2.00, -2.12, -1.50) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.11, -1.50), nekoPos=(2.00, -2.11, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.004, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.000, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.10, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.003, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.10, -1.50), nekoPos=(2.00, -2.11, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.00, -2.10, -1.50) to (2.00, -2.12, -1.50) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.10, -1.50), nekoPos=(2.00, -2.10, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.11, -1.50), nekoPos=(2.00, -2.10, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.002, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.99, -2.10, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.99, -2.10, -1.50), nekoPos=(2.00, -2.10, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.99, -2.10, -1.50) to (1.99, -2.12, -1.50) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.00, -2.10, -1.50), nekoPos=(1.99, -2.10, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.007, threshold=0.3
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.030, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.01, -2.12, -1.50), nekoPos=(1.99, -2.10, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.01, -2.12, -1.50), nekoPos=(2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.12, -1.50) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=1
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.15, -1.92), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.470, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: position jump detected, grounding current neko and spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(2.01, -2.12, -1.50)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.12, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to horizontal plane, targetPos=(2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (2.01, -2.12, -1.50) to (2.01, -2.12, -1.50)
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(2.01, -2.12, -1.50)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (1.80, -2.15, -1.92), isMain=False, currentCount=1
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 36
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.80, -2.15, -1.92), nekoPos=(1.80, -2.15, -1.92)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.15, -1.92) to (1.80, -2.12, -1.92) on plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (1.80, -2.15, -1.92)
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Limited, imagePos=(1.80, -2.15, -1.92), nekoPos=(1.80, -2.15, -1.92)
+Info (Pokkat Verbose) DEV: CoreGameplay: tracking state is Limited, triggering fall
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(1.80, -2.15, -1.92)
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(1.80, -2.15, -1.92)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.15, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to horizontal plane, targetPos=(1.80, -2.12, -1.92)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (1.80, -2.15, -1.92) to (1.80, -2.12, -1.92)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.16, -1.92), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.506
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.10s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -1.97, -1.50) to (2.01, -2.12, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -1.97, -1.50) to (2.01, -2.12, -1.50) (yDrift=0.148, xzDrift=0.000)
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.80, -2.12, -1.92)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (1.80, -2.12, -1.92)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(1.80, -2.12, -1.92)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.472
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.016
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.05, -1.50) to (2.01, -2.12, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -2.05, -1.50) to (2.01, -2.12, -1.50) (yDrift=0.073, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.468
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.023
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.467
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.022
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.466
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.021
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.11, -1.50) to (2.01, -2.12, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.020
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.018
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.465
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.464
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.015
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.013
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:2 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.40, -2.12, -1.75) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.103
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.146
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -1.97, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -1.97, -1.92) to (1.80, -2.12, -1.92) (yDrift=0.141, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:3 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.462
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.152
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.463
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.135
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.105
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.100, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.074
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.050
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.029
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.017
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.50, -2.12, -1.76) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.014
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.461
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.484
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.485
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -1.97, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -1.97, -1.50) to (2.01, -2.11, -1.50) (yDrift=0.145, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.479
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.472
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.466
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.016
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.05, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -2.05, -1.50) to (2.01, -2.11, -1.50) (yDrift=0.070, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.460
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.11, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.456
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.018
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.457
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.020
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.455
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.022
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:3 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.019
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.453
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.121
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.163
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -1.97, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -1.97, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.140, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.169
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.150
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.122
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.099, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.454
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.093
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.50, -2.12, -1.76) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.067
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.452
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.051
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.020, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.450
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.041
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.451
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.034
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.15, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.449
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.038
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.448
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.040
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.037
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.447
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.043
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.465
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.044
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.02, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -2.02, -1.50) to (2.01, -2.11, -1.50) (yDrift=0.098, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.479
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.480
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.042
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.474
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.036
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -1.99, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -1.99, -1.50) to (2.01, -2.11, -1.50) (yDrift=0.127, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.461
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.013
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.07, -1.50) to (2.01, -2.11, -1.50) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -2.07, -1.50) to (2.01, -2.11, -1.50) (yDrift=0.043, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.021
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.456
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.017
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.030
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.031
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.446
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.035
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:3 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.445
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.444
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.124
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.171
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -1.97, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -1.97, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.140, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.441
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.181
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.443
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.158
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.50, -2.12, -1.76) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.135
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.02, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.100, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.439
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.108
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:3 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.442
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.077
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.12, -1.50) to (2.01, -2.23, -1.50) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.01, -2.12, -1.50) to (2.01, -2.23, -1.50) (yDrift=0.108, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.057
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.09, -1.92) to (1.80, -2.11, -1.92) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.047
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.453
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.23, -1.50) to (2.01, -2.23, -1.50) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.12, -1.92) to (1.80, -2.23, -1.92) (yDrift=0.108, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.457
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.027
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.023
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.458
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.025
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.459
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.460
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.024
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.23, -1.50) to (2.50, -2.23, -1.76) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.464
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.465
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.104
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.467
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.106
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (2.28, -2.23, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.468
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.107
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.471
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.110
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.105
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.472
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.475
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.114
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.109
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.469
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.473
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.111
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.476
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.115
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.470
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.108
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.478
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.120
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.479
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.121
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.480
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.122
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.482
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.125
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.485
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.128
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.09, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.494
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.140
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.495
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.141
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -2.23, -1.50) to (2.50, -2.23, -1.76) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.486
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.130
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.484
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.126
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.483
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.124
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.123
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.119
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.481
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.122
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.482
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.19, -2.12, -1.82)
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.19, -2.12, -1.82)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.19, -2.12, -1.82)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.12, -1.82) to (2.19, -2.12, -1.82) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.19, -2.12, -1.82) to (2.19, -2.12, -1.82)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.19, -2.12, -1.82)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.19, -2.12, -1.82)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.471
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.51) to (2.02, -2.23, -1.51) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.472
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.474
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.126
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.455
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.21, -1.53) to (2.03, -2.23, -1.53) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.12, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.19, -2.12, -1.82) to (2.19, -2.23, -1.82) (yDrift=0.111, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.465
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.128
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.464
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.127
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.449
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.120
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.04, -2.21, -1.55) to (2.04, -2.23, -1.55) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.450
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.451
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.440
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.20, -1.56) to (2.05, -2.23, -1.56) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.20, -1.56) to (2.05, -2.23, -1.56) (yDrift=0.023, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.447
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.124
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.125
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.439
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.22, -1.58) to (2.06, -2.23, -1.58) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.442
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.431
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.430
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.21, -1.60) to (2.06, -2.23, -1.60) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.432
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.424
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.20, -1.61) to (2.07, -2.23, -1.61) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.07, -2.20, -1.61) to (2.07, -2.23, -1.61) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.423
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.22, -1.63) to (2.08, -2.23, -1.63) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.418
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.421
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.131
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.21, -1.64) to (2.09, -2.23, -1.64) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.416
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.414
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.129
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.10, -2.20, -1.66) to (2.10, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.10, -2.20, -1.66) to (2.10, -2.23, -1.66) (yDrift=0.026, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.422
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.11, -2.22, -1.68) to (2.11, -2.23, -1.68) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.09, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.419
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.133
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.415
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.134
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.21, -1.69) to (2.12, -2.23, -1.69) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.12, -2.21, -1.69) to (2.12, -2.23, -1.69) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.132
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.417
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.21, -1.70) to (2.12, -2.23, -1.70) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.411
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.409
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.13, -2.20, -1.72) to (2.13, -2.23, -1.72) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.13, -2.20, -1.72) to (2.13, -2.23, -1.72) (yDrift=0.024, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.410
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.127
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.126
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.21, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.395
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.128
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.396
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.07, -1.73) to (2.14, -2.12, -1.73) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.07, -1.73) to (2.14, -2.12, -1.73) (yDrift=0.047, xzDrift=0.000)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.398
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.397
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.130
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.11, -1.73) to (2.14, -2.12, -1.73) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.402
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.405
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.19, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.19, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.045, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.21, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.412
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.129
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.120
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.391
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.122
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.392
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.124
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.09, -1.73) to (2.14, -2.12, -1.73) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.09, -1.73) to (2.14, -2.12, -1.73) (yDrift=0.030, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.123
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.13, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.13, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.103, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.394
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.401
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.125
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.406
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.21, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.024, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.413
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.408
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.118
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.116
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.115
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.112
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.113
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.398
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.110
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.399
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.111
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.377
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.094
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.395
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.108
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.376
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.104
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.374
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.102
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.380
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.367
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.098
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.372
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.388
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.21, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.105
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.378
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.097
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.093
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.13, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.373
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.365
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.095
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.362
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.355
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.85, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.334
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.096
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.340
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.335
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.09, -1.73) to (2.14, -2.12, -1.73) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.09, -1.73) to (2.14, -2.12, -1.73) (yDrift=0.027, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.329
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.099
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.86, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.326
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.101
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.322
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.17, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.17, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.059, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.325
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.103
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.327
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.87, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.321
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.107
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.10, -1.73) to (2.14, -2.12, -1.73) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.19, -1.73) to (2.14, -2.23, -1.73) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.19, -1.73) to (2.14, -2.23, -1.73) (yDrift=0.046, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.14, -2.23, -1.73)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.19, -2.23, -1.82) to (2.19, -2.23, -1.82) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.23, -1.73) to (2.43, -2.23, -1.89) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:5 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.98, -2.12, -1.53)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.98, -2.12, -1.53)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.98, -2.12, -1.53)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.98, -2.12, -1.53) to (1.98, -2.12, -1.53) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (1.98, -2.12, -1.53) to (1.98, -2.12, -1.53)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (1.98, -2.12, -1.53)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.98, -2.12, -1.53)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.13, -2.22, -1.72) to (2.13, -2.23, -1.72) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.22, -1.70) to (2.12, -2.22, -1.70) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.98, -2.12, -1.53) to (1.98, -2.22, -1.53) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.98, -2.12, -1.53) to (1.98, -2.22, -1.53) (yDrift=0.107, xzDrift=0.000)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.10, -2.21, -1.69) to (2.10, -2.22, -1.69) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.98, -2.22, -1.53) to (1.98, -2.22, -1.53) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.20, -1.67) to (2.09, -2.22, -1.67) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.20, -1.67) to (2.09, -2.22, -1.67) (yDrift=0.025, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.21, -1.66) to (2.08, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.98, -2.22, -1.53) to (1.98, -2.23, -1.53) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.20, -1.65) to (2.07, -2.22, -1.65) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.19, -1.63) to (2.06, -2.22, -1.63) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.06, -2.19, -1.63) to (2.06, -2.22, -1.63) (yDrift=0.029, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.21, -1.62) to (2.05, -2.22, -1.62) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.06, -1.62) to (2.05, -2.12, -1.62) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.06, -1.62) to (2.05, -2.12, -1.62) (yDrift=0.055, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.14, -1.62) to (2.05, -2.22, -1.62) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.14, -1.62) to (2.05, -2.22, -1.62) (yDrift=0.086, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.20, -1.62) to (2.05, -2.22, -1.62) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.20, -1.62) to (2.05, -2.22, -1.62) (yDrift=0.021, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.06, -1.62) to (2.05, -2.12, -1.62) (yDrift=0.054, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.98, -2.22, -1.53) to (1.98, -2.23, -1.53) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.14, -2.12, -1.85)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.14, -2.12, -1.85)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.14, -2.12, -1.85)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.12, -1.85) to (2.14, -2.12, -1.85) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.14, -2.12, -1.85) to (2.14, -2.12, -1.85)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.14, -2.12, -1.85)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.14, -2.12, -1.85)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.05, -2.20, -1.62) to (2.06, -2.22, -1.64) (yDrift=0.021, xzDrift=0.020)
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.12, -1.85) to (2.14, -2.22, -1.85) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.14, -2.12, -1.85) to (2.14, -2.22, -1.85) (yDrift=0.106, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.21, -1.62) to (2.05, -2.22, -1.62) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.22, -1.85) to (2.14, -2.22, -1.85) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.20, -1.64) to (2.06, -2.22, -1.64) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.20, -1.66) to (2.06, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.06, -2.20, -1.66) to (2.06, -2.22, -1.66) (yDrift=0.027, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.22, -1.67) to (2.07, -2.22, -1.67) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.21, -1.69) to (2.08, -2.22, -1.69) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.20, -1.71) to (2.08, -2.22, -1.71) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.08, -2.20, -1.71) to (2.08, -2.22, -1.71) (yDrift=0.027, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.21, -1.72) to (2.09, -2.22, -1.72) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.22, -1.85) to (2.14, -2.23, -1.85) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.96, -2.12, -1.59)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.96, -2.12, -1.59)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.96, -2.12, -1.59)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.20, -1.74) to (2.09, -2.22, -1.74) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.20, -1.74) to (2.09, -2.22, -1.74) (yDrift=0.022, xzDrift=0.000)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.12, -1.59) to (1.96, -2.12, -1.59) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (1.96, -2.12, -1.59) to (1.96, -2.12, -1.59)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (1.96, -2.12, -1.59)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.96, -2.12, -1.59)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.21, -1.72) to (2.08, -2.22, -1.72) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.12, -1.59) to (1.96, -2.22, -1.59) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.96, -2.12, -1.59) to (1.96, -2.22, -1.59) (yDrift=0.106, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.21, -1.71) to (2.07, -2.22, -1.71) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.20, -1.70) to (2.06, -2.22, -1.70) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.06, -2.20, -1.70) to (2.06, -2.22, -1.70) (yDrift=0.028, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.04, -2.20, -1.67) to (2.04, -2.22, -1.67) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.04, -2.20, -1.67) to (2.04, -2.22, -1.67) (yDrift=0.023, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.04, -2.22, -1.67) to (2.04, -2.23, -1.67) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.21, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.06, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.06, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.056, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.14, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.14, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.087, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.07, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.07, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.052, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.20, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.20, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.022, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.21, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.11, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.08, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.08, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.039, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.19, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.19, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.038, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.06, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.06, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.056, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.14, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.14, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.087, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.20, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.20, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.022, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.21, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.03, -2.22, -1.66)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.22, -1.59) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.01, -1.73, -1.83), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.520
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.539
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (2.01, -1.73, -1.83), isMain=False, currentCount=2
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 37
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.01, -1.73, -1.83), nekoPos=(2.01, -1.73, -1.83)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.01, -1.73, -1.83) to (2.36, -1.73, -2.02) on plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (2.01, -1.73, -1.83)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=True, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.006, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.02, -1.73, -1.83), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.02, -1.73, -1.83), nekoPos=(2.01, -1.73, -1.83)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -1.73, -1.83) to (2.36, -1.73, -2.02) on plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.02, -1.74, -1.83), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(2.02, -1.74, -1.83), nekoPos=(2.02, -1.73, -1.83)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -1.74, -1.83) to (2.37, -1.74, -2.01) on plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.19, -2.13, -1.80), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distanceFromFollowing=0.429, threshold=0.3
+Info (Pokkat Verbose) DEV: CoreGameplay: position jump detected, grounding current neko and spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(2.02, -1.74, -1.83)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(2.02, -1.74, -1.83)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -1.74, -1.83) to (2.02, -1.98, -1.83) on horizontal plane B40000726D743470-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to horizontal plane, targetPos=(2.02, -1.98, -1.83)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (2.02, -1.74, -1.83) to (2.02, -1.98, -1.83)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.15s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.235
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.236
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (2.02, -1.98, -1.83)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.02, -1.98, -1.83)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(2.02, -1.98, -1.83)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -1.98, -1.83) to (2.02, -2.12, -1.83) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -1.98, -1.83) to (2.02, -2.12, -1.83) (yDrift=0.138, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.234
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.12, -1.83) to (2.02, -2.22, -1.83) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.12, -1.83) to (2.02, -2.22, -1.83) (yDrift=0.106, xzDrift=0.000)
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.215
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.12, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.12, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.102, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.22, -1.59) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.220
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.223
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.217
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.025, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.19, -2.12, -1.80), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.214
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.216
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.18, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.18, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.044, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.227
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.232
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.19, -2.14, -1.80), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.20, -2.13, -1.80), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.20, -2.14, -1.80), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.237
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.08, -1.83) to (2.02, -2.12, -1.83) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.08, -1.83) to (2.02, -2.12, -1.83) (yDrift=0.043, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.15, -1.83) to (2.02, -2.22, -1.83) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.15, -1.83) to (2.02, -2.22, -1.83) (yDrift=0.071, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.22, -1.83) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.358
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.114
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.357
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.111
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.356
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.110
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.355
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.108
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.112
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.340
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.12, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.12, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.100, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.342
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.105
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.341
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.026, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.349
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.116
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.18, -1.66) to (2.03, -2.22, -1.66) on horizontal plane B40000726D74B430-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.18, -1.66) to (2.03, -2.22, -1.66) (yDrift=0.044, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.352
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.354
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.109
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.360
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.359
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.113
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.106
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.08, -1.83) to (2.02, -2.12, -1.83) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.08, -1.83) to (2.02, -2.12, -1.83) (yDrift=0.043, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.353
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.104
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.15, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.15, -1.83) to (2.02, -2.23, -1.83) (yDrift=0.082, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.365
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.119
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.107
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.355
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.351
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.103
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.100
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.348
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.099
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.101
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.336
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.102
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.12, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.12, -1.66) to (2.03, -2.23, -1.66) (yDrift=0.111, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.340
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.341
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.09, -1.66) to (2.03, -2.12, -1.66) (yDrift=0.026, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.337
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.334
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.338
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.18, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.03, -2.18, -1.66) to (2.03, -2.23, -1.66) (yDrift=0.055, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.343
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.345
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.344
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.097
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.342
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.096
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.095
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.339
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.094
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.12, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.12, -1.83) to (2.02, -2.23, -1.83) (yDrift=0.111, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.335
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.091
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.09, -1.83) to (2.02, -2.12, -1.83) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.09, -1.83) to (2.02, -2.12, -1.83) (yDrift=0.026, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.18, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.02, -2.18, -1.83) to (2.02, -2.23, -1.83) (yDrift=0.055, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.092
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.093
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.100
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.341
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.098
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.334
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.336
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.338
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.096
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.66) to (2.03, -2.23, -1.66) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.094
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.337
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.095
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.335
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.092
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.96, -2.22, -1.59) to (1.96, -2.23, -1.59) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.093
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.339
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.097
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.333
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.091
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.332
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.340
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.098
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.338
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.096
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.12, -2.12, -2.05)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.12, -2.12, -2.05)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.12, -2.12, -2.05)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.12, -2.05) to (2.12, -2.12, -2.05) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.12, -2.12, -2.05) to (2.12, -2.12, -2.05)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.12, -2.12, -2.05)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.12, -2.12, -2.05)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.325
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.328
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.03, -2.22, -1.68) to (2.03, -2.23, -1.68) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.320
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.104
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.321
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.100
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.04, -2.21, -1.70) to (2.04, -2.23, -1.70) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.310
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.303
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.094
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.305
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.04, -2.21, -1.72) to (2.04, -2.23, -1.72) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.04, -2.21, -1.72) to (2.04, -2.23, -1.72) (yDrift=0.024, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.311
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.298
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.12, -2.05) to (2.12, -2.23, -2.05) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.12, -2.12, -2.05) to (2.12, -2.23, -2.05) (yDrift=0.114, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.23, -1.74) to (2.05, -2.23, -1.74) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.304
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.095
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.12, -2.23, -2.05) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.22, -1.76) to (2.05, -2.23, -1.76) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.05, -2.21, -1.77) to (2.05, -2.23, -1.77) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.21, -1.79) to (2.06, -2.23, -1.79) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.06, -2.21, -1.79) to (2.06, -2.23, -1.79) (yDrift=0.025, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.286
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.284
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.06, -2.23, -1.81) to (2.06, -2.23, -1.81) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.281
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.278
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.22, -1.83) to (2.07, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.275
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.282
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.07, -2.21, -1.85) to (2.07, -2.23, -1.85) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.07, -2.21, -1.85) to (2.07, -2.23, -1.85) (yDrift=0.024, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.274
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.21, -1.88) to (2.08, -2.23, -1.88) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.279
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.276
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.20, -1.90) to (2.08, -2.23, -1.90) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.08, -2.20, -1.90) to (2.08, -2.23, -1.90) (yDrift=0.029, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.288
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.08, -2.22, -1.91) to (2.08, -2.23, -1.91) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.280
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.21, -1.93) to (2.09, -2.23, -1.93) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.21, -1.93) to (2.09, -2.23, -1.93) (yDrift=0.023, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.09, -2.23, -1.94) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.12, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.287
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) (yDrift=0.030, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.17, -1.94) to (2.09, -2.23, -1.94) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.17, -1.94) to (2.09, -2.23, -1.94) (yDrift=0.060, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.286
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.284
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.279
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.281
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.282
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.17, -1.94) to (2.09, -2.23, -1.94) (yDrift=0.059, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.288
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.09, -2.23, -1.94) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.291
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.02, -2.23, -1.83) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.12, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.287
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) (yDrift=0.031, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.15, -1.94) to (2.09, -2.23, -1.94) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.15, -1.94) to (2.09, -2.23, -1.94) (yDrift=0.087, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.23, -1.92) on horizontal plane B40000726CB3A4B0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.33, -2.22, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (2.28, -2.23, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.23, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (1.80, -2.23, -1.92) to (1.80, -2.12, -1.92) (yDrift=0.106, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.272
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.286
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.281
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.275
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.16, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.268
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.276
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.17, -1.94) to (2.33, -2.17, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.280
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.282
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.274
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.12, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.277
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.09, -2.09, -1.94) to (2.09, -2.12, -1.94) (yDrift=0.031, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.273
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.270
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.269
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.33, -2.22, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.287
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.288
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.09, -2.22, -1.94)
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.303
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.021
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.299
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.298
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.291
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.296
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.292
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.33, -2.22, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.301
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.023
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.294
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.300
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.025
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.321
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.021
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.319
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.020
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.320
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.322
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.313
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.017
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.018
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.315
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.019
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.316
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.318
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.022
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.33, -2.22, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.323
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.317
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.327
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.025
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.10, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.336
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.035
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.034
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.334
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.033
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.335
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.09, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.345
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.046
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.338
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.038
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.040
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.10, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.330
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.029
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.331
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.030
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.325
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.023
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.324
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.09, -2.22, -1.94) to (2.33, -2.22, -2.07) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.23, -2.05) to (2.29, -2.23, -2.15) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.30, -2.12, -1.79)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.30, -2.12, -1.79)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.30, -2.12, -1.79)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.30, -2.12, -1.79) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.30, -2.12, -1.79) to (2.30, -2.12, -1.79)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.30, -2.12, -1.79)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.30, -2.12, -1.79)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.11, -2.21, -1.93) to (2.34, -2.21, -2.06) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.44, -2.12, -1.87) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.12, -2.21, -1.92) to (2.35, -2.21, -2.04) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.14, -2.20, -1.91) to (2.36, -2.20, -2.03) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.15, -2.19, -1.90) to (2.36, -2.19, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.17, -2.18, -1.89) to (2.37, -2.18, -2.00) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.18, -2.18, -1.88) to (2.38, -2.18, -1.98) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.17, -1.87) to (2.39, -2.17, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.099, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.10, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.10, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.024, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.16, -1.87) to (2.39, -2.16, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.30, -2.12, -1.79) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.04, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.04, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.081, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.12, -1.87) to (2.39, -2.12, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.17, -1.87) to (2.39, -2.17, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.04, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.082, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.30, -2.12, -1.79) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.052, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.04, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.04, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.081, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.13, -1.87) to (2.39, -2.13, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.17, -1.87) to (2.39, -2.17, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.30, -2.12, -1.79) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.095, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.054, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.30, -2.12, -1.79) to (2.44, -2.12, -1.87) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.16, -1.87) to (2.39, -2.16, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.20, -2.17, -1.87)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.17, -1.87) to (2.39, -2.17, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.22, -2.12, -1.86)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.22, -2.12, -1.86)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.22, -2.12, -1.86)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.12, -1.86) to (2.22, -2.12, -1.86) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.22, -2.12, -1.86) to (2.22, -2.12, -1.86)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.22, -2.12, -1.86)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.22, -2.12, -1.86)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.095, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.054, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.14, -1.87) to (2.39, -2.14, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.12, -1.86) to (2.40, -2.12, -1.96) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.17, -1.87) to (2.39, -2.17, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.02, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.095, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.07, -1.87) to (2.20, -2.12, -1.87) (yDrift=0.054, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.14, -1.87) to (2.39, -2.14, -1.97) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.12, -1.86) to (2.40, -2.12, -1.96) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (2.26, -2.12, -1.69)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (2.26, -2.12, -1.69)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (2.26, -2.12, -1.69)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.26, -2.12, -1.69) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (2.26, -2.12, -1.69) to (2.26, -2.12, -1.69)
+Info (Pokkat Verbose) DEV: GroundingBehaviour: grounded at (2.26, -2.12, -1.69)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (2.26, -2.12, -1.69)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.08, -1.85) to (2.20, -2.12, -1.85) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.20, -2.08, -1.85) to (2.20, -2.12, -1.85) (yDrift=0.035, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.15, -1.85) to (2.40, -2.15, -1.95) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.20, -2.16, -1.85) to (2.40, -2.16, -1.95) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.21, -2.16, -1.83) to (2.41, -2.16, -1.94) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.01, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.01, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.110, xzDrift=0.000)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.08, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.08, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.039, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.48, -2.12, -1.81) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.05, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.05, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.068, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.26, -2.12, -1.69) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.01, -2.12, -1.49), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.399
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.470
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.351
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: max nekos (3) reached, count=3, skipping spawn
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.00, -2.11, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.392
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.462
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.349
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.02, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.02, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.097, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(2.02, -2.13, -1.50), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.380
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.473
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.344
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.374
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.474
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.345
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.11, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.11, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.438
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.023
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.440
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.025
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.439
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.431
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.017
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.430
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.018
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.019
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.425
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.020
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.427
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.434
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.442
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.437
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (1.80, -2.12, -1.92) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.015
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.419
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.021
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.420
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.421
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.413
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.024
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.409
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.027
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.414
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.022
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.26, -2.12, -1.69) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.406
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.029
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.12, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.13, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.15, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.386
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.050
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.85, -2.15, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.393
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.055
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.033
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.01, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.01, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.110, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.81, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.433
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.038
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.036
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.05, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.05, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.069, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.418
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.031
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.415
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.411
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.14, -1.81) to (2.42, -2.14, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.407
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.399
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.392
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.041
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.390
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.039
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.397
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.034
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.037
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.398
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.405
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.035
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.01, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.114, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.408
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.040
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.043
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.044
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.08, -1.81) to (2.22, -2.12, -1.81) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: GroundingBehaviour: stabilising from (2.22, -2.08, -1.81) to (2.22, -2.12, -1.81) (yDrift=0.039, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.388
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.045
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.26, -2.12, -1.69) on horizontal plane B40000726CB44070-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.14, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.046
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.386
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.387
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.047
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.15, -1.91), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.385
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.048
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.84, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat Verbose) DEV: GroundingBehaviour: snapped to ground at (2.22, -2.15, -1.81)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.393
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.83, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.391
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.394
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.042
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.14, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.407
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.031
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.401
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.039
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.402
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.038
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.041
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.398
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.82, -2.15, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.405
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.14, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.420
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.034
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.80, -2.13, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.428
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.032
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.79, -2.13, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.438
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.76, -2.11, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.462
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.051
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.77, -2.11, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.458
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.48, -2.12, -1.81) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.77, -2.12, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.455
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.045
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.454
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.452
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.043
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.78, -2.12, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.448
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.449
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.049
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.052
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.459
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.048
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.463
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.466
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.054
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.75, -2.10, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.474
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.062
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.472
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.060
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.76, -2.10, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.468
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.055
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.056
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.471
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.059
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.75, -2.09, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.476
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.064
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.473
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.061
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.475
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.063
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.477
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.065
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.480
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.068
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.481
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.069
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.479
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.066
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.74, -2.09, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.484
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.072
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.067
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.483
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.070
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.482
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.48, -2.12, -1.81) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.75, -2.10, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.064
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.02, -2.22, -1.83) to (2.37, -2.22, -2.01) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.75, -2.09, -1.90), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.22, -2.15, -1.81) to (2.42, -2.15, -1.92) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.068
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.481
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.478
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.065
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.476
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.475
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.063
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.76, -2.10, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.470
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.057
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB2FC90-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.76, -2.11, -1.89), id=B40000721CB2FC90-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.462
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.051
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (2.26, -2.12, -1.69) to (2.48, -2.12, -1.81) on horizontal plane B40000726D747DF0-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.464
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.053

@@ -618,5 +618,57 @@ namespace PokkatCore
         }
 
         #endregion
+
+        #region Audio Stubs
+
+        /// <summary>
+        ///     plays bowl placement sound effect
+        /// </summary>
+        public void PlayBowlPlaceSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayBowlPlaceSound not implemented yet");
+        }
+
+        /// <summary>
+        ///     plays bowl consumption sound effect
+        /// </summary>
+        public void PlayBowlConsumeSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayBowlConsumeSound not implemented yet");
+        }
+
+        /// <summary>
+        ///     plays neko footstep sound effect (called on each walk step)
+        /// </summary>
+        public void PlayStepSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayStepSound not implemented yet");
+        }
+
+        /// <summary>
+        ///     plays neko meow sound effect (called on petting, playing with friend)
+        /// </summary>
+        public void PlayMeowSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayMeowSound not implemented yet");
+        }
+
+        /// <summary>
+        ///     plays neko eating sound effect (called during eating animation)
+        /// </summary>
+        public void PlayEatingSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayEatingSound not implemented yet");
+        }
+
+        /// <summary>
+        ///     plays neko jump sound effect (called on jump)
+        /// </summary>
+        public void PlayJumpSound()
+        {
+            Logkat.Warn("CoreGameplay: PlayJumpSound not implemented yet");
+        }
+
+        #endregion
     }
 }

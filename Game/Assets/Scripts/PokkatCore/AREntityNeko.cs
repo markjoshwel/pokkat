@@ -1,8 +1,9 @@
 /*
  * author: mark joshwel
  * date: 18/12/2025
- * description: neko entity with texture management, procedural animations, and behaviour fsm
- *              supports both main neko and friend nekos with mutual recognition and play interactions
+ * description: neko entity with texture management, procedural animations, and behaviour loop.
+ *              supports both main neko and friend nekos with mutual recognition and play interactions.
+ *              uses GroundingBehaviour for unified AR plane stabilisation
  */
 
 using System;
@@ -15,10 +16,12 @@ using Random = UnityEngine.Random;
 namespace PokkatCore
 {
     /// <summary>
-    ///     neko entity with texture loading, blinking animations, movement routines, and behaviour fsm.
+    ///     neko entity with texture loading, blinking animations, movement routines, and behaviour loop.
     ///     handles both main neko (initiates play) and friend nekos (responds to main) with mutual
-    ///     face-each-other recognition when multiple friends are present
+    ///     face-each-other recognition when multiple friends are present.
+    ///     uses GroundingBehaviour for unified AR plane stabilisation
     /// </summary>
+    [RequireComponent(typeof(GroundingBehaviour))]
     public sealed class AREntityNeko : MonoBehaviour
     {
         #region Inspector Fields
@@ -59,14 +62,6 @@ namespace PokkatCore
         [Tooltip("fall speed in metres per second")] [SerializeField]
         private float fallSpeed = 2f;
 
-        [Header("Ground Stabilisation")] [Tooltip("project to nearest plane when grounded")] [SerializeField]
-        private bool enableGroundStabilisation = true;
-
-        [Tooltip("seconds between checks")] [SerializeField]
-        private float stabilisationInterval = 0.5f;
-
-        [Tooltip("minimum drift to stabilise")] [SerializeField]
-        private float stabilisationThreshold = 0.02f;
 
         [Header("Behaviour Settings")] [Tooltip("roaming radius in metres")] [SerializeField]
         private float roamRadius = 0.5f;
@@ -83,6 +78,11 @@ namespace PokkatCore
         #endregion
 
         #region Private Fields
+
+        /// <summary>
+        ///     grounding component for unified AR plane stabilisation
+        /// </summary>
+        private GroundingBehaviour _grounding;
 
         /// <summary>
         ///     cached renderers for texture application
@@ -115,19 +115,10 @@ namespace PokkatCore
         private bool _isFollowing;
 
         /// <summary>
-        ///     whether this neko has landed on a plane
-        /// </summary>
-        private bool _isGrounded;
-
-        /// <summary>
         ///     coroutine handle for current movement animation
         /// </summary>
         private Coroutine _movementCoroutine;
 
-        /// <summary>
-        ///     timer for ground stabilisation interval
-        /// </summary>
-        private float _stabilisationTimer;
 
         /// <summary>
         ///     whether to run the behaviour loop (set false on destroy)
@@ -158,10 +149,11 @@ namespace PokkatCore
         #region Unity Lifecycle
 
         /// <summary>
-        ///     initialises renderer cache, sets texture based on tag, loads textures
+        ///     initialises renderer cache, grounding component, sets texture based on tag, loads textures
         /// </summary>
         private void Awake()
         {
+            _grounding = GetComponent<GroundingBehaviour>();
             CacheRenderers();
 
             if (CompareTag("NekoFriend"))
@@ -198,11 +190,13 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     handles ground stabilisation per-frame
+        ///     handles ground stabilisation per-frame (delegates to GroundingBehaviour)
         /// </summary>
         private void Update()
         {
-            UpdateGroundStabilisation();
+            // skip stabilisation while following tracked image
+            if (_isFollowing) return;
+            _grounding.Stabilise();
         }
 
         /// <summary>
@@ -216,37 +210,6 @@ namespace PokkatCore
             OnNekoDestroyed?.Invoke(this);
         }
 
-        #endregion
-
-        #region Ground Stabilisation
-
-        /// <summary>
-        ///     handles ground stabilisation (timer-based plane projection to prevent drift)
-        /// </summary>
-        private void UpdateGroundStabilisation()
-        {
-            // skip ground stabilisation if disabled, not grounded, or following
-            if (!enableGroundStabilisation || !_isGrounded || _isFollowing) return;
-
-            // timer-based stabilisation to avoid running every frame
-            _stabilisationTimer -= Time.deltaTime;
-            if (_stabilisationTimer > 0f) return;
-            _stabilisationTimer = stabilisationInterval;
-
-            // get CoreGameplay and planes reference
-            var gameplay = CoreGameplay.instance;
-            if (!gameplay || !gameplay.planes) return;
-
-            // project current position onto nearest plane
-            if (!gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos)) return;
-
-            // only move if drift exceeds threshold (avoids micro-jitter)
-            var drift = Vector3.Distance(transform.position, projectedPos);
-            if (drift < stabilisationThreshold) return;
-
-            // snap to projected position
-            transform.position = projectedPos;
-        }
 
         #endregion
 
@@ -354,7 +317,7 @@ namespace PokkatCore
         public void StartFollowing()
         {
             _isFollowing = true;
-            _isGrounded = false;
+            _grounding.Reset();
             // unparent so CoreGameplay can move us freely
             transform.SetParent(null);
             Logkat.Out("AREntityNeko: started following tracked image");
@@ -394,7 +357,8 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     coroutine that falls to the nearest plane
+        ///     coroutine that falls to the nearest horizontal plane and grounds the neko.
+        ///     preserves XZ position from tracked image, only adjusts Y to match plane height
         /// </summary>
         /// <param name="onComplete">optional callback invoked when fall completes</param>
         private IEnumerator FallRoutine(Action onComplete)
@@ -409,33 +373,34 @@ namespace PokkatCore
                 yield break;
             }
 
-            // project current position onto nearest plane surface
+            // get plane height at current XZ position (preserves XZ from tracked image)
+            var currentPos = transform.position;
             Vector3 targetPosition;
-            if (gameplay.planes.TryProjectToPlane(transform.position, out var projectedPos))
+            if (gameplay.planes.TryGetPlaneHeightAt(currentPos, out var planeHeight))
             {
-                targetPosition = projectedPos;
-                Logkat.Dev($"AREntityNeko: projected to plane, targetPos={targetPosition}");
+                // keep XZ, only adjust Y to plane height
+                targetPosition = new Vector3(currentPos.x, planeHeight, currentPos.z);
+                Logkat.Dev($"AREntityNeko: falling to plane height, targetPos={targetPosition}");
             }
             else
             {
-                // fallback: no plane available, snap to y=0
-                Logkat.Dev("AREntityNeko: no plane found, falling to y=0");
-                targetPosition = transform.position;
-                targetPosition.y = 0f;
+                // fallback: no plane available, snap to y=0 but keep XZ
+                Logkat.Dev("AREntityNeko: no horizontal plane found, falling to y=0");
+                targetPosition = new Vector3(currentPos.x, 0f, currentPos.z);
             }
 
-            // fall toward target position
+            // fall toward target position (animated Y-only drop)
             Logkat.Dev($"AREntityNeko: falling from {transform.position} to {targetPosition}");
-            while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+            while (Mathf.Abs(transform.position.y - targetPosition.y) > 0.01f)
             {
                 var fallStep = fallSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, fallStep);
+                var newY = Mathf.MoveTowards(transform.position.y, targetPosition.y, fallStep);
+                transform.position = new Vector3(targetPosition.x, newY, targetPosition.z);
                 yield return null;
             }
 
-            // snap to exact target and mark as grounded
+            // snap to exact target
             transform.position = targetPosition;
-            _isGrounded = true;
 
             // try to snap to nearest navmesh point for roaming/movement
             if (NavMesh.SamplePosition(transform.position, out var navHit, 2f, NavMesh.AllAreas))
@@ -447,6 +412,9 @@ namespace PokkatCore
             {
                 Logkat.Warn($"AREntityNeko: no navmesh nearby after landing at {transform.position}");
             }
+
+            // ground the neko at final position (enables stabilisation with XZ lock)
+            _grounding.Ground(transform.position);
 
             _movementCoroutine = null;
             onComplete?.Invoke();
@@ -460,6 +428,9 @@ namespace PokkatCore
         private IEnumerator JumpRoutine()
         {
             Logkat.Out("AREntityNeko: jumping");
+            
+            // play jump sound at start of jump
+            CoreGameplay.instance?.PlayJumpSound();
 
             var startPos = transform.position;
             var elapsed = 0f;
@@ -512,20 +483,18 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     projects neko to nearest plane (ground stabilisation helper)
+        ///     snaps neko to nearest horizontal plane while preserving XZ anchor.
+        ///     delegates to GroundingBehaviour for unified grounding logic
         /// </summary>
         private void SnapToGround()
         {
-            if (!_isGrounded) return;
-            var gameplay = CoreGameplay.instance;
-            if (!gameplay || !gameplay.planes) return;
-            if (gameplay.planes.TryProjectToPlane(transform.position, out var projected))
-                transform.position = projected;
+            _grounding.SnapToGround();
         }
 
         /// <summary>
         ///     shared coroutine for choppy stop-motion walk animation.
-        ///     used by roam, move-to-bowl, and move-to-friend behaviours
+        ///     used by roam, move-to-bowl, and move-to-friend behaviours.
+        ///     updates grounding anchor after each step to allow intentional movement
         /// </summary>
         /// <param name="targetPosition">destination position</param>
         /// <param name="arrivalDistance">distance threshold to consider arrived</param>
@@ -559,6 +528,13 @@ namespace PokkatCore
                 var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
                 tiltLeft = !tiltLeft;
+
+                // update grounding anchor to new position (allows intentional movement)
+                _grounding.UpdateAnchor(transform.position);
+
+                // play step sound on each step
+                CoreGameplay.instance?.PlayStepSound();
+                
                 yield return new WaitForSeconds(walkStepDuration);
             }
 
@@ -590,6 +566,9 @@ namespace PokkatCore
             // blink and bounce as acknowledgement
             Blink();
             Jump();
+            
+            // play meow sound
+            CoreGameplay.instance?.PlayMeowSound();
 
             Logkat.Out("AREntityNeko: petted!");
 
@@ -610,7 +589,7 @@ namespace PokkatCore
         private void OnBowlSpawnedHandler(AREntityBowl bowl)
         {
             if (!CompareTag("NekoMain")) return;
-            if (!_isGrounded) return;
+            if (!_grounding.isGrounded) return;
             Logkat.Out($"AREntityNeko: detected bowl spawn at {bowl.transform.position}");
             StateNotifyBowlPlaced();
         }
@@ -627,7 +606,7 @@ namespace PokkatCore
 
             // only main neko initiates play with friends
             if (!CompareTag("NekoMain")) return;
-            if (!_isGrounded) return;
+            if (!_grounding.isGrounded) return;
 
             // only react to friend nekos
             if (!otherNeko.CompareTag("NekoFriend")) return;
@@ -643,15 +622,15 @@ namespace PokkatCore
         #region Behaviour Loop
 
         /// <summary>
-        ///     main behaviour fsm loop - runs while neko is alive.
+        ///     main behaviour loop - runs while neko is alive.
         ///     waits for grounded state, checks navmesh availability, then roams or handles interactions
         /// </summary>
         private IEnumerator BehaviourLoop()
         {
             while (_runBehaviourLoop)
             {
-                // wait until we've landed on a plane
-                while (!_isGrounded) yield return null;
+                // wait until we've landed on a plane (grounding complete)
+                while (!_grounding.isGrounded) yield return null;
 
                 // wait for navmesh availability before roaming
                 if (!NavMeshIsReady())
@@ -748,6 +727,9 @@ namespace PokkatCore
             // both nekos face each other (uses current position, works even if friend is still following image)
             LookAt(friend.transform.position);
             friend.LookAt(transform.position);
+            
+            // play meow sound when playing starts
+            CoreGameplay.instance?.PlayMeowSound();
 
             Logkat.Out("AREntityNeko: playing with friend (facing each other)");
 
@@ -870,6 +852,10 @@ namespace PokkatCore
 
                 Blink();
                 Jump();
+                
+                // play eating sound during eating animation
+                gameplay.PlayEatingSound();
+                
                 yield return new WaitForSeconds(jumpDuration + 0.1f);
                 elapsed += jumpDuration + 0.1f;
             }

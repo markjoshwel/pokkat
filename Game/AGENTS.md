@@ -25,10 +25,11 @@ the PokkatCore namespace uses a **scene singleton pattern** for `CoreGameplay` (
 |-------|------|
 | `CoreGameplay` | scene singleton coordinator managing neko spawning, game state, image following, and multi-image detection |
 | `ImageHandling` | wrapper for ARTrackedImageManager events, fires OnImageDetected/OnImageLost |
-| `PlaneHandling` | wrapper for ARPlaneManager with area threshold, SpawnClosest utility, touch detection, and OnPlaneInteraction |
+| `PlaneHandling` | wrapper for ARPlaneManager with area threshold, SpawnClosest utility, touch detection, horizontal plane filtering, and OnPlaneInteraction |
 | `Logkat` | static logger with spam prevention (1s cooldown) for consistent "(Pokkat)" prefixed output |
-| `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), and procedural Walk/Jump/Fall animations |
-| `AREntityBowl` | bowl entity with ground stabilisation, consumption logic, and visual state |
+| `GroundingBehaviour` | unified grounding system for AR entities - handles anchor position storage, XZ locking, and timer-based Y-only stabilisation |
+| `AREntityNeko` | neko entity with texture loading, blinking, coroutine-based behaviour loop (not explicit FSM), procedural Walk/Jump/Fall animations, and GroundingBehaviour |
+| `AREntityBowl` | bowl entity with consumption logic, visual state, and GroundingBehaviour |
 | `Statskeeper` | persistence stub (json-based hunger/happiness - not yet implemented) |
 | `CoreGameplayInterfaceInterop` | UI bridge that displays game state messages (e.g., "Scan tracker", "Move phone around") |
 
@@ -71,11 +72,60 @@ arcore/arkit cannot distinguish between multiple physical prints of the same ref
 
 **grounded nekos stay grounded:** once a neko has landed, it does not re-attach to a newly detected image. to spawn new friends, user removes tracker from view and re-places it at a new location.
 
-**drift handling:** 
-- grounded nekos are NOT parented to plane - they stay at fixed world coordinates
-- **continuous ground stabilisation** in AREntityNeko.Update(): timer-based projection onto nearest plane
-- configurable via inspector: `enableGroundStabilisation`, `stabilisationInterval`, `stabilisationThreshold`
-- this keeps nekos on the ground while preventing them from sliding around with AR drift
+**unified grounding system (dec 18 2025):**
+all AR entities (nekos, bowls) use `GroundingBehaviour` for consistent plane stabilisation:
+- **grounding terminology:**
+  - **Ground** - the action of locking an entity to a plane (sets anchor position, enables stabilisation)
+  - **Stabilise** - periodic Y-only adjustment to fight AR plane drift (XZ stays locked to anchor)
+  - **Fall** - animated drop from spawn height to ground (triggers Ground on completion)
+  - **Project** - one-shot plane raycast (low-level utility in PlaneHandling)
+- **anchor position:** stored when entity is grounded; XZ coordinates are locked, only Y is adjusted
+- **horizontal plane filtering:** `FindClosestHorizontalPlaneBelow()` filters out walls/steep slopes (normal.y >= 0.9)
+- **UpdateAnchor():** called during walking to allow intentional XZ movement
+- entities are NOT parented to planes - they stay at fixed world coordinates with Y stabilisation
+
+**⚠️ GROUNDING LESSONS LEARNED (dec 18 2025) - READ BEFORE MODIFYING GROUNDING CODE:**
+
+this section documents failed approaches to prevent future agents/LLMs from repeating them.
+
+**FAILED APPROACH 1: using `plane.infinitePlane.ClosestPointOnPlane()` for stabilisation**
+- **what it did:** projected entity position onto the closest AR plane's infinite surface
+- **why it failed:** `ClosestPointOnPlane()` returns a full XYZ position. when the plane's center/orientation is offset from the entity's XZ position, this shifts XZ significantly (observed: 0.48m X drift, 0.25m Z drift in logs)
+- **symptom:** entities would drift sideways and sink into the surface as AR planes shifted
+- **example from logs:**
+  ```
+  PlaneHandling: projected (1.80, -2.12, -1.92) to (2.28, -2.12, -2.17) on horizontal plane...
+  ```
+  notice XZ changed from (1.80, -1.92) to (2.28, -2.17) - a massive horizontal drift!
+
+**FAILED APPROACH 2: using `TryProjectToHorizontalPlane()` for grounding stabilisation**
+- **what it did:** found the closest horizontal plane below and returned full projected XYZ
+- **why it failed:** same issue as approach 1 - the method returns full XYZ from `ClosestPointOnPlane()`, causing XZ drift. even though we intended to lock XZ, the projection itself was shifting XZ before we could lock it.
+- **symptom:** nekos and bowls would "chase" different planes as AR tracking updated, sliding around and sinking
+
+**FAILED APPROACH 3: parenting entities to AR planes**
+- **what it did:** set entity.transform.parent = arPlane.transform
+- **why it failed:** AR planes constantly update their transform as tracking refines. parented children inherit these updates, causing entities to drift with the plane.
+- **symptom:** entities would float/sink/slide as the parent plane's position was adjusted by ARCore/ARKit
+
+**CORRECT APPROACH: `TryGetPlaneHeightAt()` with XZ-locked anchor**
+- **what it does:** 
+  1. stores anchor position when entity is grounded (XZ is locked forever, only Y changes)
+  2. `TryGetPlaneHeightAt(anchor, out float planeHeight)` returns ONLY the Y height - never changes XZ
+  3. prefers planes whose boundary actually contains the entity's XZ position (bounding box check)
+  4. entity position is set to `(anchor.x, planeHeight, anchor.z)` - XZ from anchor, Y from plane
+- **why it works:**
+  - XZ is NEVER derived from plane projection - it comes from the original spawn/anchor position
+  - Y-only adjustment means AR plane drift only affects vertical position (which is correct - planes refine their height)
+  - bounding box check prevents "plane hopping" to distant planes that happen to have similar Y values
+- **key insight:** the problem was never about "finding the right plane" - it was about using `ClosestPointOnPlane()` which always shifts XZ. the fix is to ONLY extract Y from the plane and keep XZ locked.
+
+**RULES FOR FUTURE GROUNDING CHANGES:**
+1. **NEVER use `ClosestPointOnPlane()` for stabilisation** - it shifts XZ
+2. **ALWAYS lock XZ to anchor position** - only Y should ever change during stabilisation
+3. **use `TryGetPlaneHeightAt()` for Y-only queries** - this is the correct method for grounded entities
+4. **`TryProjectToHorizontalPlane()` is ONLY for initial spawning** - when you need full XYZ (e.g., bowl spawn position), not for stabilisation
+5. **NEVER parent entities to AR planes** - they drift. unparent immediately and use anchor-based stabilisation
 
 **neko orientation:** nekos spawn facing the camera (rotation calculated from spawn position to camera position, Y-axis only)
 
@@ -148,10 +198,11 @@ Assets/Scripts/
 ├── PokkatCore/           # core game systems (namespace: PokkatCore)
 │   ├── CoreGameplay.cs   # singleton coordinator (~580 lines, organised with #region)
 │   ├── ImageHandling.cs  # ARTrackedImageManager wrapper (~190 lines, organised with #region)
-│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest + NavMesh baking (~595 lines, organised with #region)
+│   ├── PlaneHandling.cs  # ARPlaneManager wrapper + SpawnClosest + NavMesh baking (~650 lines, organised with #region)
 │   ├── Logkat.cs         # logging utility with spam prevention (~105 lines)
-│   ├── AREntityNeko.cs   # neko with behaviour loop + procedural animations (~855 lines, organised with #region)
-│   ├── AREntityBowl.cs   # bowl entity with consumption logic (~240 lines, organised with #region)
+│   ├── GroundingBehaviour.cs  # unified grounding for AR entities (~160 lines)
+│   ├── AREntityNeko.cs   # neko with behaviour loop + procedural animations (~900 lines, organised with #region)
+│   ├── AREntityBowl.cs   # bowl entity with consumption logic (~150 lines, organised with #region)
 │   ├── Statskeeper.cs    # persistence stub (~25 lines)
 │   └── Reference/        # reference implementations for study
 ├── CoreGameplayInterfaceInterop.cs  # UI bridge for game state messages (~45 lines)
@@ -166,10 +217,11 @@ Assets/Scripts/
 ```
 
 **note:** large pokkatcore scripts use `#region` blocks for organisation:
-- **AREntityNeko**: Inspector Fields, Private Fields, Static Events, Unity Lifecycle, Ground Stabilisation, Texture Management, Blinking Animation, Following State, Movement Animations, Awareness Handlers, Behaviour Loop, Stat Hooks
+- **AREntityNeko**: Inspector Fields, Private Fields, Static Events, Unity Lifecycle, Texture Management, Blinking Animation, Following State, Movement Animations, Awareness Handlers, Behaviour Loop, Stat Hooks
 - **PlaneHandling**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Events, Setup, Touch Input, Event Handlers, Plane Queries, Spawning, NavMesh Baking
-- **CoreGameplay**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Setup, Following Neko Update, Event Handlers, Neko Spawning, NavMesh State
-- **AREntityBowl**: Inspector Fields, Private Fields, Public Properties, Static Events, Unity Lifecycle, Ground Stabilisation, Bowl Consumption, Stat Hooks
+- **CoreGameplay**: Inspector Fields, Private Fields, Public Properties, Unity Lifecycle, Setup, Following Neko Update, Event Handlers, Neko Spawning, NavMesh State, Audio Stubs
+- **AREntityBowl**: Private Fields, Public Properties, Static Events, Unity Lifecycle, Bowl Consumption, Stat Hooks
+- **GroundingBehaviour**: Inspector Fields, Private Fields, Public Properties, Public Methods
 - **ImageHandling**: Inspector Fields, Unity Lifecycle, Events, Setup, Event Handlers
 
 ## current state
@@ -190,10 +242,15 @@ Assets/Scripts/
   - OnPlanesUpdated event (fires on any plane change)
   - OnPlaneInteraction event (fires on touch, uses new input system)
   - **TouchHitsNeko(screenPosition)** - checks if touch hits neko before plane interaction (petting has priority)
+    - **REQUIRES neko prefab to have a Collider component** for Physics.Raycast to detect it
   - **OnNavMeshReady event** (fires once when navmesh is first baked successfully)
   - SpawnClosest() method (projects position onto closest plane, orients toward camera, parents to plane)
   - FindClosestPlane() public helper (handles fragmented AR tracking)
-  - TryProjectToPlane(Vector3, out Vector3) - projects position onto nearest plane, returns success bool
+  - **FindClosestPlaneBelow(Vector3)** - finds closest plane at or below position (for proper grounding)
+  - **FindClosestHorizontalPlaneBelow(Vector3)** - finds closest horizontal (floor-like) plane below position, filters walls/slopes (normal.y >= 0.9)
+  - TryProjectToPlane(Vector3, out Vector3) - projects position onto nearest plane below, returns success bool
+  - **TryProjectToHorizontalPlane(Vector3, out Vector3)** - projects to nearest horizontal plane (may change XZ!)
+  - **TryGetPlaneHeightAt(Vector3, out float)** - returns only the Y height at a given XZ position (XZ unchanged), prefers planes containing the XZ position
   - ProjectToPlane(Vector3) - projects position onto nearest plane, returns original if no plane
   - FindLargestTrackingPlane() helper
   - CalculateTotalPlaneArea() helper
@@ -231,16 +288,24 @@ Assets/Scripts/
   - bowl spawning on plane touch (singleton - only one bowl allowed)
   - max neko limit enforcement (default 3)
   - **navmesh UX hooks**: `NotifyMainNekoWaitingForNavMesh()` / `NotifyMainNekoHasNavMesh()` for state tracking
+  - **audio stubs** (dec 18 2025): placeholder methods for sound effects, log warning when called
+    - `PlayBowlPlaceSound()` - bowl placement sound
+    - `PlayBowlConsumeSound()` - bowl consumption sound
+    - `PlayStepSound()` - neko footstep (called on each walk step)
+    - `PlayMeowSound()` - neko meow (called on petting, playing with friend)
+    - `PlayEatingSound()` - neko eating (called during eating animation)
+    - `PlayJumpSound()` - neko jump (called on jump)
 - [x] `AREntityNeko` - neko entity with:
+  - **[RequireComponent(typeof(GroundingBehaviour))]** - unified grounding via GroundingBehaviour
   - texture loading from Resources/NekoTextures by ID (0-44)
   - SetTextureId() public method
   - RandomizeTextureId() private method (auto-called if tagged "NekoFriend")
   - periodic Blink() with configurable interval and duration
   - StartFollowing() / StopFollowing() for image tracking (unparents, resets grounded state)
-  - Fall() and Fall(Action onComplete) - uses PlaneHandling.TryProjectToPlane(), sets _isGrounded, **snaps to navmesh after landing**
-  - **continuous ground stabilisation**: timer-based projection to nearest plane (toggleable via enableGroundStabilisation)
-  - **SnapToGround()** - helper to project neko to nearest plane
-  - **WalkTowardCoroutine(targetPosition, arrivalDistance, interruptCheck)** - primary shared walking helper with choppy stop-motion animation and interrupt support (used by RoamOnce, MoveAndEat)
+  - Fall() and Fall(Action onComplete) - uses `TryGetPlaneHeightAt()` to preserve XZ while getting plane Y, calls `_grounding.Ground()`, **snaps to navmesh after landing**
+  - **ground stabilisation via GroundingBehaviour**: Update() calls `_grounding.Stabilise()` (skips while following)
+  - **SnapToGround()** - delegates to `_grounding.SnapToGround()`
+  - **WalkTowardCoroutine(targetPosition, arrivalDistance, interruptCheck)** - primary shared walking helper with choppy stop-motion animation, interrupt support, and `_grounding.UpdateAnchor()` on each step
   - Jump() - **bounce easing** via EaseOutBack curve with configurable `jumpBounceFactor`
   - **Pet()** - petting interaction triggered by touch input; neko faces player camera, blinks, and bounces once
   - **direct AR object awareness** via static events:
@@ -277,18 +342,32 @@ Assets/Scripts/
   - LookAt(Vector3) - rotates to face target (Y-axis only)
   - ResetTilt() - resets z-axis tilt to upright after walking
   - EaseOutBack(t, bounceFactor) - helper for bounce easing curves
+- [x] `GroundingBehaviour` - unified grounding system for AR entities (dec 18 2025):
+  - **purpose**: consistent XZ-locked, Y-only stabilised grounding for all AR entities (nekos, bowls)
+  - **inspector fields**: `enableStabilisation`, `stabilisationInterval` (default 0.1s), `stabilisationThreshold` (default 0.02m)
+  - **public properties**:
+    - `isGrounded` - true after Ground() called
+    - `anchorPosition` - current anchor (XZ locked, Y adjusted)
+  - **public methods**:
+    - `Ground(Vector3)` - sets anchor position, enables stabilisation, snaps entity to position
+    - `UpdateAnchor(Vector3)` - updates anchor for intentional movement (walking)
+    - `Stabilise()` - timer-based Y-only stabilisation; uses `TryGetPlaneHeightAt()` to get plane Y at anchor XZ
+    - `SnapToGround()` - immediate Y-only snap using `TryGetPlaneHeightAt()` 
+    - `Reset()` - resets grounding state (for respawn scenarios)
+  - **key behaviour**: 
+    - XZ coordinates are LOCKED to anchor, ONLY Y is adjusted during stabilisation
+    - uses `PlaneHandling.TryGetPlaneHeightAt()` which returns only the Y height (not full XYZ projection)
+    - prevents AR plane drift from shifting entity XZ position
+    - prefers planes whose boundary contains the entity's XZ position for more stable grounding
 - [x] `AREntityBowl` - bowl entity with:
+  - **[RequireComponent(typeof(GroundingBehaviour))]** - unified grounding via GroundingBehaviour
   - **direct AR object awareness** via static events:
     - `OnBowlSpawned` static event - fired when any bowl spawns
     - `OnBowlDestroyed` static event - fired when any bowl is destroyed
-  - **ground stabilisation like neko** (dec 18 2024):
+  - **ground stabilisation via GroundingBehaviour** (dec 18 2025):
     - **unparents from plane in Start()** - critical for XZ locking (plane parenting causes drift)
-    - `_spawnPosition` field for XZ locking (like grounded neko)
-    - `_isGrounded` flag set after initial projection
-    - `ProjectToGround()` called in Start() to project to nearest plane
-    - `UpdateGroundStabilisation()` - locks XZ to spawn position, only allows Y stabilisation
-    - `stabilisationInterval` default 0.1s (faster than neko for tighter tracking)
-    - verbose logging via `Logkat.Dev()` for debugging
+    - Start() uses `TryGetPlaneHeightAt()` to get plane Y at spawn XZ, then calls `_grounding.Ground()` with XZ preserved
+    - Update() calls `_grounding.Stabilise()` for timer-based Y-only adjustment
   - `isFull` public property (default true)
   - `Consume(AREntityNeko)` - sets isFull to false, fires OnConsumed event
   - `Refill()` - sets isFull to true
@@ -318,9 +397,12 @@ Assets/Scripts/
 - waits for grounded state, checks navmesh availability, then roams or handles interactions
 - **behaviours are interruptible**: friend spawn or bowl placement can interrupt roaming
 - **WalkTowardCoroutine()** is the shared walking helper with choppy stop-motion animation
+  - plays `PlayStepSound()` on each walk step
 - `RoamOnce()` picks random navmesh point within roamRadius, walks via WalkTowardCoroutine
 - `PlayWithFriend()` does NOT require friend to be grounded; faces friend's current position (refreshed each jump), synchronised jumping
+  - plays `PlayMeowSound()` when play starts, `PlayJumpSound()` on each jump
 - `MoveAndEat()` walks to bowl, eating animation (continuous blinking + jumping), consumes bowl
+  - plays `PlayEatingSound()` during eating animation, `PlayJumpSound()` on each jump
   - **bowl replacement fix (dec 18 2025)**: tracks `_targetBowl` to detect when bowl is replaced mid-walk
   - `StateNotifyBowlPlaced()` cancels existing MoveAndEat coroutine before starting new one
   - prevents stuck walking animation when quickly spawning new bowls
@@ -330,6 +412,7 @@ Assets/Scripts/
 - `TouchHitsNeko()` is checked BEFORE plane interaction raycast (petting has priority)
 - touch detection runs regardless of `OnPlaneInteraction` subscribers (petting always works)
 - `Pet()` makes neko face the player camera, blink, and bounce once
+- plays `PlayMeowSound()` and `PlayJumpSound()` on petting
 - only main neko (tagged `NekoMain`) triggers `OnPetted()` stat hook
 - petting touch blocks bowl placement - if neko is touched, plane interaction is skipped
 
@@ -362,8 +445,8 @@ Assets/Scripts/
 
 | prefab | requirements |
 |--------|--------------|
-| Main Neko | neko model with AREntityNeko component |
-| Friend Neko | neko model with AREntityNeko component, tagged "NekoFriend" (texture randomized on Awake) |
+| Main Neko | neko model with AREntityNeko component, **Collider component for petting** (e.g., BoxCollider, CapsuleCollider) |
+| Friend Neko | neko model with AREntityNeko component, tagged "NekoFriend", **Collider component for petting** |
 | Bowl | bowl model, optionally with AREntityBowl |
 
 ### inspector setup for CoreGameplay

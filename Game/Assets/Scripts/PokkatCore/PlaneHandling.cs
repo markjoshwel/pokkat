@@ -301,7 +301,8 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     checks if a screen position hits any neko; if so, triggers petting interaction
+        ///     checks if a screen position hits any neko; if so, triggers petting interaction.
+        ///     NOTE: requires neko prefab to have a Collider component for Physics.Raycast to detect it
         /// </summary>
         /// <param name="screenPosition">touch position in screen coordinates</param>
         /// <returns>true if a neko was hit (and petted)</returns>
@@ -311,16 +312,27 @@ namespace PokkatCore
             if (!mainCamera) return false;
 
             var ray = mainCamera.ScreenPointToRay(screenPosition);
-            if (!Physics.Raycast(ray, out var hit, 100f)) return false;
+            if (!Physics.Raycast(ray, out var hit, 100f))
+            {
+                Logkat.Dev("PlaneHandling: TouchHitsNeko raycast hit nothing");
+                return false;
+            }
+            
+            Logkat.Dev($"PlaneHandling: TouchHitsNeko raycast hit {hit.transform.name} (tag={hit.transform.tag})");
 
             // try to find neko component via tag or parent hierarchy
             var neko = (hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend"))
                 ? hit.transform.GetComponent<AREntityNeko>() ?? hit.transform.GetComponentInParent<AREntityNeko>()
                 : hit.transform.GetComponentInParent<AREntityNeko>();
 
-            if (!neko) return false;
+            if (!neko)
+            {
+                Logkat.Dev("PlaneHandling: TouchHitsNeko hit object has no AREntityNeko component");
+                return false;
+            }
 
             // trigger petting interaction on the neko
+            Logkat.Out($"PlaneHandling: petting neko {neko.name}");
             neko.Pet();
             return true;
         }
@@ -441,14 +453,96 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     projects a world position onto the nearest tracked plane surface
+        ///     minimum plane normal Y component to be considered horizontal (floor-like).
+        ///     0.9 ≈ ~25° from horizontal, filters out walls and steep slopes
+        /// </summary>
+        private const float HorizontalPlaneThreshold = 0.9f;
+
+        /// <summary>
+        ///     finds the closest plane that is at or below the given position (for grounding).
+        ///     falls back to FindClosestPlane if no plane is below
+        /// </summary>
+        /// <param name="worldPosition">the position to find a plane below</param>
+        /// <returns>closest plane below position, or closest plane if none below, or null</returns>
+        public ARPlane FindClosestPlaneBelow(Vector3 worldPosition)
+        {
+            ARPlane bestPlaneBelow = null;
+            var smallestDropDistance = float.MaxValue;
+
+            foreach (var plane in planeManager.trackables)
+            {
+                // skip invalid or non-tracking planes
+                if (!plane || plane.trackingState != TrackingState.Tracking) continue;
+
+                // project point onto this plane's infinite surface
+                var projectedPoint = plane.infinitePlane.ClosestPointOnPlane(worldPosition);
+                
+                // only consider planes at or below the position (projectedPoint.y <= worldPosition.y)
+                var dropDistance = worldPosition.y - projectedPoint.y;
+                if (dropDistance < 0) continue; // plane is above us, skip
+                
+                // prefer the plane with the smallest drop distance (closest below)
+                if (dropDistance < smallestDropDistance)
+                {
+                    smallestDropDistance = dropDistance;
+                    bestPlaneBelow = plane;
+                }
+            }
+
+            // if no plane below, fall back to closest plane
+            return bestPlaneBelow ? bestPlaneBelow : FindClosestPlane(worldPosition);
+        }
+
+        /// <summary>
+        ///     finds the closest horizontal plane (floor-like) that is at or below the given position.
+        ///     filters out walls and steep slopes by checking plane normal.
+        ///     falls back to FindClosestPlaneBelow if no horizontal plane found
+        /// </summary>
+        /// <param name="worldPosition">the position to find a horizontal plane below</param>
+        /// <returns>closest horizontal plane below, or any plane below, or null</returns>
+        public ARPlane FindClosestHorizontalPlaneBelow(Vector3 worldPosition)
+        {
+            ARPlane bestPlaneBelow = null;
+            var smallestDropDistance = float.MaxValue;
+
+            foreach (var plane in planeManager.trackables)
+            {
+                // skip invalid or non-tracking planes
+                if (!plane || plane.trackingState != TrackingState.Tracking) continue;
+
+                // skip non-horizontal planes (walls, steep slopes)
+                // normal.y close to 1.0 means floor-like, close to 0.0 means wall-like
+                if (plane.normal.y < HorizontalPlaneThreshold) continue;
+
+                // project point onto this plane's infinite surface
+                var projectedPoint = plane.infinitePlane.ClosestPointOnPlane(worldPosition);
+                
+                // only consider planes at or below the position
+                var dropDistance = worldPosition.y - projectedPoint.y;
+                if (dropDistance < 0) continue; // plane is above us, skip
+                
+                // prefer the plane with the smallest drop distance (closest below)
+                if (dropDistance < smallestDropDistance)
+                {
+                    smallestDropDistance = dropDistance;
+                    bestPlaneBelow = plane;
+                }
+            }
+
+            // if no horizontal plane below, fall back to any plane below
+            return bestPlaneBelow ? bestPlaneBelow : FindClosestPlaneBelow(worldPosition);
+        }
+
+        /// <summary>
+        ///     projects a world position onto the nearest tracked plane surface.
+        ///     prefers planes below the position for proper grounding behaviour
         /// </summary>
         /// <param name="worldPosition">the position to project onto a plane</param>
         /// <param name="projectedPosition">the resulting position on the plane surface</param>
         /// <returns>true if projection succeeded, false if no plane available</returns>
         public bool TryProjectToPlane(Vector3 worldPosition, out Vector3 projectedPosition)
         {
-            var closestPlane = FindClosestPlane(worldPosition);
+            var closestPlane = FindClosestPlaneBelow(worldPosition);
             if (!closestPlane)
             {
                 projectedPosition = worldPosition;
@@ -456,6 +550,95 @@ namespace PokkatCore
             }
 
             projectedPosition = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
+            Logkat.Dev($"PlaneHandling: projected {worldPosition} to {projectedPosition} on plane {closestPlane.trackableId}");
+            return true;
+        }
+
+        /// <summary>
+        ///     projects a world position onto the nearest horizontal (floor-like) plane.
+        ///     filters out walls and steep slopes for reliable grounding.
+        ///     used by GroundingBehaviour for stabilisation
+        /// </summary>
+        /// <param name="worldPosition">the position to project onto a horizontal plane</param>
+        /// <param name="projectedPosition">the resulting position on the plane surface</param>
+        /// <returns>true if projection succeeded, false if no horizontal plane available</returns>
+        public bool TryProjectToHorizontalPlane(Vector3 worldPosition, out Vector3 projectedPosition)
+        {
+            var closestPlane = FindClosestHorizontalPlaneBelow(worldPosition);
+            if (!closestPlane)
+            {
+                projectedPosition = worldPosition;
+                return false;
+            }
+
+            projectedPosition = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
+            Logkat.Dev($"PlaneHandling: projected {worldPosition} to {projectedPosition} on horizontal plane {closestPlane.trackableId}");
+            return true;
+        }
+
+        /// <summary>
+        ///     gets the Y height of the nearest horizontal plane at a given XZ position.
+        ///     unlike TryProjectToHorizontalPlane, this returns only Y and keeps XZ unchanged.
+        ///     prefers planes whose boundary contains the XZ position for more stable grounding.
+        ///     used by GroundingBehaviour for stabilisation
+        /// </summary>
+        /// <param name="worldPosition">the position to query (uses X and Z for plane selection)</param>
+        /// <param name="planeHeight">the Y height of the plane at this XZ position</param>
+        /// <returns>true if a plane was found, false otherwise</returns>
+        public bool TryGetPlaneHeightAt(Vector3 worldPosition, out float planeHeight)
+        {
+            // first pass: try to find a horizontal plane whose boundary actually contains this XZ
+            ARPlane containingPlane = null;
+            var smallestContainingDrop = float.MaxValue;
+
+            foreach (var plane in planeManager.trackables)
+            {
+                if (!plane || plane.trackingState != TrackingState.Tracking) continue;
+                if (plane.normal.y < HorizontalPlaneThreshold) continue;
+
+                // check if this XZ is within the plane's boundary polygon
+                var planeLocalPos = plane.transform.InverseTransformPoint(worldPosition);
+                var xzInPlane = new Vector2(planeLocalPos.x, planeLocalPos.z);
+
+                // check if point is roughly within the plane's size (simplified bounding box check)
+                var halfSize = plane.size / 2f;
+                var isWithinBounds = Mathf.Abs(xzInPlane.x) <= halfSize.x + 0.3f &&
+                                     Mathf.Abs(xzInPlane.y) <= halfSize.y + 0.3f;
+
+                if (!isWithinBounds) continue;
+
+                // project to get Y height
+                var projected = plane.infinitePlane.ClosestPointOnPlane(worldPosition);
+                var dropDistance = worldPosition.y - projected.y;
+
+                // prefer planes at or below the position
+                if (dropDistance < -0.1f) continue; // plane is significantly above, skip
+
+                if (dropDistance < smallestContainingDrop)
+                {
+                    smallestContainingDrop = dropDistance;
+                    containingPlane = plane;
+                }
+            }
+
+            // if we found a containing plane, use it
+            if (containingPlane)
+            {
+                var projected = containingPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
+                planeHeight = projected.y;
+                return true;
+            }
+
+            // fallback: use any closest horizontal plane below (original behaviour)
+            var closestPlane = FindClosestHorizontalPlaneBelow(worldPosition);
+            if (!closestPlane)
+            {
+                planeHeight = worldPosition.y;
+                return false;
+            }
+
+            var fallbackProjected = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
+            planeHeight = fallbackProjected.y;
             return true;
         }
 

@@ -1,0 +1,259 @@
+Info (Pokkat) OUT: CoreGameplay: Awake/Setup OK
+Info (Pokkat) OUT: Statskeeper: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling: Awake/Setup OK
+Info (Pokkat) OUT: ImageHandling: Awake/Setup OK
+Info (Pokkat) OUT: CoreGameplay: Event Subscription OK
+Info (Pokkat) OUT: CoreGameplay: Start/Configure OK
+Info (Pokkat) OUT: Statskeeper: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Start/Configure OK
+Info (Pokkat) OUT: ImageHandling: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: Plane ready, total area 1.11m┬▓, largest plane B40000726CB4D530-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: CoreGameplay: plane ready received
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned MAIN neko
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.49, -2.51, -0.93)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:2 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 19
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (1.89, -2.50, -1.05)
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:4 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.90, -2.52, -1.04)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.52, -2.52, -0.92)
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.52, -2.52, -0.92)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.52, -2.52, -0.92)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.52, -2.52, -0.92)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.90, -2.52, -0.74)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.90, -2.52, -0.74)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.90, -2.52, -0.74)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.90, -2.52, -0.74)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 36
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (1.49, -2.51, -0.93)
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CAA1940-600613A12A17C812) state:Tracking
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.49, -2.41, -0.94)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.75, -2.52, -0.73)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.75, -2.52, -0.73)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.75, -2.52, -0.73)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.75, -2.52, -0.73)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:5 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.67, -2.52, -1.25)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.67, -2.52, -1.25)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.67, -2.52, -1.25)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.67, -2.52, -1.25)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:6 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: AREntityBowl: consumed by neko
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlConsumeSound not implemented yet
+Warn (Pokkat) WARN: AREntityBowl: mesh swap not implemented yet
+Info (Pokkat) OUT: AREntityBowl: OnNekoConsumed called for Neko (Main)(Clone)
+Info (Pokkat) OUT: AREntityNeko: fed
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:7 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully

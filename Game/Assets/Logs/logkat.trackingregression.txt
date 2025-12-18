@@ -1,0 +1,593 @@
+Info (Pokkat) OUT: CoreGameplay: Awake/Setup OK
+Info (Pokkat) OUT: Statskeeper: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling: Awake/Setup OK
+Info (Pokkat) OUT: ImageHandling: Awake/Setup OK
+Info (Pokkat) OUT: CoreGameplay: Event Subscription OK
+Info (Pokkat) OUT: CoreGameplay: Start/Configure OK
+Info (Pokkat) OUT: Statskeeper: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandling: Start/Configure OK
+Info (Pokkat) OUT: ImageHandling: Start/Configure OK
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: PlaneHandling: Plane ready, total area 1.20m┬▓, largest plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: CoreGameplay: plane ready received
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:1 updated:0 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB1DE40-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.89, -3.12, -0.13), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=0
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (0.89, -3.12, -0.13), isMain=True, currentCount=0
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned MAIN neko
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(0.89, -3.12, -0.13), nekoPos=(0.89, -3.12, -0.13)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.12, -0.13) to (0.89, -3.40, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: early fall triggered, height above plane = 0.279m
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(0.89, -3.12, -0.13)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(0.89, -3.12, -0.13)
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to plane, targetPos=(0.89, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (0.89, -3.12, -0.13) to (0.89, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.88, -3.12, -0.12), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.05s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.87, -3.12, -0.12), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.08s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.12s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.15s < 1s)
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (0.89, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(0.89, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.40, -0.13) to (0.89, -3.40, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.282
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.284
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.87, -3.11, -0.12), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.287
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.288
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.291
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.87, -3.11, -0.13), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.292
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.87, -3.10, -0.13), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.299
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.296
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.300
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.297
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.298
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB1DE40-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=1
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.301
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (0.87, -3.10, -0.13), isMain=False, currentCount=1
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 9
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(0.87, -3.10, -0.13), nekoPos=(0.87, -3.10, -0.13)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.10, -0.13) to (0.87, -3.40, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: early fall triggered, height above plane = 0.300m
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(0.87, -3.10, -0.13)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(0.87, -3.10, -0.13)
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to plane, targetPos=(0.87, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (0.87, -3.10, -0.13) to (0.87, -3.40, -0.13)
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (0.87, -3.17, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=2
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.198
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.30, -0.13) to (0.89, -3.40, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.153
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.151
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (0.87, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(0.87, -3.40, -0.13)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.168
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.40, -0.13) to (0.87, -3.40, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.194
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.227
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.03, -0.22), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.416
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.460
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.30s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.432
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.459
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.33s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.444
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.458
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.37s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.04, -0.22), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.448
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.455
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.40s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.449
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.456
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.43s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.450
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.47s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.50s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.53s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.57s < 1s)
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.379
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.60s < 1s)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.40, -0.13) to (0.89, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.392
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.350
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.63s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.391
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.346
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.67s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.358
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.70s < 1s)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.27, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.377
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.73s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.397
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.77s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.418
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.80s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.435
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.83s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.446
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.87s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.389
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.452
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.90s < 1s)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB1DE40-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.387
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.93s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.97s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.04, -0.21), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.386
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: spawning neko at (1.13, -3.04, -0.21), isMain=False, currentCount=2
+Info (Pokkat) OUT: AREntityNeko: i am a friend! (randomising texture)
+Info (Pokkat) OUT: AREntityNeko: set texture to ID 16
+Info (Pokkat) OUT: AREntityNeko: Awake/Setup OK
+Info (Pokkat) OUT: AREntityNeko: started following tracked image
+Info (Pokkat) OUT: CoreGameplay: spawned FRIEND neko
+Info (Pokkat Verbose) DEV: CoreGameplay: UpdateFollowingNeko - state=Tracking, imagePos=(1.13, -3.04, -0.21), nekoPos=(1.13, -3.04, -0.21)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.04, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: CoreGameplay: early fall triggered, height above plane = 0.287m
+Info (Pokkat Verbose) DEV: CoreGameplay: TriggerNekoFall called, pos=(1.13, -3.04, -0.21)
+Info (Pokkat) OUT: AREntityNeko: stopped following
+Info (Pokkat Verbose) DEV: AREntityNeko: FallRoutine started, currentPos=(1.13, -3.04, -0.21)
+Info (Pokkat Verbose) DEV: AREntityNeko: projected to plane, targetPos=(1.13, -3.33, -0.21)
+Info (Pokkat Verbose) DEV: AREntityNeko: falling from (1.13, -3.04, -0.21) to (1.13, -3.33, -0.21)
+Info (Pokkat) OUT: AREntityNeko: detected friend neko spawn at (1.13, -3.14, -0.21)
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.05, -0.21), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.384
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.447
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.05s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.383
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.445
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.08s < 1s)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.33, -0.13) to (0.89, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Warn (Pokkat) WARN: CoreGameplay: PlayMeowSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: playing with friend (facing each other)
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.313
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.442
+Info (Pokkat Verbose) DEV: CoreGameplay: spawn cooldown active (0.12s < 1s)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Warn (Pokkat) WARN: AREntityNeko: no navmesh nearby after landing at (1.13, -3.33, -0.21)
+Info (Pokkat Verbose) DEV: CoreGameplay: neko landed, anchorPosition=(1.13, -3.33, -0.21)
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.259
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.40, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.06, -0.21), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.258
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.256
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:2 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.263
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.270
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.279
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.283
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.287
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.288
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.18, -0.13) to (0.89, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.23, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.18, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:2 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.286
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:3 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB1DE40-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.290
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.289
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:3 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.05, -0.21), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.381
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.390
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.280
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.382
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.391
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.281
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.385
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.393
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.285
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.316
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.392
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.282
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.295
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.261
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.260
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.259
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.265
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.272
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(1.13, -3.04, -0.21), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.293
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.18, -0.13) to (0.89, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.292
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.32, -0.13) to (0.89, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.98, -3.04, 0.06)
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.98, -3.04, 0.06)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.98, -3.04, 0.06)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.98, -3.04, 0.06)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.04, 0.06) to (0.98, -3.04, 0.06) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.98, -3.04, 0.06) to (0.98, -3.04, 0.06)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.98, -3.04, 0.06)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.90, -3.30, -0.10) to (0.90, -3.33, -0.10) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: played with friend
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.04, 0.06) to (0.98, -3.33, 0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: stabilising from (0.98, -3.04, 0.06) to (0.98, -3.33, 0.06) (yDrift=0.295, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.92, -3.25, -0.06) to (0.92, -3.33, -0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.33, 0.06) to (0.98, -3.33, 0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.94, -3.24, -0.02) to (0.94, -3.33, -0.02) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.95, -3.24, 0.01) to (0.95, -3.33, 0.01) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.33, 0.06) to (0.98, -3.33, 0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -3.23, 0.02) to (0.96, -3.33, 0.02) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.97, -3.23, 0.04) to (0.97, -3.33, 0.04) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.33, 0.06) to (0.98, -3.33, 0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.16, -3.04, 0.09)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.16, -3.04, 0.09)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.16, -3.04, 0.09)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.97, -3.23, 0.05) to (0.97, -3.33, 0.05) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (1.16, -3.04, 0.09)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.16, -3.04, 0.09) to (1.16, -3.04, 0.09) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (1.16, -3.04, 0.09) to (1.16, -3.04, 0.09)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.16, -3.04, 0.09)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.16, -3.04, 0.09) to (1.16, -3.33, 0.09) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: stabilising from (1.16, -3.04, 0.09) to (1.16, -3.33, 0.09) (yDrift=0.296, xzDrift=0.000)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.25, 0.06) to (1.02, -3.33, 0.06) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.16, -3.33, 0.09) to (1.16, -3.33, 0.09) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.07, -3.24, 0.07) to (1.07, -3.33, 0.07) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (0.87, -3.33, -0.13) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.13, -3.33, -0.21) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:4 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.99, -3.03, 0.18)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.99, -3.03, 0.18)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.99, -3.03, 0.18)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.99, -3.03, 0.18)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.03, 0.18) to (0.99, -3.03, 0.18) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.99, -3.03, 0.18) to (0.99, -3.03, 0.18)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.99, -3.03, 0.18)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.05, -3.22, 0.10) to (1.05, -3.33, 0.10) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.03, 0.18) to (0.99, -3.33, 0.18) on plane B40000726D74BA50-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: stabilising from (0.99, -3.03, 0.18) to (0.99, -3.33, 0.18) (yDrift=0.296, xzDrift=0.000)
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:4 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.03, -3.24, 0.13) to (1.12, -3.24, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.87, -3.33, -0.13) to (1.02, -3.33, 0.59) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.13, -3.33, -0.21) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.33, 0.18) to (1.07, -3.33, 0.58) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.09, -3.19, 0.49) to (1.10, -3.19, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.59) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.33, 0.18) to (1.02, -3.33, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.07, -3.16, 0.47) to (1.08, -3.16, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.88, -3.04, -0.03)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.88, -3.04, -0.03)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.88, -3.04, -0.03)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.88, -3.04, -0.03)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.88, -3.04, -0.03) to (0.88, -3.04, -0.03) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.88, -3.04, -0.03) to (0.88, -3.04, -0.03)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.88, -3.04, -0.03)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.05, -3.13, 0.45) to (1.05, -3.13, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.88, -3.04, -0.03) to (0.93, -3.04, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.89, -3.04, -0.02)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.89, -3.04, -0.02)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.89, -3.04, -0.02)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.03, -3.11, 0.47) to (1.04, -3.11, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.89, -3.04, -0.02)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.04, -0.02) to (0.89, -3.04, -0.02) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.89, -3.04, -0.02) to (0.89, -3.04, -0.02)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.89, -3.04, -0.02)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.01, -3.10, 0.45) to (1.02, -3.10, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.91, -3.04, -0.02)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.91, -3.04, -0.02)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.91, -3.04, -0.02)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.91, -3.04, -0.02)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.91, -3.04, -0.02) to (0.91, -3.04, -0.02) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.91, -3.04, -0.02) to (0.91, -3.04, -0.02)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.91, -3.04, -0.02)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.00, -3.09, 0.45) to (1.01, -3.09, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.91, -3.04, -0.01)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.91, -3.04, -0.01)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.91, -3.04, -0.01)
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.91, -3.04, -0.01)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.91, -3.04, -0.01) to (0.91, -3.04, -0.01) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.91, -3.04, -0.01) to (0.91, -3.04, -0.01)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.91, -3.04, -0.01)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.08, 0.47) to (1.00, -3.08, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.91, -3.04, -0.01) to (0.97, -3.04, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.89, -3.04, -0.26)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.89, -3.04, -0.26)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.89, -3.04, -0.26)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.89, -3.04, -0.26)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.89, -3.04, -0.26) to (0.89, -3.04, -0.26) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.89, -3.04, -0.26) to (0.89, -3.04, -0.26)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.89, -3.04, -0.26)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.99, -3.07, 0.47) to (1.00, -3.07, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.80, -3.04, -0.41)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.80, -3.04, -0.41)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.80, -3.04, -0.41)
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.80, -3.04, -0.41)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.80, -3.04, -0.41) to (0.80, -3.04, -0.41) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.80, -3.04, -0.41) to (0.80, -3.04, -0.41)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.80, -3.04, -0.41)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -3.07, 0.47) to (0.99, -3.07, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.97, -3.06, 0.47) to (0.98, -3.06, 0.57) on plane B40000726D742D70-600613A12A17C812
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.80, -3.04, -0.41) to (0.90, -3.04, 0.58) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -3.06, 0.47) to (0.97, -3.06, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.00, -3.03, 0.53)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.00, -3.03, 0.53)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.00, -3.03, 0.53)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (1.00, -3.03, 0.53)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.00, -3.03, 0.53) to (1.00, -3.03, 0.53) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (1.00, -3.03, 0.53) to (1.00, -3.03, 0.53)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.00, -3.03, 0.53)
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.00, -3.03, 0.53) to (1.00, -3.03, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -2.96, 0.49) to (0.97, -2.96, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:5 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -3.06, 0.49) to (0.97, -3.06, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (0.96, -3.03, 0.55)
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (0.96, -3.03, 0.55)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (0.96, -3.03, 0.55)
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (0.96, -3.03, 0.55)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -3.03, 0.55) to (0.96, -3.03, 0.55) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (0.96, -3.03, 0.55) to (0.96, -3.03, 0.55)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (0.96, -3.03, 0.55)
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:1 updated:5 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.97, -2.97, 0.57) to (0.97, -2.97, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat) OUT: ImageHandling: Image detected 'DevelopmentTrackerTexture' (B40000721CB1DE40-600613A12A17C812) state:Tracking
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.81, -3.05, 0.05), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: followingNeko=False, totalNekos=3
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.552
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.624
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.738
+Info (Pokkat Verbose) DEV: CoreGameplay: far from all grounded nekos, spawning new
+Info (Pokkat Verbose) DEV: CoreGameplay: max nekos (3) reached, count=3, skipping spawn
+Info (Pokkat Verbose) DEV: CoreGameplay: near existing grounded neko, not spawning
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.625
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.553
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.628
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.741
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.627
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.96, -3.03, 0.55) to (0.97, -3.03, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.742
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.81, -3.04, 0.04), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.629
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.575
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat) OUT: PlaneHandling: plane interaction at (1.04, -3.04, 0.69)
+Info (Pokkat) OUT: CoreGameplay: destroying existing bowl for replacement
+Info (Pokkat) OUT: AREntityBowl: Awake/Setup OK
+Info (Pokkat) OUT: PlaneHandling.SpawnClosest: spawned Bowl at (1.04, -3.04, 0.69)
+Info (Pokkat) OUT: CoreGameplay: spawned bowl at (1.04, -3.04, 0.69)
+Info (Pokkat) OUT: AREntityBowl: Start/Configure OK
+Info (Pokkat Verbose) DEV: AREntityBowl: unparenting from ARPlane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: spawn position = (1.04, -3.04, 0.69)
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.04, -3.04, 0.69) to (1.04, -3.04, 0.69) on plane B40000726CB4C570-600613A12A17C812
+Info (Pokkat Verbose) DEV: AREntityBowl: projected from (1.04, -3.04, 0.69) to (1.04, -3.04, 0.69)
+Info (Pokkat) OUT: AREntityNeko: detected bowl spawn at (1.04, -3.04, 0.69)
+Warn (Pokkat) WARN: CoreGameplay: PlayStepSound not implemented yet
+Info (Pokkat) OUT: AREntityBowl: broadcasted spawn event
+Warn (Pokkat) WARN: CoreGameplay: PlayBowlPlaceSound not implemented yet
+Info (Pokkat Verbose) DEV: CoreGameplay: OnImageDetected - pos=(0.81, -3.04, 0.05), id=B40000721CB1DE40-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.589
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.04, -3.04, 0.69) to (1.03, -3.04, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.588
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.586
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.743
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.572
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.633
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.746
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.565
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.630
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.744
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.573
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.631
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.745
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.557
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.632
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.97, -2.95, 0.57) to (0.97, -2.95, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.556
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.634
+Info (Pokkat Verbose) DEV: CoreGameplay: distance to grounded neko=0.747
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -2.88, 0.58) to (0.98, -2.88, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.04, -3.04, 0.69) to (1.03, -3.04, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
+Info (Pokkat Verbose) DEV: PlaneHandling: TouchHitsNeko raycast hit nothing
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -2.83, 0.58) to (0.98, -2.83, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandling: navmesh baked successfully
+Info (Pokkat) OUT: ImageHandling: Trackables changed -> added:0 updated:1 removed:0
+Info (Pokkat) OUT: AREntityNeko: finished jumping
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (0.98, -2.98, 0.58) to (0.98, -2.98, 0.57) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: PlaneHandlinging: Trackables changed -> added:0 updated:6 removed:0
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.04, -3.04, 0.69) to (1.03, -3.04, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.02, -3.33, 0.56) to (1.02, -3.33, 0.56) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat Verbose) DEV: PlaneHandling: projected (1.28, -3.33, 0.54) to (1.28, -3.33, 0.54) on plane B40000726D742D70-600613A12A17C812
+Info (Pokkat) OUT: AREntityNeko: jumping
+Warn (Pokkat) WARN: CoreGameplay: PlayJumpSound not implemented yet
+Warn (Pokkat) WARN: CoreGameplay: PlayEatingSound not implemented yet
