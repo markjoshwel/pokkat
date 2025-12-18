@@ -413,19 +413,34 @@ Assets/Scripts/
   - `StateNotifyBowlPlaced()` cancels existing MoveAndEat coroutine before starting new one
   - prevents stuck walking animation when quickly spawning new bowls
 
-**petting interaction (dec 18 2025)**:
+**petting interaction (dec 18 2025):**
 - `PlaneHandling.Update()` checks touch input each frame
 - `TouchHitsNeko()` is checked BEFORE plane interaction raycast (petting has priority)
 - touch detection runs regardless of `OnPlaneInteraction` subscribers (petting always works)
-- `Pet()` makes neko face the player camera, blink, and bounce once
+- `Pet()` sets `_pendingPetRequest` flag (does not execute immediately)
+- `TryRunPendingAction()` in behaviour loop executes `RunPetAction()` when flag is set
+- `RunPetAction()` makes neko face the player camera, blink, and bounce once
 - plays `PlayMeowSound()` and `PlayJumpSound()` on petting
 - only main neko (tagged `NekoMain`) triggers `OnPetted()` stat hook
-- petting touch blocks bowl placement - if neko is touched, plane interaction is skipped
+- **petting can interrupt walking/eating** - behaviour loop checks `HasPendingAction()` to abort current activity
 
-**friend neko queue system (dec 18 2025)**:
-- `_pendingFriendQueue` queues multiple friends spawning in quick succession
-- `TryDequeueAndPlayWithFriend()` dequeues next friend and starts play interaction
+**unified action handling (dec 19 2025):**
+- `HasPendingAction()` - checks if any action is pending (pet request, friend in queue) WITHOUT executing
+- `TryRunPendingAction()` - executes highest priority pending action:
+  1. pet request (highest priority - player interaction)
+  2. friend play request (dequeues from `_pendingFriendQueue`)
+- `WalkTowardCoroutine` and `MoveAndEat` use `HasPendingAction()` as interrupt check
+- `BehaviourLoop` uses `TryRunPendingAction()` to execute actions after interrupts
+- this separation prevents the old problem where interrupt checks had side effects (starting coroutines)
+
+**friend neko queue system (dec 18 2025):**
+- `_pendingFriendQueue` - Queue<AREntityNeko> storing friends awaiting play interaction
+- supports multiple friends (max 3 nekos = 1 main + 2 friends)
+- main neko plays with each friend **sequentially** (one at a time)
+- `TryRunPendingAction()` dequeues one friend and starts `PlayWithFriend` coroutine
 - queue is cleaned of null/destroyed friends automatically
+- `_currentPlayPartner` tracks the **active** play partner during a play session
+- `isPlaying` public property exposes whether neko is in active play session
 
 **mutual face-each-other recognition (dec 18 2025):**
 - `_currentPlayPartner` tracks the active play partner for both nekos

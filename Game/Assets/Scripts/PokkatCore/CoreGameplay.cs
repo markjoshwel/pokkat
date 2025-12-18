@@ -300,12 +300,12 @@ namespace PokkatCore
                     Logkat.Panic("unreachable game state");
                     break;
             }
-            
+
             // trigger early fall for any following neko now that plane is available
             // (handles case where tracker was scanned at angle, spawning neko mid-air)
             TryTriggerEarlyFall();
         }
-        
+
         /// <summary>
         ///     triggers fall for following neko if plane is available and neko is above plane.
         ///     called when plane becomes ready or periodically from Update
@@ -313,7 +313,7 @@ namespace PokkatCore
         private void TryTriggerEarlyFall()
         {
             if (!planeHandling.isReady) return;
-            
+
             // find following neko
             TrackedNekoInstance followingNeko = null;
             foreach (var neko in _trackedNekos)
@@ -322,15 +322,15 @@ namespace PokkatCore
                     followingNeko = neko;
                     break;
                 }
-            
+
             if (followingNeko == null) return;
-            
+
             // check if neko is significantly above the nearest plane (spawned mid-air)
             if (!planeHandling.TryProjectToPlane(followingNeko.Entity.transform.position, out var projectedPos))
                 return;
-            
+
             var heightAbovePlane = followingNeko.Entity.transform.position.y - projectedPos.y;
-            
+
             // if neko is more than 5cm above the plane, trigger early fall
             // (small threshold to avoid triggering for minor tracking jitter)
             if (heightAbovePlane > 0.05f)
@@ -354,7 +354,7 @@ namespace PokkatCore
             // prevent spawning bowl too close to existing nekos
             // note: we pass the interaction position, not checking against existing bowl
             // because we're about to destroy the existing bowl anyway
-            if (IsTooCloseToExistingEntities(interaction.Position, ignoreFollowing: false))
+            if (IsTooCloseToExistingEntities(interaction.Position, false))
             {
                 Logkat.Out("CoreGameplay: bowl spawn position too close to neko, skipping spawn");
                 return;
@@ -489,7 +489,8 @@ namespace PokkatCore
             // enforce spawn cooldown
             if (Time.time - _lastSpawnTime < spawnCooldown)
             {
-                Logkat.Dev($"CoreGameplay: spawn cooldown active ({Time.time - _lastSpawnTime:F2}s < {spawnCooldown}s)");
+                Logkat.Dev(
+                    $"CoreGameplay: spawn cooldown active ({Time.time - _lastSpawnTime:F2}s < {spawnCooldown}s)");
                 return;
             }
 
@@ -503,7 +504,7 @@ namespace PokkatCore
 
             // prevent spawning too close to existing entities (AR tracking blip protection)
             // ignoreFollowing=true because we're about to spawn a new following neko
-            if (IsTooCloseToExistingEntities(position, ignoreFollowing: true))
+            if (IsTooCloseToExistingEntities(position, true))
             {
                 Logkat.Dev("CoreGameplay: spawn position too close to existing entity, skipping spawn");
                 return;
@@ -587,7 +588,8 @@ namespace PokkatCore
 
                 if (distance < entitySeparationDistance)
                 {
-                    Logkat.Dev($"CoreGameplay: position too close to neko ({distance:F3}m < {entitySeparationDistance}m)");
+                    Logkat.Dev(
+                        $"CoreGameplay: position too close to neko ({distance:F3}m < {entitySeparationDistance}m)");
                     return true;
                 }
             }
@@ -600,7 +602,8 @@ namespace PokkatCore
 
                 if (distance < entitySeparationDistance)
                 {
-                    Logkat.Dev($"CoreGameplay: position too close to bowl ({distance:F3}m < {entitySeparationDistance}m)");
+                    Logkat.Dev(
+                        $"CoreGameplay: position too close to bowl ({distance:F3}m < {entitySeparationDistance}m)");
                     return true;
                 }
             }

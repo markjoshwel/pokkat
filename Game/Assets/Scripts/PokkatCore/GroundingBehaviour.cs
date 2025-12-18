@@ -23,12 +23,10 @@ namespace PokkatCore
         [SerializeField]
         private bool enableStabilisation = true;
 
-        [Tooltip("seconds between stabilisation checks")]
-        [SerializeField]
+        [Tooltip("seconds between stabilisation checks")] [SerializeField]
         private float stabilisationInterval = 0.1f;
 
-        [Tooltip("minimum Y drift (metres) to trigger stabilisation")]
-        [SerializeField]
+        [Tooltip("minimum Y drift (metres) to trigger stabilisation")] [SerializeField]
         private float stabilisationThreshold = 0.02f;
 
         #endregion
@@ -131,7 +129,8 @@ namespace PokkatCore
 
             // lock XZ to anchor, use plane height for Y
             var stablePos = new Vector3(_anchorPosition.x, planeHeight, _anchorPosition.z);
-            Logkat.Dev($"GroundingBehaviour: stabilising from {transform.position} to {stablePos} (yDrift={yDrift:F3}, xzDrift={xzDrift:F3})");
+            Logkat.Dev(
+                $"GroundingBehaviour: stabilising from {transform.position} to {stablePos} (yDrift={yDrift:F3}, xzDrift={xzDrift:F3})");
             transform.position = stablePos;
 
             // update anchor Y to match current plane height
@@ -172,4 +171,3 @@ namespace PokkatCore
         #endregion
     }
 }
-

@@ -47,6 +47,21 @@ namespace PokkatCore
 
         #endregion
 
+        #region Setup
+
+        /// <summary>
+        ///     function to validate required component references
+        /// </summary>
+        private void Setup_Dependencies()
+        {
+            // panic if the ar tracked image manager reference is not assigned in the inspector
+            // (this is a dependency injection pattern, not GetComponent)
+            if (!trackedImageManager)
+                Logkat.Panic("ImageHandling requires an ARTrackedImageManager reference.");
+        }
+
+        #endregion
+
         #region Unity Lifecycle
 
         /// <summary>
@@ -95,21 +110,6 @@ namespace PokkatCore
         ///     fired when a tracked image is lost or removed
         /// </summary>
         public event Action<HandledTrackedImage> OnImageLost;
-
-        #endregion
-
-        #region Setup
-
-        /// <summary>
-        ///     function to validate required component references
-        /// </summary>
-        private void Setup_Dependencies()
-        {
-            // panic if the ar tracked image manager reference is not assigned in the inspector
-            // (this is a dependency injection pattern, not GetComponent)
-            if (!trackedImageManager)
-                Logkat.Panic("ImageHandling requires an ARTrackedImageManager reference.");
-        }
 
         #endregion
 

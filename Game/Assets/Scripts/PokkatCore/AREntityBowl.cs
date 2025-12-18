@@ -34,6 +34,19 @@ namespace PokkatCore
 
         #endregion
 
+        #region Stat Hooks
+
+        /// <summary>
+        ///     skeleton hook for stats integration when neko consumes from bowl
+        /// </summary>
+        /// <param name="consumer">the neko that consumed from this bowl</param>
+        private void OnNekoConsumed(AREntityNeko consumer)
+        {
+            Logkat.Out($"AREntityBowl: OnNekoConsumed called for {consumer.name}");
+        }
+
+        #endregion
+
         #region Static Events
 
         /// <summary>
@@ -151,19 +164,6 @@ namespace PokkatCore
         private void UpdateBowlVisual()
         {
             Logkat.Warn("AREntityBowl: mesh swap not implemented yet");
-        }
-
-        #endregion
-
-        #region Stat Hooks
-
-        /// <summary>
-        ///     skeleton hook for stats integration when neko consumes from bowl
-        /// </summary>
-        /// <param name="consumer">the neko that consumed from this bowl</param>
-        private void OnNekoConsumed(AREntityNeko consumer)
-        {
-            Logkat.Out($"AREntityBowl: OnNekoConsumed called for {consumer.name}");
         }
 
         #endregion

@@ -43,6 +43,79 @@ namespace PokkatCore
     /// </summary>
     public class PlaneHandling : MonoBehaviour
     {
+        #region Setup
+
+        /// <summary>
+        ///     function to validate required component references
+        /// </summary>
+        private void Setup_Dependencies()
+        {
+            // panic if the ar plane manager reference is not assigned in the inspector
+            // (this is a dependency injection pattern, not GetComponent)
+            if (!planeManager)
+                Logkat.Panic("PlaneHandling requires an ARPlaneManager reference.");
+            if (!raycastManager)
+                Logkat.Panic("PlaneHandling requires an ARRaycastManager reference.");
+        }
+
+        #endregion
+
+        #region Spawning
+
+        /// <summary>
+        ///     spawns an object on the closest point of a detected plane to an in-air position,
+        ///     oriented so the object's +Z axis faces the given camera
+        /// </summary>
+        /// <param name="objectToSpawn">the object to spawn</param>
+        /// <param name="inAirPosition">in-air position to project down onto the plane</param>
+        /// <param name="playerCamera">the ar camera (player viewpoint) for orientation</param>
+        /// <param name="targetPlane">optional specific plane to use; if null, finds closest plane</param>
+        /// <returns>the spawned game object, or null if spawning failed</returns>
+        public GameObject SpawnClosest(
+            GameObject objectToSpawn,
+            Vector3 inAirPosition,
+            Camera playerCamera,
+            ARPlane targetPlane = null)
+        {
+            // bail early if object or camera are missing
+            if (!objectToSpawn || !playerCamera)
+            {
+                Logkat.Warn("PlaneHandling.SpawnClosest: check on objectToSpawn or playerCamera failed");
+                return null;
+            }
+
+            // find the plane closest to the in-air position
+            // (handles fragmented AR tracking where multiple plane splotches exist)
+            targetPlane = targetPlane ? targetPlane : FindClosestPlane(inAirPosition);
+            if (!targetPlane)
+            {
+                Logkat.Warn("PlaneHandling.SpawnClosest: no tracked plane available");
+                return null;
+            }
+
+            // project the in-air position down onto the plane
+            var spawnPosition = targetPlane.infinitePlane.ClosestPointOnPlane(inAirPosition);
+
+            // calculate rotation so the spawned object faces the camera
+            var toCamera = playerCamera.transform.position - spawnPosition;
+            var projectedForward = Vector3.ProjectOnPlane(toCamera, targetPlane.normal).normalized;
+
+            // fallback if camera is directly above (projected forward is zero)
+            if (projectedForward.sqrMagnitude < 0.001f)
+                projectedForward = Vector3.ProjectOnPlane(Vector3.forward, targetPlane.normal).normalized;
+
+            var spawnRotation = Quaternion.LookRotation(projectedForward, targetPlane.normal);
+
+            // instantiate and parent to the plane so it moves with AR tracking adjustments
+            var spawned = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
+            spawned.transform.SetParent(targetPlane.transform, true);
+
+            Logkat.Out($"PlaneHandling.SpawnClosest: spawned {objectToSpawn.name} at {spawnPosition}");
+            return spawned;
+        }
+
+        #endregion
+
         #region Inspector Fields
 
         [Header("Dependencies")]
@@ -219,23 +292,6 @@ namespace PokkatCore
 
         #endregion
 
-        #region Setup
-
-        /// <summary>
-        ///     function to validate required component references
-        /// </summary>
-        private void Setup_Dependencies()
-        {
-            // panic if the ar plane manager reference is not assigned in the inspector
-            // (this is a dependency injection pattern, not GetComponent)
-            if (!planeManager)
-                Logkat.Panic("PlaneHandling requires an ARPlaneManager reference.");
-            if (!raycastManager)
-                Logkat.Panic("PlaneHandling requires an ARRaycastManager reference.");
-        }
-
-        #endregion
-
         #region Touch Input
 
         /// <summary>
@@ -317,11 +373,11 @@ namespace PokkatCore
                 Logkat.Dev("PlaneHandling: TouchHitsNeko raycast hit nothing");
                 return false;
             }
-            
+
             Logkat.Dev($"PlaneHandling: TouchHitsNeko raycast hit {hit.transform.name} (tag={hit.transform.tag})");
 
             // try to find neko component via tag or parent hierarchy
-            var neko = (hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend"))
+            var neko = hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend")
                 ? hit.transform.GetComponent<AREntityNeko>() ?? hit.transform.GetComponentInParent<AREntityNeko>()
                 : hit.transform.GetComponentInParent<AREntityNeko>();
 
@@ -476,11 +532,11 @@ namespace PokkatCore
 
                 // project point onto this plane's infinite surface
                 var projectedPoint = plane.infinitePlane.ClosestPointOnPlane(worldPosition);
-                
+
                 // only consider planes at or below the position (projectedPoint.y <= worldPosition.y)
                 var dropDistance = worldPosition.y - projectedPoint.y;
                 if (dropDistance < 0) continue; // plane is above us, skip
-                
+
                 // prefer the plane with the smallest drop distance (closest below)
                 if (dropDistance < smallestDropDistance)
                 {
@@ -516,11 +572,11 @@ namespace PokkatCore
 
                 // project point onto this plane's infinite surface
                 var projectedPoint = plane.infinitePlane.ClosestPointOnPlane(worldPosition);
-                
+
                 // only consider planes at or below the position
                 var dropDistance = worldPosition.y - projectedPoint.y;
                 if (dropDistance < 0) continue; // plane is above us, skip
-                
+
                 // prefer the plane with the smallest drop distance (closest below)
                 if (dropDistance < smallestDropDistance)
                 {
@@ -550,7 +606,8 @@ namespace PokkatCore
             }
 
             projectedPosition = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
-            Logkat.Dev($"PlaneHandling: projected {worldPosition} to {projectedPosition} on plane {closestPlane.trackableId}");
+            Logkat.Dev(
+                $"PlaneHandling: projected {worldPosition} to {projectedPosition} on plane {closestPlane.trackableId}");
             return true;
         }
 
@@ -572,7 +629,8 @@ namespace PokkatCore
             }
 
             projectedPosition = closestPlane.infinitePlane.ClosestPointOnPlane(worldPosition);
-            Logkat.Dev($"PlaneHandling: projected {worldPosition} to {projectedPosition} on horizontal plane {closestPlane.trackableId}");
+            Logkat.Dev(
+                $"PlaneHandling: projected {worldPosition} to {projectedPosition} on horizontal plane {closestPlane.trackableId}");
             return true;
         }
 
@@ -660,62 +718,6 @@ namespace PokkatCore
         {
             isReady = false;
             Logkat.Out("PlaneHandling.DetectionReset: called");
-        }
-
-        #endregion
-
-        #region Spawning
-
-        /// <summary>
-        ///     spawns an object on the closest point of a detected plane to an in-air position,
-        ///     oriented so the object's +Z axis faces the given camera
-        /// </summary>
-        /// <param name="objectToSpawn">the object to spawn</param>
-        /// <param name="inAirPosition">in-air position to project down onto the plane</param>
-        /// <param name="playerCamera">the ar camera (player viewpoint) for orientation</param>
-        /// <param name="targetPlane">optional specific plane to use; if null, finds closest plane</param>
-        /// <returns>the spawned game object, or null if spawning failed</returns>
-        public GameObject SpawnClosest(
-            GameObject objectToSpawn,
-            Vector3 inAirPosition,
-            Camera playerCamera,
-            ARPlane targetPlane = null)
-        {
-            // bail early if object or camera are missing
-            if (!objectToSpawn || !playerCamera)
-            {
-                Logkat.Warn("PlaneHandling.SpawnClosest: check on objectToSpawn or playerCamera failed");
-                return null;
-            }
-
-            // find the plane closest to the in-air position
-            // (handles fragmented AR tracking where multiple plane splotches exist)
-            targetPlane = targetPlane ? targetPlane : FindClosestPlane(inAirPosition);
-            if (!targetPlane)
-            {
-                Logkat.Warn("PlaneHandling.SpawnClosest: no tracked plane available");
-                return null;
-            }
-
-            // project the in-air position down onto the plane
-            var spawnPosition = targetPlane.infinitePlane.ClosestPointOnPlane(inAirPosition);
-
-            // calculate rotation so the spawned object faces the camera
-            var toCamera = playerCamera.transform.position - spawnPosition;
-            var projectedForward = Vector3.ProjectOnPlane(toCamera, targetPlane.normal).normalized;
-
-            // fallback if camera is directly above (projected forward is zero)
-            if (projectedForward.sqrMagnitude < 0.001f)
-                projectedForward = Vector3.ProjectOnPlane(Vector3.forward, targetPlane.normal).normalized;
-
-            var spawnRotation = Quaternion.LookRotation(projectedForward, targetPlane.normal);
-
-            // instantiate and parent to the plane so it moves with AR tracking adjustments
-            var spawned = Instantiate(objectToSpawn, spawnPosition, spawnRotation);
-            spawned.transform.SetParent(targetPlane.transform, true);
-
-            Logkat.Out($"PlaneHandling.SpawnClosest: spawned {objectToSpawn.name} at {spawnPosition}");
-            return spawned;
         }
 
         #endregion

@@ -90,7 +90,8 @@ namespace PokkatCore
         private readonly List<Renderer> _renderers = new();
 
         /// <summary>
-        ///     queue of friend nekos pending play interaction (handles multiple friends spawning)
+        ///     queue of friend nekos awaiting play interaction (supports multiple friends).
+        ///     main neko plays with each friend sequentially via TryRunPendingAction
         /// </summary>
         private readonly Queue<AREntityNeko> _pendingFriendQueue = new();
 
@@ -126,9 +127,20 @@ namespace PokkatCore
         private bool _runBehaviourLoop = true;
 
         /// <summary>
-        ///     current play partner for mutual face-each-other recognition
+        ///     the friend neko currently playing with this neko (active play session).
+        ///     null when not playing. pending play requests are queued in _pendingFriendQueue
         /// </summary>
         private AREntityNeko _currentPlayPartner;
+
+        /// <summary>
+        ///     whether this neko is currently in a play session with another neko
+        /// </summary>
+        public bool isPlaying => _currentPlayPartner != null;
+
+        /// <summary>
+        ///     pending pet request from player touch (processed by behaviour loop)
+        /// </summary>
+        private bool _pendingPetRequest;
 
         #endregion
 
@@ -209,7 +221,6 @@ namespace PokkatCore
             OnNekoSpawned -= OnNekoSpawnedHandler;
             OnNekoDestroyed?.Invoke(this);
         }
-
 
         #endregion
 
@@ -421,14 +432,13 @@ namespace PokkatCore
         }
 
 
-
         /// <summary>
         ///     coroutine for a single jump with bounce easing
         /// </summary>
         private IEnumerator JumpRoutine()
         {
             Logkat.Out("AREntityNeko: jumping");
-            
+
             // play jump sound at start of jump
             CoreGameplay.instance?.PlayJumpSound();
 
@@ -566,7 +576,7 @@ namespace PokkatCore
 
                 // play step sound on each step
                 CoreGameplay.instance?.PlayStepSound();
-                
+
                 yield return new WaitForSeconds(walkStepDuration);
             }
 
@@ -585,10 +595,18 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     petting interaction - neko faces the player camera and bounces once.
+        ///     petting interaction entry point - sets pending flag for behaviour loop to handle.
         ///     called by PlaneHandling when touch input hits this neko
         /// </summary>
         public void Pet()
+        {
+            _pendingPetRequest = true;
+        }
+
+        /// <summary>
+        ///     executes the pet animation - neko faces player camera and bounces once
+        /// </summary>
+        private void RunPetAction()
         {
             // face the player camera
             var mainCamera = Camera.main;
@@ -598,7 +616,7 @@ namespace PokkatCore
             // blink and bounce as acknowledgement
             Blink();
             Jump();
-            
+
             // play meow sound
             CoreGameplay.instance?.PlayMeowSound();
 
@@ -607,6 +625,58 @@ namespace PokkatCore
             // only main neko triggers the stat hook
             if (CompareTag("NekoMain"))
                 OnPetted();
+        }
+
+        #endregion
+
+        #region Action Handling
+
+        /// <summary>
+        ///     checks if there's a pending action and returns true if current behaviour should abort.
+        ///     does NOT execute the action - just checks if one is pending
+        /// </summary>
+        private bool HasPendingAction()
+        {
+            // pet request has the highest priority
+            if (_pendingPetRequest) return true;
+
+            // clean up null/destroyed friends from queue
+            while (_pendingFriendQueue.Count > 0 && _pendingFriendQueue.Peek() == null)
+                _pendingFriendQueue.Dequeue();
+
+            return _pendingFriendQueue.Count > 0;
+        }
+
+        /// <summary>
+        ///     tries to execute the highest priority pending action.
+        ///     returns true if an action was executed, false if none pending
+        /// </summary>
+        private bool TryRunPendingAction()
+        {
+            // 1. pet request (highest priority - player interaction)
+            if (_pendingPetRequest)
+            {
+                _pendingPetRequest = false;
+                RunPetAction();
+                return true;
+            }
+
+            // 2. friend play request
+            // clean up null/destroyed friends from queue
+            while (_pendingFriendQueue.Count > 0 && _pendingFriendQueue.Peek() == null)
+                _pendingFriendQueue.Dequeue();
+
+            if (_pendingFriendQueue.Count > 0)
+            {
+                var friend = _pendingFriendQueue.Dequeue();
+                if (friend != null)
+                {
+                    StartCoroutine(PlayWithFriend(friend));
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion
@@ -644,7 +714,7 @@ namespace PokkatCore
             if (!otherNeko.CompareTag("NekoFriend")) return;
 
             Logkat.Out($"AREntityNeko: detected friend neko spawn at {otherNeko.transform.position}");
-            
+
             // queue friend for play (handles multiple friends spawning in quick succession)
             _pendingFriendQueue.Enqueue(otherNeko);
         }
@@ -664,15 +734,22 @@ namespace PokkatCore
                 // wait until we've landed on a plane (grounding complete)
                 while (!_grounding.isGrounded) yield return null;
 
+                // check for pending actions first (pet, friend play)
+                if (TryRunPendingAction())
+                {
+                    yield return null;
+                    continue;
+                }
+
                 // wait for navmesh availability before roaming
                 if (!NavMeshIsReady())
                 {
                     while (!NavMeshIsReady())
                     {
                         if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoWaitingForNavMesh();
-                        
-                        // still handle friend interactions even without navmesh
-                        if (TryDequeueAndPlayWithFriend())
+
+                        // still handle pending actions even without navmesh
+                        if (TryRunPendingAction())
                         {
                             yield return null;
                             continue;
@@ -683,7 +760,7 @@ namespace PokkatCore
 
                     if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoHasNavMesh();
                 }
-                
+
                 yield return RoamOnce();
             }
         }
@@ -699,12 +776,12 @@ namespace PokkatCore
 
         /// <summary>
         ///     performs a single roam cycle - picks random navmesh point and walks to it.
-        ///     can be interrupted by friend interactions
+        ///     can be interrupted by pending actions (pet, friend play)
         /// </summary>
         private IEnumerator RoamOnce()
         {
-            // check for pending friend interactions first
-            if (TryDequeueAndPlayWithFriend()) yield break;
+            // check for pending actions first
+            if (HasPendingAction()) yield break;
 
             // pick a random point within roam radius
             var randomDirection = Random.insideUnitSphere * roamRadius;
@@ -719,32 +796,13 @@ namespace PokkatCore
 
             // walk to the random point, checking for interrupts
             var targetPosition = hit.position;
-            yield return WalkTowardCoroutine(targetPosition, 0.1f, TryDequeueAndPlayWithFriend);
+            yield return WalkTowardCoroutine(targetPosition, 0.1f, HasPendingAction);
         }
 
         /// <summary>
-        ///     attempts to dequeue a pending friend and start play interaction.
-        ///     cleans up null/destroyed friends from queue
-        /// </summary>
-        /// <returns>true if play interaction was started</returns>
-        private bool TryDequeueAndPlayWithFriend()
-        {
-            // clean up any null/destroyed friends from queue
-            while (_pendingFriendQueue.Count > 0 && _pendingFriendQueue.Peek() == null)
-                _pendingFriendQueue.Dequeue();
-
-            if (_pendingFriendQueue.Count == 0) return false;
-
-            var friend = _pendingFriendQueue.Dequeue();
-            if (friend == null) return false;
-
-            StartCoroutine(PlayWithFriend(friend));
-            return true;
-        }
-
-        /// <summary>
-        ///     play interaction between main neko and friend neko.
+        ///     play interaction between main neko and one friend neko.
         ///     both nekos gradually turn to face each other before jumping together.
+        ///     multiple friends are handled sequentially via _pendingFriendQueue.
         ///     does not require friend to be grounded - plays with friend's current position
         /// </summary>
         /// <param name="friend">the friend neko to play with</param>
@@ -762,7 +820,7 @@ namespace PokkatCore
             StartCoroutine(TurnToward(friend.transform.position, turnDuration));
             StartCoroutine(friend.TurnToward(transform.position, turnDuration));
             yield return new WaitForSeconds(turnDuration + 0.1f);
-            
+
             // play meow sound when playing starts (after turning to face each other)
             CoreGameplay.instance?.PlayMeowSound();
 
@@ -805,7 +863,7 @@ namespace PokkatCore
         public void StateNotifyBowlPlaced()
         {
             if (!CompareTag("NekoMain")) return;
-            
+
             // cancel any existing move-and-eat coroutine (prevents stuck walking animation)
             if (_moveAndEatCoroutine != null)
             {
@@ -813,7 +871,7 @@ namespace PokkatCore
                 _moveAndEatCoroutine = null;
                 ResetTilt();
             }
-            
+
             _moveAndEatCoroutine = StartCoroutine(MoveAndEat());
         }
 
@@ -829,7 +887,7 @@ namespace PokkatCore
 
         /// <summary>
         ///     moves toward active bowl and eats it.
-        ///     can be interrupted by friend interactions or bowl replacement
+        ///     can be interrupted by pending actions (pet, friend play) or bowl replacement
         /// </summary>
         private IEnumerator MoveAndEat()
         {
@@ -839,14 +897,17 @@ namespace PokkatCore
             _targetBowl = gameplay.activeBowl;
             var bowlPos = _targetBowl.transform.position;
 
-            // interrupt check: friend interactions OR bowl was replaced/destroyed
-            bool ShouldInterrupt() => TryDequeueAndPlayWithFriend() || !_targetBowl || gameplay.activeBowl != _targetBowl;
+            // interrupt check: pending actions OR bowl was replaced/destroyed
+            bool ShouldInterrupt()
+            {
+                return HasPendingAction() || !_targetBowl || gameplay.activeBowl != _targetBowl;
+            }
 
-            // walk toward bowl, can be interrupted by friends or bowl replacement
+            // walk toward bowl, can be interrupted
             yield return WalkTowardCoroutine(bowlPos, 0.15f, ShouldInterrupt);
 
-            // if interrupted by friend, exit early
-            if (_currentPlayPartner != null)
+            // if interrupted by pending action, exit early and let behaviour loop handle it
+            if (HasPendingAction())
             {
                 _targetBowl = null;
                 _moveAndEatCoroutine = null;
@@ -869,16 +930,8 @@ namespace PokkatCore
             var elapsed = 0f;
             while (elapsed < eatingDuration)
             {
-                // friend interactions can interrupt eating
-                if (TryDequeueAndPlayWithFriend())
-                {
-                    _targetBowl = null;
-                    _moveAndEatCoroutine = null;
-                    yield break;
-                }
-                
-                // bowl was consumed/destroyed by something else
-                if (!_targetBowl || gameplay.activeBowl != _targetBowl)
+                // pending actions or bowl changes can interrupt eating
+                if (HasPendingAction() || !_targetBowl || gameplay.activeBowl != _targetBowl)
                 {
                     _targetBowl = null;
                     _moveAndEatCoroutine = null;
@@ -887,10 +940,10 @@ namespace PokkatCore
 
                 Blink();
                 Jump();
-                
+
                 // play eating sound during eating animation
                 gameplay.PlayEatingSound();
-                
+
                 yield return new WaitForSeconds(jumpDuration + 0.1f);
                 elapsed += jumpDuration + 0.1f;
             }
