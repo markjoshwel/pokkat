@@ -11,6 +11,8 @@ namespace PokkatCore
 {
     public sealed class AREntityBowl : MonoBehaviour
     {
+        #region Inspector Fields
+
         [Header("Ground Stabilisation")] [Tooltip("project to nearest plane when spawned")] [SerializeField]
         private bool enableGroundStabilisation = true;
 
@@ -19,6 +21,10 @@ namespace PokkatCore
 
         [Tooltip("minimum drift to stabilise")] [SerializeField]
         private float stabilisationThreshold = 0.02f;
+
+        #endregion
+
+        #region Private Fields
 
         /// <summary>
         ///     timer for ground stabilisation interval
@@ -35,10 +41,37 @@ namespace PokkatCore
         /// </summary>
         private bool _isGrounded;
 
+        #endregion
+
+        #region Public Properties
+
         /// <summary>
         ///     whether the bowl has food in it
         /// </summary>
         public bool isFull { get; private set; } = true;
+
+        #endregion
+
+        #region Static Events
+
+        /// <summary>
+        ///     static event fired when any bowl is spawned (for direct AR object awareness)
+        /// </summary>
+        public static event Action<AREntityBowl> OnBowlSpawned;
+
+        /// <summary>
+        ///     static event fired when any bowl is destroyed
+        /// </summary>
+        public static event Action<AREntityBowl> OnBowlDestroyed;
+
+        /// <summary>
+        ///     fired when a neko consumes from this bowl
+        /// </summary>
+        public event Action<AREntityNeko> OnConsumed;
+
+        #endregion
+
+        #region Unity Lifecycle
 
         private void Awake()
         {
@@ -79,6 +112,10 @@ namespace PokkatCore
             // broadcast destroy event
             OnBowlDestroyed?.Invoke(this);
         }
+
+        #endregion
+
+        #region Ground Stabilisation
 
         /// <summary>
         ///     projects the bowl to the nearest plane surface (like neko fall)
@@ -141,20 +178,9 @@ namespace PokkatCore
             }
         }
 
-        /// <summary>
-        ///     static event fired when any bowl is spawned (for direct AR object awareness)
-        /// </summary>
-        public static event Action<AREntityBowl> OnBowlSpawned;
+        #endregion
 
-        /// <summary>
-        ///     static event fired when any bowl is destroyed
-        /// </summary>
-        public static event Action<AREntityBowl> OnBowlDestroyed;
-
-        /// <summary>
-        ///     fired when a neko consumes from this bowl
-        /// </summary>
-        public event Action<AREntityNeko> OnConsumed;
+        #region Bowl Consumption
 
         /// <summary>
         ///     consumes food from the bowl (called by neko when eating)
@@ -194,6 +220,10 @@ namespace PokkatCore
             Logkat.Warn("AREntityBowl: mesh swap not implemented yet");
         }
 
+        #endregion
+
+        #region Stat Hooks
+
         /// <summary>
         ///     skeleton hook for stats integration when neko consumes from bowl
         /// </summary>
@@ -202,5 +232,7 @@ namespace PokkatCore
         {
             Logkat.Out($"AREntityBowl: OnNekoConsumed called for {consumer.name}");
         }
+
+        #endregion
     }
 }

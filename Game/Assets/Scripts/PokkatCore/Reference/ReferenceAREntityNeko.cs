@@ -35,8 +35,9 @@ namespace PokkatCore.Reference
         [Tooltip("Time between automatic state changes in seconds.")] [SerializeField]
         private float stateChangeIntervalSeconds = 5f;
 
-        [Header("Movement")] [Tooltip("Radius for random wandering.")] [SerializeField]
-        private float wanderRadius = 2f;
+        [Header("Movement")]
+        // [Tooltip("Radius for random wandering.")] [SerializeField]
+        // private float wanderRadius = 2f;
 
         [Tooltip("Distance at which the neko considers the bowl reached.")] [SerializeField]
         private float bowlReachDistance = 0.3f;

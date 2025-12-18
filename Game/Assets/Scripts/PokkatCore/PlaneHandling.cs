@@ -43,6 +43,8 @@ namespace PokkatCore
     /// </summary>
     public class PlaneHandling : MonoBehaviour
     {
+        #region Inspector Fields
+
         [Header("Dependencies")]
         [HelpBox("Assign the ARPlaneManager and ARRaycastManager components here.", HelpBoxMessageType.Info)]
         [Tooltip("ar plane detection events")]
@@ -67,6 +69,10 @@ namespace PokkatCore
         [Tooltip("auto-bake on plane updates")] [SerializeField]
         private bool autoBakeOnPlaneUpdate = true;
 
+        #endregion
+
+        #region Private Fields
+
         /// <summary>
         ///     reusable list for ar raycast hit results (avoids gc alloc per frame)
         /// </summary>
@@ -81,6 +87,10 @@ namespace PokkatCore
         ///     whether navmesh bake cooldown has passed
         /// </summary>
         private bool _canBake = true;
+
+        #endregion
+
+        #region Public Properties
 
         /// <summary>
         ///     whether the plane detection threshold has been met
@@ -102,6 +112,10 @@ namespace PokkatCore
         ///     public accessor for the ar plane manager (for plane queries)
         /// </summary>
         public ARPlaneManager arPlaneManager => planeManager;
+
+        #endregion
+
+        #region Unity Lifecycle
 
         /// <summary>
         ///     variable initialisation function
@@ -127,6 +141,13 @@ namespace PokkatCore
 
             // try to get a touch position from this frame
             if (!TryGetTouchPosition(out var touchPosition)) return;
+
+            // before plane interaction, check if the touch hit a neko (petting has priority)
+            if (TouchHitsNeko(touchPosition))
+            {
+                Logkat.Dev("PlaneHandling: touch hit neko, skipping plane interaction");
+                return;
+            }
 
             // raycast from touch position to find plane hits
             if (!TryRaycastToPlane(touchPosition, out var interaction)) return;
@@ -171,6 +192,10 @@ namespace PokkatCore
             }
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         ///     fired when sufficient plane area has been detected for gameplay
         /// </summary>
@@ -190,6 +215,27 @@ namespace PokkatCore
         ///     fired once when navmesh is baked for the first time
         /// </summary>
         public event Action OnNavMeshReady;
+
+        #endregion
+
+        #region Setup
+
+        /// <summary>
+        ///     function to validate required component references
+        /// </summary>
+        private void Setup_Dependencies()
+        {
+            // panic if the ar plane manager reference is not assigned in the inspector
+            // (this is a dependency injection pattern, not GetComponent)
+            if (!planeManager)
+                Logkat.Panic("PlaneHandling requires an ARPlaneManager reference.");
+            if (!raycastManager)
+                Logkat.Panic("PlaneHandling requires an ARRaycastManager reference.");
+        }
+
+        #endregion
+
+        #region Touch Input
 
         /// <summary>
         ///     attempts to read touch/mouse input using the new input system
@@ -254,17 +300,24 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     function to validate required component references
+        ///     checks if a screen position hits any neko; returns true if so
         /// </summary>
-        private void Setup_Dependencies()
+        private static bool TouchHitsNeko(Vector2 screenPosition)
         {
-            // panic if the ar plane manager reference is not assigned in the inspector
-            // (this is a dependency injection pattern, not GetComponent)
-            if (!planeManager)
-                Logkat.Panic("PlaneHandling requires an ARPlaneManager reference.");
-            if (!raycastManager)
-                Logkat.Panic("PlaneHandling requires an ARRaycastManager reference.");
+            var mainCamera = Camera.main;
+            if (!mainCamera) return false;
+
+            var ray = mainCamera.ScreenPointToRay(screenPosition);
+            if (!Physics.Raycast(ray, out var hit, 100f)) return false;
+
+            // check for tag or component in parent hierarchy
+            if (hit.transform.CompareTag("NekoMain") || hit.transform.CompareTag("NekoFriend")) return true;
+            return hit.transform.GetComponentInParent<AREntityNeko>() != null;
         }
+
+        #endregion
+
+        #region Event Handlers
 
         /// <summary>
         ///     function to process ar foundation plane change events and fire appropriate game events
@@ -345,6 +398,10 @@ namespace PokkatCore
             return largestPlane;
         }
 
+        #endregion
+
+        #region Plane Queries
+
         /// <summary>
         ///     function to find the plane whose surface is closest to a world position
         /// </summary>
@@ -412,6 +469,10 @@ namespace PokkatCore
             Logkat.Out("PlaneHandling.DetectionReset: called");
         }
 
+        #endregion
+
+        #region Spawning
+
         /// <summary>
         ///     spawns an object on the closest point of a detected plane to an in-air position,
         ///     oriented so the object's +Z axis faces the given camera
@@ -463,6 +524,10 @@ namespace PokkatCore
             Logkat.Out($"PlaneHandling.SpawnClosest: spawned {objectToSpawn.name} at {spawnPosition}");
             return spawned;
         }
+
+        #endregion
+
+        #region NavMesh Baking
 
         /// <summary>
         ///     callback for when plane detection threshold is met (initial bake)
@@ -523,5 +588,7 @@ namespace PokkatCore
             _canBake = true;
             _bakeCooldownRoutine = null;
         }
+
+        #endregion
     }
 }

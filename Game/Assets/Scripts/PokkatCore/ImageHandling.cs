@@ -37,11 +37,17 @@ namespace PokkatCore
     /// </summary>
     public class ImageHandling : MonoBehaviour
     {
+        #region Inspector Fields
+
         [Header("Dependencies")]
         [HelpBox("Assign the ARTrackedImageManager component here.", HelpBoxMessageType.Info)]
         [Tooltip("ar tracked image events")]
         [SerializeField]
         private ARTrackedImageManager trackedImageManager;
+
+        #endregion
+
+        #region Unity Lifecycle
 
         /// <summary>
         ///     variable initialisation function
@@ -76,6 +82,10 @@ namespace PokkatCore
             trackedImageManager.trackablesChanged.RemoveListener(OnTrackablesChanged);
         }
 
+        #endregion
+
+        #region Events
+
         /// <summary>
         ///     fired when a tracked image enters or remains in tracking state
         /// </summary>
@@ -85,6 +95,10 @@ namespace PokkatCore
         ///     fired when a tracked image is lost or removed
         /// </summary>
         public event Action<HandledTrackedImage> OnImageLost;
+
+        #endregion
+
+        #region Setup
 
         /// <summary>
         ///     function to validate required component references
@@ -96,6 +110,10 @@ namespace PokkatCore
             if (!trackedImageManager)
                 Logkat.Panic("ImageHandling requires an ARTrackedImageManager reference.");
         }
+
+        #endregion
+
+        #region Event Handlers
 
         /// <summary>
         ///     function to process ar foundation tracked image change events and fire appropriate game events
@@ -165,5 +183,7 @@ namespace PokkatCore
                 Id = trackedImage.trackableId
             });
         }
+
+        #endregion
     }
 }

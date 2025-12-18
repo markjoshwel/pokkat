@@ -4,6 +4,7 @@
  * description: central logic coordinator managing neko spawning, multi-image tracking, and ground stabilisation
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -59,6 +60,8 @@ namespace PokkatCore
     /// </summary>
     public class CoreGameplay : MonoBehaviour
     {
+        #region Inspector Fields
+
         [Header("Dependencies")]
         [HelpBox("Assign all required AR detection and handling components here.", HelpBoxMessageType.Info)]
         [Tooltip("ar image tracking events")]
@@ -92,6 +95,10 @@ namespace PokkatCore
         [Tooltip("seconds between neko spawns")] [SerializeField]
         private float spawnCooldown = 1.0f;
 
+        #endregion
+
+        #region Private Fields
+
         /// <summary>
         ///     all tracked neko instances (max 3)
         /// </summary>
@@ -118,9 +125,13 @@ namespace PokkatCore
         private bool _mainNekoSpawned;
 
         /// <summary>
-        ///     count of nekos currently waiting for navmesh
+        ///     whether the main neko is waiting for navmesh
         /// </summary>
-        private int _nekosWaitingForNavMesh;
+        private bool _mainNekoWaitingForNavMesh;
+
+        #endregion
+
+        #region Public Properties
 
         /// <summary>
         ///     scene singleton instance for prefab access (does not persist across scenes)
@@ -141,6 +152,10 @@ namespace PokkatCore
         ///     public accessor for the active bowl (for neko behaviour)
         /// </summary>
         public AREntityBowl activeBowl => _activeBowl;
+
+        #endregion
+
+        #region Unity Lifecycle
 
         private void Awake()
         {
@@ -167,11 +182,35 @@ namespace PokkatCore
         private void Update()
         {
             UpdateFollowingNeko();
-            UpdateGroundedNekos();
         }
 
+        #endregion
+
+        #region Setup
+
+        private void Setup_Dependencies()
+        {
+            if (!imageHandling) Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
+            if (!planeHandling) Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
+            if (!statskeeper) Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
+            if (!playerCamera) Logkat.Panic("CoreGameplay requires an AR Camera reference.");
+        }
+
+        private void Configure_SubscribeToEvents()
+        {
+            imageHandling.OnImageDetected += OnImageDetected;
+            imageHandling.OnImageLost += OnImageLost;
+            planeHandling.OnPlaneReady += OnPlaneReady;
+            planeHandling.OnPlaneInteraction += OnPlaneInteraction;
+            Logkat.Out("CoreGameplay: Event Subscription OK");
+        }
+
+        #endregion
+
+        #region Following Neko Update
+
         /// <summary>
-        ///     phase 1: update the neko that is following the tracked image
+        ///     update the neko that is following the tracked image
         /// </summary>
         private void UpdateFollowingNeko()
         {
@@ -215,15 +254,6 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     phase 2: grounded neko updates - stabilisation now handled by AREntityNeko.Update()
-        /// </summary>
-        private void UpdateGroundedNekos()
-        {
-            // ground stabilisation moved to AREntityNeko.Update() with timer-based plane projection
-            // this keeps stabilisation logic with the entity, not the coordinator
-        }
-
-        /// <summary>
         ///     triggers fall for a following neko and marks it as grounded
         /// </summary>
         private void TriggerNekoFall(TrackedNekoInstance neko)
@@ -240,22 +270,9 @@ namespace PokkatCore
             });
         }
 
-        private void Setup_Dependencies()
-        {
-            if (!imageHandling) Logkat.Panic("CoreGameplay requires an ImageHandling reference.");
-            if (!planeHandling) Logkat.Panic("CoreGameplay requires a PlaneHandling reference.");
-            if (!statskeeper) Logkat.Panic("CoreGameplay requires a Statskeeper reference.");
-            if (!playerCamera) Logkat.Panic("CoreGameplay requires an AR Camera reference.");
-        }
+        #endregion
 
-        private void Configure_SubscribeToEvents()
-        {
-            imageHandling.OnImageDetected += OnImageDetected;
-            imageHandling.OnImageLost += OnImageLost;
-            planeHandling.OnPlaneReady += OnPlaneReady;
-            planeHandling.OnPlaneInteraction += OnPlaneInteraction;
-            Logkat.Out("CoreGameplay: Event Subscription OK");
-        }
+        #region Event Handlers
 
         /// <summary>
         ///     callback for when sufficient plane area has been detected
@@ -293,7 +310,6 @@ namespace PokkatCore
                 return;
             }
 
-            // destroy existing bowl if present (singleton bowl - only one allowed)
             if (_activeBowl)
             {
                 Logkat.Out("CoreGameplay: destroying existing bowl for replacement");
@@ -313,9 +329,7 @@ namespace PokkatCore
             }
 
             Logkat.Out($"CoreGameplay: spawned bowl at {interaction.Position}");
-
-            // notify main neko that bowl was placed (interrupt roaming)
-            NotifyMainNekoBowlPlaced();
+            // note: AREntityNeko listens for OnBowlSpawned directly
         }
 
         /// <summary>
@@ -410,6 +424,10 @@ namespace PokkatCore
             Logkat.Dev("CoreGameplay: near existing grounded neko, not spawning");
         }
 
+        #endregion
+
+        #region Neko Spawning
+
         /// <summary>
         ///     attempts to spawn a new neko at the given position
         /// </summary>
@@ -488,60 +506,54 @@ namespace PokkatCore
             else
             {
                 Logkat.Out("CoreGameplay: spawned FRIEND neko");
-
-                // notify main neko that a friend was spawned
-                var mainNeko = FindMainNeko();
-                if (mainNeko) mainNeko.StateNotifyFriendSpawned(nekoEntity);
             }
         }
 
-        /// <summary>
-        ///     finds the main neko entity (tagged NekoMain)
-        /// </summary>
-        private AREntityNeko FindMainNeko()
-        {
-            foreach (var neko in _trackedNekos)
-                if (neko.Entity && neko.Entity.CompareTag("NekoMain"))
-                    return neko.Entity;
-            return null;
-        }
+        #endregion
+
+        #region NavMesh State
 
         /// <summary>
-        ///     notifies main neko that a bowl was placed (interrupt roaming)
+        ///     called by main neko when it is waiting for navmesh
         /// </summary>
-        private void NotifyMainNekoBowlPlaced()
+        public void NotifyMainNekoWaitingForNavMesh()
         {
-            var mainNeko = FindMainNeko();
-            if (mainNeko) mainNeko.StateNotifyBowlPlaced();
-        }
-
-        /// <summary>
-        ///     called by AREntityNeko when it fails to find navmesh after landing
-        /// </summary>
-        public void NotifyNekoNavMeshFailed()
-        {
-            _nekosWaitingForNavMesh++;
+            Logkat.Out("CoreGameplay: NotifyMainNekoWaitingForNavMesh");
+            _mainNekoWaitingForNavMesh = true;
             UpdateNavMeshGameState();
         }
 
         /// <summary>
-        ///     called by AREntityNeko when it successfully finds navmesh
+        ///     called by main neko when it has navmesh ready
         /// </summary>
-        public void NotifyNekoNavMeshReady()
+        public void NotifyMainNekoHasNavMesh()
         {
-            _nekosWaitingForNavMesh = Mathf.Max(0, _nekosWaitingForNavMesh - 1);
+            Logkat.Out("CoreGameplay: NotifyMainNekoHasNavMesh");
+            _mainNekoWaitingForNavMesh = false;
             UpdateNavMeshGameState();
         }
 
         /// <summary>
-        ///     updates game state based on navmesh waiting status
+        ///     updates game state based on navmesh waiting status (main neko only)
         /// </summary>
         private void UpdateNavMeshGameState()
         {
-            if (_nekosWaitingForNavMesh > 0 && gameState == CoreGameplayState.Ok)
-                gameState = CoreGameplayState.NekoWaitingForNavMesh;
-            else if (_nekosWaitingForNavMesh == 0 && gameState == CoreGameplayState.NekoWaitingForNavMesh)
-                gameState = CoreGameplayState.Ok;
+            switch (gameState)
+            {
+                case CoreGameplayState.WaitingForAnything:
+                case CoreGameplayState.HasPlaneWaitingForTracker:
+                case CoreGameplayState.HasTrackerWaitingForPlane:
+                    break;
+                case CoreGameplayState.NekoWaitingForNavMesh:
+                case CoreGameplayState.Ok:
+                    gameState = _mainNekoWaitingForNavMesh
+                        ? CoreGameplayState.NekoWaitingForNavMesh
+                        : CoreGameplayState.Ok;
+                    break;
+                default:
+                    Logkat.Panic("unreachable game state");
+                    break;
+            }
         }
 
         /// <summary>
@@ -562,5 +574,7 @@ namespace PokkatCore
                 break;
             }
         }
+
+        #endregion
     }
 }

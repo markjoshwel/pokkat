@@ -1,7 +1,8 @@
 /*
  * author: mark joshwel
- * date: 11/12/2025
- * description: neko character with texture management, blinking, and procedural animations
+ * date: 18/12/2025
+ * description: neko entity with texture management, procedural animations, and behaviour fsm
+ *              supports both main neko and friend nekos with mutual recognition and play interactions
  */
 
 using System;
@@ -9,45 +10,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 namespace PokkatCore
 {
     /// <summary>
-    ///     finite state machine states for neko behaviour
-    /// </summary>
-    public enum NekoState
-    {
-        Idle,
-        Roaming,
-        MovingToBowl,
-        Eating,
-        PlayingWithFriend,
-        BeingPetted
-    }
-
-    /// <summary>
-    ///     wrapper struct for neko interaction data emitted by OnNekoInteraction
-    /// </summary>
-    public struct HandledNekoInteraction
-    {
-        /// <summary>
-        ///     the neko that was interacted with
-        /// </summary>
-        public AREntityNeko Neko;
-
-        /// <summary>
-        ///     world position where the touch ray hit the neko
-        /// </summary>
-        public Vector3 Position;
-    }
-
-    /// <summary>
-    ///     neko entity with texture loading, periodic blinking, and procedural movement
+    ///     neko entity with texture loading, blinking animations, movement routines, and behaviour fsm.
+    ///     handles both main neko (initiates play) and friend nekos (responds to main) with mutual
+    ///     face-each-other recognition when multiple friends are present
     /// </summary>
     public sealed class AREntityNeko : MonoBehaviour
     {
+        #region Inspector Fields
+
         [Header("Texture Settings")] [Tooltip("texture id to load (0-44)")] [SerializeField]
         private int textureId;
 
@@ -96,12 +71,6 @@ namespace PokkatCore
         [Header("Behaviour Settings")] [Tooltip("roaming radius in metres")] [SerializeField]
         private float roamRadius = 0.5f;
 
-        [Tooltip("minimum idle wait in seconds")] [SerializeField]
-        private float idleWaitMin = 2f;
-
-        [Tooltip("maximum idle wait in seconds")] [SerializeField]
-        private float idleWaitMax = 5f;
-
         [Header("Play Settings")] [Tooltip("delay before friend jumps (seconds)")] [SerializeField]
         private float friendJumpDelay = 0.5f;
 
@@ -109,27 +78,26 @@ namespace PokkatCore
         private int playJumpCount = 3;
 
         [Header("Eating Settings")] [Tooltip("eating duration in seconds")] [SerializeField]
-        private float eatingDuration = 5f;
+        private float eatingDuration = 3f;
+
+        #endregion
+
+        #region Private Fields
 
         /// <summary>
         ///     cached renderers for texture application
         /// </summary>
         private readonly List<Renderer> _renderers = new();
 
-        // /// <summary>
-        // ///     original y rotation to restore after animations
-        // /// </summary>
-        // private float _baseYRotation;
+        /// <summary>
+        ///     queue of friend nekos pending play interaction (handles multiple friends spawning)
+        /// </summary>
+        private readonly Queue<AREntityNeko> _pendingFriendQueue = new();
 
         /// <summary>
         ///     coroutine handle for blinking
         /// </summary>
         private Coroutine _blinkCoroutine;
-
-        /// <summary>
-        ///     current FSM state
-        /// </summary>
-        private NekoState _currentState = NekoState.Idle;
 
         /// <summary>
         ///     eyes closed texture for this neko
@@ -157,30 +125,41 @@ namespace PokkatCore
         private Coroutine _movementCoroutine;
 
         /// <summary>
-        ///     pending bowl notification (queued if in non-interruptible state)
-        /// </summary>
-        private bool _pendingBowlNotification;
-
-        /// <summary>
-        ///     pending friend to play with (queued if in non-interruptible state)
-        /// </summary>
-        private AREntityNeko _pendingFriend;
-
-        /// <summary>
         ///     timer for ground stabilisation interval
         /// </summary>
         private float _stabilisationTimer;
 
         /// <summary>
-        ///     coroutine handle for current state behaviour
+        ///     whether to run the behaviour loop (set false on destroy)
         /// </summary>
-        private Coroutine _stateCoroutine;
+        private bool _runBehaviourLoop = true;
 
         /// <summary>
-        ///     public accessor for current state
+        ///     current play partner for mutual face-each-other recognition
         /// </summary>
-        public NekoState currentState => _currentState;
+        private AREntityNeko _currentPlayPartner;
 
+        #endregion
+
+        #region Static Events
+
+        /// <summary>
+        ///     static event fired when any neko is spawned (for direct AR object awareness)
+        /// </summary>
+        public static event Action<AREntityNeko> OnNekoSpawned;
+
+        /// <summary>
+        ///     static event fired when any neko is destroyed
+        /// </summary>
+        public static event Action<AREntityNeko> OnNekoDestroyed;
+
+        #endregion
+
+        #region Unity Lifecycle
+
+        /// <summary>
+        ///     initialises renderer cache, sets texture based on tag, loads textures
+        /// </summary>
         private void Awake()
         {
             CacheRenderers();
@@ -203,84 +182,46 @@ namespace PokkatCore
             Logkat.Out("AREntityNeko: Awake/Setup OK");
         }
 
+        /// <summary>
+        ///     applies initial texture, starts blinking, subscribes to events, starts behaviour loop
+        /// </summary>
         private void Start()
         {
             ApplyTexture(_eyesOpenTexture);
-            // _baseYRotation = transform.eulerAngles.y;
+            if (enableBlinking) StartCoroutine(BlinkRoutine());
 
-            if (enableBlinking)
-                _blinkCoroutine = StartCoroutine(BlinkRoutine());
-
-            // subscribe to AR object spawn events for direct awareness
             AREntityBowl.OnBowlSpawned += OnBowlSpawnedHandler;
             OnNekoSpawned += OnNekoSpawnedHandler;
 
-            // subscribe to own interaction event for petting
-            OnNekoInteraction += OnNekoInteractionPetted;
-
-            Logkat.Out("AREntityNeko: Start/Configure OK");
-
-            // broadcast own spawn event for other AR objects to detect
             OnNekoSpawned?.Invoke(this);
-            Logkat.Out("AREntityNeko: broadcasted spawn event");
+            StartCoroutine(BehaviourLoop());
         }
 
+        /// <summary>
+        ///     handles ground stabilisation per-frame
+        /// </summary>
         private void Update()
         {
             UpdateGroundStabilisation();
-            UpdateStateMachine();
-            UpdateTouchDetection();
         }
 
-        private void OnDisable()
-        {
-            if (_blinkCoroutine != null)
-            {
-                StopCoroutine(_blinkCoroutine);
-                _blinkCoroutine = null;
-            }
-
-            if (_movementCoroutine != null)
-            {
-                StopCoroutine(_movementCoroutine);
-                _movementCoroutine = null;
-            }
-
-            if (_stateCoroutine != null)
-            {
-                StopCoroutine(_stateCoroutine);
-                _stateCoroutine = null;
-            }
-        }
-
+        /// <summary>
+        ///     cleans up event subscriptions and fires destroy event
+        /// </summary>
         private void OnDestroy()
         {
-            // unsubscribe from events
+            _runBehaviourLoop = false;
             AREntityBowl.OnBowlSpawned -= OnBowlSpawnedHandler;
             OnNekoSpawned -= OnNekoSpawnedHandler;
-            OnNekoInteraction -= OnNekoInteractionPetted;
-
-            // broadcast destroy event
             OnNekoDestroyed?.Invoke(this);
         }
 
-        /// <summary>
-        ///     static event fired when any neko is spawned (for direct AR object awareness)
-        /// </summary>
-        public static event Action<AREntityNeko> OnNekoSpawned;
+        #endregion
+
+        #region Ground Stabilisation
 
         /// <summary>
-        ///     static event fired when any neko is destroyed
-        /// </summary>
-        public static event Action<AREntityNeko> OnNekoDestroyed;
-
-        /// <summary>
-        ///     fired when this neko is tapped/clicked (for petting)
-        /// </summary>
-        public event Action<HandledNekoInteraction> OnNekoInteraction;
-
-        /// <summary>
-        ///     handles ground stabilisation (timer-based plane projection)
+        ///     handles ground stabilisation (timer-based plane projection to prevent drift)
         /// </summary>
         private void UpdateGroundStabilisation()
         {
@@ -307,40 +248,9 @@ namespace PokkatCore
             transform.position = projectedPos;
         }
 
-        /// <summary>
-        ///     handles FSM state updates (only when grounded and not following)
-        /// </summary>
-        private void UpdateStateMachine()
-        {
-            // skip FSM if not grounded or still following
-            if (!_isGrounded || _isFollowing) return;
+        #endregion
 
-            // FSM only runs when idle (other states are coroutine-driven)
-            if (_currentState != NekoState.Idle) return;
-
-            // check for pending actions from notifications
-            if (_pendingFriend)
-            {
-                var friend = _pendingFriend;
-                _pendingFriend = null;
-                TransitionToState(NekoState.PlayingWithFriend, friend);
-                return;
-            }
-
-            if (_pendingBowlNotification)
-            {
-                _pendingBowlNotification = false;
-                var gameplay = CoreGameplay.instance;
-                if (gameplay && gameplay.activeBowl && gameplay.activeBowl.isFull && CompareTag("NekoMain"))
-                {
-                    TransitionToState(NekoState.MovingToBowl);
-                    return;
-                }
-            }
-
-            // start idle behaviour if not already running
-            _stateCoroutine ??= StartCoroutine(IdleStateRoutine());
-        }
+        #region Texture Management
 
         /// <summary>
         ///     caches all renderer components in children
@@ -352,8 +262,9 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     loads texture pair from Resources/NekoTextures for the given id
+        ///     loads texture pair from Resources/NekoTextures for the given id (eyes open + closed)
         /// </summary>
+        /// <param name="id">texture id (0-44)</param>
         private void LoadTextures(int id)
         {
             var idString = id.ToString("D2");
@@ -398,6 +309,10 @@ namespace PokkatCore
             SetTextureId(Random.Range(0, 45));
         }
 
+        #endregion
+
+        #region Blinking Animation
+
         /// <summary>
         ///     performs a single blink (eyes close then open)
         /// </summary>
@@ -429,6 +344,10 @@ namespace PokkatCore
             }
         }
 
+        #endregion
+
+        #region Following State
+
         /// <summary>
         ///     starts following mode (called by CoreGameplay when spawned on tracked image)
         /// </summary>
@@ -450,6 +369,10 @@ namespace PokkatCore
             Logkat.Out("AREntityNeko: stopped following");
         }
 
+        #endregion
+
+        #region Movement Animations
+
         /// <summary>
         ///     falls to the nearest detected plane with completion callback
         /// </summary>
@@ -460,14 +383,6 @@ namespace PokkatCore
             _movementCoroutine = StartCoroutine(FallRoutine(onComplete));
         }
 
-        /// <summary>
-        ///     walks toward a target position with choppy stop-motion style animation
-        /// </summary>
-        public void WalkTo(Vector3 targetPosition)
-        {
-            if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
-            _movementCoroutine = StartCoroutine(WalkRoutine(targetPosition));
-        }
 
         /// <summary>
         ///     performs a single jump in place
@@ -484,7 +399,7 @@ namespace PokkatCore
         /// <param name="onComplete">optional callback invoked when fall completes</param>
         private IEnumerator FallRoutine(Action onComplete)
         {
-            Logkat.Out($"AREntityNeko: [Debug] FallRoutine started, currentPos={transform.position}");
+            Logkat.Dev($"AREntityNeko: FallRoutine started, currentPos={transform.position}");
 
             var gameplay = CoreGameplay.instance;
             if (!gameplay || !gameplay.planes)
@@ -527,59 +442,17 @@ namespace PokkatCore
             {
                 transform.position = navHit.position;
                 Logkat.Out($"AREntityNeko: snapped to navmesh at {navHit.position}");
-                CoreGameplay.instance?.NotifyNekoNavMeshReady();
             }
             else
             {
                 Logkat.Warn($"AREntityNeko: no navmesh nearby after landing at {transform.position}");
-                CoreGameplay.instance?.NotifyNekoNavMeshFailed();
             }
 
             _movementCoroutine = null;
             onComplete?.Invoke();
         }
 
-        /// <summary>
-        ///     coroutine for choppy stop-motion walk animation
-        /// </summary>
-        private IEnumerator WalkRoutine(Vector3 targetPosition)
-        {
-            Logkat.Out("AREntityNeko: walking");
 
-            var tiltLeft = true;
-
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-            {
-                // face the target
-                var direction = (targetPosition - transform.position).normalized;
-                direction.y = 0;
-
-                if (direction.sqrMagnitude > 0.001f)
-                {
-                    var targetRotation = Quaternion.LookRotation(direction);
-
-                    // add choppy tilt like a kid moving a lego figure
-                    var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
-                    var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
-                    transform.rotation = targetRotation * tiltRotation;
-                }
-
-                // move forward in discrete steps (choppy/stop-motion)
-                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
-
-                tiltLeft = !tiltLeft;
-                yield return new WaitForSeconds(walkStepDuration);
-            }
-
-            // reset rotation to upright
-            var finalRotation = transform.eulerAngles;
-            finalRotation.z = 0;
-            transform.eulerAngles = finalRotation;
-
-            Logkat.Out("AREntityNeko: finished walking");
-            _movementCoroutine = null;
-        }
 
         /// <summary>
         ///     coroutine for a single jump with bounce easing
@@ -618,6 +491,7 @@ namespace PokkatCore
         /// </summary>
         /// <param name="t">normalised time (0-1)</param>
         /// <param name="bounceFactor">bounce intensity (0=none, 1=full)</param>
+        /// <returns>eased value with overshoot</returns>
         private static float EaseOutBack(float t, float bounceFactor)
         {
             var c1 = 1.70158f * bounceFactor;
@@ -625,60 +499,20 @@ namespace PokkatCore
             return 1f + c3 * Mathf.Pow(t - 1f, 3f) + c1 * Mathf.Pow(t - 1f, 2f);
         }
 
-        #region FSM State Transitions
-
         /// <summary>
-        ///     FSM: transitions to a new state, cancelling current state coroutine
+        ///     rotates neko to face target position (y-axis only)
         /// </summary>
-        /// <param name="newState">the state to transition to</param>
-        /// <param name="context">optional context object (e.g., friend neko for PlayingWithFriend)</param>
-        private void TransitionToState(NekoState newState, object context = null)
+        /// <param name="target">world position to look at</param>
+        private void LookAt(Vector3 target)
         {
-            // stop current state coroutine
-            if (_stateCoroutine != null)
-            {
-                StopCoroutine(_stateCoroutine);
-                _stateCoroutine = null;
-            }
-
-            // stop movement coroutine if transitioning out of a walking state
-            if (_movementCoroutine != null)
-            {
-                StopCoroutine(_movementCoroutine);
-                _movementCoroutine = null;
-
-                // reset rotation to upright
-                var rotation = transform.eulerAngles;
-                rotation.z = 0;
-                transform.eulerAngles = rotation;
-            }
-
-            // snap to ground to prevent floating after interrupted jump/movement
-            SnapToGround();
-
-            var previousState = _currentState;
-            _currentState = newState;
-            Logkat.Out($"AREntityNeko: {previousState} -> {newState}");
-
-            // start new state coroutine
-            _stateCoroutine = newState switch
-            {
-                NekoState.Idle => StartCoroutine(IdleStateRoutine()),
-                NekoState.Roaming => StartCoroutine(RoamingStateRoutine()),
-                NekoState.MovingToBowl => StartCoroutine(MovingToBowlStateRoutine()),
-                NekoState.Eating => StartCoroutine(EatingStateRoutine()),
-                NekoState.PlayingWithFriend => StartCoroutine(SocialisingStateRoutine(context as AREntityNeko)),
-                NekoState.BeingPetted => StartCoroutine(PettedStateRoutine()),
-                _ => null
-            };
+            var dir = target - transform.position;
+            dir.y = 0;
+            if (dir.sqrMagnitude < 0.001f) return;
+            transform.rotation = Quaternion.LookRotation(dir);
         }
 
-        #endregion
-
-        #region Helper Methods
-
         /// <summary>
-        ///     snaps neko to ground if grounded (prevents floating after interrupted jumps)
+        ///     projects neko to nearest plane (ground stabilisation helper)
         /// </summary>
         private void SnapToGround()
         {
@@ -686,121 +520,82 @@ namespace PokkatCore
             var gameplay = CoreGameplay.instance;
             if (!gameplay || !gameplay.planes) return;
             if (gameplay.planes.TryProjectToPlane(transform.position, out var projected))
-            {
-                Logkat.Dev($"AREntityNeko: snapped to ground from {transform.position} to {projected}");
                 transform.position = projected;
-            }
         }
 
         /// <summary>
-        ///     rotates to face a target position (Y-axis only)
+        ///     shared coroutine for choppy stop-motion walk animation.
+        ///     used by roam, move-to-bowl, and move-to-friend behaviours
         /// </summary>
-        /// <param name="target">world position to look at</param>
-        private void LookAt(Vector3 target)
+        /// <param name="targetPosition">destination position</param>
+        /// <param name="arrivalDistance">distance threshold to consider arrived</param>
+        /// <param name="interruptCheck">optional func that returns true to interrupt walking</param>
+        private IEnumerator WalkTowardCoroutine(
+            Vector3 targetPosition,
+            float arrivalDistance,
+            Func<bool> interruptCheck = null)
         {
-            var direction = target - transform.position;
-            direction.y = 0;
-
-            if (direction.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(direction);
-        }
-
-        /// <summary>
-        ///     per-frame touch detection for neko interaction
-        /// </summary>
-        private void UpdateTouchDetection()
-        {
-            // skip if no subscribers or not interactable
-            if (OnNekoInteraction == null) return;
-            if (!_isGrounded || _isFollowing) return;
-
-            // try to get touch position
-            if (!TryGetTouchPosition(out var touchPosition)) return;
-
-            // raycast from camera through touch point
-            var mainCamera = Camera.main;
-            if (!mainCamera) return;
-
-            var ray = mainCamera.ScreenPointToRay(touchPosition);
-            if (!Physics.Raycast(ray, out var hit, 100f)) return;
-
-            // check if this neko was hit
-            if (hit.transform != transform && !hit.transform.IsChildOf(transform)) return;
-
-            // fire the interaction event for subscribers
-            var interaction = new HandledNekoInteraction
+            var tiltLeft = true;
+            while (Vector3.Distance(transform.position, targetPosition) > arrivalDistance)
             {
-                Neko = this,
-                Position = hit.point
-            };
+                // check for interrupt conditions (e.g., friend spawned, bowl placed)
+                if (interruptCheck != null && interruptCheck())
+                    yield break;
 
-            Logkat.Out($"AREntityNeko: interaction at {hit.point}");
-            OnNekoInteraction.Invoke(interaction);
-        }
-
-        /// <summary>
-        ///     attempts to read touch/mouse input using the new input system
-        /// </summary>
-        /// <param name="position">screen position of the touch or click</param>
-        /// <returns>true if a valid touch/click was detected this frame</returns>
-        private static bool TryGetTouchPosition(out Vector2 position)
-        {
-            // check for touchscreen input first (mobile AR)
-            if (Touchscreen.current is { } touchscreen)
-            {
-                var touch = touchscreen.primaryTouch;
-                if (touch.press.wasPressedThisFrame)
+                // calculate direction to target (y=0 to keep upright)
+                var direction = (targetPosition - transform.position).normalized;
+                direction.y = 0;
+                if (direction.sqrMagnitude > 0.001f)
                 {
-                    position = touch.position.ReadValue();
-                    return true;
+                    var targetRotation = Quaternion.LookRotation(direction);
+
+                    // add choppy tilt like a kid moving a lego figure
+                    var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
+                    var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
+                    transform.rotation = targetRotation * tiltRotation;
                 }
+
+                // move forward in discrete steps (choppy/stop-motion style)
+                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
+                tiltLeft = !tiltLeft;
+                yield return new WaitForSeconds(walkStepDuration);
             }
 
-            // fallback to mouse input (editor testing)
-            if (Mouse.current is { } mouse && mouse.leftButton.wasPressedThisFrame)
-            {
-                position = mouse.position.ReadValue();
-                return true;
-            }
-
-            position = default;
-            return false;
+            // reset rotation to upright after walking
+            ResetTilt();
         }
 
         /// <summary>
-        ///     callback for neko interaction - handles petting via FSM
+        ///     resets z-axis tilt to upright after walking
         /// </summary>
-        private void OnNekoInteractionPetted(HandledNekoInteraction interaction)
+        private void ResetTilt()
         {
-            Logkat.Out("AREntityNeko: i was petted!");
-
-            // only transition to BeingPetted if in an interruptible state
-            if (_currentState is NekoState.Idle or NekoState.Roaming)
-                TransitionToState(NekoState.BeingPetted);
+            var finalRotation = transform.eulerAngles;
+            finalRotation.z = 0;
+            transform.eulerAngles = finalRotation;
         }
 
         #endregion
 
-
-        #region Direct AR Object Awareness (event handlers)
+        #region Awareness Handlers
 
         /// <summary>
-        ///     handler for when any bowl spawns in the scene (direct AR object awareness)
+        ///     callback for when any bowl spawns in the scene (direct AR object awareness).
+        ///     only main neko responds to bowl placement
         /// </summary>
-        /// <param name="bowl">the spawned bowl</param>
+        /// <param name="bowl">the spawned bowl entity</param>
         private void OnBowlSpawnedHandler(AREntityBowl bowl)
         {
-            // only main neko reacts to bowl spawns
             if (!CompareTag("NekoMain")) return;
             if (!_isGrounded) return;
-
             Logkat.Out($"AREntityNeko: detected bowl spawn at {bowl.transform.position}");
-
-            // use existing notification logic
             StateNotifyBowlPlaced();
         }
 
         /// <summary>
-        ///     handler for when any neko spawns in the scene (direct AR object awareness)
+        ///     callback for when any neko spawns in the scene (direct AR object awareness).
+        ///     main neko queues friend nekos for play interaction; friend nekos ignore this
         /// </summary>
         /// <param name="otherNeko">the spawned neko</param>
         private void OnNekoSpawnedHandler(AREntityNeko otherNeko)
@@ -816,239 +611,195 @@ namespace PokkatCore
             if (!otherNeko.CompareTag("NekoFriend")) return;
 
             Logkat.Out($"AREntityNeko: detected friend neko spawn at {otherNeko.transform.position}");
-
-            // use existing notification logic
-            StateNotifyFriendSpawned(otherNeko);
+            
+            // queue friend for play (handles multiple friends spawning in quick succession)
+            _pendingFriendQueue.Enqueue(otherNeko);
         }
 
         #endregion
 
-        #region FSM Notification Methods (called by CoreGameplay - legacy, now also triggered by direct detection)
+        #region Behaviour Loop
 
         /// <summary>
-        ///     FSM: notifies this neko that a bowl was placed (interrupt roaming to eat)
+        ///     main behaviour fsm loop - runs while neko is alive.
+        ///     waits for grounded state, checks navmesh availability, then roams or handles interactions
         /// </summary>
+        private IEnumerator BehaviourLoop()
+        {
+            while (_runBehaviourLoop)
+            {
+                // wait until we've landed on a plane
+                while (!_isGrounded) yield return null;
+
+                // wait for navmesh availability before roaming
+                if (!NavMeshIsReady())
+                {
+                    while (!NavMeshIsReady())
+                    {
+                        if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoWaitingForNavMesh();
+                        
+                        // still handle friend interactions even without navmesh
+                        if (TryDequeueAndPlayWithFriend())
+                        {
+                            yield return null;
+                            continue;
+                        }
+
+                        yield return new WaitForSeconds(0.5f);
+                    }
+
+                    if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoHasNavMesh();
+                }
+                
+                yield return RoamOnce();
+            }
+        }
+
+        /// <summary>
+        ///     checks if navmesh is available at current position
+        /// </summary>
+        /// <returns>true if on or near navmesh</returns>
+        private bool NavMeshIsReady()
+        {
+            return NavMesh.SamplePosition(transform.position, out _, 0.5f, NavMesh.AllAreas);
+        }
+
+        /// <summary>
+        ///     performs a single roam cycle - picks random navmesh point and walks to it.
+        ///     can be interrupted by friend interactions
+        /// </summary>
+        private IEnumerator RoamOnce()
+        {
+            // check for pending friend interactions first
+            if (TryDequeueAndPlayWithFriend()) yield break;
+
+            // pick a random point within roam radius
+            var randomDirection = Random.insideUnitSphere * roamRadius;
+            randomDirection.y = 0f;
+            randomDirection += transform.position;
+
+            if (!NavMesh.SamplePosition(randomDirection, out var hit, roamRadius * 2f, NavMesh.AllAreas))
+            {
+                if (CompareTag("NekoMain")) CoreGameplay.instance?.NotifyMainNekoWaitingForNavMesh();
+                yield break;
+            }
+
+            // walk to the random point, checking for interrupts
+            var targetPosition = hit.position;
+            yield return WalkTowardCoroutine(targetPosition, 0.1f, TryDequeueAndPlayWithFriend);
+        }
+
+        /// <summary>
+        ///     attempts to dequeue a pending friend and start play interaction.
+        ///     cleans up null/destroyed friends from queue
+        /// </summary>
+        /// <returns>true if play interaction was started</returns>
+        private bool TryDequeueAndPlayWithFriend()
+        {
+            // clean up any null/destroyed friends from queue
+            while (_pendingFriendQueue.Count > 0 && _pendingFriendQueue.Peek() == null)
+                _pendingFriendQueue.Dequeue();
+
+            if (_pendingFriendQueue.Count == 0) return false;
+
+            var friend = _pendingFriendQueue.Dequeue();
+            if (friend == null) return false;
+
+            StartCoroutine(PlayWithFriend(friend));
+            return true;
+        }
+
+        /// <summary>
+        ///     play interaction between main neko and friend neko.
+        ///     both nekos face each other before jumping together.
+        ///     does not require friend to be grounded - plays with friend's current position
+        /// </summary>
+        /// <param name="friend">the friend neko to play with</param>
+        private IEnumerator PlayWithFriend(AREntityNeko friend)
+        {
+            if (!friend) yield break;
+
+            // set up mutual recognition - both nekos know they're playing together
+            _currentPlayPartner = friend;
+            friend._currentPlayPartner = this;
+
+            // both nekos face each other (uses current position, works even if friend is still following image)
+            LookAt(friend.transform.position);
+            friend.LookAt(transform.position);
+
+            Logkat.Out("AREntityNeko: playing with friend (facing each other)");
+
+            // synchronised jumping sequence
+            for (var i = 0; i < playJumpCount; i++)
+            {
+                // refresh facing direction each jump (friend may be moving if still following image)
+                LookAt(friend.transform.position);
+                friend.LookAt(transform.position);
+
+                Jump();
+                StartCoroutine(DelayedFriendJump(friend, friendJumpDelay));
+                yield return new WaitForSeconds(jumpDuration + friendJumpDelay + 0.1f);
+            }
+
+            // clear play partner references
+            _currentPlayPartner = null;
+            if (friend) friend._currentPlayPartner = null;
+
+            OnPlayedWithFriend();
+        }
+
+        /// <summary>
+        ///     triggers a jump on friend neko after a delay (for offset synchronised jumping)
+        /// </summary>
+        /// <param name="friend">friend neko to jump</param>
+        /// <param name="delay">delay before jump in seconds</param>
+        private static IEnumerator DelayedFriendJump(AREntityNeko friend, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            friend?.Jump();
+        }
+
+        /// <summary>
+        ///     notifies main neko that a bowl has been placed - triggers move-and-eat behaviour
+        /// </summary>
+        // ReSharper disable once MemberCanBePrivate.Global
         public void StateNotifyBowlPlaced()
         {
             if (!CompareTag("NekoMain")) return;
-
-            // if in a non-interruptible state, queue the notification
-            if (_currentState == NekoState.PlayingWithFriend)
-            {
-                _pendingBowlNotification = true;
-                Logkat.Out("AREntityNeko: bowl notification queued (playing with friend)");
-                return;
-            }
-
-            // interrupt roaming or idle to go eat
-            if (_currentState is NekoState.Roaming or NekoState.Idle)
-            {
-                var gameplay = CoreGameplay.instance;
-                if (gameplay && gameplay.activeBowl && gameplay.activeBowl.isFull)
-                {
-                    Logkat.Out("AREntityNeko: bowl placed, heading to eat");
-                    TransitionToState(NekoState.MovingToBowl);
-                }
-            }
+            StartCoroutine(MoveAndEat());
         }
 
         /// <summary>
-        ///     FSM: notifies this neko that a friend was spawned (initiate play)
+        ///     moves toward active bowl and eats it.
+        ///     can be interrupted by friend interactions
         /// </summary>
-        /// <param name="friend">the newly spawned friend neko</param>
-        public void StateNotifyFriendSpawned(AREntityNeko friend)
-        {
-            if (!CompareTag("NekoMain")) return;
-
-            // if in a non-interruptible state, queue the friend
-            if (_currentState == NekoState.PlayingWithFriend || _currentState == NekoState.Eating)
-            {
-                _pendingFriend = friend;
-                Logkat.Out("AREntityNeko: friend notification queued");
-                return;
-            }
-
-            // interrupt roaming or idle to play
-            if (_currentState is NekoState.Roaming or NekoState.Idle)
-            {
-                Logkat.Out("AREntityNeko: friend spawned, initiating play");
-                TransitionToState(NekoState.PlayingWithFriend, friend);
-            }
-        }
-
-        /// <summary>
-        ///     FSM: called by main neko to make this friend neko start playing
-        /// </summary>
-        private void FsmStartStatePlayingAsFriend(AREntityNeko mainNeko)
-        {
-            if (!CompareTag("NekoFriend")) return;
-            Logkat.Out("AREntityNeko: starting play as friend");
-            TransitionToState(NekoState.PlayingWithFriend, mainNeko);
-        }
-
-        #endregion
-
-        #region FSM State Coroutines
-
-        /// <summary>
-        ///     FSM: idle state - wait for a random interval then transition to roaming
-        /// </summary>
-        private IEnumerator IdleStateRoutine()
-        {
-            var waitTime = Random.Range(idleWaitMin, idleWaitMax);
-            yield return new WaitForSeconds(waitTime);
-
-            // check if navmesh is ready before roaming
-            var gameplay = CoreGameplay.instance;
-            if (gameplay && gameplay.planes && gameplay.planes.navMeshReady)
-                TransitionToState(NekoState.Roaming);
-            else
-                // navmesh not ready, restart idle
-                _stateCoroutine = null;
-        }
-
-        /// <summary>
-        ///     FSM: roaming state - pick random navmesh point and walk to it
-        /// </summary>
-        private IEnumerator RoamingStateRoutine()
-        {
-            // first verify neko is on or near navmesh
-            if (!NavMesh.SamplePosition(transform.position, out _, 1f, NavMesh.AllAreas))
-            {
-                Logkat.Warn($"AREntityNeko: not on navmesh at {transform.position}, staying idle");
-                CoreGameplay.instance?.NotifyNekoNavMeshFailed();
-                TransitionToState(NekoState.Idle);
-                yield break;
-            }
-
-            // neko is on navmesh - notify success (clears NekoWaitingForNavMesh state if set)
-            CoreGameplay.instance?.NotifyNekoNavMeshReady();
-
-            // sample random point on navmesh within roam radius
-            var randomDirection = Random.insideUnitSphere * roamRadius;
-            randomDirection.y = 0; // keep on horizontal plane
-            randomDirection += transform.position;
-
-            // try with roam radius first, then with larger fallback radius
-            var foundTarget = false;
-            Vector3 targetPosition = default;
-
-            if (NavMesh.SamplePosition(randomDirection, out var hit, roamRadius * 2f, NavMesh.AllAreas))
-            {
-                targetPosition = hit.position;
-                foundTarget = true;
-            }
-
-            if (!foundTarget)
-            {
-                Logkat.Warn($"AREntityNeko: failed to sample navmesh point near {randomDirection}, staying idle");
-                TransitionToState(NekoState.Idle);
-                yield break;
-            }
-
-            Logkat.Out($"AREntityNeko: roaming to {targetPosition}");
-
-            // walk to target (using existing WalkRoutine logic inline)
-            var tiltLeft = true;
-
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
-            {
-                // check for interrupts (handled by FsmTransitionToState stopping this coroutine)
-                var direction = (targetPosition - transform.position).normalized;
-                direction.y = 0;
-
-                if (direction.sqrMagnitude > 0.001f)
-                {
-                    var targetRotation = Quaternion.LookRotation(direction);
-                    var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
-                    var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
-                    transform.rotation = targetRotation * tiltRotation;
-                }
-
-                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, stepDistance);
-
-                tiltLeft = !tiltLeft;
-                yield return new WaitForSeconds(walkStepDuration);
-            }
-
-            // reset rotation to upright
-            var finalRotation = transform.eulerAngles;
-            finalRotation.z = 0;
-            transform.eulerAngles = finalRotation;
-
-            TransitionToState(NekoState.Idle);
-        }
-
-        /// <summary>
-        ///     FSM: moving to bowl state - walk toward the bowl
-        /// </summary>
-        private IEnumerator MovingToBowlStateRoutine()
+        private IEnumerator MoveAndEat()
         {
             var gameplay = CoreGameplay.instance;
-            if (!gameplay || !gameplay.activeBowl)
-            {
-                Logkat.Warn("AREntityNeko: no bowl found, returning to idle");
-                TransitionToState(NekoState.Idle);
-                yield break;
-            }
+            if (!gameplay || !gameplay.activeBowl) yield break;
 
-            // if we can walk to bowl, we're on navmesh - notify ready
-            CoreGameplay.instance?.NotifyNekoNavMeshReady();
+            var bowl = gameplay.activeBowl;
+            var bowlPos = bowl.transform.position;
 
-            var bowlPosition = gameplay.activeBowl.transform.position;
-            Logkat.Out($"AREntityNeko: moving to bowl at {bowlPosition}");
+            // walk toward bowl, can be interrupted by friends
+            yield return WalkTowardCoroutine(bowlPos, 0.15f, TryDequeueAndPlayWithFriend);
 
-            // walk to bowl (similar to roaming)
-            var tiltLeft = true;
-
-            while (Vector3.Distance(transform.position, bowlPosition) > 0.15f)
-            {
-                var direction = (bowlPosition - transform.position).normalized;
-                direction.y = 0;
-
-                if (direction.sqrMagnitude > 0.001f)
-                {
-                    var targetRotation = Quaternion.LookRotation(direction);
-                    var tiltAngle = tiltLeft ? walkTiltAngle : -walkTiltAngle;
-                    var tiltRotation = Quaternion.Euler(0, 0, tiltAngle);
-                    transform.rotation = targetRotation * tiltRotation;
-                }
-
-                var stepDistance = walkSpeed * walkStepDuration * walkStepDistanceMultiplier;
-                transform.position = Vector3.MoveTowards(transform.position, bowlPosition, stepDistance);
-
-                tiltLeft = !tiltLeft;
-                yield return new WaitForSeconds(walkStepDuration);
-            }
-
-            // reset rotation and face bowl
-            LookAt(bowlPosition);
-
-            TransitionToState(NekoState.Eating);
-        }
-
-        /// <summary>
-        ///     FSM: eating state - consume from bowl
-        /// </summary>
-        private IEnumerator EatingStateRoutine()
-        {
-            var gameplay = CoreGameplay.instance;
-            if (!gameplay || !gameplay.activeBowl)
-            {
-                Logkat.Warn("AREntityNeko: bowl disappeared, returning to idle");
-                TransitionToState(NekoState.Idle);
-                yield break;
-            }
+            // if interrupted, exit early
+            if (_currentPlayPartner != null) yield break;
 
             // face the bowl
-            LookAt(gameplay.activeBowl.transform.position);
+            LookAt(bowlPos);
 
-            // eating animation: continuous jumping for eatingDuration seconds
-            Logkat.Out("AREntityNeko: eating from bowl");
+            // eating animation: continuous jumping
             var elapsed = 0f;
             while (elapsed < eatingDuration)
             {
+                // friend interactions can interrupt eating
+                if (TryDequeueAndPlayWithFriend()) yield break;
+                
+                // bowl was consumed/destroyed by something else
+                if (!bowl || gameplay.activeBowl != bowl) yield break;
+
                 Blink();
                 Jump();
                 yield return new WaitForSeconds(jumpDuration + 0.1f);
@@ -1056,126 +807,33 @@ namespace PokkatCore
             }
 
             // consume the bowl
-            gameplay.activeBowl.Consume(this);
-            OnFed();
+            if (bowl && gameplay.activeBowl == bowl)
+            {
+                bowl.Consume(this);
+                OnFed();
+            }
 
-            // snap to ground in case bowl was on different plane
             SnapToGround();
-
-            TransitionToState(NekoState.Idle);
-        }
-
-        /// <summary>
-        ///     FSM: playing with friend state - look at each other and jump in staggered sync
-        /// </summary>
-        private IEnumerator SocialisingStateRoutine(AREntityNeko friend)
-        {
-            if (!friend)
-            {
-                Logkat.Warn("AREntityNeko: no friend to play with, returning to idle");
-                TransitionToState(NekoState.Idle);
-                yield break;
-            }
-
-            // wait for friend to be grounded (they might still be falling)
-            var waitTime = 0f;
-            while (!friend._isGrounded && waitTime < 5f)
-            {
-                waitTime += Time.deltaTime;
-                yield return null;
-            }
-
-            // tell friend to start playing too
-            if (CompareTag("NekoMain"))
-                friend.FsmStartStatePlayingAsFriend(this);
-
-            // face each other
-            LookAt(friend.transform.position);
-            friend.LookAt(transform.position);
-
-            Logkat.Out("AREntityNeko: playing with friend!");
-
-            // simultaneous jump sequence with offset (main neko only controls the loop)
-            if (CompareTag("NekoMain"))
-            {
-                for (var i = 0; i < playJumpCount; i++)
-                {
-                    // main neko jumps immediately
-                    Jump();
-                    // friend jumps after small delay (both are now jumping)
-                    StartCoroutine(DelayedFriendJump(friend, friendJumpDelay));
-
-                    // wait for both jumps to complete
-                    yield return new WaitForSeconds(jumpDuration + friendJumpDelay + 0.1f);
-                }
-
-                OnPlayedWithFriend();
-            }
-            else
-            {
-                // friend neko just waits for main to finish controlling the sequence
-                yield return new WaitForSeconds((jumpDuration + friendJumpDelay + 0.1f) * playJumpCount);
-                OnPlayedWithFriend();
-            }
-
-            TransitionToState(NekoState.Idle);
-        }
-
-        /// <summary>
-        ///     helper coroutine to make friend jump after a delay
-        /// </summary>
-        private static IEnumerator DelayedFriendJump(AREntityNeko friend, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            friend.Jump();
-        }
-
-        /// <summary>
-        ///     FSM: being petted state - play happy reaction then return to idle
-        /// </summary>
-        private IEnumerator PettedStateRoutine()
-        {
-            Logkat.Out("AREntityNeko: enjoying pets!");
-
-            // happy reaction: blink and jump
-            Blink();
-            Jump();
-
-            // wait for jump to complete
-            yield return new WaitForSeconds(jumpDuration);
-
-            // call stat hook
-            OnPetted();
-
-            TransitionToState(NekoState.Idle);
         }
 
         #endregion
 
-        #region Statistic Hooks
+        #region Stat Hooks
 
         /// <summary>
-        ///     hook called when neko is fed
+        ///     called when neko finishes eating from bowl (for stats integration)
         /// </summary>
         private void OnFed()
         {
-            Logkat.Out("AREntityNeko: OnFed called");
+            Logkat.Out("AREntityNeko: fed");
         }
 
         /// <summary>
-        ///     hook called when neko is petted
-        /// </summary>
-        private void OnPetted()
-        {
-            Logkat.Out("AREntityNeko: OnPetted called");
-        }
-
-        /// <summary>
-        ///     hook called when neko plays with friend
+        ///     called when neko finishes playing with friend (for stats integration)
         /// </summary>
         private void OnPlayedWithFriend()
         {
-            Logkat.Out("AREntityNeko: OnPlayedWithFriend called");
+            Logkat.Out("AREntityNeko: played with friend");
         }
 
         #endregion
