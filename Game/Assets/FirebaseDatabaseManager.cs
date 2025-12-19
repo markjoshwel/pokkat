@@ -9,7 +9,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-public class FirebaseSignIn : MonoBehaviour
+public class FirebaseDatabaseManager : MonoBehaviour
 {
     [Header("UI References")]
     public TMP_InputField emailInput;
@@ -136,8 +136,8 @@ public class FirebaseSignIn : MonoBehaviour
 
     public async void OnSignInButton()
     {
-        string email = emailInput.text;
-        string password = passwordInput.text;
+        string email = signInEmailInput.text;
+        string password = signInPasswordInput.text;
 
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
