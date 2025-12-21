@@ -136,8 +136,8 @@ public class FirebaseDatabaseManager : MonoBehaviour
 
     public async void OnSignInButton()
     {
-        string email = signInEmailInput.text;
-        string password = signInPasswordInput.text;
+        string email = emailInput.text;
+        string password = passwordInput.text;
 
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {

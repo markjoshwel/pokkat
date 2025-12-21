@@ -1,4 +1,9 @@
-//
+/*
+ * author: arwen
+ * date: 19/12/2025
+ * description: manages what ui is shown
+ */
+
 using System.IO.Compression;
 using UnityEngine;
 using Firebase.Auth;
@@ -12,38 +17,49 @@ public class PanelSceneManager : MonoBehaviour
     public GameObject settingsPage;
     public GameObject navPage;
     public GameObject currentPage;
-    //to assign all the panels for ease of making them active/inactive
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    /// <summary>
+    ///     to assign all the panels for ease of making them active/inactive
+    /// </summary>
+    private void Start()
     {
         mainPage.SetActive(true);
-        currentPage == mainPage;
         startPage.SetActive(false);
         logInPage.SetActive(false);
         signUpPage.SetActive(false);
         settingsPage.SetActive(false);
-        //making sure only main page is visible on bootup
+        currentPage = mainPage;
+        
+        // making sure only main page is visible on bootup
     }
-    public void ShowPanel()
+
+    /// <summary>
+    ///     switch from current page to nav page
+    /// </summary>
+    private void ShowPanel()
     {
         if (navPage != null)
         {
-            navPage.SetActive(true);
+            // hide current
             currentPage.SetActive(false);
+            
+            // switch
+            currentPage = navPage;
+            
+            // show new/nav
+            currentPage.SetActive(true);
         }
     }
 
-    public void navLogIn()
+    public void NavLogIn()
     {
-        navPage == logInPage;
+        navPage = logInPage;
         ShowPanel();
-        currentPage == logInPage;
     }
 
-    public void navSignUp()
+    public void NavSignUp()
     {
-        navPage == signUpPage;
+        navPage = signUpPage;
         ShowPanel();
-        currentPage == signUpPage;
     }
 }
