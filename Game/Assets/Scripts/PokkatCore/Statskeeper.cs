@@ -66,6 +66,25 @@ namespace PokkatCore
 
         #endregion
 
+        #region Inspector Fields (Demo Override)
+
+        [Header("Demo Override")]
+        [Tooltip("If true, uses override values below instead of loading from PlayerPrefs")]
+        [SerializeField]
+        private bool useOverrideValues;
+
+        [Tooltip("Override hunger value (0-1)")]
+        [Range(0f, 1f)]
+        [SerializeField]
+        private float overrideHunger = 1f;
+
+        [Tooltip("Override happiness value (0-1)")]
+        [Range(0f, 1f)]
+        [SerializeField]
+        private float overrideHappiness = 1f;
+
+        #endregion
+
         #region Private Fields
 
         private DateTime _lastUpdateTimestamp = DateTime.UtcNow;
@@ -98,6 +117,30 @@ namespace PokkatCore
         ///     whether the neko is dead (hunger reached 0)
         /// </summary>
         public bool isDead => hunger <= 0f;
+
+        /// <summary>
+        ///     session-only: whether the neko has been fed at least once this session
+        /// </summary>
+        public bool sessionHasBeenFed { get; private set; }
+
+        /// <summary>
+        ///     session-only: whether the neko has been petted at least once this session
+        /// </summary>
+        public bool sessionHasBeenPetted { get; private set; }
+
+        /// <summary>
+        ///     session-only: whether the neko has played with a friend at least once this session
+        /// </summary>
+        public bool sessionHasPlayedWithFriend { get; private set; }
+
+        /// <summary>
+        ///     checks if neko is satiated for this session:
+        ///     - has been fed at least once AND hunger > 50%
+        ///     - (has been petted OR played with friend) AND happiness > 50%
+        /// </summary>
+        public bool isSatiated =>
+            sessionHasBeenFed && hunger > 0.5f &&
+            (sessionHasBeenPetted || sessionHasPlayedWithFriend) && happiness > 0.5f;
 
         #endregion
 
@@ -143,10 +186,11 @@ namespace PokkatCore
         public void RecordFed()
         {
             hunger = Mathf.Clamp01(hunger + FeedAmount);
+            sessionHasBeenFed = true;
             _lastUpdateTimestamp = DateTime.UtcNow;
             SaveLocally();
             OnStatsChanged?.Invoke(this);
-            Logkat.Dev($"Statskeeper: RecordFed, hunger={hunger:F2}");
+            Logkat.Dev($"Statskeeper: RecordFed, hunger={hunger:F2}, sessionHasBeenFed={sessionHasBeenFed}");
         }
 
         /// <summary>
@@ -155,10 +199,11 @@ namespace PokkatCore
         public void RecordPlayedWithFriend()
         {
             happiness = Mathf.Clamp01(happiness + PlayAmount);
+            sessionHasPlayedWithFriend = true;
             _lastUpdateTimestamp = DateTime.UtcNow;
             SaveLocally();
             OnStatsChanged?.Invoke(this);
-            Logkat.Dev($"Statskeeper: RecordPlayedWithFriend, happiness={happiness:F2}");
+            Logkat.Dev($"Statskeeper: RecordPlayedWithFriend, happiness={happiness:F2}, sessionHasPlayedWithFriend={sessionHasPlayedWithFriend}");
         }
 
         /// <summary>
@@ -167,10 +212,11 @@ namespace PokkatCore
         public void RecordPetted()
         {
             happiness = Mathf.Clamp01(happiness + PetAmount);
+            sessionHasBeenPetted = true;
             _lastUpdateTimestamp = DateTime.UtcNow;
             SaveLocally();
             OnStatsChanged?.Invoke(this);
-            Logkat.Dev($"Statskeeper: RecordPetted, happiness={happiness:F2}");
+            Logkat.Dev($"Statskeeper: RecordPetted, happiness={happiness:F2}, sessionHasBeenPetted={sessionHasBeenPetted}");
         }
 
         /// <summary>
@@ -203,10 +249,22 @@ namespace PokkatCore
         }
 
         /// <summary>
-        ///     loads stats from PlayerPrefs and applies time decay
+        ///     loads stats from PlayerPrefs and applies time decay.
+        ///     if useOverrideValues is true, uses inspector override values instead
         /// </summary>
         private void LoadLocally()
         {
+            // demo override: use inspector values instead of PlayerPrefs
+            if (useOverrideValues)
+            {
+                Logkat.Dev($"Statskeeper: using override values, hunger={overrideHunger:F2}, happiness={overrideHappiness:F2}");
+                hunger = overrideHunger;
+                happiness = overrideHappiness;
+                _lastUpdateTimestamp = DateTime.UtcNow;
+                nekoTextureId = PlayerPrefs.GetInt(PrefsKeyTextureId, DefaultTextureId);
+                return;
+            }
+
             // check if we have saved data
             if (!PlayerPrefs.HasKey(PrefsKeyHunger))
             {
