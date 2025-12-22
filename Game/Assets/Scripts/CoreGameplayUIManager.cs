@@ -46,10 +46,7 @@ public class CoreGameplayUIManager : MonoBehaviour
     
     void SetBars(float hungerPercent, float happinessPercent)
     {
-        hungerFill.fillMethod = Image.FillMethod.Horizontal;
         hungerFill.fillAmount = hungerPercent;
-
-        happinessFill.fillMethod = Image.FillMethod.Horizontal;
         happinessFill.fillAmount = happinessPercent;
     }
 
