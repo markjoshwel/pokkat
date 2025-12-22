@@ -279,26 +279,38 @@ namespace PokkatCore
 
         /// <summary>
         ///     checks if the current touch/click is over a UI element (button, panel, etc.)
+        ///     uses RaycastAll instead of IsPointerOverGameObject due to Unity bug on mobile:
+        ///     https://issuetracker.unity3d.com/issues/eventsystem-dot-current-dot-ispointerovergameobject-never-returns-true-on-android
         /// </summary>
         /// <returns>true if touch is over UI and should be blocked from world interactions</returns>
         private static bool IsTouchOverUI()
         {
-            // EventSystem handles both touch and mouse input detection over UI
             if (EventSystem.current == null) return false;
 
-            // for touch input, check the specific touch finger id
+            Vector2 screenPosition;
+
+            // get the current touch/mouse position
             if (Touchscreen.current is { } touchscreen)
             {
                 var touch = touchscreen.primaryTouch;
-                if (touch.press.wasPressedThisFrame)
-                {
-                    var fingerId = touch.touchId.ReadValue();
-                    return EventSystem.current.IsPointerOverGameObject(fingerId);
-                }
+                if (!touch.press.wasPressedThisFrame) return false;
+                screenPosition = touch.position.ReadValue();
+            }
+            else if (Mouse.current is { } mouse)
+            {
+                screenPosition = mouse.position.ReadValue();
+            }
+            else
+            {
+                return false;
             }
 
-            // for mouse input (editor), use default pointer id (-1)
-            return EventSystem.current.IsPointerOverGameObject();
+            // use RaycastAll to check for UI hits - works reliably on mobile unlike IsPointerOverGameObject
+            var eventData = new PointerEventData(EventSystem.current) { position = screenPosition };
+            var results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+
+            return results.Count > 0;
         }
 
         /// <summary>
