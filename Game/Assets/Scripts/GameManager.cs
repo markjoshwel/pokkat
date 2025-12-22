@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource effectSource;
 
+    // bgm clip
+    [Header("Background Music")]
+    [SerializeField] private AudioClip bgmClip;
+
     // audio volume
     [Range(0f, 1f)] public float masterVolume = 1f;
     [Range(0f, 1f)] public float musicVolume = 1f;
@@ -53,6 +57,7 @@ public class GameManager : MonoBehaviour
         }
 
         InitializeAudioSources();
+        PlayBgm();
         Logkat.Out("GameManager initialized and set to persist across scenes");
     }
 
@@ -95,6 +100,29 @@ public class GameManager : MonoBehaviour
         if (musicSource != null) musicSource.volume = masterVolume * musicVolume;
 
         if (effectSource != null) effectSource.volume = masterVolume * effectVolume;
+    }
+
+    /// <summary>
+    ///     plays the background music on loop
+    /// </summary>
+    private void PlayBgm()
+    {
+        if (bgmClip == null)
+        {
+            Logkat.Dev("GameManager: no BGM clip assigned, skipping BGM playback");
+            return;
+        }
+
+        if (musicSource == null)
+        {
+            Logkat.Warn("GameManager: cannot play BGM, musicSource is null");
+            return;
+        }
+
+        musicSource.clip = bgmClip;
+        musicSource.loop = true;
+        musicSource.Play();
+        Logkat.Out("GameManager: BGM playing");
     }
 
     /// <summary>
