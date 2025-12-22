@@ -198,7 +198,8 @@ namespace PokkatCore
             PlayerPrefs.SetString(PrefsKeyTimestamp, _lastUpdateTimestamp.ToString("o", CultureInfo.InvariantCulture));
             PlayerPrefs.SetInt(PrefsKeyTextureId, nekoTextureId);
             PlayerPrefs.Save();
-            Logkat.Dev("Statskeeper: SaveLocally OK");
+            Logkat.Dev($"Statskeeper: SaveLocally OK, hunger={hunger:F2}, happiness={happiness:F2}, " +
+                       $"textureId={nekoTextureId}, timestamp={_lastUpdateTimestamp:o}");
         }
 
         /// <summary>
@@ -209,11 +210,14 @@ namespace PokkatCore
             // check if we have saved data
             if (!PlayerPrefs.HasKey(PrefsKeyHunger))
             {
-                Logkat.Dev("Statskeeper: no local data, using defaults");
+                Logkat.Dev("Statskeeper: no local data found, initialising with 100% stats");
                 hunger = 1f;
                 happiness = 1f;
                 _lastUpdateTimestamp = DateTime.UtcNow;
                 nekoTextureId = DefaultTextureId;
+                Logkat.Dev($"Statskeeper: initialised defaults, hunger={hunger:F2}, happiness={happiness:F2}, " +
+                           $"textureId={nekoTextureId}, timestamp={_lastUpdateTimestamp:o}");
+                SaveLocally();
                 return;
             }
 
@@ -229,7 +233,8 @@ namespace PokkatCore
                 _lastUpdateTimestamp = DateTime.UtcNow;
 
             Logkat.Dev(
-                $"Statskeeper: LoadLocally, hunger={hunger:F2}, happiness={happiness:F2}, textureId={nekoTextureId}");
+                $"Statskeeper: LoadLocally, hunger={hunger:F2}, happiness={happiness:F2}, " +
+                $"textureId={nekoTextureId}, timestamp={_lastUpdateTimestamp:o}");
 
             // apply decay for time passed while app was closed
             ApplyTimeDecay();
