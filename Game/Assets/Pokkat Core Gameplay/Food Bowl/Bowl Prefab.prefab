@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7947740116237980569}
   m_Layer: 0
-  m_Name: foodbowl
+  m_Name: Bowl Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

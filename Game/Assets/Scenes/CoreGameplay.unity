@@ -3086,6 +3086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76ff99ae7144dada6859075bb5fa9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useOverrideValues: 1
+  overrideHunger: 0.337
+  overrideHappiness: 0.194
 --- !u!114 &2430647246526936708
 MonoBehaviour:
   m_ObjectHideFlags: 0
