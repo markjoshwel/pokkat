@@ -16,7 +16,7 @@ namespace PokkatCore
         /// <summary>
         ///     whether verbose/development logging is enabled
         /// </summary>
-        private const bool VerboseLogging = false;
+        private const bool VerboseLogging = true;
 
         /// <summary>
         ///     minimum seconds between identical log messages (spam prevention)

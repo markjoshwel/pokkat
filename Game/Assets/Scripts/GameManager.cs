@@ -325,6 +325,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void OnLoadMenu()
     {
+        Logkat.Out("loading menu");
         LoadMenuScene();
     }
 
@@ -333,6 +334,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void OnStartGame()
     {
+        Logkat.Out("starting game");
         LoadCoreGameplayScene();
     }
 
@@ -341,6 +343,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void OnQuit()
     {
+        Logkat.Out("quitting");
         QuitGame();
     }
 
