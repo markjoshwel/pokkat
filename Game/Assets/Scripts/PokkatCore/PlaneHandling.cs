@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -186,6 +187,13 @@ namespace PokkatCore
             // try to get a touch position from this frame
             if (!TryGetTouchPosition(out var touchPosition)) return;
 
+            // UI has highest priority - skip if touch is over a UI element (button, etc.)
+            if (IsTouchOverUI())
+            {
+                Logkat.Dev("PlaneHandling: touch is over UI, skipping plane/neko interaction");
+                return;
+            }
+
             // petting nekos has priority - check first before plane interactions
             if (TouchHitsNeko(touchPosition))
             {
@@ -267,6 +275,30 @@ namespace PokkatCore
 
             position = default;
             return false;
+        }
+
+        /// <summary>
+        ///     checks if the current touch/click is over a UI element (button, panel, etc.)
+        /// </summary>
+        /// <returns>true if touch is over UI and should be blocked from world interactions</returns>
+        private static bool IsTouchOverUI()
+        {
+            // EventSystem handles both touch and mouse input detection over UI
+            if (EventSystem.current == null) return false;
+
+            // for touch input, check the specific touch finger id
+            if (Touchscreen.current is { } touchscreen)
+            {
+                var touch = touchscreen.primaryTouch;
+                if (touch.press.wasPressedThisFrame)
+                {
+                    var fingerId = touch.touchId.ReadValue();
+                    return EventSystem.current.IsPointerOverGameObject(fingerId);
+                }
+            }
+
+            // for mouse input (editor), use default pointer id (-1)
+            return EventSystem.current.IsPointerOverGameObject();
         }
 
         /// <summary>
