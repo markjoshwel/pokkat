@@ -2,7 +2,7 @@
 
 this document captures codebase knowledge, code style, and current development context for ai agent continuity.
 
-**last updated:** december 19, 2025 (Statskeeper implementation)
+**last updated:** december 22, 2025 (UI touch priority fix, satiation state)
 
 ## project overview
 
@@ -474,8 +474,10 @@ Assets/Scripts/
 
 **petting interaction (dec 18 2025):**
 - `PlaneHandling.Update()` checks touch input each frame
+- `IsTouchOverUI()` is checked FIRST to give UI buttons (pet button, etc.) highest priority
 - `TouchHitsNeko()` is checked BEFORE plane interaction raycast (petting has priority)
 - touch detection runs regardless of `OnPlaneInteraction` subscribers (petting always works)
+- priority order: UI buttons > neko petting > plane interaction (bowl spawning)
 - `Pet()` sets `_pendingPetRequest` flag (does not execute immediately)
 - `TryRunPendingAction()` in behaviour loop executes `RunPetAction()` when flag is set
 - `RunPetAction()` uses animated turn to face player camera, then blink and bounce
@@ -529,10 +531,21 @@ tamagotchi-style stat system with persistence and backend hooks.
 - `nekoTextureId` (int, default 22) - persisted texture id for respawn
 
 **stat modification:**
-- `RecordFed()` → hunger += 0.5, clamp to 1.0
-- `RecordPlayedWithFriend()` → happiness += 0.5, clamp to 1.0
-- `RecordPetted()` → happiness += 0.05, clamp to 1.0
+- `RecordFed()` → hunger += 0.5, clamp to 1.0, sets `sessionHasBeenFed`
+- `RecordPlayedWithFriend()` → happiness += 0.5, clamp to 1.0, sets `sessionHasPlayedWithFriend`
+- `RecordPetted()` → happiness += 0.05, clamp to 1.0, sets `sessionHasBeenPetted`
 - `SetTextureId(int)` → updates persisted texture id
+
+**session tracking (dec 22 2025):**
+- `sessionHasBeenFed` - true if neko was fed at least once this session (not persisted)
+- `sessionHasBeenPetted` - true if neko was petted at least once this session (not persisted)
+- `sessionHasPlayedWithFriend` - true if neko played with friend this session (not persisted)
+- `isSatiated` property - true if fed && hunger>50% && (petted || played) && happiness>50%
+
+**satiation state:**
+- `CoreGameplayState.OkSatiated` triggers when `stats.isSatiated` is true
+- UI displays "The cat is satiated, you can come back again later!"
+- checked in `UpdatePlaneRoamingGameState()` after Ok/NekoWaitingForPlanes states
 
 **time decay:**
 - `ApplyTimeDecay()` - called on load, calculates hours since last update
