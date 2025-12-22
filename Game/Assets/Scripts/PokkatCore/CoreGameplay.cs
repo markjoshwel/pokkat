@@ -684,6 +684,27 @@ namespace PokkatCore
 
         #endregion
 
+        #region Public API
+
+        /// <summary>
+        ///     pets the main neko (called from UI button)
+        /// </summary>
+        public void PetNeko()
+        {
+            var mainNeko = _trackedNekos.FirstOrDefault(n => n.Entity != null && n.Entity.CompareTag("NekoMain"));
+            if (mainNeko?.Entity != null)
+            {
+                Logkat.Out("CoreGameplay: petting main neko via UI button");
+                mainNeko.Entity.Pet();
+            }
+            else
+            {
+                Logkat.Warn("CoreGameplay: no main neko to pet");
+            }
+        }
+
+        #endregion
+
         #region Audio Stubs
 
         /// <summary>
