@@ -7,14 +7,15 @@
 using System.IO.Compression;
 using UnityEngine;
 using Firebase.Auth;
+using UnityEngine.SceneManagement;
 
 public class PanelSceneManager : MonoBehaviour
 {
-    public GameObject mainPage;
+    // public GameObject mainPage;
     public GameObject startPage;
-    public GameObject logInPage;
-    public GameObject signUpPage;
-    public GameObject settingsPage;
+    // public GameObject logInPage;
+    // public GameObject signUpPage;
+    // public GameObject settingsPage;
     public GameObject navPage;
     public GameObject currentPage;
     
@@ -23,12 +24,12 @@ public class PanelSceneManager : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        mainPage.SetActive(true);
-        startPage.SetActive(false);
-        logInPage.SetActive(false);
-        signUpPage.SetActive(false);
-        settingsPage.SetActive(false);
-        currentPage = mainPage;
+        // mainPage.SetActive(true);
+        startPage.SetActive(true);
+        // logInPage.SetActive(false);
+        // signUpPage.SetActive(false);
+        // settingsPage.SetActive(false);
+        currentPage = startPage;
         
         // making sure only main page is visible on bootup
     }
@@ -51,15 +52,31 @@ public class PanelSceneManager : MonoBehaviour
         }
     }
 
-    public void NavLogIn()
-    {
-        navPage = logInPage;
-        ShowPanel();
-    }
+    // public void NavLogIn()
+    // {
+    //     navPage = logInPage;
+    //     ShowPanel();
+    // }
+    //
+    // public void NavSignUp()
+    // {
+    //     navPage = signUpPage;
+    //     ShowPanel();
+    // }
 
-    public void NavSignUp()
+    /// <summary>
+    /// loading game scene
+    /// </summary>
+    public void startGame(string sceneName)
     {
-        navPage = signUpPage;
-        ShowPanel();
+        SceneManager.LoadScene(sceneName);
+    }
+    
+    /// <summary>
+    /// close game
+    /// </summary>
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
