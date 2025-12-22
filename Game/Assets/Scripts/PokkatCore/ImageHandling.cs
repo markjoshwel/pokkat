@@ -122,16 +122,24 @@ namespace PokkatCore
         private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARTrackedImage> args)
         {
             // log the counts of added, updated, and removed trackables for debugging
-            Logkat.Out(
+            Logkat.Dev(
                 $"ImageHandling: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
 
             // process newly detected images (first time camera sees the image)
             // args.added is a List<ARTrackedImage>
-            foreach (var trackedImage in args.added) ProcessTrackedImage(trackedImage);
+            foreach (var trackedImage in args.added)
+            {
+                Logkat.Dev($"ImageHandling: ... added: img={trackedImage.referenceImage.name}, state={trackedImage.trackingState}");
+                ProcessTrackedImage(trackedImage);
+            }
 
             // process images with updated tracking information (pose, state changes)
             // args.updated is a List<ARTrackedImage>
-            foreach (var trackedImage in args.updated) ProcessTrackedImage(trackedImage);
+            foreach (var trackedImage in args.updated)
+            {
+                Logkat.Dev($"ImageHandling: ... updated: img={trackedImage.referenceImage.name}, state={trackedImage.trackingState}");
+                ProcessTrackedImage(trackedImage);
+            }
 
             // process images that have been removed or lost tracking
             // args.removed is a List<KeyValuePair<TrackableId, ARTrackedImage>>
@@ -139,7 +147,7 @@ namespace PokkatCore
             foreach (var trackedImagePair in args.removed)
             {
                 // log which image was lost by name and id
-                Logkat.Out(
+                Logkat.Dev(
                     $"ImageHandling: Image lost '{trackedImagePair.Value.referenceImage.name}' ({trackedImagePair.Key})");
 
                 // fire the OnImageLost event with wrapped data

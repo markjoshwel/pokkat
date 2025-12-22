@@ -349,8 +349,8 @@ namespace PokkatCore
         /// <param name="args">event payload from the ar plane manager</param>
         private void OnTrackablesChanged(ARTrackablesChangedEventArgs<ARPlane> args)
         {
-            Logkat.Out(
-                $"PlaneHandlinging: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
+            Logkat.Dev(
+                $"PlaneHandling: Trackables changed -> added:{args.added.Count} updated:{args.updated.Count} removed:{args.removed.Count}");
 
             // skip threshold check if we've already fired and fireOnceOnly is enabled
             if (fireOnceOnly && isReady) return;
