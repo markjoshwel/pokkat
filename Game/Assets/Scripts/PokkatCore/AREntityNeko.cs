@@ -24,6 +24,13 @@ namespace PokkatCore
     public sealed class AREntityNeko : MonoBehaviour
     {
         #region Inspector Fields
+        
+        [Header("Audio Clips")]
+        [HelpBox("make sure these are set", HelpBoxMessageType.Warning)]
+        [SerializeField] private AudioClip nekoMeowSound;
+        [SerializeField] private AudioClip nekoStepSound;
+        [SerializeField] private AudioClip nekoJumpSound;
+        [SerializeField] private AudioClip nekoEatingSound;
 
         [Header("Texture Settings")] [Tooltip("texture id to load (0-44)")] [SerializeField]
         private int textureId;
@@ -455,7 +462,7 @@ namespace PokkatCore
             Logkat.Out("AREntityNeko: jumping");
 
             // play jump sound at start of jump
-            CoreGameplay.instance?.PlayJumpSound();
+            CoreGameplay.instance?.PlayJumpSound(sound: nekoJumpSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
 
             var startPos = transform.position;
             var elapsed = 0f;
@@ -590,7 +597,7 @@ namespace PokkatCore
                 _grounding.UpdateAnchor(transform.position);
 
                 // play step sound on each step
-                CoreGameplay.instance?.PlayStepSound();
+                CoreGameplay.instance?.PlayStepSound(sound: nekoStepSound, location: transform.position, volume: Random.Range(0.85f, 1.0f));
 
                 yield return new WaitForSeconds(walkStepDuration);
             }
@@ -634,7 +641,7 @@ namespace PokkatCore
             Jump();
 
             // play meow sound
-            CoreGameplay.instance?.PlayMeowSound();
+            CoreGameplay.instance?.PlayMeowSound(sound: nekoMeowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
 
             Logkat.Out("AREntityNeko: petted!");
 
@@ -954,7 +961,7 @@ namespace PokkatCore
             yield return new WaitForSeconds(turnDuration + 0.1f);
 
             // play meow sound when playing starts (after turning to face each other)
-            CoreGameplay.instance?.PlayMeowSound();
+            CoreGameplay.instance?.PlayMeowSound(sound: nekoMeowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
 
             Logkat.Out("AREntityNeko: playing with friend (facing each other)");
 
@@ -1078,7 +1085,7 @@ namespace PokkatCore
                 Jump();
 
                 // play eating sound during eating animation
-                gameplay.PlayEatingSound();
+                gameplay.PlayEatingSound(sound: nekoEatingSound, location: transform.position, volume: Random.Range(0.85f, 1.0f));
 
                 yield return new WaitForSeconds(jumpDuration + 0.1f);
                 elapsed += jumpDuration + 0.1f;

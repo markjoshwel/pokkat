@@ -1,5 +1,5 @@
 /*
- * author: arwen josephine loh
+ * author: arwen
  * date: 22/12/2025
  * description: ui manager
  */
@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using PokkatCore;
-public class CoreGameplayUI : MonoBehaviour
+public class CoreGameplayUIManager : MonoBehaviour
 {
     [SerializeField] private CoreGameplay coreGameplay;
     [SerializeField] private Image hungerFill;
@@ -55,5 +55,17 @@ public class CoreGameplayUI : MonoBehaviour
             default:
                 return "";
         }
+    }
+
+    public void OnExitGameButton()
+    {
+        Logkat.Dev("exiting game");
+        GameManager.Instance.OnLoadMenu();
+    }
+
+    public void OnPetButton()
+    {
+        Logkat.Dev("pet ui button pressed");
+        coreGameplay.PetNeko();
     }
 }

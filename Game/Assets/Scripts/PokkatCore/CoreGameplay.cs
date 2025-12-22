@@ -710,49 +710,63 @@ namespace PokkatCore
         /// <summary>
         ///     plays bowl placement sound effect
         /// </summary>
-        public void PlayBowlPlaceSound()
+        public void PlayBowlPlaceSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayBowlPlaceSound not implemented yet");
+            PlaySound(sound, location, volume);
         }
 
         /// <summary>
         ///     plays bowl consumption sound effect
         /// </summary>
-        public void PlayBowlConsumeSound()
+        public void PlayBowlConsumeSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayBowlConsumeSound not implemented yet");
+            PlaySound(sound, location, volume);
         }
 
         /// <summary>
         ///     plays neko footstep sound effect (called on each walk step)
         /// </summary>
-        public void PlayStepSound()
+        public void PlayStepSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayStepSound not implemented yet");
+            PlaySound(sound, location, volume);
+            
         }
 
         /// <summary>
         ///     plays neko meow sound effect (called on petting, playing with friend)
         /// </summary>
-        public void PlayMeowSound()
+        public void PlayMeowSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayMeowSound not implemented yet");
+            PlaySound(sound, location, volume);
         }
 
         /// <summary>
         ///     plays neko eating sound effect (called during eating animation)
         /// </summary>
-        public void PlayEatingSound()
+        public void PlayEatingSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayEatingSound not implemented yet");
+            PlaySound(sound, location, volume);
         }
 
         /// <summary>
         ///     plays neko jump sound effect (called on jump)
         /// </summary>
-        public void PlayJumpSound()
+        public void PlayJumpSound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
-            Logkat.Warn("CoreGameplay: PlayJumpSound not implemented yet");
+            PlaySound(sound, location, volume);
+        }
+
+        private void PlaySound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
+        {
+            Logkat.Dev($"CoreGameplay: playing sound '{sound.name}' at location {location} with volume {volume}");
+            if (location.HasValue)
+            {
+                GameManager.Instance.PlayEffectAtLocation(sound, location.Value, volume);
+            }
+            else
+            {
+                GameManager.Instance.PlayEffect(sound, volume);
+            }
         }
 
         #endregion

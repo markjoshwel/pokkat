@@ -253,7 +253,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     ///     play sound effect at position
     /// </summary>
-    public void PlayEffectAtLocation(AudioClip effectClip, Vector3 position, float volumeScale = 1f)
+    public void PlayEffectAtLocation(AudioClip effectClip, Vector3 position, float soundVolume = 1f)
     {
         if (effectClip == null)
         {
@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        var finalVolume = masterVolume * effectVolume * volumeScale;
+        var finalVolume = masterVolume * effectVolume * soundVolume;
         AudioSource.PlayClipAtPoint(effectClip, position, finalVolume);
         Logkat.Dev($"Playing SFX at point: {effectClip.name}");
     }

@@ -16,6 +16,11 @@ namespace PokkatCore
     [RequireComponent(typeof(GroundingBehaviour))]
     public sealed class AREntityBowl : MonoBehaviour
     {
+        [Header("Audio Clips")]
+        [HelpBox("make sure these are set", HelpBoxMessageType.Warning)]
+        [SerializeField] private AudioClip bowlPlaceSound;
+        [SerializeField] private AudioClip bowlConsumeSound;
+        
         #region Private Fields
 
         /// <summary>
@@ -109,7 +114,7 @@ namespace PokkatCore
             Logkat.Out("AREntityBowl: broadcasted spawn event");
 
             // play bowl placement sound
-            CoreGameplay.instance?.PlayBowlPlaceSound();
+            CoreGameplay.instance?.PlayBowlPlaceSound(sound: bowlPlaceSound, location: transform.position, volume: 1f);
         }
 
         private void Update()
@@ -142,7 +147,7 @@ namespace PokkatCore
             Logkat.Out("AREntityBowl: consumed by neko");
 
             // play bowl consume sound
-            CoreGameplay.instance?.PlayBowlConsumeSound();
+            CoreGameplay.instance?.PlayBowlConsumeSound(sound: bowlConsumeSound, location: transform.position, volume: 1f);
 
             UpdateBowlVisual();
             OnNekoConsumed(consumer);
