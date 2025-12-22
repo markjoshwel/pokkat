@@ -153,6 +153,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bowl Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4499481014572540945, guid: d76fd9dd5a6023946be429803445b506, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7328973
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499481014572540945, guid: d76fd9dd5a6023946be429803445b506, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17089364
+      objectReference: {fileID: 0}
     - target: {fileID: 7947740116237980569, guid: d76fd9dd5a6023946be429803445b506, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.3480597

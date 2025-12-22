@@ -675,8 +675,8 @@ MonoBehaviour:
   effectSource: {fileID: 222885514}
   bgmClip: {fileID: 8300000, guid: f3673e18fe5809049abf7a126c3bb711, type: 3}
   masterVolume: 1
-  musicVolume: 0.5
-  effectVolume: 1
+  musicVolume: 0.6
+  effectVolume: 0.8
 --- !u!4 &937521118
 Transform:
   m_ObjectHideFlags: 0

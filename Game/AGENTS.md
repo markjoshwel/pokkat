@@ -2,7 +2,7 @@
 
 this document captures codebase knowledge, code style, and current development context for ai agent continuity.
 
-**last updated:** december 22, 2025 (UI touch priority fix, satiation state)
+**last updated:** december 23, 2025 (GameManager logarithmic volume conversion)
 
 ## project overview
 
@@ -699,3 +699,30 @@ public struct HandledNekoInteraction
     public Vector3 Position;
 }
 ```
+
+## audio & game management
+
+### GameManager (scene-persistent singleton)
+
+**GameManager** handles scene transitions, background music, sound effects, and volume control. it persists across scenes via DontDestroyOnLoad.
+
+**key audio implementation detail: logarithmic volume conversion**
+- Unity's `AudioSource.volume` is linear (0-1), but human perception of loudness is logarithmic
+- The GameManager converts slider values to logarithmic scale using decibel conversion: `volume = 10^(dB/20)`
+- Conversion maps 0→silence, 1→full volume with perceptually linear response
+- Uses -80dB to 0dB range for natural volume curve
+
+**volume conversion methods:**
+- `LinearToLogarithmic(float linearValue)` - converts 0-1 slider value to logarithmic AudioSource volume
+- `LogarithmicToLinear(float logValue)` - converts AudioSource volume back to 0-1 slider value (for UI readback)
+
+**volume settings:**
+- `masterVolume`, `musicVolume`, `effectVolume` - stored as linear values (0-1) for UI/inspector
+- `UpdateAudioVolumes()` - applies logarithmic conversion when setting AudioSource volumes
+- `PlayEffectAtLocation()` - uses logarithmic conversion for spatial audio
+
+**UI hooks:**
+- `OnSliderMasterVolume(float)`, `OnSliderMusicVolume(float)`, `OnSliderSFXVolume(float)` - direct slider callbacks
+- Sliders pass linear 0-1 values, GameManager handles logarithmic conversion internally
+
+
