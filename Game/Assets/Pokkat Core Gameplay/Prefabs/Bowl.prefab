@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3874bac87f493e8e15c69a9291d542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodFillRenderer: {fileID: 3043344158321294154}
   bowlPlaceSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
   bowlConsumeSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
 --- !u!114 &8678843940810376855
@@ -229,6 +230,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d76fd9dd5a6023946be429803445b506, type: 3}
+--- !u!23 &3043344158321294154 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 161129877485718527, guid: d76fd9dd5a6023946be429803445b506, type: 3}
+  m_PrefabInstance: {fileID: 2882395734621892789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5065520579428328236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7947740116237980569, guid: d76fd9dd5a6023946be429803445b506, type: 3}
