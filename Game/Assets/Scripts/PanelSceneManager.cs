@@ -67,9 +67,9 @@ public class PanelSceneManager : MonoBehaviour
     /// <summary>
     /// loading game scene
     /// </summary>
-    public void startGame(string sceneName)
+    public void startGame()
     {
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance.OnStartGame();
     }
     
     /// <summary>
@@ -77,6 +77,6 @@ public class PanelSceneManager : MonoBehaviour
     /// </summary>
     public void quitGame()
     {
-        Application.Quit();
+        GameManager.Instance.OnQuit();
     }
 }
