@@ -9,6 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,7 +28,7 @@ namespace PokkatCore
         
         [Header("Audio Clips")]
         [HelpBox("make sure these are set", HelpBoxMessageType.Warning)]
-        [SerializeField] private AudioClip nekoMeowSound;
+        [SerializeField] private AudioClip[] nekoMeowSounds = new AudioClip[5];
         [SerializeField] private AudioClip nekoStepSound;
         [SerializeField] private AudioClip nekoJumpSound;
         [SerializeField] private AudioClip nekoEatingSound;
@@ -640,8 +641,10 @@ namespace PokkatCore
             Blink();
             Jump();
 
-            // play meow sound
-            CoreGameplay.instance?.PlayMeowSound(sound: nekoMeowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
+            // play random meow sound
+            var meowSound = GetRandomMeowSound();
+            if (meowSound != null)
+                CoreGameplay.instance?.PlayMeowSound(sound: meowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
 
             Logkat.Out("AREntityNeko: petted!");
 
@@ -960,8 +963,10 @@ namespace PokkatCore
             StartCoroutine(friend.TurnToward(transform.position, turnDuration));
             yield return new WaitForSeconds(turnDuration + 0.1f);
 
-            // play meow sound when playing starts (after turning to face each other)
-            CoreGameplay.instance?.PlayMeowSound(sound: nekoMeowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
+            // play random meow sound when playing starts (after turning to face each other)
+            var meowSound = GetRandomMeowSound();
+            if (meowSound != null)
+                CoreGameplay.instance?.PlayMeowSound(sound: meowSound, location: transform.position, volume: Random.Range(0.75f, 1.0f));
 
             Logkat.Out("AREntityNeko: playing with friend (facing each other)");
 
@@ -1102,6 +1107,27 @@ namespace PokkatCore
             _targetBowl = null;
             _moveAndEatCoroutine = null;
             SnapToGround();
+        }
+
+        #endregion
+
+        #region Audio Helpers
+
+        /// <summary>
+        ///     gets a random meow sound from the array (for variety)
+        /// </summary>
+        private AudioClip GetRandomMeowSound()
+        {
+            if (nekoMeowSounds == null || nekoMeowSounds.Length == 0)
+                return null;
+
+            // filter out null entries and pick a random one
+            var validSounds = nekoMeowSounds.Where(s => s != null).ToArray();
+            if (validSounds.Length == 0)
+                return null;
+
+            var index = Random.Range(0, validSounds.Length);
+            return validSounds[index];
         }
 
         #endregion
