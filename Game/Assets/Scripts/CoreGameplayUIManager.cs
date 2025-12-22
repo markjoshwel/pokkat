@@ -59,13 +59,13 @@ public class CoreGameplayUIManager : MonoBehaviour
 
     public void OnExitGameButton()
     {
-        Logkat.Dev("exiting game");
+        Logkat.Dev("CoreGameplayUIManager: exiting game");
         GameManager.Instance.OnLoadMenu();
     }
 
     public void OnPetButton()
     {
-        Logkat.Dev("pet ui button pressed");
+        Logkat.Dev("CoreGameplayUIManager: pet");
         coreGameplay.PetNeko();
     }
 }
