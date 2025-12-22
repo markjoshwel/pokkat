@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9191229930235782743}
   - component: {fileID: 4237355233875555926}
   - component: {fileID: 1568727965168538623}
+  - component: {fileID: 8678843940810376855}
   m_Layer: 0
   m_Name: Neko (Main)
   m_TagString: NekoMain
@@ -122,10 +123,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e6c52b5a694211b9523625a0340361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nekoMeowSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  nekoStepSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  nekoJumpSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  nekoEatingSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
   textureId: 12
   enableBlinking: 1
   blinkInterval: 3
   blinkDuration: 0.15
+  walkSpeed: 0.5
+  walkStepDuration: 0.08
+  walkStepDistanceMultiplier: 0.5
+  walkTiltAngle: 15
+  jumpHeight: 0.15
+  jumpDuration: 0.5
+  jumpBounceFactor: 0.3
+  fallSpeed: 2
+  roamRadius: 0.25
+  turnDuration: 0.3
+  idleDurationMin: 1
+  idleDurationMax: 3
+  idleRoamChance: 0.5
+  idleNoticeChance: 0.3
+  noticeHoldDuration: 0.5
+  lookAroundHoldDuration: 0.3
+  friendJumpDelay: 0.5
+  playJumpCount: 3
+  eatingDuration: 3
+--- !u!114 &8678843940810376855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457855834248047866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92860c930a44ef699b9ac456c8fd06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableStabilisation: 1
+  stabilisationInterval: 0.1
+  stabilisationThreshold: 0.02
 --- !u!1001 &2760801232716852546
 PrefabInstance:
   m_ObjectHideFlags: 0

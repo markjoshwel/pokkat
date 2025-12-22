@@ -759,13 +759,20 @@ namespace PokkatCore
         private void PlaySound(AudioClip sound, Vector3? location = null, float volume = 1.0f)
         {
             Logkat.Dev($"CoreGameplay: playing sound '{sound.name}' at location {location} with volume {volume}");
-            if (location.HasValue)
+            try
             {
-                GameManager.Instance.PlayEffectAtLocation(sound, location.Value, volume);
+                if (location.HasValue)
+                {
+                    GameManager.Instance.PlayEffectAtLocation(sound, location.Value, volume);
+                }
+                else
+                {
+                    GameManager.Instance.PlayEffect(sound, volume);
+                }
             }
-            else
+            catch (System.Exception ex)
             {
-                GameManager.Instance.PlayEffect(sound, volume);
+                Logkat.Warn($"CoreGameplay: failed to play sound '{sound?.name ?? "null"}' - {ex}");
             }
         }
 

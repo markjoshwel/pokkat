@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9191229930235782743}
   - component: {fileID: 4237355233875555926}
   - component: {fileID: 6604970144863276591}
+  - component: {fileID: 8678843940810376855}
   m_Layer: 0
   m_Name: Bowl
   m_TagString: Bowl
@@ -122,6 +123,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3874bac87f493e8e15c69a9291d542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bowlPlaceSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+  bowlConsumeSound: {fileID: 8300000, guid: 16fba6d30ed741d4a9fdd6e79ee2f3ac, type: 3}
+--- !u!114 &8678843940810376855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6457855834248047866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92860c930a44ef699b9ac456c8fd06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableStabilisation: 1
+  stabilisationInterval: 0.1
+  stabilisationThreshold: 0.02
 --- !u!1001 &2760801232716852546
 PrefabInstance:
   m_ObjectHideFlags: 0
