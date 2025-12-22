@@ -15,17 +15,25 @@ public class CoreGameplayUIManager : MonoBehaviour
     [SerializeField] private TMP_Text promptText;
 
     /// <summary>
+    ///     set bars initially
+    /// </summary>
+    void Start()
+    {
+        if (!coreGameplay || !coreGameplay.stats) return;
+        SetBars(coreGameplay.stats.hunger, coreGameplay.stats.happiness);
+    }
+    
+    /// <summary>
     /// updating hunger + happiness bars
     /// </summary>
     void Update()
     {
         // don't do anything if core gameplay isn't found
-        if (coreGameplay == null || coreGameplay.stats == null)
-            return;
+        if (!coreGameplay || !coreGameplay.stats) return;
         
-        // adjust hunger + happiness bars according to percentage
-        hungerFill.fillAmount = coreGameplay.stats.hunger;
-        happinessFill.fillAmount = coreGameplay.stats.happiness;
+        SetBars(coreGameplay.stats.hunger, coreGameplay.stats.happiness);
+        
+        Logkat.Dev($"CoreGameplayUIManager: coreGameplay.stats.hunger={coreGameplay.stats.hunger}, coreGameplay.stats.happiness={coreGameplay.stats.happiness}");
         
         // updating user instruction prompts
         string prompt = PromptText(coreGameplay.gameState);
@@ -34,6 +42,15 @@ public class CoreGameplayUIManager : MonoBehaviour
         //dont show prompt panel if no prompts
         bool showPanel = !string.IsNullOrEmpty(prompt);
         promptText.transform.parent.gameObject.SetActive(showPanel);
+    }
+    
+    void SetBars(float hungerPercent, float happinessPercent)
+    {
+        hungerFill.fillMethod = Image.FillMethod.Horizontal;
+        hungerFill.fillAmount = hungerPercent;
+
+        happinessFill.fillMethod = Image.FillMethod.Horizontal;
+        happinessFill.fillAmount = happinessPercent;
     }
 
     // different prompt text for different neko states
@@ -52,6 +69,8 @@ public class CoreGameplayUIManager : MonoBehaviour
                 return 
                     "Tap anywhere on your screen to place a bowl!\n"
                     + "Tap your cat to pet and increase happiness!";
+            case CoreGameplayState.OkSatiated:
+                return "The cat is satiated, you can come back again later!";
             default:
                 return "";
         }

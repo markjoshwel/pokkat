@@ -18,7 +18,8 @@ namespace PokkatCore
         HasPlaneWaitingForTracker,
         HasTrackerWaitingForPlane,
         NekoWaitingForPlanes,
-        Ok
+        Ok,
+        OkSatiated
     }
 
     /// <summary>
@@ -637,7 +638,7 @@ namespace PokkatCore
 
         /// <summary>
         ///     updates game state based on plane roaming readiness.
-        ///     only transitions to NekoWaitingForPlanes/Ok after we have both plane and tracker
+        ///     only transitions to NekoWaitingForPlanes/Ok/OkSatiated after we have both plane and tracker
         /// </summary>
         private void UpdatePlaneRoamingGameState()
         {
@@ -652,6 +653,13 @@ namespace PokkatCore
                     return;
                 case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
+                case CoreGameplayState.OkSatiated:
+                    // check for satiation first
+                    if (stats != null && stats.isSatiated)
+                    {
+                        gameState = CoreGameplayState.OkSatiated;
+                        return;
+                    }
                     // transition based on plane readiness
                     gameState = _mainNekoWaitingForPlanes
                         ? CoreGameplayState.NekoWaitingForPlanes
