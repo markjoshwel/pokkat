@@ -16,6 +16,10 @@ namespace PokkatCore
     [RequireComponent(typeof(GroundingBehaviour))]
     public sealed class AREntityBowl : MonoBehaviour
     {
+        [Header("Food Mesh")]
+        [HelpBox("make sure this is set", HelpBoxMessageType.Error)]
+        [SerializeField] private MeshRenderer foodFillRenderer;
+
         [Header("Audio Clips")]
         [HelpBox("make sure these are set", HelpBoxMessageType.Warning)]
         [SerializeField] private AudioClip bowlPlaceSound;
@@ -154,22 +158,22 @@ namespace PokkatCore
             OnConsumed?.Invoke(consumer);
         }
 
-        /// <summary>
-        ///     refills the bowl (for future use)
-        /// </summary>
-        public void Refill()
-        {
-            isFull = true;
-            Logkat.Out("AREntityBowl: refilled");
-            UpdateBowlVisual();
-        }
+        // /// <summary>
+        // ///     refills the bowl (for future use)
+        // /// </summary>
+        // public void Refill()
+        // {
+        //     isFull = true;
+        //     Logkat.Out("AREntityBowl: refilled");
+        //     UpdateBowlVisual();
+        // }
 
         /// <summary>
         ///     updates the bowl's visual appearance based on isFull state
         /// </summary>
         private void UpdateBowlVisual()
         {
-            Logkat.Warn("AREntityBowl: mesh swap not implemented yet");
+            foodFillRenderer.enabled = isFull;
         }
 
         #endregion
