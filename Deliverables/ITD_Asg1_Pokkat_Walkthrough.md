@@ -71,10 +71,12 @@ Immersive Technology Development (ITD) Assignment 1
   <https://www.youtube.com/watch?v=UaMKUVxidpM>  
 
 - `Game/Assets/Pokkat Core Gameplay/Sounds/step.mp3` \
-  ???
+  "Wood step Sample 1" by Notarget (Freesound) on Pixabay \
+  <https://pixabay.com/sound-effects/wood-step-sample-1-47664/>
 
 - `Game/Assets/Pokkat Core Gameplay/Sounds/bowldown.mp3` \
-  ???
+  "Button push - clicky plastic button" by Gamemaster Audio on Uppbeat \
+  <https://uppbeat.io/sfx/button-push-clicky-plastic-button-1/362/4895>
 
 - `Game/Assets/Pokkat Core Gameplay/Sounds/pokkat bgm.mp3` \
   "Sweet Cafe | Cute Background Music (Royalty Free)" by Stream Cade on YouTube \
