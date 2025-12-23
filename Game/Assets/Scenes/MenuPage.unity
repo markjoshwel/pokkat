@@ -672,10 +672,11 @@ MonoBehaviour:
   menuSceneName: MenuPage
   coreGameplaySceneName: CoreGameplay
   musicSource: {fileID: 1392248850}
-  effectSource: {fileID: 0}
+  effectSource: {fileID: 222885514}
+  bgmClip: {fileID: 8300000, guid: f3673e18fe5809049abf7a126c3bb711, type: 3}
   masterVolume: 1
-  musicVolume: 1
-  effectVolume: 1
+  musicVolume: 0.6
+  effectVolume: 0.8
 --- !u!4 &937521118
 Transform:
   m_ObjectHideFlags: 0
