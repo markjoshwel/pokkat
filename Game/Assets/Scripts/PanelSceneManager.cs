@@ -52,11 +52,16 @@ public class PanelSceneManager : MonoBehaviour
         }
     }
     
-    public void navSettings()
+    public void NavSettings()
     {
         navPage = settingsPage;
         ShowPanel();
+    }
 
+    public void NavMenu()
+    {
+        navPage = startPage;
+        ShowPanel();
     }
 
     // public void NavLogIn()
@@ -74,7 +79,7 @@ public class PanelSceneManager : MonoBehaviour
     /// <summary>
     /// loading game scene
     /// </summary>
-    public void startGame()
+    public void StartGame()
     {
         GameManager.Instance.OnStartGame();
     }
@@ -82,7 +87,7 @@ public class PanelSceneManager : MonoBehaviour
     /// <summary>
     /// close game
     /// </summary>
-    public void quitGame()
+    public void QuitGame()
     {
         GameManager.Instance.OnQuit();
     }
