@@ -303,9 +303,10 @@ namespace PokkatCore
                 case CoreGameplayState.HasPlaneWaitingForTracker:
                 case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
+                case CoreGameplayState.OkSatiated:
                     break;
                 default:
-                    Logkat.Panic("unreachable game state");
+                    Logkat.Panic("unreachable game state, bad");
                     break;
             }
 
@@ -410,9 +411,10 @@ namespace PokkatCore
                 case CoreGameplayState.HasTrackerWaitingForPlane:
                 case CoreGameplayState.NekoWaitingForPlanes:
                 case CoreGameplayState.Ok:
+                case CoreGameplayState.OkSatiated:
                     break;
                 default:
-                    Logkat.Panic("unreachable game state");
+                    Logkat.Panic("unreachable game state, bad");
                     break;
             }
 
@@ -671,7 +673,7 @@ namespace PokkatCore
                         : CoreGameplayState.Ok;
                     break;
                 default:
-                    Logkat.Panic("unreachable game state");
+                    Logkat.Panic("unreachable game state, but ok");
                     break;
             }
         }
