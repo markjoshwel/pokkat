@@ -14,8 +14,8 @@ public class PanelSceneManager : MonoBehaviour
     // public GameObject mainPage;
     public GameObject startPage;
     // public GameObject logInPage;
-    // public GameObject signUpPage;
-    // public GameObject settingsPage;
+    // public GameObject signUpPage; 
+    public GameObject settingsPage;
     public GameObject navPage;
     public GameObject currentPage;
     
@@ -28,7 +28,7 @@ public class PanelSceneManager : MonoBehaviour
         startPage.SetActive(true);
         // logInPage.SetActive(false);
         // signUpPage.SetActive(false);
-        // settingsPage.SetActive(false);
+        settingsPage.SetActive(false);
         currentPage = startPage;
         
         // making sure only main page is visible on bootup
@@ -50,6 +50,13 @@ public class PanelSceneManager : MonoBehaviour
             // show new/nav
             currentPage.SetActive(true);
         }
+    }
+    
+    public void navSettings()
+    {
+        navPage = settingsPage;
+        ShowPanel();
+
     }
 
     // public void NavLogIn()

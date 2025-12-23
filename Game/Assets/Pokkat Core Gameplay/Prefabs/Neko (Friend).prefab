@@ -125,10 +125,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nekoMeowSounds:
   - {fileID: 8300000, guid: 4d5d6dc9e0466824ea36f2c77fa1169a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 0cd1223f7dcf2ae478bb29201302449f, type: 3}
+  - {fileID: 8300000, guid: 892f7eaedc7f88d44a36038989216775, type: 3}
+  - {fileID: 8300000, guid: def25f59d1a546d42b1a9f70e3346ada, type: 3}
+  - {fileID: 8300000, guid: f1b1d97766ffa6f4e9b95d9240d74d14, type: 3}
   nekoStepSound: {fileID: 8300000, guid: 1b96bb9b446368c40af1090c5c3814f2, type: 3}
   nekoJumpSound: {fileID: 8300000, guid: cc4def73be77f204fa95d377ac84bf73, type: 3}
   nekoEatingSound: {fileID: 8300000, guid: 0a7c721d85109284393e1b022d4eeae1, type: 3}
