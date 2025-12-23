@@ -13,7 +13,6 @@ public class CoreGameplayUIManager : MonoBehaviour
     [SerializeField] private Image hungerFill;
     [SerializeField] private Image happinessFill;
     [SerializeField] private TMP_Text promptText;
-    [SerializeField] private GameObject petButton;
 
     /// <summary>
     ///     set bars initially
@@ -43,9 +42,6 @@ public class CoreGameplayUIManager : MonoBehaviour
         //dont show prompt panel if no prompts
         bool showPanel = !string.IsNullOrEmpty(prompt);
         promptText.transform.parent.gameObject.SetActive(showPanel);
-        
-        // show pet button only when main neko is spawned
-        if (petButton) petButton.SetActive(coreGameplay.hasMainNeko);
     }
     
     void SetBars(float hungerPercent, float happinessPercent)

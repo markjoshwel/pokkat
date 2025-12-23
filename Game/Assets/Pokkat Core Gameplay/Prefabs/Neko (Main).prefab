@@ -123,12 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e6c52b5a694211b9523625a0340361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nekoMeowSounds:
-  - {fileID: 8300000, guid: 4d5d6dc9e0466824ea36f2c77fa1169a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  nekoMeowSound: {fileID: 8300000, guid: 4d5d6dc9e0466824ea36f2c77fa1169a, type: 3}
   nekoStepSound: {fileID: 8300000, guid: 1b96bb9b446368c40af1090c5c3814f2, type: 3}
   nekoJumpSound: {fileID: 8300000, guid: cc4def73be77f204fa95d377ac84bf73, type: 3}
   nekoEatingSound: {fileID: 8300000, guid: 0a7c721d85109284393e1b022d4eeae1, type: 3}

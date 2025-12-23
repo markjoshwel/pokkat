@@ -154,11 +154,6 @@ namespace PokkatCore
         public Statskeeper stats => statskeeper;
 
         /// <summary>
-        ///     whether the main neko has been spawned (for UI visibility)
-        /// </summary>
-        public bool hasMainNeko => _mainNekoSpawned;
-
-        /// <summary>
         ///     public accessor for the active bowl (for neko behaviour)
         /// </summary>
         public AREntityBowl activeBowl => _activeBowl;

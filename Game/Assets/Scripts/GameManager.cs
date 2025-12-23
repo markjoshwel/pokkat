@@ -93,51 +93,13 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    ///     convert linear slider value (0-1) to logarithmic volume for AudioSource
-    ///     uses decibel conversion: volume = 10^(dB/20)
-    ///     maps 0 to silence, 1 to full volume with perceptually linear response
-    /// </summary>
-    private float LinearToLogarithmic(float linearValue)
-    {
-        linearValue = Mathf.Clamp01(linearValue);
-        if (linearValue <= 0f) return 0f;
-        
-        // Convert to dB range (-80dB to 0dB), then to linear volume
-        // -80dB is effectively silent, 0dB is full volume
-        float dB = Mathf.Lerp(-80f, 0f, linearValue);
-        return Mathf.Pow(10f, dB / 20f);
-    }
-
-    /// <summary>
-    ///     convert logarithmic AudioSource volume back to linear slider value (0-1)
-    /// </summary>
-    private float LogarithmicToLinear(float logValue)
-    {
-        if (logValue <= 0f) return 0f;
-        
-        // Convert from linear volume to dB, then map to 0-1 range
-        float dB = 20f * Mathf.Log10(logValue);
-        return Mathf.InverseLerp(-80f, 0f, dB);
-    }
-
-    /// <summary>
-    ///     apply volume settings with logarithmic conversion
+    ///     apply volume settings
     /// </summary>
     private void UpdateAudioVolumes()
     {
-        if (musicSource != null)
-        {
-            float logMaster = LinearToLogarithmic(masterVolume);
-            float logMusic = LinearToLogarithmic(musicVolume);
-            musicSource.volume = logMaster * logMusic;
-        }
+        if (musicSource != null) musicSource.volume = masterVolume * musicVolume;
 
-        if (effectSource != null)
-        {
-            float logMaster = LinearToLogarithmic(masterVolume);
-            float logEffect = LinearToLogarithmic(effectVolume);
-            effectSource.volume = logMaster * logEffect;
-        }
+        if (effectSource != null) effectSource.volume = masterVolume * effectVolume;
     }
 
     /// <summary>
@@ -327,11 +289,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        float logMaster = LinearToLogarithmic(masterVolume);
-        float logEffect = LinearToLogarithmic(effectVolume);
-        float logSound = LinearToLogarithmic(soundVolume);
-        float finalVolume = logMaster * logEffect * logSound;
-        
+        var finalVolume = masterVolume * effectVolume * soundVolume;
         AudioSource.PlayClipAtPoint(effectClip, position, finalVolume);
         Logkat.Dev($"Playing SFX at point: {effectClip.name}");
     }
