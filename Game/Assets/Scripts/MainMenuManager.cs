@@ -9,7 +9,7 @@ using UnityEngine;
 using Firebase.Auth;
 using UnityEngine.SceneManagement;
 
-public class PanelSceneManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     // public GameObject mainPage;
     public GameObject startPage;
@@ -90,5 +90,29 @@ public class PanelSceneManager : MonoBehaviour
     public void QuitGame()
     {
         GameManager.Instance.OnQuit();
+    }
+    
+    /// <summary>
+    ///     UI hook to set master volume from slider (can be called from slider OnValueChanged).
+    /// </summary>
+    public void OnSliderMasterVolume(float volume)
+    {
+        GameManager.Instance.OnSliderMasterVolume(volume);
+    }
+
+    /// <summary>
+    ///     UI hook to set music volume from slider (can be called from slider OnValueChanged).
+    /// </summary>
+    public void OnSliderMusicVolume(float volume)
+    {
+        GameManager.Instance.OnSliderMusicVolume(volume);
+    }
+
+    /// <summary>
+    ///     UI hook to set SFX volume from slider (can be called from slider OnValueChanged).
+    /// </summary>
+    public void OnSliderSFXVolume(float volume)
+    {
+        GameManager.Instance.OnSliderSFXVolume(volume);
     }
 }
